@@ -10,14 +10,21 @@ func _init(resourceTypeToProduce_, baseProduction_):
 	baseProduction = baseProduction_
 
 func execute(executionState:ExecutionState):
-	# Check whether paying the costs is possible, only produce if that is possible
+	# Check whether paying the costs is possible, only produce as far as that is possible
 	var maximumPossibleProductionMultiplier = INF;
-#	for cost in costs:
-#		cost.resource
+	for cost in costs:
+		maximumPossibleProductionMultiplier = min(maximumPossibleProductionMultiplier,
+			executionState.gameState.resources[cost.resource] / cost.amount)
+			
+	var actualProductionMultiplier = min(1, maximumPossibleProductionMultiplier)
+	# Pay what you can
+	for cost in costs:
+		executionState.gameState.resources[cost.resource] -= cost.amount * actualProductionMultiplier
 	
-	executionState.gameState.resources[resourceTypeToProduce] += baseProduction
+	# Get what you deserve
+	executionState.gameState.resources[resourceTypeToProduce] += baseProduction * actualProductionMultiplier
 
-func duplicate():
+func _duplicate():
 	var newOperation = ProduceSecondaryResource.new(resourceTypeToProduce, baseProduction)
 	newOperation.costs = costs.duplicate(true)
 	return newOperation
