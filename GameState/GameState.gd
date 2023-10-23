@@ -8,11 +8,15 @@ var maxSupportedActions = 8
 # Buildings: (building, float)
 var buildings:Dictionary
 var placeInCycle:int
+var globalProductionBonuses:Dictionary
 
 func _duplicate():
 	var newGameState = GameState.new()
 	newGameState.resources = resources.duplicate()
 	newGameState.resourceCaps = resourceCaps.duplicate()
+	newGameState.buildings = buildings.duplicate(true)
 	for character in characters:
 		newGameState.characters.push_back(character._duplicate())
+	newGameState.globalProductionBonuses = globalProductionBonuses.duplicate(true)
+	newGameState.placeInCycle = placeInCycle
 	return newGameState

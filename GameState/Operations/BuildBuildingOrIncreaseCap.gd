@@ -14,6 +14,9 @@ func execute(executionState:ExecutionState):
 	var maxAfford = min(1, ResourceHelpers.calculate_max_afford_with_cost(
 		costs, executionState.gameState.resources))
 	
+	if !executionState.gameState.buildings.has(buildingAndCapName):
+		executionState.gameState.buildings[buildingAndCapName] = 0
+	
 	if executionState.gameState.buildings[buildingAndCapName] < 1:
 		# Help build the building
 		maxAfford = min(maxAfford, 1 - executionState.gameState.buildings[buildingAndCapName])

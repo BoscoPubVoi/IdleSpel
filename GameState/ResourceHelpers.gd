@@ -21,7 +21,14 @@ static func pay_costs(costs, resources, actualProductionMultiplier):
 		resources[cost] -= costs[cost] * actualProductionMultiplier
 
 static func calculate_boost(executionState, resource):
+	var totalBoost = 1
+	
 	var boostAmount = executionState.currentBoosts.get(resource)
 	if boostAmount != null:
-		return 1 + boostAmount
-	return 1
+		totalBoost *= 1 + boostAmount
+		
+	var boostAmount2 = executionState.gameState.globalProductionBonuses.get(resource)
+	if boostAmount2 != null:
+		totalBoost *= 1 + boostAmount2
+		
+	return totalBoost
