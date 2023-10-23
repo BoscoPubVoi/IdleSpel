@@ -7,7 +7,7 @@ var characters:Array = []
 var maxSupportedActions = 8
 # Buildings: (building, float)
 var buildings:Dictionary
-
+var placeInCycle:int
 
 func _duplicate():
 	var newGameState = GameState.new()
