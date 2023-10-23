@@ -257,7 +257,7 @@ offset_top = -214.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Label" type="Label" parent="ResourcesPanel"]
+[node name="RockLabel" type="Label" parent="ResourcesPanel"]
 layout_mode = 0
 offset_left = 26.0
 offset_top = 30.0
@@ -265,7 +265,7 @@ offset_right = 194.0
 offset_bottom = 78.0
 text = "Rocks: 0"
 
-[node name="Label2" type="Label" parent="ResourcesPanel"]
+[node name="WaterLabel" type="Label" parent="ResourcesPanel"]
 layout_mode = 0
 offset_left = 25.0
 offset_top = 65.0
@@ -273,7 +273,7 @@ offset_right = 193.0
 offset_bottom = 113.0
 text = "Water: 0"
 
-[node name="Label3" type="Label" parent="ResourcesPanel"]
+[node name="SilverLabel" type="Label" parent="ResourcesPanel"]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 95.0
@@ -282,7 +282,6 @@ offset_bottom = 143.0
 text = "Silver: 0"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

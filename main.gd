@@ -25,5 +25,11 @@ func unlock_tertiary_actions():
 func _on_timer_timeout():
 	print("running step")
 	cycleStepRunner.runOneStep()
-	$ResourcesPanel/Label.text = "rocks: " + str(Game.resources["rocks"])
+	update_resource_labels()
 	pass # Replace with function body.
+
+
+func update_resource_labels():
+	$ResourcesPanel/RockLabel.text = "Rocks: " + str(Game.resources["rocks"])
+	$ResourcesPanel/WaterLabel.text = "Water: " + str(Game.resources["water"])
+	$ResourcesPanel/SilverLabel.text = "Silver: " + str(Game.resources["silver"])
