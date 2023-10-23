@@ -8,7 +8,12 @@ func _init(resourceTypeToProduce_, baseProduction_):
 	baseProduction = baseProduction_
 
 func execute(executionState:ExecutionState):
-	executionState.gameState.resources[resourceTypeToProduce] += baseProduction
+	var thisProduction = baseProduction
+	# Take caps into account
+	thisProduction = min(thisProduction,
+		executionState.gameState.resourceCaps[resourceTypeToProduce] -
+		executionState.gameState.resources[resourceTypeToProduce])
+	executionState.gameState.resources[resourceTypeToProduce] += thisProduction
 
 func _duplicate():
 	var newOperation = ProduceBaseResource.new(resourceTypeToProduce, baseProduction)

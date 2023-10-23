@@ -11,15 +11,17 @@ func _init(resourceTypeToProduce_, baseProduction_):
 
 func execute(executionState:ExecutionState):
 	# Check whether paying the costs is possible, only produce as far as that is possible
-	var maximumPossibleProductionMultiplier = INF;
-	for cost in costs:
-		maximumPossibleProductionMultiplier = min(maximumPossibleProductionMultiplier,
-			executionState.gameState.resources[cost.resource] / cost.amount)
-			
+	var maximumPossibleProductionMultiplier = ResourceHelpers.calculate_max_afford_with_cost(
+		costs, executionState.gameState.resources)
 	var actualProductionMultiplier = min(1, maximumPossibleProductionMultiplier)
+	
+	# Take caps into account
+	actualProductionMultiplier = min(actualProductionMultiplier,
+		(executionState.gameState.resourceCaps[resourceTypeToProduce] -
+		executionState.gameState.resources[resourceTypeToProduce]) / baseProduction)
+	
 	# Pay what you can
-	for cost in costs:
-		executionState.gameState.resources[cost.resource] -= cost.amount * actualProductionMultiplier
+	ResourceHelpers.pay_costs(costs, executionState.gameState.resources, actualProductionMultiplier)
 	
 	# Get what you deserve
 	executionState.gameState.resources[resourceTypeToProduce] += baseProduction * actualProductionMultiplier
