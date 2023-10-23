@@ -27,8 +27,7 @@ func _get_drag_data(at_position):
 		return data
 
 func _can_drop_data(at_position, data):
-	print(data)
-	var target_slot = data
+	var target_slot = current_data
 	if target_slot == null:
 		data["target_slot"] = null
 	else:
@@ -40,6 +39,7 @@ func _drop_data(at_position, data):
 	var origin_slot = data["origin_node"]
 	var origin_origin = data["original_original"]
 	if data["target_slot"] == null:
+		print("asdausadua")
 		put_in_slot(data)
 		
 		#empty the old one
@@ -53,14 +53,15 @@ func _drop_data(at_position, data):
 #		data["target_slot"] = null
 		#enable old one if actionicon, or replace old one if not
 		if origin_slot is ActionIcon:
-			origin_origin.make_used(true)
+			origin_slot.make_used(true)
 			put_in_slot(data)
 			#enable the one that was replaced in the actionicons TODO
 			
 		else:
 			#not empty and your trying to replace it
+			var tempdata = data
 			origin_slot.put_in_slot(data["target_slot"])
-			put_in_slot(data)
+			put_in_slot(tempdata)
 
 func put_in_slot(data):
 	var slot = _get_index()
@@ -82,10 +83,10 @@ func _get_index():
 	return get_parent().get_children().find(self)
 
 func empty_slot():
+	print("emptying")
 	current_data = null
 	var slot = _get_index()
 	Game.characters[0].actions[slot] = null
 	textureRect.texture = null
 	textureRect.hide()
 	tooltip_text = ""
-	pass
