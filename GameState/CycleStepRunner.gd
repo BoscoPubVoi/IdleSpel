@@ -5,12 +5,12 @@ static func runOneStep():
 	
 	var placeInCycle = Game.placeInCycle
 	for character in Game.characters:
-			if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
-				continue
-			
-			var currentExecutionState = ExecutionState.new(
-				Game,
-				character,
-				placeInCycle
-			)
-			character.actions[placeInCycle].execute(currentExecutionState)
+		if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
+			continue
+		
+		var currentExecutionState = ExecutionState.new(
+			Game,
+			character,
+			placeInCycle
+		)
+		character.actions[placeInCycle].execute(currentExecutionState)
