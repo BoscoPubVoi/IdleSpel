@@ -1,7 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=29 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
-[ext_resource type="PackedScene" uid="uid://bmcv62jx8oil1" path="res://actor_panel.tscn" id="2_jsf26"]
+[ext_resource type="PackedScene" path="res://actor_panel.tscn" id="2_jsf26"]
 [ext_resource type="Texture2D" uid="uid://chskrj3c0vag1" path="res://assets/Full_Moon_Icon.png" id="3_gcbcu"]
 [ext_resource type="PackedScene" uid="uid://bnedr2ay2wxg1" path="res://UIElements/action_icon.tscn" id="3_se0lr"]
 [ext_resource type="Script" path="res://GameState/Operations/ProduceBaseResource.gd" id="4_84l6x"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://6ihf2ido6jg" path="res://assets/Crescent_Left_Icon.png" id="8_cem8g"]
 [ext_resource type="Texture2D" uid="uid://bqc5evt6w0oxm" path="res://assets/HalfMoon_Rev_Icon.png" id="9_ql6pi"]
 [ext_resource type="Texture2D" uid="uid://cg5cjryb2vdn" path="res://assets/Moon3_Icon.png" id="10_xq01v"]
+[ext_resource type="Script" path="res://ActionsPanel.gd" id="11_rxd04"]
 [ext_resource type="Script" path="res://GameState/Operations/BoostCharactersInPosition.gd" id="16_nvuys"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
@@ -163,7 +164,7 @@ texture = ExtResource("9_ql6pi")
 layout_mode = 2
 texture = ExtResource("10_xq01v")
 
-[node name="ActionsPanel" type="Panel" parent="."]
+[node name="ActionsPanel" type="Panel" parent="." groups=["ActionsPanel"]]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -171,6 +172,7 @@ anchor_right = 1.0
 offset_left = -294.0
 offset_bottom = 440.0
 grow_horizontal = 0
+script = ExtResource("11_rxd04")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ActionsPanel"]
 layout_mode = 1
@@ -184,6 +186,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
@@ -191,14 +194,17 @@ theme_override_constants/margin_bottom = 32
 
 [node name="WholeActionContainer" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin"]
 layout_mode = 2
-theme_override_constants/separation = 16
+mouse_filter = 2
+theme_override_constants/separation = 24
 
 [node name="BaseActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
 layout_mode = 2
-theme_override_constants/separation = 16
+mouse_filter = 2
+theme_override_constants/separation = 24
 
 [node name="BA1" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 64
 alignment = 1
 
@@ -207,15 +213,18 @@ layout_mode = 2
 action_name = "rock+"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_e28eb")])
 icon_path = "res://assets/Add_rocks.png"
+tooltip = "+5 rocks"
 
 [node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "rock+++"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ni4id"), SubResource("Resource_irgi5")])
 icon_path = "res://assets/Add_rocks.png"
+tooltip = "+22 Rocks"
 
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 64
 alignment = 1
 
@@ -224,16 +233,18 @@ layout_mode = 2
 action_name = "Pray"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_sxusp")])
 icon_path = "res://assets/Add_Favour.png"
+tooltip = "+10 Favor"
 
 [node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "rockstosilver"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ana3h")])
 icon_path = "res://assets/Rocks_to_silver.png"
+tooltip = "-10 Rocks, +1 Silver"
 
 [node name="SecondaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 24
 
 [node name="BA1" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions"]
 layout_mode = 2
@@ -245,21 +256,34 @@ layout_mode = 2
 action_name = "Get Vigorous"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_oc8vf")])
 icon_path = "res://assets/Add_rocks.png"
+tooltip = "+10 Vigor"
 
 [node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Vigorous Rock Mining"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_6uhrq")])
 icon_path = "res://assets/Add_rocks.png"
+tooltip = "if Vigor >= 15, +20 Rocks"
 
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions"]
 layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
+[node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Get Vigorous"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_oc8vf")])
+icon_path = "res://assets/Add_rocks.png"
+
+[node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Vigorous Rock Mining"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_6uhrq")])
+icon_path = "res://assets/Add_rocks.png"
+
 [node name="TertiaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
 layout_mode = 2
-theme_override_constants/separation = 16
 
 [node name="BA1" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions"]
 layout_mode = 2
