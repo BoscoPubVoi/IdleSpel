@@ -5,7 +5,7 @@ var costs:Array = []
 var resourceTypeToProduce:String
 var baseProduction:float
 
-func _init(resourceTypeToProduce_, baseProduction_):
+func constructor(resourceTypeToProduce_, baseProduction_):
 	resourceTypeToProduce = resourceTypeToProduce_
 	baseProduction = baseProduction_
 
@@ -27,6 +27,7 @@ func execute(executionState:ExecutionState):
 	executionState.gameState.resources[resourceTypeToProduce] += baseProduction * actualProductionMultiplier
 
 func _duplicate():
-	var newOperation = ProduceSecondaryResource.new(resourceTypeToProduce, baseProduction)
+	var newOperation = ProduceSecondaryResource.new()
+	newOperation.constructor(resourceTypeToProduce, baseProduction)
 	newOperation.costs = costs.duplicate(true)
 	return newOperation

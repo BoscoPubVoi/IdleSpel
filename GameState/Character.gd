@@ -2,13 +2,14 @@
 class_name Character
 var actions:Array
 
-func _init(maxSupportedActions):
+func constructor(maxSupportedActions):
 	actions = []
 	actions.resize(maxSupportedActions)
 	actions.fill(null)
 
 func duplicate():
-	var newCharacter = Character.new(len(actions))
+	var newCharacter = Character.new()
+	newCharacter.constructor(len(actions))
 	for action in actions:
 		newCharacter.actions.push_back(action.duplicate())
 	return newCharacter

@@ -6,7 +6,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var newCharacter = Character.new(Game.maxSupportedActions)
+	var newCharacter = Character.new()
+	newCharacter.constructor(Game.maxSupportedActions)
 	Game.characters.push_back(newCharacter)
 	pass # Replace with function body.
 

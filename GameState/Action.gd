@@ -7,7 +7,7 @@ var operations:Array
 func update(executionState:ExecutionState):
 	pass
 
-func _init(operations_):
+func constructor(operations_):
 	operations = operations_
 
 func _duplicate():
