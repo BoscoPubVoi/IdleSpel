@@ -41,7 +41,9 @@ baseProduction = 10.0
 
 [sub_resource type="Resource" id="Resource_ana3h"]
 script = ExtResource("5_22pki")
-costs = [{}]
+costs = [{
+"rocks": 2
+}]
 resourceTypeToProduce = "silver"
 baseProduction = 1.0
 
@@ -192,6 +194,7 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 icon_path = "res://assets/Rocks_to_silver.png"
 
 [node name="SecondaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 16
 
@@ -202,9 +205,11 @@ alignment = 1
 
 [node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+icon_path = "res://assets/Add_rocks.png"
 
 [node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+icon_path = "res://assets/Add_rocks.png"
 
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions"]
 layout_mode = 2
@@ -223,9 +228,11 @@ alignment = 1
 
 [node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+icon_path = "res://assets/Add_rocks.png"
 
 [node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+icon_path = "res://assets/Add_rocks.png"
 
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions"]
 layout_mode = 2
