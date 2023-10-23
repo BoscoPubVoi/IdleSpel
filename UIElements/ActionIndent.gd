@@ -56,7 +56,7 @@ func _drop_data(at_position, data):
 			origin_slot.make_used(true)
 			put_in_slot(data)
 			#enable the one that was replaced in the actionicons TODO
-			
+			get_tree().get_first_node_in_group("ActionsPanel").reset_action(data["target_slot"]["original_original"])
 		else:
 			#not empty and your trying to replace it
 			var tempdata = data
