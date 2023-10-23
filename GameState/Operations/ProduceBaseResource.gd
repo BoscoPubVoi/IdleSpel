@@ -1,7 +1,7 @@
 class_name ProduceBaseResource extends Operation
 
-var resourceTypeToProduce:String
-var baseProduction:float
+@export var resourceTypeToProduce:String
+@export var baseProduction:float
 
 func _init(resourceTypeToProduce_, baseProduction_):
 	resourceTypeToProduce = resourceTypeToProduce_
@@ -10,6 +10,6 @@ func _init(resourceTypeToProduce_, baseProduction_):
 func execute(executionState:ExecutionState):
 	executionState.gameState.resources[resourceTypeToProduce] += baseProduction
 
-func duplicate():
+func _duplicate():
 	var newOperation = ProduceBaseResource.new(resourceTypeToProduce, baseProduction)
 	return newOperation

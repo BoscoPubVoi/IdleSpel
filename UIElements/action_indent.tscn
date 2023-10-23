@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ci6dkc8agyfr1"]
+[gd_scene load_steps=3 format=3 uid="uid://ddwdk74737glc"]
 
-[ext_resource type="Script" path="res://UIElements/action_indent.gd" id="1_0k5ng"]
+[ext_resource type="Script" path="res://UIElements/ActionIndent.gd" id="1_13hjb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgmkt"]
 bg_color = Color(0.501961, 0.501961, 0.501961, 1)
@@ -9,4 +9,4 @@ bg_color = Color(0.501961, 0.501961, 0.501961, 1)
 custom_minimum_size = Vector2(64, 64)
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_qgmkt")
-script = ExtResource("1_0k5ng")
+script = ExtResource("1_13hjb")
