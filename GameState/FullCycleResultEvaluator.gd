@@ -1,7 +1,7 @@
 class_name FullCycleResultEvaluator
 static func evaluate(gameState:GameState):
 	# Make a copy of the game state, then work on that
-	var copiedGameState = gameState.duplicate()
+	var copiedGameState = gameState._duplicate()
 	
 	# Go through the whole cycle
 	for placeInCycle in copiedGameState.maxSupportedActions:

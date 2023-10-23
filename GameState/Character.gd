@@ -7,9 +7,11 @@ func constructor(maxSupportedActions):
 	actions.resize(maxSupportedActions)
 	actions.fill(null)
 
-func duplicate():
+func _duplicate():
 	var newCharacter = Character.new()
 	newCharacter.constructor(len(actions))
+	newCharacter.actions = []
 	for action in actions:
-		newCharacter.actions.push_back(action.duplicate())
+		newCharacter.actions.push_back(null if action == null else action._duplicate())
+		
 	return newCharacter
