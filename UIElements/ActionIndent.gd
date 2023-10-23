@@ -26,7 +26,10 @@ func _can_drop_data(at_position, data):
 
 func _drop_data(at_position, data):
 	var slot = _get_index()
-	Game.characters[0].actions[slot] = data["action"]
+	var par = get_parent()
+	while par != null && !par.is_in_group("ActorPanel"):
+		par = par.get_parent()
+	Game.characters[par.characterID].actions[slot] = data["action"]
 	
 	
 	var fullCycleResult = FullCycleResultEvaluator.evaluate(Game)

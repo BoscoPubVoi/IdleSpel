@@ -13,6 +13,11 @@ func _ready():
 	var newCharacter = Character.new()
 	newCharacter.constructor(Game.maxSupportedActions)
 	Game.characters.push_back(newCharacter)
+	
+	var newCharacter2 = Character.new()
+	newCharacter2.constructor(Game.maxSupportedActions)
+	Game.characters.push_back(newCharacter2)
+	
 	updateMoonCycleIcon()
 
 
