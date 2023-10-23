@@ -1,7 +1,7 @@
 [gd_scene load_steps=33 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
-[ext_resource type="PackedScene" uid="uid://bmcv62jx8oil1" path="res://actor_panel.tscn" id="2_jsf26"]
+[ext_resource type="PackedScene" uid="uid://bexv0ou3bq3sw" path="res://actor_panel.tscn" id="2_jsf26"]
 [ext_resource type="Texture2D" uid="uid://chskrj3c0vag1" path="res://assets/Full_Moon_Icon.png" id="3_gcbcu"]
 [ext_resource type="PackedScene" uid="uid://bnedr2ay2wxg1" path="res://UIElements/action_icon.tscn" id="3_se0lr"]
 [ext_resource type="Script" path="res://GameState/Operations/ProduceBaseResource.gd" id="4_84l6x"]
@@ -132,6 +132,7 @@ theme_override_constants/margin_right = 324
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AllActorsPanel/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 16
 
 [node name="ActorPanel" parent="AllActorsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
 layout_mode = 2
@@ -139,6 +140,9 @@ layout_mode = 2
 [node name="ActorPanel2" parent="AllActorsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
 layout_mode = 2
 characterID = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="AllActorsPanel/MarginContainer"]
+layout_mode = 2
 
 [node name="MoonCycleContainer" type="HBoxContainer" parent="AllActorsPanel"]
 layout_mode = 0

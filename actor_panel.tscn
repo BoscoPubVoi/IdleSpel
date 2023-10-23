@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmcv62jx8oil1"]
+[gd_scene load_steps=3 format=3 uid="uid://bexv0ou3bq3sw"]
 
 [ext_resource type="Script" path="res://actor_panel.gd" id="1_0eeyd"]
 [ext_resource type="PackedScene" uid="uid://ddwdk74737glc" path="res://UIElements/action_indent.tscn" id="1_i1gly"]
 
 [node name="ActorPanel" type="Panel" groups=["ActorPanel"]]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(0, 116)
+offset_bottom = 124.0
 script = ExtResource("1_0eeyd")
 
 [node name="Margin" type="MarginContainer" parent="."]
@@ -12,10 +13,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -400.0
+offset_right = 400.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
+theme_override_constants/margin_top = 84
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
@@ -59,12 +63,14 @@ size_flags_vertical = 0
 
 [node name="WorshiperStats" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 24.0
-offset_top = -42.0
-offset_right = 300.0
-offset_bottom = -16.0
+offset_left = -138.0
+offset_top = -26.0
+offset_right = 138.0
+grow_horizontal = 2
 grow_vertical = 0
 text = "Vigour: 0    Reverance: 0   Wisdom: 0"
