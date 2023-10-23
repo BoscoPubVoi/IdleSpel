@@ -1,0 +1,382 @@
+[gd_scene load_steps=33 format=3 uid="uid://d2rkcfl4ip62c"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
+[ext_resource type="PackedScene" uid="uid://bexv0ou3bq3sw" path="res://actor_panel.tscn" id="2_jsf26"]
+[ext_resource type="Texture2D" uid="uid://chskrj3c0vag1" path="res://assets/Full_Moon_Icon.png" id="3_gcbcu"]
+[ext_resource type="PackedScene" uid="uid://bnedr2ay2wxg1" path="res://UIElements/action_icon.tscn" id="3_se0lr"]
+[ext_resource type="Script" path="res://GameState/Operations/ProduceBaseResource.gd" id="4_84l6x"]
+[ext_resource type="Texture2D" uid="uid://bv2nay3b4rm" path="res://assets/Moon2_Icon.png" id="4_p0qix"]
+[ext_resource type="Texture2D" uid="uid://caordvs4uxeou" path="res://assets/HalfMoon_Icon.png" id="5_1oedm"]
+[ext_resource type="Script" path="res://GameState/Operations/ProduceSecondaryResource.gd" id="5_22pki"]
+[ext_resource type="Script" path="res://GameState/Operations/BoostCharacterStat.gd" id="6_i72h5"]
+[ext_resource type="Texture2D" uid="uid://cjjkludkbcxgk" path="res://assets/Crescent_Right_Icon.png" id="6_qfmv4"]
+[ext_resource type="Texture2D" uid="uid://dws7mju66i8ox" path="res://assets/NewMoon_Icon.png" id="7_epah6"]
+[ext_resource type="Script" path="res://GameState/Operations/CheckStat.gd" id="7_vy3f6"]
+[ext_resource type="Texture2D" uid="uid://6ihf2ido6jg" path="res://assets/Crescent_Left_Icon.png" id="8_cem8g"]
+[ext_resource type="Texture2D" uid="uid://bqc5evt6w0oxm" path="res://assets/HalfMoon_Rev_Icon.png" id="9_ql6pi"]
+[ext_resource type="Texture2D" uid="uid://cg5cjryb2vdn" path="res://assets/Moon3_Icon.png" id="10_xq01v"]
+[ext_resource type="Script" path="res://ActionsPanel.gd" id="11_rxd04"]
+[ext_resource type="Script" path="res://GameState/Operations/BoostCharactersInPosition.gd" id="16_nvuys"]
+[ext_resource type="Script" path="res://GameState/Operations/IncreaseGlobalProductionBonus.gd" id="18_0su82"]
+[ext_resource type="Script" path="res://GameState/Operations/BuildBuildingOrIncreaseCap.gd" id="19_plea6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+
+[sub_resource type="Theme" id="Theme_ogi3r"]
+Panel/styles/panel = SubResource("StyleBoxFlat_5tix1")
+VBoxContainer/constants/separation = 120
+
+[sub_resource type="Resource" id="Resource_e28eb"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "rocks"
+baseProduction = 5.0
+
+[sub_resource type="Resource" id="Resource_ni4id"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "rocks"
+baseProduction = 10.0
+
+[sub_resource type="Resource" id="Resource_irgi5"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "rocks"
+baseProduction = 12.0
+
+[sub_resource type="Resource" id="Resource_sxusp"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "favor"
+baseProduction = 10.0
+
+[sub_resource type="Resource" id="Resource_ana3h"]
+script = ExtResource("5_22pki")
+costs = {
+"rocks": 10
+}
+resourceTypeToProduce = "silver"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_oc8vf"]
+script = ExtResource("6_i72h5")
+statToIncrease = "vigor"
+statIncreaseAmount = 10.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_vabre"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "rocks"
+baseProduction = 20.0
+
+[sub_resource type="Resource" id="Resource_6uhrq"]
+script = ExtResource("7_vy3f6")
+statToCheck = "vigor"
+statMinimum = 15.0
+operation = SubResource("Resource_vabre")
+
+[sub_resource type="Resource" id="Resource_yxinf"]
+script = ExtResource("16_nvuys")
+boostInPosition = "rocks"
+boostAmount = 1.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_obebs"]
+script = ExtResource("18_0su82")
+resourceToIncrease = "rocks"
+increaseBonusAmount = 0.1
+costs = {
+"silver": 1
+}
+
+[sub_resource type="Resource" id="Resource_k5av1"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "rocks"
+buildBuildingAmount = 1.0
+increaseCapAmount = 25.0
+costs = {
+"silver": 1
+}
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ogi3r")
+script = ExtResource("1_crvfl")
+
+[node name="AllActorsPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 492.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="AllActorsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 324
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AllActorsPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ActorPanel" parent="AllActorsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+layout_mode = 2
+
+[node name="ActorPanel2" parent="AllActorsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+layout_mode = 2
+characterID = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="AllActorsPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="MoonCycleContainer" type="HBoxContainer" parent="AllActorsPanel"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 21.0
+offset_right = 792.0
+offset_bottom = 53.0
+theme_override_constants/separation = 63
+alignment = 1
+
+[node name="FullMoon" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("3_gcbcu")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="WaxingGibbous" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("4_p0qix")
+
+[node name="FirstQuarter" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("5_1oedm")
+
+[node name="WaxingCrescent" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("6_qfmv4")
+
+[node name="NewMoon" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("7_epah6")
+
+[node name="WaningCrescent" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("8_cem8g")
+
+[node name="ThirdQuarter" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("9_ql6pi")
+
+[node name="WaningGibbous" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("10_xq01v")
+
+[node name="ActionsPanel" type="Panel" parent="." groups=["ActionsPanel"]]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -294.0
+offset_bottom = 440.0
+grow_horizontal = 0
+script = ExtResource("11_rxd04")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ActionsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="ActionsPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="WholeActionContainer" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 24
+
+[node name="BaseActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 24
+
+[node name="BA1" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "rock+"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_e28eb")])
+icon_path = "res://assets/Add_rocks.png"
+tooltip = "+5 rocks"
+
+[node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "rock+++"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ni4id"), SubResource("Resource_irgi5")])
+icon_path = "res://assets/Add_rocks.png"
+tooltip = "+22 Rocks"
+
+[node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Pray"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_sxusp")])
+icon_path = "res://assets/Add_Favour.png"
+tooltip = "+10 Favor"
+
+[node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "rockstosilver"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ana3h")])
+icon_path = "res://assets/Rocks_to_silver.png"
+tooltip = "-10 Rocks, +1 Silver"
+
+[node name="SecondaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="BA1" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA1" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Get Vigorous"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_oc8vf")])
+icon_path = "res://assets/Add_rocks.png"
+tooltip = "+10 Vigor"
+
+[node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA1" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Vigorous Rock Mining"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_6uhrq")])
+icon_path = "res://assets/Add_rocks.png"
+tooltip = "if Vigor >= 15, +20 Rocks"
+
+[node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Get Vigorous"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_oc8vf")])
+icon_path = "res://assets/Add_rocks.png"
+
+[node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Vigorous Rock Mining"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_6uhrq")])
+icon_path = "res://assets/Add_rocks.png"
+
+[node name="TertiaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
+layout_mode = 2
+
+[node name="BA1" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_yxinf")])
+icon_path = "res://assets/Add_rocks.png"
+tooltip = "+100% rock production for other characters in this moon phase "
+
+[node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Asteroid Gathering"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_obebs")])
+icon_path = "res://assets/Add_rocks.png"
+tooltip = "Spend one silver to increase the bonus rock production by 10%"
+
+[node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Dig out an ancient forest to put your rocks there instead"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_k5av1")])
+tooltip = "-2 Silver, + 25 rock capacity"
+
+[node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+
+[node name="ResourcesPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -294.0
+offset_top = -214.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="RockLabel" type="Label" parent="ResourcesPanel"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 30.0
+offset_right = 194.0
+offset_bottom = 78.0
+text = "Rocks: 0"
+
+[node name="WaterLabel" type="Label" parent="ResourcesPanel"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 65.0
+offset_right = 193.0
+offset_bottom = 113.0
+text = "Water: 0"
+
+[node name="SilverLabel" type="Label" parent="ResourcesPanel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 95.0
+offset_right = 192.0
+offset_bottom = 143.0
+text = "Silver: 0"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
