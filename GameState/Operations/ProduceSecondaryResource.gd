@@ -1,7 +1,6 @@
 class_name ProduceSecondaryResource extends Operation
 
-#Costs: formatted like [{resource: "rocks", amount: 5}, {resource: "water", amount: 3}]
-@export var costs:Array = []
+@export var costs:Dictionary
 @export var resourceTypeToProduce:String
 @export var baseProduction:float
 

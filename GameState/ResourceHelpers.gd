@@ -13,9 +13,9 @@ static func calculate_max_afford_with_cost(costs, resources):
 	var maximumPossibleProductionMultiplier = INF;
 	for cost in costs:
 		maximumPossibleProductionMultiplier = min(maximumPossibleProductionMultiplier,
-			resources[cost.resource] / cost.amount)
+			resources[cost] / costs[cost])
 	return maximumPossibleProductionMultiplier;
 
 static func pay_costs(costs, resources, actualProductionMultiplier):
 	for cost in costs:
-		resources[cost.resource] -= cost.amount * actualProductionMultiplier
+		resources[cost] -= costs[cost] * actualProductionMultiplier

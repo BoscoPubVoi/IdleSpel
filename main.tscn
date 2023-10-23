@@ -41,9 +41,9 @@ baseProduction = 10.0
 
 [sub_resource type="Resource" id="Resource_ana3h"]
 script = ExtResource("5_22pki")
-costs = [{
-"rocks": 2
-}]
+costs = {
+"rocks": 10
+}
 resourceTypeToProduce = "silver"
 baseProduction = 1.0
 
