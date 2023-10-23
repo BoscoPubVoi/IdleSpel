@@ -17,7 +17,7 @@ func execute(executionState:ExecutionState):
 	
 	executionState.gameState.resources[resourceTypeToProduce] += baseProduction
 
-func duplicate():
+func _duplicate():
 	var newOperation = ProduceSecondaryResource.new(resourceTypeToProduce, baseProduction)
 	newOperation.costs = costs.duplicate(true)
 	return newOperation

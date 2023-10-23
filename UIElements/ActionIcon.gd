@@ -1,6 +1,14 @@
 class_name ActionIcon
 extends Panel
 
+@export var action_name :String
+@export var operations : Array[Operation]
+
+
+func _ready():
+	$Label.text = action_name
+	pass
+
 
 func _get_drag_data(at_position):
 	var data = {}
