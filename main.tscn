@@ -1,12 +1,20 @@
-[gd_scene load_steps=18 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=21 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="PackedScene" uid="uid://ddwdk74737glc" path="res://UIElements/action_indent.tscn" id="1_40viw"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
+[ext_resource type="Texture2D" uid="uid://chskrj3c0vag1" path="res://assets/Full_Moon_Icon.png" id="3_gcbcu"]
 [ext_resource type="PackedScene" uid="uid://bnedr2ay2wxg1" path="res://UIElements/action_icon.tscn" id="3_se0lr"]
 [ext_resource type="Script" path="res://GameState/Operations/ProduceBaseResource.gd" id="4_84l6x"]
+[ext_resource type="Texture2D" uid="uid://bv2nay3b4rm" path="res://assets/Moon2_Icon.png" id="4_p0qix"]
+[ext_resource type="Texture2D" uid="uid://caordvs4uxeou" path="res://assets/HalfMoon_Icon.png" id="5_1oedm"]
 [ext_resource type="Script" path="res://GameState/Operations/ProduceSecondaryResource.gd" id="5_22pki"]
 [ext_resource type="Script" path="res://GameState/Operations/BoostCharacterStat.gd" id="6_i72h5"]
 [ext_resource type="Script" path="res://GameState/Operations/CheckStat.gd" id="7_vy3f6"]
+[ext_resource type="Texture2D" uid="uid://cjjkludkbcxgk" path="res://assets/Crescent_Right_Icon.png" id="6_qfmv4"]
+[ext_resource type="Texture2D" uid="uid://dws7mju66i8ox" path="res://assets/NewMoon_Icon.png" id="7_epah6"]
+[ext_resource type="Texture2D" uid="uid://6ihf2ido6jg" path="res://assets/Crescent_Left_Icon.png" id="8_cem8g"]
+[ext_resource type="Texture2D" uid="uid://bqc5evt6w0oxm" path="res://assets/HalfMoon_Rev_Icon.png" id="9_ql6pi"]
+[ext_resource type="Texture2D" uid="uid://cg5cjryb2vdn" path="res://assets/Moon3_Icon.png" id="10_xq01v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
@@ -76,13 +84,33 @@ grow_vertical = 2
 theme = SubResource("Theme_ogi3r")
 script = ExtResource("1_crvfl")
 
-[node name="ActorPanel" type="Panel" parent="."]
+[node name="AllActorsPanel" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 256)
-layout_mode = 0
-offset_right = 859.0
-offset_bottom = 256.0
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 492.0
+grow_horizontal = 2
 
-[node name="Margin" type="MarginContainer" parent="ActorPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="AllActorsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 324
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AllActorsPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="ActorPanel" type="Panel" parent="AllActorsPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,49 +118,49 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 128
+theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 128
+theme_override_constants/margin_bottom = 32
 
-[node name="VBox" type="HBoxContainer" parent="ActorPanel/Margin"]
+[node name="HBox" type="HBoxContainer" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 1
 
-[node name="ActionIndent1" parent="ActorPanel/Margin/VBox" instance=ExtResource("1_40viw")]
+[node name="ActionIndent1" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin/HBox" instance=ExtResource("1_40viw")]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="ActionIndent2" parent="ActorPanel/Margin/VBox" instance=ExtResource("1_40viw")]
+[node name="ActionIndent2" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin/HBox" instance=ExtResource("1_40viw")]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="ActionIndent3" parent="ActorPanel/Margin/VBox" instance=ExtResource("1_40viw")]
+[node name="ActionIndent3" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin/HBox" instance=ExtResource("1_40viw")]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="ActionIndent4" parent="ActorPanel/Margin/VBox" instance=ExtResource("1_40viw")]
+[node name="ActionIndent4" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin/HBox" instance=ExtResource("1_40viw")]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="ActionIndent5" parent="ActorPanel/Margin/VBox" instance=ExtResource("1_40viw")]
+[node name="ActionIndent5" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin/HBox" instance=ExtResource("1_40viw")]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="ActionIndent6" parent="ActorPanel/Margin/VBox" instance=ExtResource("1_40viw")]
+[node name="ActionIndent6" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin/HBox" instance=ExtResource("1_40viw")]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="ActionIndent7" parent="ActorPanel/Margin/VBox" instance=ExtResource("1_40viw")]
+[node name="ActionIndent7" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin/HBox" instance=ExtResource("1_40viw")]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="ActionIndent8" parent="ActorPanel/Margin/VBox" instance=ExtResource("1_40viw")]
+[node name="ActionIndent8" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin/HBox" instance=ExtResource("1_40viw")]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="WorshiperStats" type="Label" parent="ActorPanel"]
+[node name="WorshiperStats" type="Label" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -143,6 +171,49 @@ offset_right = 300.0
 offset_bottom = -16.0
 grow_vertical = 0
 text = "Vigour: 0    Reverance: 0   Wisdom: 0"
+
+[node name="MoonCycleContainer" type="HBoxContainer" parent="AllActorsPanel"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 21.0
+offset_right = 792.0
+offset_bottom = 53.0
+theme_override_constants/separation = 63
+alignment = 1
+
+[node name="FullMoon" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("3_gcbcu")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="WaxingGibbous" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("4_p0qix")
+
+[node name="FirstQuarter" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("5_1oedm")
+
+[node name="WaxingCrescent" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("6_qfmv4")
+
+[node name="NewMoon" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("7_epah6")
+
+[node name="WaningCrescent" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("8_cem8g")
+
+[node name="ThirdQuarter" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("9_ql6pi")
+
+[node name="WaningGibbous" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("10_xq01v")
 
 [node name="ActionsPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -279,7 +350,7 @@ offset_top = -214.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Label" type="Label" parent="ResourcesPanel"]
+[node name="RockLabel" type="Label" parent="ResourcesPanel"]
 layout_mode = 0
 offset_left = 26.0
 offset_top = 30.0
@@ -287,7 +358,7 @@ offset_right = 194.0
 offset_bottom = 78.0
 text = "Rocks: 0"
 
-[node name="Label2" type="Label" parent="ResourcesPanel"]
+[node name="WaterLabel" type="Label" parent="ResourcesPanel"]
 layout_mode = 0
 offset_left = 25.0
 offset_top = 65.0
@@ -295,7 +366,7 @@ offset_right = 193.0
 offset_bottom = 113.0
 text = "Water: 0"
 
-[node name="Label3" type="Label" parent="ResourcesPanel"]
+[node name="SilverLabel" type="Label" parent="ResourcesPanel"]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 95.0
@@ -304,7 +375,6 @@ offset_bottom = 143.0
 text = "Silver: 0"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
