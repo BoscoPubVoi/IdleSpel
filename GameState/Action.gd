@@ -1,4 +1,5 @@
 class_name Action
+extends Resource
 
 var name:String
 var operations:Array
@@ -9,7 +10,7 @@ func update(executionState:ExecutionState):
 func _init(operations_):
 	operations = operations_
 
-func duplicate():
+func _duplicate():
 	var newAction = Operation.new()
 	newAction.name = name;
 	for operation in operations:

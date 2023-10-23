@@ -6,12 +6,12 @@ extends Panel
 
 
 func _ready():
-	$Label.text = action_name
-	pass
-
+	print(operations)
 
 func _get_drag_data(at_position):
-	var data = {}
+	var data = {} 
+	data["action"] = Action.new(operations)
+	data["action"].name = action_name
 	var drag_texture = ActionIcon.new()
 	drag_texture.size = Vector2(32,32)
 	
@@ -21,6 +21,7 @@ func _get_drag_data(at_position):
 	
 	set_drag_preview(control)
 	return data
+	pass
 
 func _can_drop_data(at_position, data):
 	return true
