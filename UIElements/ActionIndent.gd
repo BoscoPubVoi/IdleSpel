@@ -5,12 +5,13 @@ extends Panel
 var enabled = true
 
 func _ready():
-	
 	pass
 
 func _get_drag_data(at_position):
 	var data = {}
-	var drag_texture = ActionIcon.new()
+	var drag_texture = TextureRect.new()
+	drag_texture.texture = textureRect.texture
+	drag_texture.size = Vector2(32,32)
 	drag_texture.size = Vector2(32,32)
 	
 	var control = Control.new()

@@ -1,4 +1,5 @@
 class_name CycleStepRunner
+
 static func runOneStep():
 	Game.placeInCycle += 1
 	Game.placeInCycle = Game.placeInCycle % Game.maxSupportedActions
