@@ -1,5 +1,7 @@
 extends Panel
 
+@onready var textureRect = $TextureRect
+
 var enabled = true
 
 func _ready():
@@ -36,6 +38,9 @@ func _drop_data(at_position, data):
 	var fullCycleResult = FullCycleResultEvaluator.evaluate(Game)
 	print("outcome")
 	print(fullCycleResult.resources)
+	
+	textureRect.texture = data["texture"].texture
+	textureRect.show()
 
 func _get_index():
 	return get_parent().get_children().find(self)

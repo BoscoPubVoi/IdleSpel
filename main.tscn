@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=13 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="PackedScene" uid="uid://ddwdk74737glc" path="res://UIElements/action_indent.tscn" id="1_40viw"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
 [ext_resource type="PackedScene" uid="uid://bnedr2ay2wxg1" path="res://UIElements/action_icon.tscn" id="3_se0lr"]
 [ext_resource type="Script" path="res://GameState/Operations/ProduceBaseResource.gd" id="4_84l6x"]
+[ext_resource type="Script" path="res://GameState/Operations/ProduceSecondaryResource.gd" id="5_22pki"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
@@ -32,6 +33,17 @@ baseProduction = 10.0
 script = ExtResource("4_84l6x")
 resourceTypeToProduce = "rocks"
 baseProduction = 12.0
+
+[sub_resource type="Resource" id="Resource_sxusp"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "favor"
+baseProduction = 10.0
+
+[sub_resource type="Resource" id="Resource_ana3h"]
+script = ExtResource("5_22pki")
+costs = [{}]
+resourceTypeToProduce = "silver"
+baseProduction = 1.0
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -154,11 +166,13 @@ alignment = 1
 layout_mode = 2
 action_name = "rock+"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_e28eb")])
+icon_path = "res://assets/Add_rocks.png"
 
 [node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "rock+++"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ni4id"), SubResource("Resource_irgi5")])
+icon_path = "res://assets/Add_rocks.png"
 
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions"]
 layout_mode = 2
@@ -167,9 +181,15 @@ alignment = 1
 
 [node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+action_name = "Pray"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_sxusp")])
+icon_path = "res://assets/Add_Favour.png"
 
 [node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+action_name = "rockstosilver"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ana3h")])
+icon_path = "res://assets/Rocks_to_silver.png"
 
 [node name="SecondaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
 layout_mode = 2

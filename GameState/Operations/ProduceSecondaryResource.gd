@@ -1,9 +1,9 @@
 class_name ProduceSecondaryResource extends Operation
 
 #Costs: formatted like [{resource: "rocks", amount: 5}, {resource: "water", amount: 3}]
-var costs:Array = []
-var resourceTypeToProduce:String
-var baseProduction:float
+@export var costs:Array = []
+@export var resourceTypeToProduce:String
+@export var baseProduction:float
 
 func constructor(resourceTypeToProduce_, baseProduction_):
 	resourceTypeToProduce = resourceTypeToProduce_
