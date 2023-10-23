@@ -6,7 +6,7 @@ extends Panel
 
 
 func _ready():
-	print(operations)
+	pass
 
 func _get_drag_data(at_position):
 	var data = {} 
