@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://gnjn3wmn61bs"]
+
+[ext_resource type="Script" path="res://GameState/SimpleGameStateTest.gd" id="1_ap5v8"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_ap5v8")
+
+[node name="Node2" type="Node" parent="."]
+script = ExtResource("1_ap5v8")
