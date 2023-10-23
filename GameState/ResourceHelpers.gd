@@ -19,3 +19,9 @@ static func calculate_max_afford_with_cost(costs, resources):
 static func pay_costs(costs, resources, actualProductionMultiplier):
 	for cost in costs:
 		resources[cost] -= costs[cost] * actualProductionMultiplier
+
+static func calculate_boost(executionState, resource):
+	var boostAmount = executionState.currentBoosts.get(resource)
+	if boostAmount != null:
+		return 1 + boostAmount
+	return 1

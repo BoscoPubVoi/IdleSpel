@@ -12,6 +12,10 @@ func construct(resourceTypeToProduce_, baseProduction_):
 
 func execute(executionState:ExecutionState):
 	var thisProduction = baseProduction
+	
+	# Take boosts into account
+	thisProduction *= ResourceHelpers.calculate_boost(executionState,resourceTypeToProduce)
+	
 	# Take caps into account
 	thisProduction = min(thisProduction,
 		executionState.gameState.resourceCaps[resourceTypeToProduce] -

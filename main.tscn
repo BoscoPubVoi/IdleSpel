@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=28 format=3 uid="uid://d2rkcfl4ip62c"]
 
-[ext_resource type="PackedScene" uid="uid://ddwdk74737glc" path="res://UIElements/action_indent.tscn" id="1_40viw"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
+[ext_resource type="PackedScene" uid="uid://bmcv62jx8oil1" path="res://actor_panel.tscn" id="2_jsf26"]
 [ext_resource type="Texture2D" uid="uid://chskrj3c0vag1" path="res://assets/Full_Moon_Icon.png" id="3_gcbcu"]
 [ext_resource type="PackedScene" uid="uid://bnedr2ay2wxg1" path="res://UIElements/action_icon.tscn" id="3_se0lr"]
 [ext_resource type="Script" path="res://GameState/Operations/ProduceBaseResource.gd" id="4_84l6x"]
@@ -9,12 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://caordvs4uxeou" path="res://assets/HalfMoon_Icon.png" id="5_1oedm"]
 [ext_resource type="Script" path="res://GameState/Operations/ProduceSecondaryResource.gd" id="5_22pki"]
 [ext_resource type="Script" path="res://GameState/Operations/BoostCharacterStat.gd" id="6_i72h5"]
-[ext_resource type="Script" path="res://GameState/Operations/CheckStat.gd" id="7_vy3f6"]
 [ext_resource type="Texture2D" uid="uid://cjjkludkbcxgk" path="res://assets/Crescent_Right_Icon.png" id="6_qfmv4"]
 [ext_resource type="Texture2D" uid="uid://dws7mju66i8ox" path="res://assets/NewMoon_Icon.png" id="7_epah6"]
+[ext_resource type="Script" path="res://GameState/Operations/CheckStat.gd" id="7_vy3f6"]
 [ext_resource type="Texture2D" uid="uid://6ihf2ido6jg" path="res://assets/Crescent_Left_Icon.png" id="8_cem8g"]
 [ext_resource type="Texture2D" uid="uid://bqc5evt6w0oxm" path="res://assets/HalfMoon_Rev_Icon.png" id="9_ql6pi"]
 [ext_resource type="Texture2D" uid="uid://cg5cjryb2vdn" path="res://assets/Moon3_Icon.png" id="10_xq01v"]
+[ext_resource type="Script" path="res://GameState/Operations/BoostCharactersInPosition.gd" id="16_nvuys"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
@@ -74,6 +75,12 @@ statToCheck = "vigor"
 statMinimum = 15.0
 operation = SubResource("Resource_vabre")
 
+[sub_resource type="Resource" id="Resource_yxinf"]
+script = ExtResource("16_nvuys")
+boostInPosition = "rocks"
+boostAmount = 1.0
+costs = {}
+
 [node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -106,71 +113,8 @@ theme_override_constants/margin_right = 324
 [node name="VBoxContainer" type="VBoxContainer" parent="AllActorsPanel/MarginContainer"]
 layout_mode = 2
 
-[node name="ActorPanel" type="Panel" parent="AllActorsPanel/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
+[node name="ActorPanel" parent="AllActorsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
 layout_mode = 2
-
-[node name="Margin" type="MarginContainer" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
-
-[node name="HBox" type="HBoxContainer" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-theme_override_constants/separation = 32
-alignment = 1
-
-[node name="ActionIndent1" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin/HBox" instance=ExtResource("1_40viw")]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="ActionIndent2" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin/HBox" instance=ExtResource("1_40viw")]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="ActionIndent3" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin/HBox" instance=ExtResource("1_40viw")]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="ActionIndent4" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin/HBox" instance=ExtResource("1_40viw")]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="ActionIndent5" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin/HBox" instance=ExtResource("1_40viw")]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="ActionIndent6" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin/HBox" instance=ExtResource("1_40viw")]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="ActionIndent7" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin/HBox" instance=ExtResource("1_40viw")]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="ActionIndent8" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel/Margin/HBox" instance=ExtResource("1_40viw")]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="WorshiperStats" type="Label" parent="AllActorsPanel/MarginContainer/VBoxContainer/ActorPanel"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 24.0
-offset_top = -42.0
-offset_right = 300.0
-offset_bottom = -16.0
-grow_vertical = 0
-text = "Vigour: 0    Reverance: 0   Wisdom: 0"
 
 [node name="MoonCycleContainer" type="HBoxContainer" parent="AllActorsPanel"]
 layout_mode = 0
@@ -310,7 +254,6 @@ theme_override_constants/separation = 64
 alignment = 1
 
 [node name="TertiaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 16
 
@@ -321,6 +264,7 @@ alignment = 1
 
 [node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_yxinf")])
 icon_path = "res://assets/Add_rocks.png"
 
 [node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]

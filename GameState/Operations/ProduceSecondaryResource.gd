@@ -14,6 +14,9 @@ func execute(executionState:ExecutionState):
 		costs, executionState.gameState.resources)
 	var actualProductionMultiplier = min(1, maximumPossibleProductionMultiplier)
 	
+	# Take boosts into account
+	actualProductionMultiplier *= ResourceHelpers.calculate_boost(executionState, resourceTypeToProduce)
+	
 	# Take caps into account
 	actualProductionMultiplier = min(actualProductionMultiplier,
 		(executionState.gameState.resourceCaps[resourceTypeToProduce] -

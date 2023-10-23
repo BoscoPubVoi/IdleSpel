@@ -17,6 +17,14 @@ func _duplicate():
 		newAction.operations.push_back(operation._duplicate())
 	return newAction
 
+func executeEarly(executionState:ExecutionState):
+	for operation in operations:
+		operation.executeEarly(executionState)
+
 func execute(executionState:ExecutionState):
 	for operation in operations:
 		operation.execute(executionState)
+
+func executeLate(executionState:ExecutionState):
+	for operation in operations:
+		operation.executeLate(executionState)

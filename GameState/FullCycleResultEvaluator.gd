@@ -8,8 +8,35 @@ static func evaluate(gameState:GameState):
 	for character in copiedGameState.characters:
 		character.onCycleStart()
 	
+	
 	# Go through the whole cycle
 	for placeInCycle in copiedGameState.maxSupportedActions:
+		var boosts = {}
+
+		for character in copiedGameState.characters:
+			if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
+				continue
+
+			var currentExecutionState = ExecutionState.new(
+				copiedGameState,
+				character,
+				placeInCycle,
+				boosts
+			)
+			character.actions[placeInCycle].executeEarly(currentExecutionState)
+
+		for character in copiedGameState.characters:
+			if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
+				continue
+
+			var currentExecutionState = ExecutionState.new(
+				copiedGameState,
+				character,
+				placeInCycle,
+				boosts
+			)
+			character.actions[placeInCycle].execute(currentExecutionState)
+
 		for character in copiedGameState.characters:
 			if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
 				continue
@@ -17,8 +44,9 @@ static func evaluate(gameState:GameState):
 			var currentExecutionState = ExecutionState.new(
 				copiedGameState,
 				character,
-				placeInCycle
+				placeInCycle,
+				boosts
 			)
-			character.actions[placeInCycle].execute(currentExecutionState)
-		
+			character.actions[placeInCycle].executeLate(currentExecutionState)
+
 	return copiedGameState

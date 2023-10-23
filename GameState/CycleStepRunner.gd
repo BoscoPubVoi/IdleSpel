@@ -11,6 +11,8 @@ static func runOneStep():
 			character.onCycleStart()
 	
 	var placeInCycle = Game.placeInCycle
+	var boosts = {}
+	
 	for character in Game.characters:
 		if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
 			continue
@@ -18,6 +20,31 @@ static func runOneStep():
 		var currentExecutionState = ExecutionState.new(
 			Game,
 			character,
-			placeInCycle
+			placeInCycle,
+			boosts
+		)
+		character.actions[placeInCycle].executeEarly(currentExecutionState)
+	
+	for character in Game.characters:
+		if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
+			continue
+		
+		var currentExecutionState = ExecutionState.new(
+			Game,
+			character,
+			placeInCycle,
+			boosts
 		)
 		character.actions[placeInCycle].execute(currentExecutionState)
+		
+	for character in Game.characters:
+		if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
+			continue
+		
+		var currentExecutionState = ExecutionState.new(
+			Game,
+			character,
+			placeInCycle,
+			boosts
+		)
+		character.actions[placeInCycle].executeLate(currentExecutionState)
