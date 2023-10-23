@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=8 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="PackedScene" uid="uid://ddwdk74737glc" path="res://UIElements/action_indent.tscn" id="1_40viw"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
 [ext_resource type="PackedScene" uid="uid://bnedr2ay2wxg1" path="res://UIElements/action_icon.tscn" id="3_se0lr"]
-[ext_resource type="Script" path="res://GameState/Operations/ProduceBaseResource.gd" id="4_84l6x"]
+[ext_resource type="Script" path="res://GameState/Operations/ProduceBaseResource.gd" id="4_qsad4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
@@ -18,20 +18,10 @@ border_blend = true
 Panel/styles/panel = SubResource("StyleBoxFlat_5tix1")
 VBoxContainer/constants/separation = 120
 
-[sub_resource type="Resource" id="Resource_e28eb"]
-script = ExtResource("4_84l6x")
+[sub_resource type="Resource" id="Resource_yfanv"]
+script = ExtResource("4_qsad4")
 resourceTypeToProduce = "rocks"
 baseProduction = 5.0
-
-[sub_resource type="Resource" id="Resource_ni4id"]
-script = ExtResource("4_84l6x")
-resourceTypeToProduce = "rocks"
-baseProduction = 10.0
-
-[sub_resource type="Resource" id="Resource_irgi5"]
-script = ExtResource("4_84l6x")
-resourceTypeToProduce = "rocks"
-baseProduction = 12.0
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -153,12 +143,12 @@ alignment = 1
 [node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "rock+"
-operations = Array[ExtResource("4_84l6x")]([SubResource("Resource_e28eb")])
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_yfanv")])
 
 [node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "rock+++"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ni4id"), SubResource("Resource_irgi5")])
+operations = null
 
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions"]
 layout_mode = 2
@@ -167,9 +157,13 @@ alignment = 1
 
 [node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+action_name = null
+operations = null
 
 [node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+action_name = null
+operations = null
 
 [node name="SecondaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
 layout_mode = 2
@@ -182,9 +176,13 @@ alignment = 1
 
 [node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+action_name = null
+operations = null
 
 [node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+action_name = null
+operations = null
 
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions"]
 layout_mode = 2
@@ -203,9 +201,13 @@ alignment = 1
 
 [node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+action_name = null
+operations = null
 
 [node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+action_name = null
+operations = null
 
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions"]
 layout_mode = 2
@@ -214,9 +216,13 @@ alignment = 1
 
 [node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+action_name = null
+operations = null
 
 [node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+action_name = null
+operations = null
 
 [node name="ResourcesPanel" type="Panel" parent="."]
 layout_mode = 1
