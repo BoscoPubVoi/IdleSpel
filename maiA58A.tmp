@@ -1,0 +1,255 @@
+[gd_scene load_steps=10 format=3 uid="uid://d2rkcfl4ip62c"]
+
+[ext_resource type="PackedScene" uid="uid://ddwdk74737glc" path="res://UIElements/action_indent.tscn" id="1_40viw"]
+[ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
+[ext_resource type="PackedScene" uid="uid://bnedr2ay2wxg1" path="res://UIElements/action_icon.tscn" id="3_se0lr"]
+[ext_resource type="Script" path="res://GameState/Operations/ProduceBaseResource.gd" id="4_84l6x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+
+[sub_resource type="Theme" id="Theme_ogi3r"]
+Panel/styles/panel = SubResource("StyleBoxFlat_5tix1")
+VBoxContainer/constants/separation = 120
+
+[sub_resource type="Resource" id="Resource_e28eb"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "rocks"
+baseProduction = 5.0
+
+[sub_resource type="Resource" id="Resource_ni4id"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "rocks"
+baseProduction = 10.0
+
+[sub_resource type="Resource" id="Resource_irgi5"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "rocks"
+baseProduction = 12.0
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ogi3r")
+script = ExtResource("1_crvfl")
+
+[node name="ActorPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 0
+offset_right = 859.0
+offset_bottom = 256.0
+
+[node name="Margin" type="MarginContainer" parent="ActorPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 128
+
+[node name="VBox" type="HBoxContainer" parent="ActorPanel/Margin"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="ActionIndent1" parent="ActorPanel/Margin/VBox" instance=ExtResource("1_40viw")]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ActionIndent2" parent="ActorPanel/Margin/VBox" instance=ExtResource("1_40viw")]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ActionIndent3" parent="ActorPanel/Margin/VBox" instance=ExtResource("1_40viw")]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ActionIndent4" parent="ActorPanel/Margin/VBox" instance=ExtResource("1_40viw")]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ActionIndent5" parent="ActorPanel/Margin/VBox" instance=ExtResource("1_40viw")]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ActionIndent6" parent="ActorPanel/Margin/VBox" instance=ExtResource("1_40viw")]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ActionIndent7" parent="ActorPanel/Margin/VBox" instance=ExtResource("1_40viw")]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ActionIndent8" parent="ActorPanel/Margin/VBox" instance=ExtResource("1_40viw")]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="WorshiperStats" type="Label" parent="ActorPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -42.0
+offset_right = 300.0
+offset_bottom = -16.0
+grow_vertical = 0
+text = "Vigour: 0    Reverance: 0   Wisdom: 0"
+
+[node name="ActionsPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -294.0
+offset_bottom = 440.0
+grow_horizontal = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ActionsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="ActionsPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="WholeActionContainer" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="BaseActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="BA1" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "rock+"
+operations = Array[ExtResource("4_84l6x")]([SubResource("Resource_e28eb")])
+
+[node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "rock+++"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ni4id"), SubResource("Resource_irgi5")])
+
+[node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+
+[node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+
+[node name="SecondaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="BA1" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA1" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+
+[node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA1" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+
+[node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="TertiaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="BA1" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+
+[node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+
+[node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+
+[node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+
+[node name="ResourcesPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -294.0
+offset_top = -214.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="ResourcesPanel"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 30.0
+offset_right = 194.0
+offset_bottom = 78.0
+text = "Rocks: 0"
+
+[node name="Label2" type="Label" parent="ResourcesPanel"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 65.0
+offset_right = 193.0
+offset_bottom = 113.0
+text = "Water: 0"
+
+[node name="Label3" type="Label" parent="ResourcesPanel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 95.0
+offset_right = 192.0
+offset_bottom = 143.0
+text = "Silver: 0"
