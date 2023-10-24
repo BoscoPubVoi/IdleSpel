@@ -13,3 +13,5 @@ func _process(delta):
 
 func update_worshiper_stats():
 	$Vigor/VigorLabel.text = str(Game.characters[characterID]["stats"]["vigor"])
+	$Wisdom/WisdomLabel.text = str(Game.characters[characterID]["stats"]["wisdom"])
+	$Reverance/ReveranceLabel.text = str(Game.characters[characterID]["stats"]["reverance"])

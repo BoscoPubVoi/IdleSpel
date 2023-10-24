@@ -40,6 +40,9 @@ func update_resource_labels():
 	$ResourcesPanel/Water/WaterLabel.text = str(Game.resources["water"]) + " / " + str(Game.resourceCaps["water"])
 	$ResourcesPanel/Silver/SilverLabel.text = str(Game.resources["silver"]) + " / " + str(Game.resourceCaps["silver"])
 	$ResourcesPanel/Favor/FavorLabel.text = str(Game.resources["favor"]) + " / " + str(Game.resourceCaps["favor"])
+	$ResourcesPanel/Relic/RelicLabel.text = str(Game.resources["relics"]) + " / " + str(Game.resourceCaps["relics"])
+	$ResourcesPanel/Moonstone/MoonstoneLabel.text = str(Game.resources["moonstone"]) + " / " + str(Game.resourceCaps["moonstone"])
+	$ResourcesPanel/Moonlight/MoonlightLabel.text = str(Game.resources["moonlight"]) + " / " + str(Game.resourceCaps["moonlight"])
 
 func updateMoonCycleIcon():
 	Game.placeInCycle

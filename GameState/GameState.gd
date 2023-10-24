@@ -2,7 +2,7 @@ class_name GameState
 extends Node
 
 var resources:Dictionary = ResourceHelpers.create_empty_resources()
-var resourceCaps:Dictionary = ResourceHelpers.create_some_resources({rocks = 1000, silver=10, favor = 100}) 
+var resourceCaps:Dictionary = ResourceHelpers.create_some_resources({rocks = 1000, water = 50, silver=10, favor = 100}) 
 var characters:Array = []
 var maxSupportedActions = 8
 # Buildings: (building, float)
