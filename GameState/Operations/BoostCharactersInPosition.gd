@@ -9,7 +9,7 @@ func constructor(boostInPosition_, boostAmount_, costs_):
 	boostAmount = boostAmount_
 	costs = costs_
 
-func execute(executionState:ExecutionState):
+func executeEarly(executionState:ExecutionState):
 	var maxAfford = min(1, ResourceHelpers.calculate_max_afford_with_cost(
 		costs, executionState.gameState.resources))
 	

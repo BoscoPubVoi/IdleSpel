@@ -10,6 +10,8 @@ var cycleStepRunner = CycleStepRunner.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Game.buildings["rocks"] = 1
+	
 	var newCharacter = Character.new()
 	newCharacter.constructor(Game.maxSupportedActions)
 	Game.characters.push_back(newCharacter)

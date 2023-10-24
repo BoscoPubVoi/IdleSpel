@@ -103,7 +103,7 @@ buildingAndCapName = "rocks"
 buildBuildingAmount = 1.0
 increaseCapAmount = 25.0
 costs = {
-"silver": 1
+"silver": 2
 }
 
 [node name="Main" type="Control"]
