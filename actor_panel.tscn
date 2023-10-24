@@ -22,9 +22,9 @@ offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 84
+theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 84
+theme_override_constants/margin_bottom = 16
 
 [node name="HBox" type="HBoxContainer" parent="Margin"]
 custom_minimum_size = Vector2(0, 100)
@@ -65,17 +65,52 @@ layout_mode = 2
 size_flags_vertical = 0
 
 [node name="Vigor" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 70.0
-offset_right = 46.0
+layout_mode = 2
+offset_left = 274.0
+offset_top = 84.0
+offset_right = 300.0
 offset_bottom = 110.0
 texture = ExtResource("3_i0j11")
+expand_mode = 2
 
 [node name="VigorLabel" type="Label" parent="Vigor"]
 layout_mode = 0
 offset_left = 40.0
-offset_top = 9.0
+offset_top = 3.0
 offset_right = 132.0
-offset_bottom = 35.0
+offset_bottom = 29.0
+text = "0"
+
+[node name="Wisdom" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 364.0
+offset_top = 84.0
+offset_right = 390.0
+offset_bottom = 110.0
+texture = ExtResource("3_i0j11")
+expand_mode = 2
+
+[node name="WisdomLabel" type="Label" parent="Wisdom"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 3.0
+offset_right = 132.0
+offset_bottom = 29.0
+text = "0"
+
+[node name="Reverance" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 454.0
+offset_top = 84.0
+offset_right = 480.0
+offset_bottom = 110.0
+texture = ExtResource("3_i0j11")
+expand_mode = 2
+
+[node name="ReveranceLabel" type="Label" parent="Reverance"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 3.0
+offset_right = 132.0
+offset_bottom = 29.0
 text = "0"

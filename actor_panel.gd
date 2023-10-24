@@ -7,7 +7,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
-#	update_worshiper_stats()
+	update_worshiper_stats()
 	pass
 
 
