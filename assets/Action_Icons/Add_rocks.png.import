@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgcr528ijg6vk"
-path="res://.godot/imported/Add_Favour.png-6036d46fa053bcd850277df2df2f2e0c.ctex"
+uid="uid://cmjamgcicfp62"
+path="res://.godot/imported/Add_rocks.png-fed22f24448af6cabe5ae4fa4e999e6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Add_Favour.png"
-dest_files=["res://.godot/imported/Add_Favour.png-6036d46fa053bcd850277df2df2f2e0c.ctex"]
+source_file="res://assets/Action_Icons/Add_rocks.png"
+dest_files=["res://.godot/imported/Add_rocks.png-fed22f24448af6cabe5ae4fa4e999e6a.ctex"]
 
 [params]
 

@@ -228,18 +228,18 @@ mouse_filter = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
+[node name="SmallRocks" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "rock+"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_e28eb")])
-icon_path = "res://assets/Add_rocks.png"
+icon_path = "res://assets/Action_Icons/Rock_small.png"
 tooltip = "+5 rocks"
 
-[node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
+[node name="BigRocks" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "rock+++"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ni4id"), SubResource("Resource_irgi5")])
-icon_path = "res://assets/Add_rocks.png"
+icon_path = "res://assets/Action_Icons/Add_rocks.png"
 tooltip = "+22 Rocks"
 
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions"]
@@ -248,18 +248,18 @@ mouse_filter = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
+[node name="BigFavor" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Pray"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_sxusp")])
-icon_path = "res://assets/Add_Favour.png"
+icon_path = "res://assets/Action_Icons/Add_Favour.png"
 tooltip = "+10 Favor"
 
-[node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
+[node name="RocktoSilver" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "rockstosilver"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ana3h")])
-icon_path = "res://assets/Rocks_to_silver.png"
+icon_path = "res://assets/Action_Icons/Rocks_to_silver.png"
 tooltip = "-10 Rocks, +1 Silver"
 
 [node name="SecondaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
@@ -271,18 +271,18 @@ layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA1" instance=ExtResource("3_se0lr")]
+[node name="Vigor" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Get Vigorous"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_oc8vf")])
-icon_path = "res://assets/Add_rocks.png"
+icon_path = "res://assets/Action_Icons/Vigour_Big.png"
 tooltip = "+10 Vigor"
 
-[node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA1" instance=ExtResource("3_se0lr")]
+[node name="VigorToRocks" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Vigorous Rock Mining"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_6uhrq")])
-icon_path = "res://assets/Add_rocks.png"
+icon_path = "res://assets/Action_Icons/Vigour_to_rocks.png"
 tooltip = "if Vigor >= 15, +20 Rocks"
 
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions"]
@@ -310,17 +310,17 @@ layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]
+[node name="RockPhaseBoost" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_yxinf")])
-icon_path = "res://assets/Add_rocks.png"
+icon_path = "res://assets/Action_Icons/Boost_same_phase.png"
 tooltip = "+100% rock production for other characters in this moon phase "
 
-[node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]
+[node name="SilverToRockProd" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Asteroid Gathering"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_obebs")])
-icon_path = "res://assets/Add_rocks.png"
+icon_path = "res://assets/Action_Icons/Silver_to_rock_prod.png"
 tooltip = "Spend one silver to increase the bonus rock production by 10%"
 
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions"]

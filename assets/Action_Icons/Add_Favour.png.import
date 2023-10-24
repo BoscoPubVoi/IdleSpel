@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cljservghbbwy"
-path="res://.godot/imported/Rocks_to_silver.png-20fdadfa193c3ff36dc524b635946302.ctex"
+uid="uid://dgcr528ijg6vk"
+path="res://.godot/imported/Add_Favour.png-f4464df608577dd5fd420caa74dba1db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Rocks_to_silver.png"
-dest_files=["res://.godot/imported/Rocks_to_silver.png-20fdadfa193c3ff36dc524b635946302.ctex"]
+source_file="res://assets/Action_Icons/Add_Favour.png"
+dest_files=["res://.godot/imported/Add_Favour.png-f4464df608577dd5fd420caa74dba1db.ctex"]
 
 [params]
 

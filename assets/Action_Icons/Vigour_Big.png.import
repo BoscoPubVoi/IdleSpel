@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmjamgcicfp62"
-path="res://.godot/imported/Add_rocks.png-62fd802f6d19f6ff02a1e65459a261e8.ctex"
+uid="uid://cl5vc5itqmc58"
+path="res://.godot/imported/Vigour_Big.png-35eb516e7244f0f88848140d159b9a8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Add_rocks.png"
-dest_files=["res://.godot/imported/Add_rocks.png-62fd802f6d19f6ff02a1e65459a261e8.ctex"]
+source_file="res://assets/Action_Icons/Vigour_Big.png"
+dest_files=["res://.godot/imported/Vigour_Big.png-35eb516e7244f0f88848140d159b9a8f.ctex"]
 
 [params]
 
