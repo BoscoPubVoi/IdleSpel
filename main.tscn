@@ -1,7 +1,7 @@
 [gd_scene load_steps=45 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
-[ext_resource type="PackedScene" path="res://visualiser_panel.tscn" id="2_hip1u"]
+[ext_resource type="PackedScene" uid="uid://1eop4jtm8jt5" path="res://visualiser_panel.tscn" id="2_hip1u"]
 [ext_resource type="PackedScene" uid="uid://bexv0ou3bq3sw" path="res://actor_panel.tscn" id="2_jsf26"]
 [ext_resource type="Texture2D" uid="uid://chskrj3c0vag1" path="res://assets/Full_Moon_Icon.png" id="3_gcbcu"]
 [ext_resource type="PackedScene" uid="uid://bnedr2ay2wxg1" path="res://UIElements/action_icon.tscn" id="3_se0lr"]
@@ -147,8 +147,8 @@ layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
-offset_top = 0.0
-offset_bottom = 223.0
+offset_top = 424.0
+offset_bottom = 647.0
 grow_vertical = 1
 
 [node name="AllActorsPanel" type="Panel" parent="."]
@@ -270,7 +270,7 @@ alignment = 1
 
 [node name="SmallRocks" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
-action_name = "Mine:"
+action_name = "Mine"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_e28eb"), SubResource("Resource_icj6r")])
 icon_path = "res://assets/Action_Icons/Small_rocks_vigor.png"
 tooltip = "+2 Rocks, +5 Vigor"
@@ -402,7 +402,7 @@ tooltip = "-2 Silver, + 25 rock capacity"
 layout_mode = 2
 action_name = "Boost every character here"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_y258d")])
-icon_path = "res://assets/Action_Icons/Silver_to_rock_cap.png"
+icon_path = "res://assets/Action_Icons/Boost_all_resource.png"
 tooltip = "Spend 5 favor to get 50% boost on all character actions in this moon phase"
 
 [node name="ResourcesPanel" type="Panel" parent="."]

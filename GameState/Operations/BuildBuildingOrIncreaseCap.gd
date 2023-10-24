@@ -26,7 +26,10 @@ func execute(executionState:ExecutionState):
 		maxAfford = min(maxAfford, 1 - executionState.gameState.buildings[buildingAndCapName])
 		executionState.gameState.buildings[buildingAndCapName] += maxAfford
 		if executionState.gameState.buildings[buildingAndCapName] > 0.99999:
+			#Unlock the building (i think)
 			executionState.gameState.buildings[buildingAndCapName] = 1
+			executionState.unlockBuilding(buildingAndCapName)
+			
 	else:
 		# Help increase the cap
 		executionState.gameState.resourceCaps[buildingAndCapName] += increaseCapAmount * maxAfford

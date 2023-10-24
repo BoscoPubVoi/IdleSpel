@@ -1,8 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://1eop4jtm8jt5"]
+[gd_scene load_steps=21 format=3 uid="uid://1eop4jtm8jt5"]
 
 [ext_resource type="Texture2D" uid="uid://blv711c64mkv4" path="res://assets/character_sheet.png" id="1_53qgm"]
 [ext_resource type="Script" path="res://visualiser_panel.gd" id="1_e5etn"]
 [ext_resource type="Script" path="res://UIElements/VisualCharacter.gd" id="3_cl67r"]
+[ext_resource type="Texture2D" uid="uid://5va3yhmf3n5m" path="res://assets/Buildings/Mines.png" id="4_66w5g"]
+[ext_resource type="Texture2D" uid="uid://b6li6cpber1m7" path="res://assets/Buildings/Well.png" id="5_8bebb"]
+[ext_resource type="Texture2D" uid="uid://mvl31lyny7ir" path="res://assets/Buildings/Silver_Building.png" id="6_w87bl"]
+[ext_resource type="Texture2D" uid="uid://d8odx7i7581b" path="res://assets/Buildings/Favor_Alter.png" id="7_icjoo"]
+[ext_resource type="Texture2D" uid="uid://dcsiym470dpa4" path="res://assets/Buildings/Relic_Building.png" id="8_50lfm"]
+[ext_resource type="Texture2D" uid="uid://dgi12einps6v0" path="res://assets/Buildings/Moonstone_Building.png" id="9_ucg1d"]
+[ext_resource type="Texture2D" uid="uid://c8lbeipmo252j" path="res://assets/Buildings/Moonlight_Distiller.png" id="10_4sqxa"]
+[ext_resource type="Texture2D" uid="uid://ch88eb1sudpbp" path="res://assets/Buildings/Monument_Sheet.png" id="11_jrido"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khlr0"]
 bg_color = Color(0, 0, 0, 1)
@@ -80,6 +88,7 @@ animations = [{
 }]
 
 [node name="VisualiserPanel" type="Panel" groups=["Visualiser"]]
+texture_filter = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -88,12 +97,91 @@ offset_right = 875.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_khlr0")
 script = ExtResource("1_e5etn")
+metadata/_edit_lock_ = true
 
-[node name="Character" type="AnimatedSprite2D" parent="."]
+[node name="Character0" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
 position = Vector2(79, 179)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_kqqun")
 animation = &"praying"
-frame_progress = 0.280825
+frame_progress = 0.654806
 script = ExtResource("3_cl67r")
+
+[node name="Character1" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+position = Vector2(127, 179)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_kqqun")
+animation = &"praying"
+frame_progress = 0.0922798
+script = ExtResource("3_cl67r")
+character_ID = 1
+
+[node name="Character2" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+position = Vector2(223, 179)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_kqqun")
+animation = &"praying"
+frame_progress = 0.0922798
+script = ExtResource("3_cl67r")
+character_ID = 2
+
+[node name="rocks" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 3
+position = Vector2(216, 88)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_66w5g")
+
+[node name="water" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 3
+position = Vector2(320, 88)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_8bebb")
+
+[node name="silver" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 3
+position = Vector2(424, 88)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_w87bl")
+
+[node name="favor" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 3
+position = Vector2(528, 88)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_icjoo")
+
+[node name="relics" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 3
+position = Vector2(632, 88)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_50lfm")
+
+[node name="moonstone" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 3
+position = Vector2(736, 88)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("9_ucg1d")
+
+[node name="moonlight" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 3
+position = Vector2(824, 88)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("10_4sqxa")
+
+[node name="monument" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 3
+position = Vector2(79, 73)
+scale = Vector2(2, 2)
+texture = ExtResource("11_jrido")
+hframes = 3
+frame = 2

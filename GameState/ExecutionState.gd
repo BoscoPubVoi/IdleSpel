@@ -28,3 +28,8 @@ func unlockActionLocations(tierNo):
 		var newUnlockActions = tree.get_nodes_in_group("SecondUnlockedAction")
 		for node in newUnlockActions:
 			node.set_enabled(true)
+
+func unlockBuilding(resource_name):
+	if tree == null:
+		return
+	tree.get_first_node_in_group("Visualiser").unlock_building(resource_name)
