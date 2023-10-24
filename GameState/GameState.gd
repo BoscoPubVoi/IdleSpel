@@ -6,7 +6,7 @@ var resourceCaps:Dictionary = ResourceHelpers.create_some_resources({rocks = 100
 var characters:Array = []
 var maxSupportedActions = 8
 # Buildings: (building, float)
-var buildings:Dictionary
+var buildings:Dictionary = {rocks = 0, water = 0, silver = 0, favor = 0, relics = 0, moonstone = 0, moonlight = 0}
 var placeInCycle:int
 var globalProductionBonuses:Dictionary
 

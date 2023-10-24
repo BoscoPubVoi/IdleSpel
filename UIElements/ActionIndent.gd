@@ -12,7 +12,6 @@ func _ready():
 	
 func _get_drag_data(at_position):
 	if current_data != null:
-		print(current_data)
 		var data = current_data
 		data["origin_node"] = self
 		var drag_texture = TextureRect.new()
@@ -25,7 +24,6 @@ func _get_drag_data(at_position):
 		drag_texture.position = -0.5 * (drag_texture.size)
 		data["texture"] = drag_texture
 		set_drag_preview(control)
-		print(data)
 		return data
 
 func _can_drop_data(at_position, data):
@@ -62,7 +60,6 @@ func _drop_data(at_position, data):
 		else:
 			#not empty and your trying to replace it
 			var temptexture = textureRect.texture
-#			print(data["target_slot"])
 			origin_slot.put_in_slot(data["target_slot"], temptexture)
 			put_in_slot(data)
 
