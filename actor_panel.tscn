@@ -22,7 +22,7 @@ offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 84
+theme_override_constants/margin_top = 120
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 84
 
@@ -64,18 +64,50 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Vigor" type="TextureRect" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 70.0
-offset_right = 46.0
-offset_bottom = 110.0
-texture = ExtResource("3_i0j11")
+offset_left = 12.0
+offset_top = 78.0
+offset_right = 742.0
+offset_bottom = 104.0
+theme_override_constants/separation = 64
+alignment = 1
 
-[node name="VigorLabel" type="Label" parent="Vigor"]
+[node name="Vigor" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_i0j11")
+expand_mode = 2
+
+[node name="VigorLabel" type="Label" parent="HBoxContainer/Vigor"]
 layout_mode = 0
 offset_left = 40.0
-offset_top = 9.0
+offset_top = 3.0
 offset_right = 132.0
-offset_bottom = 35.0
+offset_bottom = 29.0
+text = "0"
+
+[node name="Wisdom" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_i0j11")
+expand_mode = 2
+
+[node name="WisdomLabel" type="Label" parent="HBoxContainer/Wisdom"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 3.0
+offset_right = 132.0
+offset_bottom = 29.0
+text = "0"
+
+[node name="Reverance" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_i0j11")
+expand_mode = 2
+
+[node name="ReveranceLabel" type="Label" parent="HBoxContainer/Reverance"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 3.0
+offset_right = 132.0
+offset_bottom = 29.0
 text = "0"
