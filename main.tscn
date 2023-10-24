@@ -1,5 +1,6 @@
-[gd_scene load_steps=55 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=58 format=3 uid="uid://d2rkcfl4ip62c"]
 
+[ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
 [ext_resource type="PackedScene" path="res://visualiser_panel.tscn" id="2_hip1u"]
 [ext_resource type="PackedScene" uid="uid://bexv0ou3bq3sw" path="res://actor_panel.tscn" id="2_jsf26"]
@@ -40,6 +41,9 @@ border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Theme" id="Theme_ogi3r"]
+default_font = ExtResource("1_0d4y2")
+default_font_size = 16
+CheckBox/fonts/font = ExtResource("1_0d4y2")
 Panel/styles/panel = SubResource("StyleBoxFlat_5tix1")
 VBoxContainer/constants/separation = 120
 
@@ -59,16 +63,19 @@ script = ExtResource("4_84l6x")
 resourceTypeToProduce = "rocks"
 baseProduction = 10.0
 
-[sub_resource type="Resource" id="Resource_sxusp"]
-script = ExtResource("4_84l6x")
-resourceTypeToProduce = "favor"
-baseProduction = 10.0
+[sub_resource type="Resource" id="Resource_usjbx"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "water"
+buildBuildingAmount = 0.1
+increaseCapAmount = 5.0
+costs = {
+"rocks": 10
+}
 
-[sub_resource type="Resource" id="Resource_ana3h"]
-script = ExtResource("5_22pki")
-costs = {}
-resourceTypeToProduce = "silver"
-baseProduction = 1.0
+[sub_resource type="Resource" id="Resource_8kr8y"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "rocks"
+minAmount = 30.0
 
 [sub_resource type="Resource" id="Resource_0cfql"]
 script = ExtResource("4_84l6x")
@@ -86,6 +93,11 @@ script = ExtResource("4_84l6x")
 resourceTypeToProduce = "water"
 baseProduction = 2.0
 
+[sub_resource type="Resource" id="Resource_sxusp"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "favor"
+baseProduction = 10.0
+
 [sub_resource type="Resource" id="Resource_oc8vf"]
 script = ExtResource("6_i72h5")
 statToIncrease = "vigor"
@@ -102,6 +114,22 @@ script = ExtResource("7_vy3f6")
 statToCheck = "vigor"
 statMinimum = 15.0
 operation = SubResource("Resource_vabre")
+
+[sub_resource type="Resource" id="Resource_sbohp"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "water"
+baseProduction = 8.0
+
+[sub_resource type="Resource" id="Resource_mgqh8"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "water"
+minAmount = 30.0
+
+[sub_resource type="Resource" id="Resource_ana3h"]
+script = ExtResource("5_22pki")
+costs = {}
+resourceTypeToProduce = "silver"
+baseProduction = 1.0
 
 [sub_resource type="Resource" id="Resource_yxinf"]
 script = ExtResource("16_nvuys")
@@ -202,34 +230,12 @@ anchor_right = 1.0
 offset_bottom = 436.0
 grow_horizontal = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="AllActorsPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 72
-theme_override_constants/margin_right = 324
-
-[node name="VBoxContainer" type="VBoxContainer" parent="AllActorsPanel/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="ActorPanel" parent="AllActorsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
-layout_mode = 2
-
-[node name="ActorPanel2" parent="AllActorsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
-layout_mode = 2
-characterID = 1
-
 [node name="MoonCycleContainer" type="HBoxContainer" parent="AllActorsPanel"]
 layout_mode = 0
 offset_left = 40.0
-offset_top = 21.0
+offset_top = 29.0
 offset_right = 792.0
-offset_bottom = 53.0
+offset_bottom = 61.0
 theme_override_constants/separation = 63
 alignment = 1
 
@@ -266,6 +272,28 @@ texture = ExtResource("9_ql6pi")
 [node name="WaningGibbous" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
 layout_mode = 2
 texture = ExtResource("10_xq01v")
+
+[node name="MarginContainer" type="MarginContainer" parent="AllActorsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 96
+theme_override_constants/margin_right = 324
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AllActorsPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ActorPanel" parent="AllActorsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+layout_mode = 2
+
+[node name="ActorPanel2" parent="AllActorsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+layout_mode = 2
+characterID = 1
 
 [node name="ActionsPanel" type="Panel" parent="." groups=["ActionsPanel"]]
 layout_mode = 1
@@ -335,37 +363,43 @@ alignment = 1
 
 [node name="BigFavor" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
-action_name = "Pray"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_sxusp")])
-icon_path = "res://assets/Action_Icons/Add_Favour.png"
-tooltip = "+10 Favor"
+action_name = "Build Well"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_usjbx")])
+building = "water"
+icon_path = "res://assets/Action_Icons/Build_well.png"
+tooltip = "Using 10 rocks, build well, or increase capacity if built."
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_8kr8y")])
+unlock_tooltip = "Gather 30 rocks to unlock"
 
-[node name="RocktoSilver" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
-layout_mode = 2
-action_name = "Convert Rocks"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ana3h")])
-icon_path = "res://assets/Action_Icons/Rocks_to_silver.png"
-tooltip = "-10 Rocks, +1 Silver"
-
-[node name="BA3" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions"]
+[node name="WellActions" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 64
+theme_override_constants/separation = 32
 alignment = 1
 
-[node name="AddWater" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA3" instance=ExtResource("3_se0lr")]
+[node name="AddWater" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Draw from Well"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_0cfql")])
+building = "water"
 icon_path = "res://assets/Action_Icons/add_water.png"
 tooltip = "+5 Water"
 
-[node name="AddWaddWis" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA3" instance=ExtResource("3_se0lr")]
+[node name="AddWaddWis" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Wisdom of Water"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_p4kue"), SubResource("Resource_cagk0")])
+building = "water"
 icon_path = "res://assets/Action_Icons/add_Wisdom_water.png"
 tooltip = "+2 Water, +5 Wisdom"
+
+[node name="BigFavor" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Pray"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_sxusp")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Add_Favour.png"
+tooltip = "+10 Favor"
 
 [node name="SecondaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
 layout_mode = 2
@@ -380,6 +414,7 @@ alignment = 1
 layout_mode = 2
 action_name = "Get Vigorous"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_oc8vf")])
+building = "monument"
 icon_path = "res://assets/Action_Icons/Vigour_Big.png"
 tooltip = "+10 Vigor"
 
@@ -387,11 +422,11 @@ tooltip = "+10 Vigor"
 layout_mode = 2
 action_name = "Vigorous Rock Mining"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_6uhrq")])
+building = "rocks"
 icon_path = "res://assets/Action_Icons/Vigour_to_rocks.png"
 tooltip = "if Vigor >= 15, +20 Rocks"
 
-[node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions"]
-visible = false
+[node name="BigWaterProd" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
@@ -407,6 +442,18 @@ layout_mode = 2
 action_name = "Vigorous Rock Mining"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_6uhrq")])
 icon_path = "res://assets/Add_rocks.png"
+
+[node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="RocktoSilver" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Convert Rocks"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ana3h")])
+icon_path = "res://assets/Action_Icons/Rocks_to_silver.png"
+tooltip = "-10 Rocks, +1 Silver"
 
 [node name="TertiaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
 layout_mode = 2

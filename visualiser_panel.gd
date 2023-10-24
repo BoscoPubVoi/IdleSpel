@@ -16,6 +16,15 @@ func _ready():
 	assign_characters_to_buildings()
 
 func assign_characters_to_buildings():
+	buildings_use= {
+		rocks = 0,
+		water = 0,
+		silver = 0,
+		favor = 0,
+		relics = 0,
+		moonstone = 0,
+		moonlight = 0
+	}
 	var current = Game.placeInCycle
 	var i = 0
 	for char in characters:
@@ -32,7 +41,7 @@ func assign_characters_to_buildings():
 				var building_name = character.actions[Game.placeInCycle].building
 				var building = get_node(building_name)
 				#hide all the non relevant ones
-				characters[i].move_to(building.position + Vector2(buildings_use[character.actions[Game.placeInCycle].building] * 16, 0))
+				characters[i].move_to(building.position + Vector2(buildings_use[character.actions[Game.placeInCycle].building] * 32, 0))
 		i += 1
 
 
