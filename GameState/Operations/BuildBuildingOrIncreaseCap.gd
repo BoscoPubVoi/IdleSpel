@@ -31,6 +31,7 @@ func execute(executionState:ExecutionState):
 			executionState.gameState.buildings[buildingAndCapName] = 1
 			executionState.unlockBuilding(buildingAndCapName)
 			
+			executionState.unlockActionsGroup(buildingAndCapName)
 	else:
 		# Help increase the cap
 		executionState.gameState.resourceCaps[buildingAndCapName] += increaseCapAmount * maxAfford

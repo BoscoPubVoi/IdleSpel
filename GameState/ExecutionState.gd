@@ -33,6 +33,14 @@ func unlockActionLocations(tierNo):
 		for node in newUnlockActions:
 			node.set_enabled(true)
 
+func unlockActionsGroup(groupName):
+	if tree == null:
+		return
+		
+	var newActionPanelsToUnlock = tree.get_nodes_in_group(groupName)
+	for node in newActionPanelsToUnlock:
+		node.visible = true
+
 func unlockBuilding(resource_name):
 	if tree == null:
 		return
