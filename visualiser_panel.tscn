@@ -105,7 +105,7 @@ position = Vector2(79, 179)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_kqqun")
 animation = &"praying"
-frame_progress = 0.654806
+frame_progress = 0.65627
 script = ExtResource("3_cl67r")
 
 [node name="Character1" type="AnimatedSprite2D" parent="."]
@@ -129,59 +129,50 @@ script = ExtResource("3_cl67r")
 character_ID = 2
 
 [node name="rocks" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 3
 position = Vector2(216, 88)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_66w5g")
 
 [node name="water" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 3
 position = Vector2(320, 88)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_8bebb")
 
 [node name="silver" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 3
 position = Vector2(424, 88)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_w87bl")
 
 [node name="favor" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 3
 position = Vector2(528, 88)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("7_icjoo")
 
 [node name="relics" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 3
 position = Vector2(632, 88)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("8_50lfm")
 
 [node name="moonstone" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 3
 position = Vector2(736, 88)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("9_ucg1d")
 
 [node name="moonlight" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 3
 position = Vector2(824, 88)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("10_4sqxa")
 
 [node name="monument" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 3
 position = Vector2(79, 73)
 scale = Vector2(2, 2)
 texture = ExtResource("11_jrido")
 hframes = 3
-frame = 2

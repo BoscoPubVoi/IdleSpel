@@ -3,6 +3,7 @@ extends Panel
 
 @export var action_name :String
 @export var operations : Array[Operation]
+@export var building : String
 @export var icon_path : String
 @export var tooltip : String
 @export var unlock_requirements : Array[UnlockRequirement]
@@ -50,6 +51,7 @@ func _get_drag_data(at_position):
 		data["action"] = Action.new()
 		data["action"].constructor(operations)
 		data["action"].name = action_name
+		data["action"].building = building
 		data["tooltip"] = epic_tooltip
 		data["original_original"] = self
 		var drag_texture = TextureRect.new()

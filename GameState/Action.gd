@@ -3,6 +3,7 @@ extends Resource
 
 var name:String
 var operations:Array
+var building:String
 
 func update(executionState:ExecutionState):
 	pass

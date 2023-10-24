@@ -14,6 +14,10 @@ static func runOneStep(sceneTree):
 	var boosts = {}
 	
 	for character in Game.characters:
+		sceneTree.get_first_node_in_group("Visualiser").assign_characters_to_buildings()
+	
+	#early step
+	for character in Game.characters:
 		if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
 			continue
 		
@@ -25,6 +29,7 @@ static func runOneStep(sceneTree):
 			sceneTree
 		)
 		character.actions[placeInCycle].executeEarly(currentExecutionState)
+	
 	
 	for character in Game.characters:
 		if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:

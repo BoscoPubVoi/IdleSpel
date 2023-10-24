@@ -1,7 +1,7 @@
-[gd_scene load_steps=53 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=45 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
-[ext_resource type="PackedScene" path="res://visualiser_panel.tscn" id="2_hip1u"]
+[ext_resource type="PackedScene" uid="uid://1eop4jtm8jt5" path="res://visualiser_panel.tscn" id="2_hip1u"]
 [ext_resource type="PackedScene" uid="uid://bexv0ou3bq3sw" path="res://actor_panel.tscn" id="2_jsf26"]
 [ext_resource type="Texture2D" uid="uid://chskrj3c0vag1" path="res://assets/Full_Moon_Icon.png" id="3_gcbcu"]
 [ext_resource type="PackedScene" uid="uid://bnedr2ay2wxg1" path="res://UIElements/action_icon.tscn" id="3_se0lr"]
@@ -21,10 +21,7 @@
 [ext_resource type="Script" path="res://GameState/Operations/IncreaseGlobalProductionBonus.gd" id="18_0su82"]
 [ext_resource type="Script" path="res://GameState/Operations/BuildBuildingOrIncreaseCap.gd" id="19_plea6"]
 [ext_resource type="Texture2D" uid="uid://c1djg85lq87tj" path="res://assets/Resource_Icons/Rocks.png" id="20_gsivp"]
-[ext_resource type="Script" path="res://GameState/UnlockRequirements/RequiresMinimumAmountOfResource.gd" id="21_1cyp2"]
 [ext_resource type="Texture2D" uid="uid://dreushpajl0kh" path="res://assets/Resource_Icons/Water.png" id="21_sawqo"]
-[ext_resource type="Script" path="res://GameState/UnlockRequirements/RequiresStat.gd" id="22_b8b85"]
-[ext_resource type="Script" path="res://GameState/Operations/MultiplyInternalBasedOnStat.gd" id="22_koo6c"]
 [ext_resource type="Texture2D" uid="uid://fyfu6o55i8mp" path="res://assets/Resource_Icons/Silver.png" id="22_v80bp"]
 [ext_resource type="Texture2D" uid="uid://cebtdosjsd76y" path="res://assets/Resource_Icons/Favor.png" id="23_agkff"]
 [ext_resource type="Texture2D" uid="uid://bilo43mbxs815" path="res://assets/Resource_Icons/Relics.png" id="24_u7pt0"]
@@ -67,7 +64,7 @@ baseProduction = 10.0
 [sub_resource type="Resource" id="Resource_ana3h"]
 script = ExtResource("5_22pki")
 costs = {}
-resourceTypeToProduce = "silver"
+resourceTypeToProduce = "water"
 baseProduction = 1.0
 
 [sub_resource type="Resource" id="Resource_0cfql"]
@@ -133,33 +130,6 @@ boostAmount = 0.5
 costs = {
 "favor": 5
 }
-
-[sub_resource type="Resource" id="Resource_anyvr"]
-script = ExtResource("6_i72h5")
-statToIncrease = "vigor"
-statIncreaseAmount = 25.0
-costs = {}
-
-[sub_resource type="Resource" id="Resource_l7vhi"]
-script = ExtResource("21_1cyp2")
-resourceTypeToProduce = "rocks"
-minAmount = 100.0
-
-[sub_resource type="Resource" id="Resource_tu4hk"]
-script = ExtResource("4_84l6x")
-resourceTypeToProduce = "favor"
-baseProduction = 1.0
-
-[sub_resource type="Resource" id="Resource_t46wd"]
-script = ExtResource("22_koo6c")
-stat = "vigor"
-statMult = 1.0
-operation = SubResource("Resource_tu4hk")
-
-[sub_resource type="Resource" id="Resource_8gsml"]
-script = ExtResource("22_b8b85")
-stat = "vigor"
-minOfStat = 25.0
 
 [node name="Main" type="Control"]
 texture_filter = 3
@@ -304,7 +274,7 @@ action_name = "Mine"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_e28eb"), SubResource("Resource_icj6r")])
 building = "rocks"
 icon_path = "res://assets/Action_Icons/Small_rocks_vigor.png"
-tooltip = "+5 Rocks, +5 Vigor"
+tooltip = "+2 Rocks, +5 Vigor"
 
 [node name="BigRocks" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
@@ -436,29 +406,6 @@ action_name = "Boost every character here"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_y258d")])
 icon_path = "res://assets/Action_Icons/Boost_all_resource.png"
 tooltip = "Spend 5 favor to get 50% boost on all character actions in this moon phase"
-
-[node name="BA3" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions"]
-layout_mode = 2
-theme_override_constants/separation = 64
-alignment = 1
-
-[node name="SuperVigorous" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA3" instance=ExtResource("3_se0lr")]
-layout_mode = 2
-action_name = "Lifting heavy rocks all day"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_anyvr")])
-icon_path = "res://assets/Action_Icons/Silver_to_rock_cap.png"
-tooltip = "Gain +25 vigor"
-unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_l7vhi")])
-unlock_tooltip = "Have 100 rocks to unlock"
-
-[node name="PowerfulPraying" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA3" instance=ExtResource("3_se0lr")]
-layout_mode = 2
-action_name = "Powerful Praying"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_t46wd")])
-icon_path = "res://assets/Action_Icons/Silver_to_rock_cap.png"
-tooltip = "Gain as much favor as you have vigor"
-unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_8gsml")])
-unlock_tooltip = "Get 25 vigor to unlock"
 
 [node name="ResourcesPanel" type="Panel" parent="."]
 texture_filter = 3
