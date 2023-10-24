@@ -1,6 +1,7 @@
 extends Control
 
 @onready var MoonContainer = $AllActorsPanel/MoonCycleContainer
+@onready var Visualiser = $VisualiserPanel
 
 @onready var secondaryActions = $ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions
 @onready var tertiaryActions = $ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions
@@ -11,6 +12,7 @@ var cycleStepRunner = CycleStepRunner.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Game.buildings["rocks"] = 1
+	Visualiser.unlock_building("rocks")
 	
 	var newCharacter = Character.new()
 	newCharacter.constructor(Game.maxSupportedActions)
