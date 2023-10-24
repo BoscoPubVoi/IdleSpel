@@ -141,9 +141,6 @@ layout_mode = 2
 layout_mode = 2
 characterID = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="AllActorsPanel/MarginContainer"]
-layout_mode = 2
-
 [node name="MoonCycleContainer" type="HBoxContainer" parent="AllActorsPanel"]
 layout_mode = 0
 offset_left = 40.0

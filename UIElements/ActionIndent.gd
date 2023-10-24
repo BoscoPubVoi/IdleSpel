@@ -31,6 +31,7 @@ func _get_drag_data(at_position):
 		return data
 
 func _can_drop_data(at_position, data):
+	
 	var target_slot = current_data
 	if target_slot == null:
 		data["target_slot"] = null
@@ -60,7 +61,7 @@ func _drop_data(at_position, data):
 			get_tree().get_first_node_in_group("ActionsPanel").reset_action(data["target_slot"]["original_original"])
 		else:
 			#not empty and your trying to replace it
-			var temptexture = textureRect
+			var temptexture = textureRect.texture
 #			print(data["target_slot"])
 			origin_slot.put_in_slot(data["target_slot"], temptexture)
 			put_in_slot(data)
@@ -76,7 +77,7 @@ func put_in_slot(data, tempTexture = null):
 	
 	var fullCycleResult = FullCycleResultEvaluator.evaluate(Game)
 	
-	if current_data["texture"].texture == null:
+	if !is_instance_valid(current_data["texture"]):
 		textureRect.texture = tempTexture
 	else:
 		textureRect.texture = current_data["texture"].texture
