@@ -236,12 +236,28 @@ grow_horizontal = 2
 
 [node name="MoonCycleContainer" type="HBoxContainer" parent="AllActorsPanel"]
 layout_mode = 0
-offset_left = 40.0
+offset_left = 56.0
 offset_top = 29.0
-offset_right = 792.0
+offset_right = 808.0
 offset_bottom = 61.0
 theme_override_constants/separation = 63
 alignment = 1
+
+[node name="NewMoon" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("7_epah6")
+
+[node name="WaningCrescent" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("8_cem8g")
+
+[node name="ThirdQuarter" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("9_ql6pi")
+
+[node name="WaningGibbous" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("10_xq01v")
 
 [node name="FullMoon" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
 layout_mode = 2
@@ -261,22 +277,6 @@ texture = ExtResource("5_1oedm")
 layout_mode = 2
 texture = ExtResource("6_qfmv4")
 
-[node name="NewMoon" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
-layout_mode = 2
-texture = ExtResource("7_epah6")
-
-[node name="WaningCrescent" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
-layout_mode = 2
-texture = ExtResource("8_cem8g")
-
-[node name="ThirdQuarter" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
-layout_mode = 2
-texture = ExtResource("9_ql6pi")
-
-[node name="WaningGibbous" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
-layout_mode = 2
-texture = ExtResource("10_xq01v")
-
 [node name="MarginContainer" type="MarginContainer" parent="AllActorsPanel"]
 layout_mode = 1
 anchors_preset = 15
@@ -284,20 +284,37 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 12
+theme_override_constants/margin_left = 48
 theme_override_constants/margin_top = 96
 theme_override_constants/margin_right = 324
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AllActorsPanel/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="AllActorsPanel/MarginContainer"]
+custom_minimum_size = Vector2(830, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AllActorsPanel/MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(820, 0)
+layout_direction = 1
 layout_mode = 2
 theme_override_constants/separation = 16
+alignment = 2
 
-[node name="ActorPanel" parent="AllActorsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+[node name="ActorPanel" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
 layout_mode = 2
 
-[node name="ActorPanel2" parent="AllActorsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+[node name="ActorPanel2" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
 layout_mode = 2
 characterID = 1
+
+[node name="ActorPanel3" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+visible = false
+layout_mode = 2
+
+[node name="ActorPanel4" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+visible = false
+layout_mode = 2
 
 [node name="ActionsPanel" type="Panel" parent="." groups=["ActionsPanel"]]
 layout_mode = 1
@@ -392,12 +409,41 @@ building = "water"
 icon_path = "res://assets/Action_Icons/add_Wisdom_water.png"
 tooltip = "+2 Water, +5 Wisdom"
 
-[node name="RocktoSilver" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions" instance=ExtResource("3_se0lr")]
+[node name="AddLove" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Convert Rocks"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ana3h")])
 icon_path = "res://assets/Action_Icons/Rocks_to_silver.png"
 tooltip = "-10 Rocks, +1 Silver"
+
+[node name="WellActions2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions" groups=["water"]]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="AddWater" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Draw from Well"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_0cfql")])
+building = "water"
+icon_path = "res://assets/Action_Icons/add_water.png"
+tooltip = "+5 Water"
+
+[node name="AddWaddWis" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Wisdom of Water"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_p4kue"), SubResource("Resource_cagk0")])
+building = "water"
+icon_path = "res://assets/Action_Icons/add_Wisdom_water.png"
+tooltip = "+2 Water, +5 Wisdom"
+
+[node name="RocktoSilver" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Build Silver Station"
+icon_path = "res://assets/Action_Icons/Build_silver.png"
+tooltip = "Build Silver Station"
 
 [node name="SecondaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer" groups=["silver"]]
 visible = false
