@@ -22,9 +22,9 @@ offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 120
+theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 84
+theme_override_constants/margin_bottom = 16
 
 [node name="HBox" type="HBoxContainer" parent="Margin"]
 custom_minimum_size = Vector2(0, 100)
@@ -64,21 +64,16 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 78.0
-offset_right = 742.0
-offset_bottom = 104.0
-theme_override_constants/separation = 64
-alignment = 1
-
-[node name="Vigor" type="TextureRect" parent="HBoxContainer"]
+[node name="Vigor" type="TextureRect" parent="."]
 layout_mode = 2
+offset_left = 274.0
+offset_top = 84.0
+offset_right = 300.0
+offset_bottom = 110.0
 texture = ExtResource("3_i0j11")
 expand_mode = 2
 
-[node name="VigorLabel" type="Label" parent="HBoxContainer/Vigor"]
+[node name="VigorLabel" type="Label" parent="Vigor"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 3.0
@@ -86,12 +81,16 @@ offset_right = 132.0
 offset_bottom = 29.0
 text = "0"
 
-[node name="Wisdom" type="TextureRect" parent="HBoxContainer"]
+[node name="Wisdom" type="TextureRect" parent="."]
 layout_mode = 2
+offset_left = 364.0
+offset_top = 84.0
+offset_right = 390.0
+offset_bottom = 110.0
 texture = ExtResource("3_i0j11")
 expand_mode = 2
 
-[node name="WisdomLabel" type="Label" parent="HBoxContainer/Wisdom"]
+[node name="WisdomLabel" type="Label" parent="Wisdom"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 3.0
@@ -99,12 +98,16 @@ offset_right = 132.0
 offset_bottom = 29.0
 text = "0"
 
-[node name="Reverance" type="TextureRect" parent="HBoxContainer"]
+[node name="Reverance" type="TextureRect" parent="."]
 layout_mode = 2
+offset_left = 454.0
+offset_top = 84.0
+offset_right = 480.0
+offset_bottom = 110.0
 texture = ExtResource("3_i0j11")
 expand_mode = 2
 
-[node name="ReveranceLabel" type="Label" parent="HBoxContainer/Reverance"]
+[node name="ReveranceLabel" type="Label" parent="Reverance"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 3.0
