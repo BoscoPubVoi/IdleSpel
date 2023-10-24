@@ -21,6 +21,11 @@ func execute(executionState:ExecutionState):
 		executionState.gameState.resourceCaps[resourceTypeToProduce] -
 		executionState.gameState.resources[resourceTypeToProduce])
 	executionState.gameState.resources[resourceTypeToProduce] += thisProduction
+	
+	if ! executionState.totalResourcesByType.get(resourceTypeToProduce):
+		executionState.totalResourcesByType[resourceTypeToProduce] = thisProduction
+	else:
+		executionState.totalResourcesByType[resourceTypeToProduce] += thisProduction
 
 func _duplicate():
 	var newOperation = ProduceBaseResource.new()

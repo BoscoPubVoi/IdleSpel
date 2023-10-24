@@ -6,6 +6,8 @@ var currentBoosts:Dictionary = {}
 var tree:SceneTree
 # Multiplier used for anything inside
 var internalBoostMultiplier:float = 1
+# How many resources were produced in this ExecutionState
+var totalResourcesByType:Dictionary = {}
 
 func _init(gameState_, currentCharacter_, currentActionPosition_, boosts_, tree_):
 	gameState = gameState_

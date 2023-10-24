@@ -25,8 +25,14 @@ func execute(executionState:ExecutionState):
 	# Pay what you can
 	ResourceHelpers.pay_costs(costs, executionState.gameState.resources, actualProductionMultiplier)
 	
+	var finalProduction = baseProduction * actualProductionMultiplier
+	
 	# Get what you deserve
-	executionState.gameState.resources[resourceTypeToProduce] += baseProduction * actualProductionMultiplier
+	executionState.gameState.resources[resourceTypeToProduce] += finalProduction
+	if ! executionState.totalResourcesByType.get(resourceTypeToProduce):
+		executionState.totalResourcesByType[resourceTypeToProduce] = finalProduction
+	else:
+		executionState.totalResourcesByType[resourceTypeToProduce] += finalProduction
 
 func _duplicate():
 	var newOperation = ProduceSecondaryResource.new()

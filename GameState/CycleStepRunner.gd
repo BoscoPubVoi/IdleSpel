@@ -16,6 +16,8 @@ static func runOneStep(sceneTree):
 	for character in Game.characters:
 		sceneTree.get_first_node_in_group("Visualiser").assign_characters_to_buildings()
 	
+	var resourcesByBuilding = {}
+	
 	#early step
 	for character in Game.characters:
 		if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
@@ -29,7 +31,7 @@ static func runOneStep(sceneTree):
 			sceneTree
 		)
 		character.actions[placeInCycle].executeEarly(currentExecutionState)
-	
+		figure_out_resource_production(character, placeInCycle, resourcesByBuilding, currentExecutionState)
 	
 	for character in Game.characters:
 		if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
@@ -43,6 +45,7 @@ static func runOneStep(sceneTree):
 			sceneTree
 		)
 		character.actions[placeInCycle].execute(currentExecutionState)
+		figure_out_resource_production(character, placeInCycle, resourcesByBuilding, currentExecutionState)
 		
 	for character in Game.characters:
 		if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
@@ -56,3 +59,16 @@ static func runOneStep(sceneTree):
 			sceneTree
 		)
 		character.actions[placeInCycle].executeLate(currentExecutionState)
+		figure_out_resource_production(character, placeInCycle, resourcesByBuilding, currentExecutionState)
+
+
+static func figure_out_resource_production(character, placeInCycle, resourcesByBuilding, currentExecutionState):
+	# Figure out how many resources were produced in this step per building
+	var thisBuilding = character.actions[placeInCycle].building
+	if ! resourcesByBuilding.has(thisBuilding):
+		resourcesByBuilding[thisBuilding] = {}
+	for res in currentExecutionState.totalResourcesByType:
+		if !resourcesByBuilding[thisBuilding].has(res):
+			resourcesByBuilding[thisBuilding][res] = currentExecutionState.totalResourcesByType[res]
+		else:
+			resourcesByBuilding[thisBuilding][res] += currentExecutionState.totalResourcesByType[res]
