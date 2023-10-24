@@ -1,8 +1,8 @@
-[gd_scene load_steps=61 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=65 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
-[ext_resource type="PackedScene" path="res://visualiser_panel.tscn" id="2_hip1u"]
+[ext_resource type="PackedScene" uid="uid://cfwdqqhq48mwy" path="res://visualiser_panel.tscn" id="2_hip1u"]
 [ext_resource type="PackedScene" uid="uid://bexv0ou3bq3sw" path="res://actor_panel.tscn" id="2_jsf26"]
 [ext_resource type="Texture2D" uid="uid://chskrj3c0vag1" path="res://assets/Full_Moon_Icon.png" id="3_gcbcu"]
 [ext_resource type="PackedScene" uid="uid://bnedr2ay2wxg1" path="res://UIElements/action_icon.tscn" id="3_se0lr"]
@@ -70,7 +70,7 @@ baseProduction = 10.0
 [sub_resource type="Resource" id="Resource_usjbx"]
 script = ExtResource("19_plea6")
 buildingAndCapName = "water"
-buildBuildingAmount = 0.1
+buildBuildingAmount = 1.0
 increaseCapAmount = 5.0
 costs = {
 "rocks": 10
@@ -81,10 +81,10 @@ script = ExtResource("21_1cyp2")
 resourceTypeToProduce = "rocks"
 minAmount = 30.0
 
-[sub_resource type="Resource" id="Resource_0cfql"]
+[sub_resource type="Resource" id="Resource_geayw"]
 script = ExtResource("4_84l6x")
-resourceTypeToProduce = "love"
-baseProduction = 1.0
+resourceTypeToProduce = "water"
+baseProduction = 5.0
 
 [sub_resource type="Resource" id="Resource_p4kue"]
 script = ExtResource("6_i72h5")
@@ -102,6 +102,50 @@ script = ExtResource("5_22pki")
 costs = {}
 resourceTypeToProduce = "silver"
 baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_0cfql"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "love"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_70o2o"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "silver"
+buildBuildingAmount = 0.5
+increaseCapAmount = 1.0
+costs = {
+"water": 10
+}
+
+[sub_resource type="Resource" id="Resource_i6lbs"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "love"
+baseProduction = 10.0
+
+[sub_resource type="Resource" id="Resource_djhql"]
+script = ExtResource("5_22pki")
+costs = {
+"rocks": 10
+}
+resourceTypeToProduce = "silver"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_obebs"]
+script = ExtResource("18_0su82")
+resourceToIncrease = "rocks"
+increaseBonusAmount = 0.1
+costs = {
+"silver": 1
+}
+
+[sub_resource type="Resource" id="Resource_k5av1"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "rocks"
+buildBuildingAmount = 1.0
+increaseCapAmount = 25.0
+costs = {
+"silver": 2
+}
 
 [sub_resource type="Resource" id="Resource_oc8vf"]
 script = ExtResource("6_i72h5")
@@ -140,23 +184,6 @@ script = ExtResource("16_nvuys")
 boostInPosition = "rocks"
 boostAmount = 1.0
 costs = {}
-
-[sub_resource type="Resource" id="Resource_obebs"]
-script = ExtResource("18_0su82")
-resourceToIncrease = "rocks"
-increaseBonusAmount = 0.1
-costs = {
-"silver": 1
-}
-
-[sub_resource type="Resource" id="Resource_k5av1"]
-script = ExtResource("19_plea6")
-buildingAndCapName = "rocks"
-buildBuildingAmount = 1.0
-increaseCapAmount = 25.0
-costs = {
-"silver": 2
-}
 
 [sub_resource type="Resource" id="Resource_y258d"]
 script = ExtResource("16_nvuys")
@@ -236,12 +263,28 @@ grow_horizontal = 2
 
 [node name="MoonCycleContainer" type="HBoxContainer" parent="AllActorsPanel"]
 layout_mode = 0
-offset_left = 40.0
+offset_left = 56.0
 offset_top = 29.0
-offset_right = 792.0
+offset_right = 808.0
 offset_bottom = 61.0
 theme_override_constants/separation = 63
 alignment = 1
+
+[node name="NewMoon" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("7_epah6")
+
+[node name="WaningCrescent" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("8_cem8g")
+
+[node name="ThirdQuarter" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("9_ql6pi")
+
+[node name="WaningGibbous" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("10_xq01v")
 
 [node name="FullMoon" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
 layout_mode = 2
@@ -261,22 +304,6 @@ texture = ExtResource("5_1oedm")
 layout_mode = 2
 texture = ExtResource("6_qfmv4")
 
-[node name="NewMoon" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
-layout_mode = 2
-texture = ExtResource("7_epah6")
-
-[node name="WaningCrescent" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
-layout_mode = 2
-texture = ExtResource("8_cem8g")
-
-[node name="ThirdQuarter" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
-layout_mode = 2
-texture = ExtResource("9_ql6pi")
-
-[node name="WaningGibbous" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
-layout_mode = 2
-texture = ExtResource("10_xq01v")
-
 [node name="MarginContainer" type="MarginContainer" parent="AllActorsPanel"]
 layout_mode = 1
 anchors_preset = 15
@@ -284,21 +311,40 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 12
+theme_override_constants/margin_left = 48
 theme_override_constants/margin_top = 96
 theme_override_constants/margin_right = 324
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AllActorsPanel/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="AllActorsPanel/MarginContainer"]
+custom_minimum_size = Vector2(830, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AllActorsPanel/MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(820, 0)
+layout_direction = 1
 layout_mode = 2
 theme_override_constants/separation = 16
+alignment = 2
 
-[node name="ActorPanel" parent="AllActorsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+[node name="ActorPanel" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
 layout_mode = 2
 
-[node name="ActorPanel2" parent="AllActorsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+[node name="ActorPanel2" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
 visible = false
 layout_mode = 2
 characterID = 1
+
+[node name="ActorPanel3" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+visible = false
+layout_mode = 2
+characterID = 2
+
+[node name="ActorPanel4" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+visible = false
+layout_mode = 2
+characterID = 3
 
 [node name="ActionsPanel" type="Panel" parent="." groups=["ActionsPanel"]]
 layout_mode = 1
@@ -380,7 +426,7 @@ alignment = 1
 [node name="AddWater" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Draw from Well"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_0cfql")])
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_geayw")])
 building = "water"
 icon_path = "res://assets/Action_Icons/add_water.png"
 tooltip = "+5 Water"
@@ -393,7 +439,7 @@ building = "water"
 icon_path = "res://assets/Action_Icons/add_Wisdom_water.png"
 tooltip = "+2 Water, +5 Wisdom"
 
-[node name="RocktoSilver" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions" instance=ExtResource("3_se0lr")]
+[node name="AddLove" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Convert Rocks"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ana3h")])
@@ -407,13 +453,80 @@ mouse_filter = 2
 theme_override_constants/separation = 32
 alignment = 1
 
-[node name="GetLove" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions2" instance=ExtResource("3_se0lr")]
+[node name="AddWater" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Draw from Well"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_0cfql")])
+building = "water"
+icon_path = "res://assets/Action_Icons/add_water.png"
+tooltip = "+5 Water"
+
+[node name="AddWaddWis" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Wisdom of Water"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_p4kue"), SubResource("Resource_cagk0")])
+building = "water"
+icon_path = "res://assets/Action_Icons/add_Wisdom_water.png"
+tooltip = "+2 Water, +5 Wisdom"
+
+[node name="RocktoSilver" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Build Silver Station"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_70o2o")])
+icon_path = "res://assets/Action_Icons/Build_silver.png"
+tooltip = "Spend 10 water and 50 rocks. If the silver station hasn't been completed, build it for 50%. If it has, increase the silver cap by one."
+
+[node name="WellActions3" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions" groups=["water"]]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="GetLove" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions3" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Love of Water"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_0cfql")])
 building = "water"
 icon_path = "res://assets/Action_Icons/add_water.png"
 tooltip = "+1 Love"
+
+[node name="GetLove2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions3" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Great Love"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_i6lbs")])
+building = "water"
+icon_path = "res://assets/Action_Icons/add_water.png"
+tooltip = "+10 Love"
+
+[node name="SilverActions" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions" groups=["silver"]]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="RocksToSilver" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/SilverActions" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Silver Smelting"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_djhql")])
+building = "silver"
+icon_path = "res://assets/Action_Icons/Silver_to_rock_prod.png"
+tooltip = "Convert 10 rocks into one silver"
+
+[node name="SilverToRockProd" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/SilverActions" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Asteroid Gathering"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_obebs")])
+icon_path = "res://assets/Action_Icons/Silver_to_rock_prod.png"
+tooltip = "Spend one silver to increase the bonus rock production by 10%"
+
+[node name="SilvRockCap" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/SilverActions" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Dig out an ancient forest to put your rocks there instead"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_k5av1")])
+icon_path = "res://assets/Action_Icons/Silver_to_rock_cap.png"
+tooltip = "-2 Silver, + 25 rock capacity"
 
 [node name="SecondaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer" groups=["silver"]]
 visible = false
@@ -476,24 +589,10 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 icon_path = "res://assets/Action_Icons/Boost_same_phase.png"
 tooltip = "+100% rock production for other characters in this moon phase "
 
-[node name="SilverToRockProd" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]
-layout_mode = 2
-action_name = "Asteroid Gathering"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_obebs")])
-icon_path = "res://assets/Action_Icons/Silver_to_rock_prod.png"
-tooltip = "Spend one silver to increase the bonus rock production by 10%"
-
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions"]
 layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 1
-
-[node name="SilvRockCap" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA2" instance=ExtResource("3_se0lr")]
-layout_mode = 2
-action_name = "Dig out an ancient forest to put your rocks there instead"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_k5av1")])
-icon_path = "res://assets/Action_Icons/Silver_to_rock_cap.png"
-tooltip = "-2 Silver, + 25 rock capacity"
 
 [node name="BoostAnythingHere" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
@@ -569,7 +668,8 @@ offset_right = 112.0
 offset_bottom = 34.0
 text = "0"
 
-[node name="Water" type="TextureRect" parent="ResourcesPanel"]
+[node name="Water" type="TextureRect" parent="ResourcesPanel" groups=["water"]]
+visible = false
 layout_mode = 0
 offset_left = 16.0
 offset_top = 56.0
@@ -586,7 +686,8 @@ offset_right = 114.0
 offset_bottom = 34.0
 text = "0"
 
-[node name="Silver" type="TextureRect" parent="ResourcesPanel"]
+[node name="Silver" type="TextureRect" parent="ResourcesPanel" groups=["silver"]]
+visible = false
 layout_mode = 0
 offset_left = 16.0
 offset_top = 104.0
@@ -603,7 +704,8 @@ offset_right = 110.0
 offset_bottom = 34.0
 text = "0"
 
-[node name="Favor" type="TextureRect" parent="ResourcesPanel"]
+[node name="Favor" type="TextureRect" parent="ResourcesPanel" groups=["favor"]]
+visible = false
 layout_mode = 0
 offset_left = 16.0
 offset_top = 152.0
@@ -620,7 +722,8 @@ offset_right = 110.0
 offset_bottom = 34.0
 text = "0"
 
-[node name="Relic" type="TextureRect" parent="ResourcesPanel"]
+[node name="Relic" type="TextureRect" parent="ResourcesPanel" groups=["relic"]]
+visible = false
 layout_mode = 0
 offset_left = 168.0
 offset_top = 8.0
@@ -637,7 +740,8 @@ offset_right = 112.0
 offset_bottom = 34.0
 text = "0"
 
-[node name="Moonstone" type="TextureRect" parent="ResourcesPanel"]
+[node name="Moonstone" type="TextureRect" parent="ResourcesPanel" groups=["moonstone"]]
+visible = false
 layout_mode = 0
 offset_left = 168.0
 offset_top = 56.0
@@ -654,7 +758,8 @@ offset_right = 114.0
 offset_bottom = 34.0
 text = "0"
 
-[node name="Moonlight" type="TextureRect" parent="ResourcesPanel"]
+[node name="Moonlight" type="TextureRect" parent="ResourcesPanel" groups=["moonlight"]]
+visible = false
 layout_mode = 0
 offset_left = 168.0
 offset_top = 104.0
@@ -664,6 +769,24 @@ tooltip_text = "Moonlight"
 texture = ExtResource("26_5eomv")
 
 [node name="MoonlightLabel" type="Label" parent="ResourcesPanel/Moonlight"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 8.0
+offset_right = 110.0
+offset_bottom = 34.0
+text = "0"
+
+[node name="Love" type="TextureRect" parent="ResourcesPanel" groups=["water"]]
+visible = false
+layout_mode = 0
+offset_left = 168.0
+offset_top = 104.0
+offset_right = 208.0
+offset_bottom = 144.0
+tooltip_text = "Love"
+texture = ExtResource("26_5eomv")
+
+[node name="LoveLabel" type="Label" parent="ResourcesPanel/Love"]
 layout_mode = 0
 offset_left = 49.0
 offset_top = 8.0
