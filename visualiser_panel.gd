@@ -16,15 +16,8 @@ func _ready():
 	assign_characters_to_buildings()
 
 func assign_characters_to_buildings():
-	buildings_use= {
-		rocks = 0,
-		water = 0,
-		silver = 0,
-		favor = 0,
-		relics = 0,
-		moonstone = 0,
-		moonlight = 0
-	}
+	buildings_use = ResourceHelpers.create_empty_resources()
+	buildings_use["monument"] = 0
 	var current = Game.placeInCycle
 	var i = 0
 	for char in characters:
@@ -50,3 +43,20 @@ func unlock_building(resource):
 	for building in get_children():
 		if building.name == resource:
 			building.show()
+			# building.frame = 1
+
+func set_build_in_progress(resource):
+	for building in get_children():
+		if building.name == resource:
+			# building.show()
+			pass # todo
+
+func set_monument_in_progress(tierID):
+	for building in get_children():
+		if building.name == "monument":
+			pass # todo, somehow set the building frame or something, maybe (tierID - 1) * 2
+
+func set_monument_tier(tierID):
+	for building in get_children():
+		if building.name == "monument":
+			building.frame = tierID - 1; # * 2 + 1 if with in progress images included

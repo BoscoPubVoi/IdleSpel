@@ -41,7 +41,24 @@ func unlockActionsGroup(groupName):
 	for node in newActionPanelsToUnlock:
 		node.visible = true
 
+func setBuildInProgress(resource_name):
+	if tree == null:
+		return
+	tree.get_first_node_in_group("Visualiser").set_build_in_progress(resource_name)
+
+
+func setMonumentInProgress(tier_id):
+	if tree == null:
+		return
+	tree.get_first_node_in_group("Visualiser").set_monument_in_progress(tier_id)
+
 func unlockBuilding(resource_name):
 	if tree == null:
 		return
 	tree.get_first_node_in_group("Visualiser").unlock_building(resource_name)
+
+func setMonumentTier(tier_id):
+	if tree == null:
+		return
+	tree.get_first_node_in_group("Visualiser").set_monument_tier(tier_id)
+	

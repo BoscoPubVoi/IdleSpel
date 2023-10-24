@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=71 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -139,11 +139,6 @@ minAmount = 10.0
 script = ExtResource("4_84l6x")
 resourceTypeToProduce = "love"
 baseProduction = 1.0
-
-[sub_resource type="Resource" id="Resource_3hm76"]
-script = ExtResource("21_1cyp2")
-resourceTypeToProduce = "water"
-minAmount = 10.0
 
 [sub_resource type="Resource" id="Resource_70o2o"]
 script = ExtResource("19_plea6")
@@ -516,8 +511,6 @@ action_name = "Add Love"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_uo12j")])
 icon_path = "res://assets/Action_Icons/Rocks_to_silver.png"
 tooltip = "+ 1 Love"
-unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_3hm76")])
-unlock_tooltip = "Gather 10 water to unlock"
 
 [node name="BuildSilverStation" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions2" instance=ExtResource("3_se0lr")]
 layout_mode = 2

@@ -26,6 +26,8 @@ func execute(executionState:ExecutionState):
 		# Help build the building
 		maxAfford = min(maxAfford * buildBuildingAmount, 1 - executionState.gameState.buildings[buildingAndCapName])
 		executionState.gameState.buildings[buildingAndCapName] += maxAfford
+		executionState.setBuildInProgress(buildingAndCapName)
+		
 		if executionState.gameState.buildings[buildingAndCapName] > 0.99999:
 			#Unlock the building (i think)
 			executionState.gameState.buildings[buildingAndCapName] = 1
@@ -35,10 +37,6 @@ func execute(executionState:ExecutionState):
 	else:
 		# Help increase the cap
 		executionState.gameState.resourceCaps[buildingAndCapName] += increaseCapAmount * maxAfford
-		
-	# For certain buildings, do an unlock of actions somehow
-	executionState.unlockActionLocations(0)
-	executionState.unlockActionLocations(1)
 		
 	# Spend the costs
 	ResourceHelpers.pay_costs(costs, executionState.gameState.resources, maxAfford)
