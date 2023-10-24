@@ -1,0 +1,99 @@
+[gd_scene load_steps=13 format=3 uid="uid://1eop4jtm8jt5"]
+
+[ext_resource type="Texture2D" uid="uid://blv711c64mkv4" path="res://assets/character_sheet.png" id="1_53qgm"]
+[ext_resource type="Script" path="res://visualiser_panel.gd" id="1_e5etn"]
+[ext_resource type="Script" path="res://UIElements/VisualCharacter.gd" id="3_cl67r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khlr0"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xec8a"]
+atlas = ExtResource("1_53qgm")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je7kq"]
+atlas = ExtResource("1_53qgm")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7o2i"]
+atlas = ExtResource("1_53qgm")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvfox"]
+atlas = ExtResource("1_53qgm")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbk5b"]
+atlas = ExtResource("1_53qgm")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xdcj"]
+atlas = ExtResource("1_53qgm")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_biqx0"]
+atlas = ExtResource("1_53qgm")
+region = Rect2(112, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kqqun"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xec8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je7kq")
+}],
+"loop": true,
+"name": &"dancing",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7o2i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvfox")
+}],
+"loop": true,
+"name": &"mining",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbk5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xdcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_biqx0")
+}],
+"loop": true,
+"name": &"praying",
+"speed": 3.0
+}]
+
+[node name="VisualiserPanel" type="Panel" groups=["Visualiser"]]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -223.0
+offset_right = 875.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_khlr0")
+script = ExtResource("1_e5etn")
+
+[node name="Character" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+position = Vector2(79, 179)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_kqqun")
+animation = &"praying"
+frame_progress = 0.280825
+script = ExtResource("3_cl67r")

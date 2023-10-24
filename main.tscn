@@ -1,6 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=44 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
+[ext_resource type="PackedScene" uid="uid://1eop4jtm8jt5" path="res://visualiser_panel.tscn" id="2_hip1u"]
 [ext_resource type="PackedScene" uid="uid://bexv0ou3bq3sw" path="res://actor_panel.tscn" id="2_jsf26"]
 [ext_resource type="Texture2D" uid="uid://chskrj3c0vag1" path="res://assets/Full_Moon_Icon.png" id="3_gcbcu"]
 [ext_resource type="PackedScene" uid="uid://bnedr2ay2wxg1" path="res://UIElements/action_icon.tscn" id="3_se0lr"]
@@ -34,7 +35,6 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
-border_blend = true
 
 [sub_resource type="Theme" id="Theme_ogi3r"]
 Panel/styles/panel = SubResource("StyleBoxFlat_5tix1")
@@ -134,12 +134,16 @@ grow_vertical = 2
 theme = SubResource("Theme_ogi3r")
 script = ExtResource("1_crvfl")
 
+[node name="VisualiserPanel" parent="." instance=ExtResource("2_hip1u")]
+layout_mode = 0
+anchors_preset = 0
+
 [node name="AllActorsPanel" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 256)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 492.0
+offset_bottom = 436.0
 grow_horizontal = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="AllActorsPanel"]
