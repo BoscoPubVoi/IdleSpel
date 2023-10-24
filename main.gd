@@ -37,13 +37,18 @@ func _on_timer_timeout():
 
 
 func update_resource_labels():
-	$ResourcesPanel/Rocks/RockLabel.text = str(Game.resources["rocks"]) + " / " + str(Game.resourceCaps["rocks"])
-	$ResourcesPanel/Water/WaterLabel.text = str(Game.resources["water"]) + " / " + str(Game.resourceCaps["water"])
-	$ResourcesPanel/Silver/SilverLabel.text = str(Game.resources["silver"]) + " / " + str(Game.resourceCaps["silver"])
-	$ResourcesPanel/Favor/FavorLabel.text = str(Game.resources["favor"]) + " / " + str(Game.resourceCaps["favor"])
-	$ResourcesPanel/Relic/RelicLabel.text = str(Game.resources["relics"]) + " / " + str(Game.resourceCaps["relics"])
-	$ResourcesPanel/Moonstone/MoonstoneLabel.text = str(Game.resources["moonstone"]) + " / " + str(Game.resourceCaps["moonstone"])
-	$ResourcesPanel/Moonlight/MoonlightLabel.text = str(Game.resources["moonlight"]) + " / " + str(Game.resourceCaps["moonlight"])
+	$ResourcesPanel/Rocks/RockLabel.text = str(floor(Game.resources["rocks"])) + " / " + str(floor(Game.resourceCaps["rocks"]))
+	$ResourcesPanel/Water/WaterLabel.text = str(floor(Game.resources["water"])) + " / " + str(floor(Game.resourceCaps["water"]))
+	$ResourcesPanel/Silver/SilverLabel.text = str(floor(Game.resources["silver"])) + " / " + str(floor(Game.resourceCaps["silver"]))
+	$ResourcesPanel/Favor/FavorLabel.text = str(floor(Game.resources["favor"])) + " / " + str(floor(Game.resourceCaps["favor"]))
+	$ResourcesPanel/Relic/RelicLabel.text = str(floor(Game.resources["relics"])) + " / " + str(floor(Game.resourceCaps["relics"]))
+	$ResourcesPanel/Moonstone/MoonstoneLabel.text = str(floor(Game.resources["moonstone"])) + " / " + str(floor(Game.resourceCaps["moonstone"]))
+	$ResourcesPanel/Moonlight/MoonlightLabel.text = str(floor(Game.resources["moonlight"])) + " / " + str(floor(Game.resourceCaps["moonlight"]))
+	var loveGoal = CycleStepRunner.get_current_love_goal(Game)
+	if loveGoal < 10000:
+		$ResourcesPanel/Love/LoveLabel.text = str(floor(Game.resources["love"])) + (" / " + str(CycleStepRunner.get_current_love_goal(Game)))
+	else:
+		$ResourcesPanel/Love/LoveLabel.text = str(floor(Game.resources["love"]))
 
 func updateMoonCycleIcon():
 	Game.placeInCycle

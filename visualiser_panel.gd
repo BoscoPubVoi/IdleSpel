@@ -1,6 +1,6 @@
 extends Panel
 
-@onready var characters = [$Character0, $Character1, $Character2]
+@onready var characters = [$Character0, $Character1, $Character2, $Character3]
 
 var buildings_use= {
 	rocks = 0,

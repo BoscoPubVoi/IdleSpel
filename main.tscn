@@ -117,7 +117,7 @@ costs = {
 "water": 10
 }
 
-[sub_resource type="Resource" id="Resource_i6lbs"]
+[sub_resource type="Resource" id="Resource_167o2"]
 script = ExtResource("4_84l6x")
 resourceTypeToProduce = "love"
 baseProduction = 10.0
@@ -494,7 +494,7 @@ tooltip = "+1 Love"
 [node name="GetLove2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions3" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Great Love"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_i6lbs")])
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_167o2")])
 building = "water"
 icon_path = "res://assets/Action_Icons/add_water.png"
 tooltip = "+10 Love"

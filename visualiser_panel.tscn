@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://1eop4jtm8jt5"]
+[gd_scene load_steps=21 format=3 uid="uid://cfwdqqhq48mwy"]
 
 [ext_resource type="Texture2D" uid="uid://blv711c64mkv4" path="res://assets/character_sheet.png" id="1_53qgm"]
 [ext_resource type="Script" path="res://visualiser_panel.gd" id="1_e5etn"]
@@ -119,6 +119,16 @@ script = ExtResource("3_cl67r")
 character_ID = 1
 
 [node name="Character2" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+position = Vector2(223, 179)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_kqqun")
+animation = &"praying"
+frame_progress = 0.0922798
+script = ExtResource("3_cl67r")
+character_ID = 2
+
+[node name="Character3" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
 position = Vector2(223, 179)
 scale = Vector2(2, 2)

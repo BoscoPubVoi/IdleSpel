@@ -75,8 +75,12 @@ static func runOneStep(sceneTree):
 				node.visible = true
 
 static func get_current_love_goal(gameState):
+	if len(gameState.characters) >= 4:
+		return 10000000000 #Basically make this impossible
+	if len(gameState.characters) >= 3:
+		return 10
 	if len(gameState.characters) >= 2:
-		return 10000000000000000000
+		return 3
 	return 1
 
 static func figure_out_resource_production(character, placeInCycle, resourcesByBuilding, currentExecutionState):
