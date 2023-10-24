@@ -17,7 +17,7 @@ func _ready():
 	var newCharacter2 = Character.new()
 	newCharacter2.constructor(Game.maxSupportedActions)
 	Game.characters.push_back(newCharacter2)
-	
+	update_resource_labels()
 	updateMoonCycleIcon()
 
 
@@ -36,9 +36,10 @@ func _on_timer_timeout():
 
 
 func update_resource_labels():
-	$ResourcesPanel/RockLabel.text = "Rocks: " + str(Game.resources["rocks"])
-	$ResourcesPanel/WaterLabel.text = "Water: " + str(Game.resources["water"])
-	$ResourcesPanel/SilverLabel.text = "Silver: " + str(Game.resources["silver"])
+	$ResourcesPanel/Rocks/RockLabel.text = str(Game.resources["rocks"]) + " / " + str(Game.resourceCaps["rocks"])
+	$ResourcesPanel/Water/WaterLabel.text = str(Game.resources["water"]) + " / " + str(Game.resourceCaps["water"])
+	$ResourcesPanel/Silver/SilverLabel.text = str(Game.resources["silver"]) + " / " + str(Game.resourceCaps["silver"])
+	$ResourcesPanel/Favor/FavorLabel.text = str(Game.resources["favor"]) + " / " + str(Game.resourceCaps["favor"])
 
 func updateMoonCycleIcon():
 	Game.placeInCycle

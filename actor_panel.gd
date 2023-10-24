@@ -6,5 +6,10 @@ extends Panel
 func _ready():
 	pass # Replace with function body.
 
-func _proces(delta):
+func _process(delta):
+#	update_worshiper_stats()
 	pass
+
+
+func update_worshiper_stats():
+	$Vigor/VigorLabel.text = str(Game.characters[characterID]["stats"]["vigor"])

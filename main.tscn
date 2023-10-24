@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=37 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
 [ext_resource type="PackedScene" uid="uid://bexv0ou3bq3sw" path="res://actor_panel.tscn" id="2_jsf26"]
@@ -19,6 +19,10 @@
 [ext_resource type="Script" path="res://GameState/Operations/BoostCharactersInPosition.gd" id="16_nvuys"]
 [ext_resource type="Script" path="res://GameState/Operations/IncreaseGlobalProductionBonus.gd" id="18_0su82"]
 [ext_resource type="Script" path="res://GameState/Operations/BuildBuildingOrIncreaseCap.gd" id="19_plea6"]
+[ext_resource type="Texture2D" uid="uid://c1djg85lq87tj" path="res://assets/Resource_Icons/Rocks.png" id="20_gsivp"]
+[ext_resource type="Texture2D" uid="uid://dreushpajl0kh" path="res://assets/Resource_Icons/Water.png" id="21_sawqo"]
+[ext_resource type="Texture2D" uid="uid://fyfu6o55i8mp" path="res://assets/Resource_Icons/Silver.png" id="22_v80bp"]
+[ext_resource type="Texture2D" uid="uid://cebtdosjsd76y" path="res://assets/Resource_Icons/Favor.png" id="23_agkff"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
@@ -38,15 +42,16 @@ script = ExtResource("4_84l6x")
 resourceTypeToProduce = "rocks"
 baseProduction = 5.0
 
+[sub_resource type="Resource" id="Resource_icj6r"]
+script = ExtResource("6_i72h5")
+statToIncrease = "vigor"
+statIncreaseAmount = 5.0
+costs = {}
+
 [sub_resource type="Resource" id="Resource_ni4id"]
 script = ExtResource("4_84l6x")
 resourceTypeToProduce = "rocks"
 baseProduction = 10.0
-
-[sub_resource type="Resource" id="Resource_irgi5"]
-script = ExtResource("4_84l6x")
-resourceTypeToProduce = "rocks"
-baseProduction = 12.0
 
 [sub_resource type="Resource" id="Resource_sxusp"]
 script = ExtResource("4_84l6x")
@@ -102,6 +107,7 @@ costs = {
 }
 
 [node name="Main" type="Control"]
+texture_filter = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -231,16 +237,16 @@ alignment = 1
 [node name="SmallRocks" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "rock+"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_e28eb")])
-icon_path = "res://assets/Action_Icons/Rock_small.png"
-tooltip = "+5 rocks"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_e28eb"), SubResource("Resource_icj6r")])
+icon_path = "res://assets/Action_Icons/Small_rocks_vigor.png"
+tooltip = "+5 Vigor, +2 Rocks"
 
 [node name="BigRocks" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "rock+++"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ni4id"), SubResource("Resource_irgi5")])
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ni4id")])
 icon_path = "res://assets/Action_Icons/Add_rocks.png"
-tooltip = "+22 Rocks"
+tooltip = "+10 Rocks"
 
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions"]
 layout_mode = 2
@@ -286,6 +292,7 @@ icon_path = "res://assets/Action_Icons/Vigour_to_rocks.png"
 tooltip = "if Vigor >= 15, +20 Rocks"
 
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
@@ -304,6 +311,7 @@ icon_path = "res://assets/Add_rocks.png"
 
 [node name="TertiaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
 layout_mode = 2
+theme_override_constants/separation = 24
 
 [node name="BA1" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions"]
 layout_mode = 2
@@ -328,16 +336,18 @@ layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="Action" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA2" instance=ExtResource("3_se0lr")]
+[node name="SilvRockCap" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Dig out an ancient forest to put your rocks there instead"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_k5av1")])
+icon_path = "res://assets/Action_Icons/Silver_to_rock_cap.png"
 tooltip = "-2 Silver, + 25 rock capacity"
 
 [node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 
 [node name="ResourcesPanel" type="Panel" parent="."]
+texture_filter = 3
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -349,29 +359,69 @@ offset_top = -214.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="RockLabel" type="Label" parent="ResourcesPanel"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 30.0
-offset_right = 194.0
-offset_bottom = 78.0
-text = "Rocks: 0"
-
-[node name="WaterLabel" type="Label" parent="ResourcesPanel"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 65.0
-offset_right = 193.0
-offset_bottom = 113.0
-text = "Water: 0"
-
-[node name="SilverLabel" type="Label" parent="ResourcesPanel"]
+[node name="Rocks" type="TextureRect" parent="ResourcesPanel"]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 95.0
-offset_right = 192.0
-offset_bottom = 143.0
-text = "Silver: 0"
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 48.0
+texture = ExtResource("20_gsivp")
+
+[node name="RockLabel" type="Label" parent="ResourcesPanel/Rocks"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 34.0
+text = "0"
+
+[node name="Water" type="TextureRect" parent="ResourcesPanel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 56.0
+offset_right = 64.0
+offset_bottom = 96.0
+texture = ExtResource("21_sawqo")
+
+[node name="WaterLabel" type="Label" parent="ResourcesPanel/Water"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 8.0
+offset_right = 114.0
+offset_bottom = 34.0
+text = "0"
+
+[node name="Silver" type="TextureRect" parent="ResourcesPanel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 104.0
+offset_right = 64.0
+offset_bottom = 144.0
+texture = ExtResource("22_v80bp")
+
+[node name="SilverLabel" type="Label" parent="ResourcesPanel/Silver"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 8.0
+offset_right = 110.0
+offset_bottom = 34.0
+text = "0"
+
+[node name="Favor" type="TextureRect" parent="ResourcesPanel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 152.0
+offset_right = 64.0
+offset_bottom = 192.0
+texture = ExtResource("23_agkff")
+
+[node name="FavorLabel" type="Label" parent="ResourcesPanel/Favor"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 8.0
+offset_right = 110.0
+offset_bottom = 34.0
+text = "0"
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

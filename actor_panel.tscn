@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bexv0ou3bq3sw"]
+[gd_scene load_steps=4 format=3 uid="uid://bexv0ou3bq3sw"]
 
 [ext_resource type="Script" path="res://actor_panel.gd" id="1_0eeyd"]
 [ext_resource type="PackedScene" uid="uid://ddwdk74737glc" path="res://UIElements/action_indent.tscn" id="1_i1gly"]
+[ext_resource type="Texture2D" uid="uid://bjawbc7eps6hc" path="res://assets/Resource_Icons/Vigor.png" id="3_i0j11"]
 
 [node name="ActorPanel" type="Panel" groups=["ActorPanel"]]
+texture_filter = 3
 custom_minimum_size = Vector2(0, 116)
-offset_bottom = 124.0
+offset_left = -1.0
+offset_bottom = 215.0
 script = ExtResource("1_0eeyd")
 
 [node name="Margin" type="MarginContainer" parent="."]
@@ -21,7 +24,7 @@ grow_vertical = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 84
 theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_bottom = 84
 
 [node name="HBox" type="HBoxContainer" parent="Margin"]
 custom_minimum_size = Vector2(0, 100)
@@ -61,16 +64,18 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="WorshiperStats" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -138.0
-offset_top = -26.0
-offset_right = 138.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Vigour: 0    Reverance: 0   Wisdom: 0"
+[node name="Vigor" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 70.0
+offset_right = 46.0
+offset_bottom = 110.0
+texture = ExtResource("3_i0j11")
+
+[node name="VigorLabel" type="Label" parent="Vigor"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 9.0
+offset_right = 132.0
+offset_bottom = 35.0
+text = "0"
