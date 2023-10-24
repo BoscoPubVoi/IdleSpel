@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=55 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
 [ext_resource type="PackedScene" path="res://visualiser_panel.tscn" id="2_hip1u"]
@@ -160,6 +160,18 @@ operation = SubResource("Resource_tu4hk")
 script = ExtResource("22_b8b85")
 stat = "vigor"
 minOfStat = 25.0
+
+[sub_resource type="Resource" id="Resource_t384u"]
+script = ExtResource("16_nvuys")
+boostInPosition = "all"
+boostAmount = 0.01
+costs = {}
+
+[sub_resource type="Resource" id="Resource_hpjkk"]
+script = ExtResource("22_koo6c")
+stat = "vigor"
+statMult = 1.0
+operation = SubResource("Resource_t384u")
 
 [node name="Main" type="Control"]
 texture_filter = 3
@@ -452,6 +464,27 @@ unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockR
 unlock_tooltip = "Have 100 rocks to unlock"
 
 [node name="PowerfulPraying" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA3" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Powerful Praying"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_t46wd")])
+icon_path = "res://assets/Action_Icons/Silver_to_rock_cap.png"
+tooltip = "Gain as much favor as you have vigor"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_8gsml")])
+unlock_tooltip = "Get 25 vigor to unlock"
+
+[node name="BA4" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="VigourBasedBoost" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA4" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Showing off your muscles"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_hpjkk")])
+icon_path = "res://assets/Action_Icons/Silver_to_rock_cap.png"
+tooltip = "Boost all characters for this moon phase with a % equal to your vigor"
+
+[node name="PowerfulPraying" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA4" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Powerful Praying"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_t46wd")])

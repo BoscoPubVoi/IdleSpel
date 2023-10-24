@@ -10,7 +10,7 @@ func constructor(boostInPosition_, boostAmount_, costs_):
 	costs = costs_
 
 func executeEarly(executionState:ExecutionState):
-	var maxAfford = min(1, ResourceHelpers.calculate_max_afford_with_cost(
+	var maxAfford = min(executionState.internalBoostMultiplier, ResourceHelpers.calculate_max_afford_with_cost(
 		costs, executionState.gameState.resources))
 	
 	if maxAfford >= 0.99999999:
@@ -20,7 +20,7 @@ func executeEarly(executionState:ExecutionState):
 		#Then go ahead and give the boost
 		if ! executionState.currentBoosts.has(boostInPosition):
 			executionState.currentBoosts[boostInPosition] = 0;
-		executionState.currentBoosts[boostInPosition] += boostAmount
+		executionState.currentBoosts[boostInPosition] += boostAmount * maxAfford
 
 func _duplicate():
 	var newOperation = BoostCharactersInPosition.new()

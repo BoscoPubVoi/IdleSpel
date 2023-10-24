@@ -61,7 +61,6 @@ static func runOneStep(sceneTree):
 		character.actions[placeInCycle].executeLate(currentExecutionState)
 		figure_out_resource_production(character, placeInCycle, resourcesByBuilding, currentExecutionState)
 
-
 static func figure_out_resource_production(character, placeInCycle, resourcesByBuilding, currentExecutionState):
 	# Figure out how many resources were produced in this step per building
 	var thisBuilding = character.actions[placeInCycle].building
