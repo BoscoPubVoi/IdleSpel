@@ -8,12 +8,14 @@ extends Panel
 
 @onready var textureRect = $TextureRect
 
+var epic_tooltip
 
 var used = false
 
 func _ready():
 	textureRect.texture = load(icon_path)
-	tooltip_text = tooltip
+	epic_tooltip = action_name + ":\n" +  tooltip
+	tooltip_text = epic_tooltip
 
 func _get_drag_data(at_position):
 	if !used:
@@ -22,7 +24,7 @@ func _get_drag_data(at_position):
 		data["action"] = Action.new()
 		data["action"].constructor(operations)
 		data["action"].name = action_name
-		data["tooltip"] = tooltip
+		data["tooltip"] = epic_tooltip
 		data["original_original"] = self
 		var drag_texture = TextureRect.new()
 		drag_texture.texture = load(icon_path)

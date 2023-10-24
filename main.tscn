@@ -1,6 +1,7 @@
-[gd_scene load_steps=38 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=45 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
+[ext_resource type="PackedScene" path="res://visualiser_panel.tscn" id="2_hip1u"]
 [ext_resource type="PackedScene" uid="uid://bexv0ou3bq3sw" path="res://actor_panel.tscn" id="2_jsf26"]
 [ext_resource type="Texture2D" uid="uid://chskrj3c0vag1" path="res://assets/Full_Moon_Icon.png" id="3_gcbcu"]
 [ext_resource type="PackedScene" uid="uid://bnedr2ay2wxg1" path="res://UIElements/action_icon.tscn" id="3_se0lr"]
@@ -23,6 +24,9 @@
 [ext_resource type="Texture2D" uid="uid://dreushpajl0kh" path="res://assets/Resource_Icons/Water.png" id="21_sawqo"]
 [ext_resource type="Texture2D" uid="uid://fyfu6o55i8mp" path="res://assets/Resource_Icons/Silver.png" id="22_v80bp"]
 [ext_resource type="Texture2D" uid="uid://cebtdosjsd76y" path="res://assets/Resource_Icons/Favor.png" id="23_agkff"]
+[ext_resource type="Texture2D" uid="uid://bilo43mbxs815" path="res://assets/Resource_Icons/Relics.png" id="24_u7pt0"]
+[ext_resource type="Texture2D" uid="uid://c5trp2p3ch51r" path="res://assets/Resource_Icons/Moonstone.png" id="25_62bb2"]
+[ext_resource type="Texture2D" uid="uid://d37muymk3m77a" path="res://assets/Resource_Icons/Moonlight.png" id="26_5eomv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
@@ -31,7 +35,6 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
-border_blend = true
 
 [sub_resource type="Theme" id="Theme_ogi3r"]
 Panel/styles/panel = SubResource("StyleBoxFlat_5tix1")
@@ -60,11 +63,25 @@ baseProduction = 10.0
 
 [sub_resource type="Resource" id="Resource_ana3h"]
 script = ExtResource("5_22pki")
-costs = {
-"rocks": 10
-}
-resourceTypeToProduce = "silver"
+costs = {}
+resourceTypeToProduce = "water"
 baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_0cfql"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "water"
+baseProduction = 5.0
+
+[sub_resource type="Resource" id="Resource_p4kue"]
+script = ExtResource("6_i72h5")
+statToIncrease = "wisdom"
+statIncreaseAmount = 5.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_cagk0"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "water"
+baseProduction = 2.0
 
 [sub_resource type="Resource" id="Resource_oc8vf"]
 script = ExtResource("6_i72h5")
@@ -125,12 +142,21 @@ grow_vertical = 2
 theme = SubResource("Theme_ogi3r")
 script = ExtResource("1_crvfl")
 
+[node name="VisualiserPanel" parent="." instance=ExtResource("2_hip1u")]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 223.0
+grow_vertical = 1
+
 [node name="AllActorsPanel" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 256)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 492.0
+offset_bottom = 436.0
 grow_horizontal = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="AllActorsPanel"]
@@ -244,14 +270,14 @@ alignment = 1
 
 [node name="SmallRocks" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
-action_name = "rock+"
+action_name = "Mine:"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_e28eb"), SubResource("Resource_icj6r")])
 icon_path = "res://assets/Action_Icons/Small_rocks_vigor.png"
-tooltip = "+5 Vigor, +2 Rocks"
+tooltip = "+2 Rocks, +5 Vigor"
 
 [node name="BigRocks" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
-action_name = "rock+++"
+action_name = "Break Boulder"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ni4id")])
 icon_path = "res://assets/Action_Icons/Add_rocks.png"
 tooltip = "+10 Rocks"
@@ -271,10 +297,30 @@ tooltip = "+10 Favor"
 
 [node name="RocktoSilver" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
-action_name = "rockstosilver"
+action_name = "Convert Rocks"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ana3h")])
 icon_path = "res://assets/Action_Icons/Rocks_to_silver.png"
 tooltip = "-10 Rocks, +1 Silver"
+
+[node name="BA3" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="AddWater" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA3" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Draw from Well"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_0cfql")])
+icon_path = "res://assets/Action_Icons/add_water.png"
+tooltip = "+5 Water"
+
+[node name="AddWaddWis" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA3" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Wisdom of Water"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_p4kue"), SubResource("Resource_cagk0")])
+icon_path = "res://assets/Action_Icons/add_Wisdom_water.png"
+tooltip = "+2 Water, +5 Wisdom"
 
 [node name="SecondaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
 layout_mode = 2
@@ -328,6 +374,7 @@ alignment = 1
 
 [node name="RockPhaseBoost" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+action_name = "Rock Ritual"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_yxinf")])
 icon_path = "res://assets/Action_Icons/Boost_same_phase.png"
 tooltip = "+100% rock production for other characters in this moon phase "
@@ -373,10 +420,11 @@ grow_vertical = 0
 
 [node name="Rocks" type="TextureRect" parent="ResourcesPanel"]
 layout_mode = 0
-offset_left = 24.0
+offset_left = 16.0
 offset_top = 8.0
-offset_right = 64.0
+offset_right = 56.0
 offset_bottom = 48.0
+tooltip_text = "Rocks"
 texture = ExtResource("20_gsivp")
 
 [node name="RockLabel" type="Label" parent="ResourcesPanel/Rocks"]
@@ -389,10 +437,11 @@ text = "0"
 
 [node name="Water" type="TextureRect" parent="ResourcesPanel"]
 layout_mode = 0
-offset_left = 24.0
+offset_left = 16.0
 offset_top = 56.0
-offset_right = 64.0
+offset_right = 56.0
 offset_bottom = 96.0
+tooltip_text = "Water"
 texture = ExtResource("21_sawqo")
 
 [node name="WaterLabel" type="Label" parent="ResourcesPanel/Water"]
@@ -405,10 +454,11 @@ text = "0"
 
 [node name="Silver" type="TextureRect" parent="ResourcesPanel"]
 layout_mode = 0
-offset_left = 24.0
+offset_left = 16.0
 offset_top = 104.0
-offset_right = 64.0
+offset_right = 56.0
 offset_bottom = 144.0
+tooltip_text = "Silver"
 texture = ExtResource("22_v80bp")
 
 [node name="SilverLabel" type="Label" parent="ResourcesPanel/Silver"]
@@ -421,13 +471,65 @@ text = "0"
 
 [node name="Favor" type="TextureRect" parent="ResourcesPanel"]
 layout_mode = 0
-offset_left = 24.0
+offset_left = 16.0
 offset_top = 152.0
-offset_right = 64.0
+offset_right = 56.0
 offset_bottom = 192.0
+tooltip_text = "Favor"
 texture = ExtResource("23_agkff")
 
 [node name="FavorLabel" type="Label" parent="ResourcesPanel/Favor"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 8.0
+offset_right = 110.0
+offset_bottom = 34.0
+text = "0"
+
+[node name="Relic" type="TextureRect" parent="ResourcesPanel"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 8.0
+offset_right = 208.0
+offset_bottom = 48.0
+tooltip_text = "Relics"
+texture = ExtResource("24_u7pt0")
+
+[node name="RelicLabel" type="Label" parent="ResourcesPanel/Relic"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 34.0
+text = "0"
+
+[node name="Moonstone" type="TextureRect" parent="ResourcesPanel"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 56.0
+offset_right = 208.0
+offset_bottom = 96.0
+tooltip_text = "Moonstone"
+texture = ExtResource("25_62bb2")
+
+[node name="MoonstoneLabel" type="Label" parent="ResourcesPanel/Moonstone"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 8.0
+offset_right = 114.0
+offset_bottom = 34.0
+text = "0"
+
+[node name="Moonlight" type="TextureRect" parent="ResourcesPanel"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 104.0
+offset_right = 208.0
+offset_bottom = 144.0
+tooltip_text = "Moonlight"
+texture = ExtResource("26_5eomv")
+
+[node name="MoonlightLabel" type="Label" parent="ResourcesPanel/Moonlight"]
 layout_mode = 0
 offset_left = 49.0
 offset_top = 8.0
