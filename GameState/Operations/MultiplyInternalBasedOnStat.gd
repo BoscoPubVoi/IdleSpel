@@ -10,6 +10,10 @@ func construct(stat_, statMult_, operation_):
 	operation = operation_
 
 
+func executeEarly(executionState:ExecutionState):
+	executionState.internalBoostMultiplier *= statMult * executionState.currentCharacter.stats[stat]
+	operation.executeEarly(executionState)
+
 func execute(executionState:ExecutionState):
 	executionState.internalBoostMultiplier *= statMult * executionState.currentCharacter.stats[stat]
 	operation.execute(executionState)
