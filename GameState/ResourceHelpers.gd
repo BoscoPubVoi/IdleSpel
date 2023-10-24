@@ -24,8 +24,13 @@ static func calculate_boost(executionState, resource):
 	var totalBoost = 1
 	
 	var boostAmount = executionState.currentBoosts.get(resource)
-	if boostAmount != null:
-		totalBoost *= 1 + boostAmount
+	var boostAmountB = executionState.currentBoosts.get("all")
+	if boostAmountB == null:
+		boostAmountB = 0
+	if boostAmount == null:
+		boostAmount = 0
+	
+	totalBoost *= 1 + (boostAmount + boostAmountB)
 		
 	var boostAmount2 = executionState.gameState.globalProductionBonuses.get(resource)
 	if boostAmount2 != null:

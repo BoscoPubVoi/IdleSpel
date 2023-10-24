@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=38 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
 [ext_resource type="PackedScene" uid="uid://bexv0ou3bq3sw" path="res://actor_panel.tscn" id="2_jsf26"]
@@ -104,6 +104,14 @@ buildBuildingAmount = 1.0
 increaseCapAmount = 25.0
 costs = {
 "silver": 2
+}
+
+[sub_resource type="Resource" id="Resource_y258d"]
+script = ExtResource("16_nvuys")
+boostInPosition = "all"
+boostAmount = 0.5
+costs = {
+"favor": 5
 }
 
 [node name="Main" type="Control"]
@@ -343,8 +351,12 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 icon_path = "res://assets/Action_Icons/Silver_to_rock_cap.png"
 tooltip = "-2 Silver, + 25 rock capacity"
 
-[node name="Action2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA2" instance=ExtResource("3_se0lr")]
+[node name="BoostAnythingHere" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+action_name = "Boost every character here"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_y258d")])
+icon_path = "res://assets/Action_Icons/Silver_to_rock_cap.png"
+tooltip = "Spend 5 favor to get 50% boost on all character actions in this moon phase"
 
 [node name="ResourcesPanel" type="Panel" parent="."]
 texture_filter = 3

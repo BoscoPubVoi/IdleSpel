@@ -10,7 +10,11 @@ func constructor(resourceToIncrease_, increaseBonusAmount_, costs_):
 	costs = costs_
 
 func execute(executionState:ExecutionState):
-	var maxAfford = min(1, ResourceHelpers.calculate_max_afford_with_cost(
+	var boostAmount = executionState.currentBoosts.get("all")
+	if boostAmount == null:
+		boostAmount = 0
+
+	var maxAfford = min(1 + boostAmount, ResourceHelpers.calculate_max_afford_with_cost(
 		costs, executionState.gameState.resources))
 	
 	var boostAmount2 = executionState.gameState.globalProductionBonuses.get(resourceToIncrease)

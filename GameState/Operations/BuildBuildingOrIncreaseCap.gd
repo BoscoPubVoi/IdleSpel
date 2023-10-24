@@ -11,7 +11,11 @@ func constructor(buildingAndCapName_, increaseCapAmount_, costs_):
 	costs = costs_
 
 func execute(executionState:ExecutionState):
-	var maxAfford = min(1, ResourceHelpers.calculate_max_afford_with_cost(
+	var boostAmount = executionState.currentBoosts.get("all")
+	if boostAmount == null:
+		boostAmount = 0
+
+	var maxAfford = min(1 + boostAmount, ResourceHelpers.calculate_max_afford_with_cost(
 		costs, executionState.gameState.resources))
 	
 	if !executionState.gameState.buildings.has(buildingAndCapName):
@@ -26,6 +30,10 @@ func execute(executionState:ExecutionState):
 	else:
 		# Help increase the cap
 		executionState.gameState.resourceCaps[buildingAndCapName] += increaseCapAmount * maxAfford
+		
+	# For certain buildings, do an unlock of actions somehow
+	executionState.unlockActionLocations(0)
+	executionState.unlockActionLocations(1)
 		
 	# Spend the costs
 	ResourceHelpers.pay_costs(costs, executionState.gameState.resources, maxAfford)

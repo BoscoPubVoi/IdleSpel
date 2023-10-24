@@ -36,33 +36,39 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="ActionIndent2" parent="Margin/HBox" instance=ExtResource("1_i1gly")]
+[node name="ActionIndent2" parent="Margin/HBox" groups=["SecondUnlockedAction"] instance=ExtResource("1_i1gly")]
 layout_mode = 2
 size_flags_vertical = 0
+enabled = false
 
-[node name="ActionIndent3" parent="Margin/HBox" instance=ExtResource("1_i1gly")]
+[node name="ActionIndent3" parent="Margin/HBox" groups=["FirstUnlockedAction"] instance=ExtResource("1_i1gly")]
 layout_mode = 2
 size_flags_vertical = 0
+enabled = false
 
-[node name="ActionIndent4" parent="Margin/HBox" instance=ExtResource("1_i1gly")]
+[node name="ActionIndent4" parent="Margin/HBox" groups=["SecondUnlockedAction"] instance=ExtResource("1_i1gly")]
 layout_mode = 2
 size_flags_vertical = 0
+enabled = false
 
 [node name="ActionIndent5" parent="Margin/HBox" instance=ExtResource("1_i1gly")]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="ActionIndent6" parent="Margin/HBox" instance=ExtResource("1_i1gly")]
+[node name="ActionIndent6" parent="Margin/HBox" groups=["SecondUnlockedAction"] instance=ExtResource("1_i1gly")]
 layout_mode = 2
 size_flags_vertical = 0
+enabled = false
 
-[node name="ActionIndent7" parent="Margin/HBox" instance=ExtResource("1_i1gly")]
+[node name="ActionIndent7" parent="Margin/HBox" groups=["FirstUnlockedAction"] instance=ExtResource("1_i1gly")]
 layout_mode = 2
 size_flags_vertical = 0
+enabled = false
 
-[node name="ActionIndent8" parent="Margin/HBox" instance=ExtResource("1_i1gly")]
+[node name="ActionIndent8" parent="Margin/HBox" groups=["SecondUnlockedAction"] instance=ExtResource("1_i1gly")]
 layout_mode = 2
 size_flags_vertical = 0
+enabled = false
 
 [node name="Vigor" type="TextureRect" parent="."]
 layout_mode = 2

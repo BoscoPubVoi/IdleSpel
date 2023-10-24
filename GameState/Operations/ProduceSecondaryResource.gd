@@ -10,12 +10,12 @@ func constructor(resourceTypeToProduce_, baseProduction_):
 
 func execute(executionState:ExecutionState):
 	# Check whether paying the costs is possible, only produce as far as that is possible
-	var maximumPossibleProductionMultiplier = ResourceHelpers.calculate_max_afford_with_cost(
+	var actualProductionMultiplier = ResourceHelpers.calculate_max_afford_with_cost(
 		costs, executionState.gameState.resources)
-	var actualProductionMultiplier = min(1, maximumPossibleProductionMultiplier)
 	
 	# Take boosts into account
-	actualProductionMultiplier *= ResourceHelpers.calculate_boost(executionState, resourceTypeToProduce)
+	actualProductionMultiplier = min(ResourceHelpers.calculate_boost(executionState, resourceTypeToProduce),
+		actualProductionMultiplier)
 	
 	# Take caps into account
 	actualProductionMultiplier = min(actualProductionMultiplier,

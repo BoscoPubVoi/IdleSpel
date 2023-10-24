@@ -1,7 +1,7 @@
 class_name CycleStepRunner
 
 
-static func runOneStep():
+static func runOneStep(sceneTree):
 	Game.placeInCycle += 1
 	Game.placeInCycle = Game.placeInCycle % Game.maxSupportedActions
 	
@@ -21,7 +21,8 @@ static func runOneStep():
 			Game,
 			character,
 			placeInCycle,
-			boosts
+			boosts,
+			sceneTree
 		)
 		character.actions[placeInCycle].executeEarly(currentExecutionState)
 	
@@ -33,7 +34,8 @@ static func runOneStep():
 			Game,
 			character,
 			placeInCycle,
-			boosts
+			boosts,
+			sceneTree
 		)
 		character.actions[placeInCycle].execute(currentExecutionState)
 		
@@ -45,6 +47,7 @@ static func runOneStep():
 			Game,
 			character,
 			placeInCycle,
-			boosts
+			boosts,
+			sceneTree
 		)
 		character.actions[placeInCycle].executeLate(currentExecutionState)

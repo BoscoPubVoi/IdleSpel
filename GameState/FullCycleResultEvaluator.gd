@@ -21,7 +21,8 @@ static func evaluate(gameState:GameState):
 				copiedGameState,
 				character,
 				placeInCycle,
-				boosts
+				boosts,
+				null
 			)
 			character.actions[placeInCycle].executeEarly(currentExecutionState)
 
@@ -33,7 +34,8 @@ static func evaluate(gameState:GameState):
 				copiedGameState,
 				character,
 				placeInCycle,
-				boosts
+				boosts,
+				null
 			)
 			character.actions[placeInCycle].execute(currentExecutionState)
 
@@ -45,7 +47,8 @@ static func evaluate(gameState:GameState):
 				copiedGameState,
 				character,
 				placeInCycle,
-				boosts
+				boosts,
+				null
 			)
 			character.actions[placeInCycle].executeLate(currentExecutionState)
 

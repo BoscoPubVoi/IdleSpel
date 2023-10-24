@@ -32,7 +32,7 @@ func unlock_tertiary_actions():
 
 
 func _on_timer_timeout():
-	cycleStepRunner.runOneStep()
+	cycleStepRunner.runOneStep(get_tree())
 	update_resource_labels()
 	updateMoonCycleIcon()
 

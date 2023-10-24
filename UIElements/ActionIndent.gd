@@ -2,15 +2,13 @@ extends Panel
 
 @onready var textureRect = $TextureRect
 
-var enabled = true
+@export var enabled = true
 
 var current_data = null
 
-
 func _ready():
+	set_enabled(enabled)
 	pass
-
-
 	
 func _get_drag_data(at_position):
 	if current_data != null:
@@ -31,6 +29,8 @@ func _get_drag_data(at_position):
 		return data
 
 func _can_drop_data(at_position, data):
+	if !enabled:
+		return false
 	
 	var target_slot = current_data
 	if target_slot == null:
@@ -96,3 +96,12 @@ func empty_slot():
 	textureRect.hide()
 	tooltip_text = ""
 	pass
+
+func set_enabled(enabled_):
+	enabled = enabled_
+	if enabled:
+		remove_theme_stylebox_override("panel")
+	else:
+		var stylebox = StyleBoxFlat.new()
+		add_theme_stylebox_override("panel", stylebox)
+		stylebox.set_bg_color(Color(1.0, 1.0, 1.0, 0.1))
