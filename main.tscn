@@ -83,8 +83,8 @@ minAmount = 30.0
 
 [sub_resource type="Resource" id="Resource_0cfql"]
 script = ExtResource("4_84l6x")
-resourceTypeToProduce = "water"
-baseProduction = 5.0
+resourceTypeToProduce = "love"
+baseProduction = 1.0
 
 [sub_resource type="Resource" id="Resource_p4kue"]
 script = ExtResource("6_i72h5")
@@ -296,6 +296,7 @@ theme_override_constants/separation = 16
 layout_mode = 2
 
 [node name="ActorPanel2" parent="AllActorsPanel/MarginContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+visible = false
 layout_mode = 2
 characterID = 1
 
@@ -398,6 +399,21 @@ action_name = "Convert Rocks"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ana3h")])
 icon_path = "res://assets/Action_Icons/Rocks_to_silver.png"
 tooltip = "-10 Rocks, +1 Silver"
+
+[node name="WellActions2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions" groups=["water"]]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="GetLove" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Love of Water"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_0cfql")])
+building = "water"
+icon_path = "res://assets/Action_Icons/add_water.png"
+tooltip = "+1 Love"
 
 [node name="SecondaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer" groups=["silver"]]
 visible = false

@@ -5,6 +5,7 @@ static func evaluate(gameState:GameState):
 	
 	# Pretend cycle start
 	copiedGameState.placeInCycle = 0
+	copiedGameState.resources["love"] = 0
 	for character in copiedGameState.characters:
 		character.onCycleStart()
 	
