@@ -2,7 +2,8 @@ class_name SimpleGameStateTest extends Object
 
 func _init():
 	var gameState = GameState.new()
-	var newCharacter = Character.new(gameState.maxSupportedActions)
+	var newCharacter = Character.new
+	newCharacter.constructor(gameState.maxSupportedActions)
 	var newResource = ProduceBaseResource.new()
 	newResource.construct("rocks", 10)
 	newCharacter.actions = [newResource]
