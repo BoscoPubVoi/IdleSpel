@@ -490,7 +490,7 @@ layout_mode = 2
 action_name = "Writing a book"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_t46wd")])
 icon_path = "res://assets/Action_Icons/Silver_to_rock_cap.png"
-tooltip = "Increase your favor production bonus by a percentage equal to your wisdom"
+tooltip = "Increase your bonus favor production by a percentage equal to your wisdom"
 
 [node name="ResourcesPanel" type="Panel" parent="."]
 texture_filter = 3
