@@ -14,7 +14,7 @@ func execute(executionState:ExecutionState):
 	var thisProduction = baseProduction
 	
 	# Take boosts into account
-	thisProduction *= ResourceHelpers.calculate_boost(executionState,resourceTypeToProduce)
+	thisProduction *= ResourceHelpers.calculate_boost(executionState, resourceTypeToProduce)
 	
 	# Take caps into account
 	thisProduction = min(thisProduction,

@@ -36,4 +36,6 @@ static func calculate_boost(executionState, resource):
 	if boostAmount2 != null:
 		totalBoost *= 1 + boostAmount2
 		
+	totalBoost *= executionState.internalBoostMultiplier
+		
 	return totalBoost

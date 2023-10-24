@@ -4,6 +4,8 @@ var currentCharacter:Character
 var currentActionPosition:int
 var currentBoosts:Dictionary = {}
 var tree:SceneTree
+# Multiplier used for anything inside
+var internalBoostMultiplier:float = 1
 
 func _init(gameState_, currentCharacter_, currentActionPosition_, boosts_, tree_):
 	gameState = gameState_

@@ -13,8 +13,9 @@ func execute(executionState:ExecutionState):
 	var boostAmount = executionState.currentBoosts.get("all")
 	if boostAmount == null:
 		boostAmount = 0
+	boostAmount = (1 + boostAmount) * executionState.internalBoostMultiplier
 
-	var maxAfford = min(1 + boostAmount, ResourceHelpers.calculate_max_afford_with_cost(
+	var maxAfford = min(boostAmount, ResourceHelpers.calculate_max_afford_with_cost(
 		costs, executionState.gameState.resources))
 	
 	var boostAmount2 = executionState.gameState.globalProductionBonuses.get(resourceToIncrease)
