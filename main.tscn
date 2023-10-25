@@ -293,7 +293,7 @@ layout_mode = 0
 anchors_preset = 0
 anchor_top = 0.0
 anchor_bottom = 0.0
-offset_top = 424.0
+offset_top = 388.0
 offset_bottom = 647.0
 grow_vertical = 1
 
@@ -302,7 +302,7 @@ custom_minimum_size = Vector2(0, 256)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 436.0
+offset_bottom = 388.0
 grow_horizontal = 2
 
 [node name="MoonCycleContainer" type="HBoxContainer" parent="AllActorsPanel"]
@@ -396,7 +396,7 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -294.0
-offset_bottom = 440.0
+offset_bottom = 388.0
 grow_horizontal = 0
 script = ExtResource("11_rxd04")
 
@@ -431,7 +431,7 @@ theme_override_constants/separation = 24
 [node name="BA1" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 27
 alignment = 1
 
 [node name="SmallRocks" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
@@ -463,7 +463,7 @@ unlock_tooltip = "Gather 20 rocks to unlock"
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 27
 alignment = 1
 
 [node name="BuildMonument" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
@@ -486,7 +486,7 @@ tooltip = "+10 Rocks if it's full moon"
 visible = false
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 27
 alignment = 1
 
 [node name="AddWater" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions" instance=ExtResource("3_se0lr")]
@@ -517,7 +517,7 @@ tooltip = "If you have 5 wisdom, +7 water. Otherwise, +2 Water"
 visible = false
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 27
 alignment = 1
 
 [node name="AddWaterAndRocks" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions2" instance=ExtResource("3_se0lr")]
@@ -551,7 +551,7 @@ tooltip = "Spend 10 water and 50 rocks. If the silver station hasn't been comple
 visible = false
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 27
 alignment = 1
 
 [node name="RocksToSilver" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/SilverActions" instance=ExtResource("3_se0lr")]
@@ -583,7 +583,7 @@ theme_override_constants/separation = 24
 
 [node name="BA1" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions"]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 27
 alignment = 1
 
 [node name="Vigor" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA1" instance=ExtResource("3_se0lr")]
@@ -619,7 +619,7 @@ theme_override_constants/separation = 24
 
 [node name="BA1" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions"]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 27
 alignment = 1
 
 [node name="BigFavor" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]
@@ -639,7 +639,7 @@ tooltip = "+100% rock production for other characters in this moon phase "
 
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions"]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 27
 alignment = 1
 
 [node name="BoostAnythingHere" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA2" instance=ExtResource("3_se0lr")]
@@ -660,7 +660,7 @@ unlock_tooltip = "Have 100 rocks to unlock"
 
 [node name="BA3" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions"]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 27
 alignment = 1
 
 [node name="PowerfulPraying" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA3" instance=ExtResource("3_se0lr")]
@@ -695,7 +695,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -294.0
-offset_top = -214.0
+offset_top = -262.0
 grow_horizontal = 0
 grow_vertical = 0
 

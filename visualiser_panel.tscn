@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cfwdqqhq48mwy"]
+[gd_scene load_steps=25 format=3 uid="uid://1eop4jtm8jt5"]
 
 [ext_resource type="Texture2D" uid="uid://blv711c64mkv4" path="res://assets/character_sheet.png" id="1_53qgm"]
 [ext_resource type="Script" path="res://visualiser_panel.gd" id="1_e5etn"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dgi12einps6v0" path="res://assets/Buildings/Moonstone_Building.png" id="9_ucg1d"]
 [ext_resource type="Texture2D" uid="uid://c8lbeipmo252j" path="res://assets/Buildings/Moonlight_Distiller.png" id="10_4sqxa"]
 [ext_resource type="Texture2D" uid="uid://ch88eb1sudpbp" path="res://assets/Buildings/Monument_Sheet.png" id="11_jrido"]
+[ext_resource type="Texture2D" uid="uid://chskrj3c0vag1" path="res://assets/Full_Moon_Icon.png" id="14_juq5j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khlr0"]
 bg_color = Color(0, 0, 0, 1)
@@ -89,21 +90,24 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="Curve" id="Curve_2cjdy"]
+_data = [Vector2(0.00436682, 0.978947), 0.0, 0.0, 0, 0, Vector2(0.9869, 0.694737), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="VisualiserPanel" type="Panel" groups=["Visualiser"]]
 texture_filter = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -223.0
+offset_top = -285.0
 offset_right = 875.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_khlr0")
 script = ExtResource("1_e5etn")
-metadata/_edit_lock_ = true
 
 [node name="Character0" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
-position = Vector2(79, 179)
+position = Vector2(79, 203)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_kqqun")
 animation = &"praying"
@@ -112,7 +116,7 @@ script = ExtResource("3_cl67r")
 
 [node name="Character1" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
-position = Vector2(127, 179)
+position = Vector2(127, 203)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_kqqun")
 animation = &"praying"
@@ -122,7 +126,7 @@ character_ID = 1
 
 [node name="Character2" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
-position = Vector2(223, 179)
+position = Vector2(223, 203)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_kqqun")
 animation = &"praying"
@@ -132,7 +136,7 @@ character_ID = 2
 
 [node name="Character3" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
-position = Vector2(271, 179)
+position = Vector2(271, 203)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_kqqun")
 animation = &"praying"
@@ -142,7 +146,7 @@ character_ID = 2
 
 [node name="rocks" type="Sprite2D" parent="."]
 texture_filter = 3
-position = Vector2(200, 128)
+position = Vector2(200, 152)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_66w5g")
 
@@ -158,18 +162,10 @@ step = 0.1
 texture_under = ExtResource("6_88r2q")
 texture_progress = ExtResource("7_0qnac")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="rocks"]
-position = Vector2(0, -48)
-lifetime = 4.0
-direction = Vector2(0, -1)
-gravity = Vector2(0, 0)
-initial_velocity_min = 8.0
-initial_velocity_max = 8.0
-
 [node name="water" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 3
-position = Vector2(295, 128)
+position = Vector2(295, 152)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_8bebb")
 hframes = 2
@@ -190,7 +186,7 @@ texture_progress = ExtResource("7_0qnac")
 [node name="silver" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 3
-position = Vector2(392, 128)
+position = Vector2(392, 152)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_w87bl")
 hframes = 2
@@ -211,7 +207,7 @@ texture_progress = ExtResource("7_0qnac")
 [node name="favor" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 3
-position = Vector2(488, 128)
+position = Vector2(488, 152)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("7_icjoo")
 hframes = 2
@@ -232,7 +228,7 @@ texture_progress = ExtResource("7_0qnac")
 [node name="relics" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 3
-position = Vector2(584, 128)
+position = Vector2(584, 152)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("8_50lfm")
 hframes = 2
@@ -253,7 +249,7 @@ texture_progress = ExtResource("7_0qnac")
 [node name="moonstone" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 3
-position = Vector2(680, 128)
+position = Vector2(680, 152)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("9_ucg1d")
 hframes = 2
@@ -274,7 +270,7 @@ texture_progress = ExtResource("7_0qnac")
 [node name="moonlight" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 3
-position = Vector2(768, 128)
+position = Vector2(768, 152)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("10_4sqxa")
 hframes = 2
@@ -295,7 +291,7 @@ texture_progress = ExtResource("7_0qnac")
 [node name="monument" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 3
-position = Vector2(80, 97)
+position = Vector2(80, 121)
 scale = Vector2(2, 2)
 texture = ExtResource("11_jrido")
 hframes = 6
@@ -311,3 +307,22 @@ max_value = 1.0
 step = 0.1
 texture_under = ExtResource("6_88r2q")
 texture_progress = ExtResource("7_0qnac")
+
+[node name="FullMoonIcon" type="Sprite2D" parent="."]
+position = Vector2(822, 42)
+texture = ExtResource("14_juq5j")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="FullMoonIcon"]
+scale = Vector2(1.5, 1.5)
+amount = 20
+lifetime = 3.0
+direction = Vector2(-1, 1)
+spread = 80.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 16.0
+initial_velocity_max = 16.0
+orbit_velocity_min = -0.1
+orbit_velocity_max = 0.1
+radial_accel_max = 0.01
+scale_amount_curve = SubResource("Curve_2cjdy")
+color = Color(1, 1, 0, 1)
