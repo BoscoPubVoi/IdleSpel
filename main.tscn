@@ -1,8 +1,8 @@
-[gd_scene load_steps=74 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=75 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
-[ext_resource type="PackedScene" uid="uid://cfwdqqhq48mwy" path="res://visualiser_panel.tscn" id="2_hip1u"]
+[ext_resource type="PackedScene" uid="uid://1eop4jtm8jt5" path="res://visualiser_panel.tscn" id="2_hip1u"]
 [ext_resource type="PackedScene" uid="uid://bexv0ou3bq3sw" path="res://actor_panel.tscn" id="2_jsf26"]
 [ext_resource type="Texture2D" uid="uid://chskrj3c0vag1" path="res://assets/Full_Moon_Icon.png" id="3_gcbcu"]
 [ext_resource type="PackedScene" uid="uid://bnedr2ay2wxg1" path="res://UIElements/action_icon.tscn" id="3_se0lr"]
@@ -66,7 +66,7 @@ baseProduction = 5.0
 [sub_resource type="Resource" id="Resource_usjbx"]
 script = ExtResource("19_plea6")
 buildingAndCapName = "water"
-buildBuildingAmount = 1.0
+buildBuildingAmount = 0.3
 increaseCapAmount = 10.0
 costs = {
 "rocks": 10
@@ -82,7 +82,9 @@ script = ExtResource("18_e08c4")
 buildBuildingAmount = Array[float]([0.5, 0.5, 0.5])
 costs = Array[Dictionary]([{
 "rocks": 1
-}, {}, {}])
+}, {
+"relics": 30
+}, {}])
 
 [sub_resource type="Resource" id="Resource_ax3du"]
 script = ExtResource("4_84l6x")
@@ -115,15 +117,21 @@ script = ExtResource("4_84l6x")
 resourceTypeToProduce = "water"
 baseProduction = 2.0
 
-[sub_resource type="Resource" id="Resource_62ngc"]
+[sub_resource type="Resource" id="Resource_qt8op"]
 script = ExtResource("4_84l6x")
 resourceTypeToProduce = "water"
 baseProduction = 2.0
 
+[sub_resource type="Resource" id="Resource_gs0t3"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "water"
+baseProduction = 7.0
+
 [sub_resource type="Resource" id="Resource_3b4sq"]
 script = ExtResource("7_vy3f6")
-statToCheck = ""
-statMinimum = 0.0
+statToCheck = "wisdom"
+statMinimum = 5.0
+operation = SubResource("Resource_gs0t3")
 
 [sub_resource type="Resource" id="Resource_beln2"]
 script = ExtResource("4_84l6x")
@@ -462,7 +470,7 @@ alignment = 1
 layout_mode = 2
 action_name = "Build Monument"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_q37yg")])
-building = "rocks"
+building = "monument"
 icon_path = "res://assets/Action_Icons/Small_rocks_vigor.png"
 tooltip = "Build 0.5 of the monument"
 
@@ -485,7 +493,7 @@ alignment = 1
 layout_mode = 2
 action_name = "Draw from Well"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_geayw")])
-building = "water"
+building = "rocks"
 icon_path = "res://assets/Action_Icons/add_water.png"
 tooltip = "+5 Water"
 
@@ -500,7 +508,7 @@ tooltip = "+2 Water, +5 Wisdom"
 [node name="AddWaterIfWis" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Redirect a Stream"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_62ngc"), SubResource("Resource_3b4sq")])
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_qt8op"), SubResource("Resource_3b4sq")])
 building = "water"
 icon_path = "res://assets/Action_Icons/add_water.png"
 tooltip = "If you have 5 wisdom, +7 water. Otherwise, +2 Water"
@@ -526,6 +534,7 @@ unlock_tooltip = "Gather 10 water and 10 rocks to unlock"
 layout_mode = 2
 action_name = "Add Love"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_uo12j")])
+building = "rocks"
 icon_path = "res://assets/Action_Icons/Rocks_to_silver.png"
 tooltip = "+ 1 Love"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_3hm76")])

@@ -48,6 +48,7 @@ func setBuildInProgress(resource_name):
 
 
 func setMonumentInProgress(tier_id):
+	print("poopy")
 	if tree == null:
 		return
 	tree.get_first_node_in_group("Visualiser").set_monument_in_progress(tier_id)

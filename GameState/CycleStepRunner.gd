@@ -15,9 +15,6 @@ static func runOneStep(sceneTree):
 	var placeInCycle = Game.placeInCycle
 	var boosts = {}
 	
-	for character in Game.characters:
-		sceneTree.get_first_node_in_group("Visualiser").assign_characters_to_buildings()
-	
 	var resourcesByBuilding = {}
 	
 	#early step
@@ -73,6 +70,13 @@ static func runOneStep(sceneTree):
 		for node in actorPanels:
 			if node.characterID == len(Game.characters) - 1:
 				node.visible = true
+	
+	#move the fellas around
+	for character in Game.characters:
+		sceneTree.get_first_node_in_group("Visualiser").assign_characters_to_buildings()
+	
+	#send the data to visualiser to create particles
+	sceneTree.get_first_node_in_group("Visualiser").create_particles(resourcesByBuilding)
 
 static func get_current_love_goal(gameState):
 	if len(gameState.characters) >= 4:

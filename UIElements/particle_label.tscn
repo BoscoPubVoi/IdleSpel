@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://djmxoi2ignhlm"]
+
+[ext_resource type="Script" path="res://UIElements/particle_label.gd" id="1_mt3m8"]
+[ext_resource type="FontFile" uid="uid://cbclq1rnc0tk3" path="res://assets/fonts/LowRes 3x4.ttf" id="1_ux61t"]
+
+[node name="Label" type="Label"]
+texture_filter = 3
+offset_left = -29.0
+offset_top = -11.0
+offset_right = 27.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("1_ux61t")
+theme_override_font_sizes/font_size = 16
+text = "+5 rocks"
+horizontal_alignment = 1
+script = ExtResource("1_mt3m8")
