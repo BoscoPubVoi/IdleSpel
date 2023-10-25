@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=107 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -271,11 +271,6 @@ statToCheck = "vigor"
 statMinimum = 5.0
 operation = SubResource("Resource_h1lmi")
 
-[sub_resource type="Resource" id="Resource_hgg47"]
-script = ExtResource("21_1cyp2")
-resourceTypeToProduce = "water"
-minAmount = 15.0
-
 [sub_resource type="Resource" id="Resource_4mugs"]
 script = ExtResource("4_84l6x")
 resourceTypeToProduce = "rocks"
@@ -357,10 +352,11 @@ script = ExtResource("4_84l6x")
 resourceTypeToProduce = "favor"
 baseProduction = 2.0
 
-[sub_resource type="Resource" id="Resource_o04e1"]
-script = ExtResource("4_84l6x")
-resourceTypeToProduce = "vigor"
-baseProduction = 5.0
+[sub_resource type="Resource" id="Resource_m65df"]
+script = ExtResource("6_i72h5")
+statToIncrease = "vigor"
+statIncreaseAmount = 5.0
+costs = {}
 
 [sub_resource type="Resource" id="Resource_3ecgl"]
 script = ExtResource("4_84l6x")
@@ -393,15 +389,16 @@ script = ExtResource("4_84l6x")
 resourceTypeToProduce = "favor"
 baseProduction = 2.0
 
-[sub_resource type="Resource" id="Resource_eauws"]
-script = ExtResource("4_84l6x")
-resourceTypeToProduce = "wisdom"
-baseProduction = 5.0
+[sub_resource type="Resource" id="Resource_e2txg"]
+script = ExtResource("6_i72h5")
+statToIncrease = "wisdom"
+statIncreaseAmount = 5.0
+costs = {}
 
 [sub_resource type="Resource" id="Resource_5daqv"]
 script = ExtResource("19_eiwq3")
 requiredMoonPhase = Array[int]([0])
-operation = SubResource("Resource_eauws")
+operation = SubResource("Resource_e2txg")
 
 [sub_resource type="Resource" id="Resource_6wjht"]
 script = ExtResource("21_1cyp2")
@@ -785,7 +782,7 @@ tooltip = "Spend 5 Silver, 20 Rocks and 15 Water to build 10% of the Altar, or i
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_u6lds")])
 unlock_tooltip = "Gather 18 Silver to unlock"
 
-[node name="SecondaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
+[node name="SecondaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer" groups=["monument1"]]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 24
@@ -813,12 +810,11 @@ tooltip = "-2 Rocks, +10 Wisdom"
 
 [node name="ManicDigging" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
-action_name = "Pray for Rain"
+action_name = "Manic Digging"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_x6n53")])
 building = "rocks"
-icon_path = "res://assets/Action_Icons/Rain.png"
-tooltip = "+7 Water"
-unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_hgg47")])
+icon_path = "res://assets/Action_Icons/Vigour_to_rocks.png"
+tooltip = "If you have 5 Vigor, +10 Rocks"
 unlock_tooltip = "Unlock with 15 water"
 
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions" groups=["monument1"]]
@@ -850,7 +846,7 @@ unlock_tooltip = "Have 5 Wisdom and 5 Vigor to unlock"
 layout_mode = 2
 action_name = "Waterfall Chasing"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_p3orf")])
-building = "well"
+building = "water"
 icon_path = "res://assets/Action_Icons/Waterfall_Catching.png"
 tooltip = "If you have 5 Vigor, +5 Water"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_xmaxx")])
@@ -885,7 +881,7 @@ tooltip = "If you have 10 Wisdom, +5 Favor"
 [node name="FeverishPrayer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Feverish Prayer"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_5ylu1"), SubResource("Resource_o04e1")])
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_5ylu1"), SubResource("Resource_m65df")])
 building = "favor"
 icon_path = "res://assets/Action_Icons/Boost_same_phase.png"
 tooltip = "+100% rock production for other characters in this moon phase "
