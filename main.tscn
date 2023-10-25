@@ -1,8 +1,8 @@
-[gd_scene load_steps=76 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=81 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
-[ext_resource type="PackedScene" uid="uid://cfwdqqhq48mwy" path="res://visualiser_panel.tscn" id="2_hip1u"]
+[ext_resource type="PackedScene" uid="uid://1eop4jtm8jt5" path="res://visualiser_panel.tscn" id="2_hip1u"]
 [ext_resource type="PackedScene" uid="uid://bexv0ou3bq3sw" path="res://actor_panel.tscn" id="2_jsf26"]
 [ext_resource type="Texture2D" uid="uid://chskrj3c0vag1" path="res://assets/Full_Moon_Icon.png" id="3_gcbcu"]
 [ext_resource type="PackedScene" uid="uid://bnedr2ay2wxg1" path="res://UIElements/action_icon.tscn" id="3_se0lr"]
@@ -21,7 +21,6 @@
 [ext_resource type="Script" path="res://GameState/Operations/BoostCharactersInPosition.gd" id="16_nvuys"]
 [ext_resource type="Script" path="res://GameState/Operations/IncreaseGlobalProductionBonus.gd" id="18_0su82"]
 [ext_resource type="Script" path="res://GameState/Operations/BuildMonument.gd" id="18_e08c4"]
-[ext_resource type="Script" path="res://GameState/Operations/CheckMoonPhase.gd" id="19_eiwq3"]
 [ext_resource type="Script" path="res://GameState/Operations/BuildBuildingOrIncreaseCap.gd" id="19_plea6"]
 [ext_resource type="Texture2D" uid="uid://c1djg85lq87tj" path="res://assets/Resource_Icons/Rocks.png" id="20_gsivp"]
 [ext_resource type="Script" path="res://GameState/UnlockRequirements/RequiresMinimumAmountOfResource.gd" id="21_1cyp2"]
@@ -36,7 +35,7 @@
 [ext_resource type="AudioStream" uid="uid://ckks3t670hbpj" path="res://assets/music/Moonlight_version_1.ogg" id="34_8tlrw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
-bg_color = Color(0.2, 0.2, 0.2, 1)
+bg_color = Color(0.215686, 0.215686, 0.215686, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -78,34 +77,10 @@ script = ExtResource("21_1cyp2")
 resourceTypeToProduce = "rocks"
 minAmount = 20.0
 
-[sub_resource type="Resource" id="Resource_q37yg"]
-script = ExtResource("18_e08c4")
-buildBuildingAmount = Array[float]([0.5, 0.5, 0.5])
-costs = Array[Dictionary]([{
-"rocks": 1
-}, {
-"relics": 30
-}, {}])
-
-[sub_resource type="Resource" id="Resource_ax3du"]
-script = ExtResource("4_84l6x")
-resourceTypeToProduce = "rocks"
-baseProduction = 10.0
-
-[sub_resource type="Resource" id="Resource_omn26"]
-script = ExtResource("19_eiwq3")
-requiredMoonPhase = Array[int]([4])
-operation = SubResource("Resource_ax3du")
-
-[sub_resource type="Resource" id="Resource_pr2o2"]
-script = ExtResource("19_eiwq3")
-requiredMoonPhase = Array[int]([4])
-operation = SubResource("Resource_omn26")
-
 [sub_resource type="Resource" id="Resource_geayw"]
 script = ExtResource("4_84l6x")
 resourceTypeToProduce = "water"
-baseProduction = 5.0
+baseProduction = 3.0
 
 [sub_resource type="Resource" id="Resource_p4kue"]
 script = ExtResource("6_i72h5")
@@ -118,44 +93,47 @@ script = ExtResource("4_84l6x")
 resourceTypeToProduce = "water"
 baseProduction = 2.0
 
-[sub_resource type="Resource" id="Resource_qt8op"]
+[sub_resource type="Resource" id="Resource_xdjh6"]
 script = ExtResource("4_84l6x")
 resourceTypeToProduce = "water"
-baseProduction = 2.0
+baseProduction = 1.0
 
-[sub_resource type="Resource" id="Resource_gs0t3"]
+[sub_resource type="Resource" id="Resource_san5w"]
 script = ExtResource("4_84l6x")
 resourceTypeToProduce = "water"
-baseProduction = 7.0
+baseProduction = 4.0
 
-[sub_resource type="Resource" id="Resource_3b4sq"]
+[sub_resource type="Resource" id="Resource_xsomk"]
 script = ExtResource("7_vy3f6")
 statToCheck = "wisdom"
 statMinimum = 5.0
-operation = SubResource("Resource_gs0t3")
+operation = SubResource("Resource_san5w")
 
 [sub_resource type="Resource" id="Resource_beln2"]
 script = ExtResource("4_84l6x")
 resourceTypeToProduce = "rocks"
-baseProduction = 3.0
+baseProduction = 4.0
 
 [sub_resource type="Resource" id="Resource_xd52e"]
 script = ExtResource("4_84l6x")
 resourceTypeToProduce = "water"
-baseProduction = 2.0
+baseProduction = 4.0
 
 [sub_resource type="Resource" id="Resource_q4u4a"]
 script = ExtResource("21_1cyp2")
 resourceTypeToProduce = "rocks"
-minAmount = 10.0
+minAmount = 30.0
 
 [sub_resource type="Resource" id="Resource_q87nt"]
 script = ExtResource("21_1cyp2")
 resourceTypeToProduce = "water"
-minAmount = 10.0
+minAmount = 20.0
 
-[sub_resource type="Resource" id="Resource_uo12j"]
-script = ExtResource("4_84l6x")
+[sub_resource type="Resource" id="Resource_q1u0j"]
+script = ExtResource("5_22pki")
+costs = {
+"water": 10
+}
 resourceTypeToProduce = "love"
 baseProduction = 1.0
 
@@ -167,11 +145,17 @@ minAmount = 10.0
 [sub_resource type="Resource" id="Resource_70o2o"]
 script = ExtResource("19_plea6")
 buildingAndCapName = "silver"
-buildBuildingAmount = 0.5
+buildBuildingAmount = 0.2
 increaseCapAmount = 1.0
 costs = {
+"rocks": 10,
 "water": 10
 }
+
+[sub_resource type="Resource" id="Resource_4h4ig"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "water"
+minAmount = 50.0
 
 [sub_resource type="Resource" id="Resource_djhql"]
 script = ExtResource("5_22pki")
@@ -180,6 +164,34 @@ costs = {
 }
 resourceTypeToProduce = "silver"
 baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_yxolk"]
+script = ExtResource("5_22pki")
+costs = {
+"rocks": 8
+}
+resourceTypeToProduce = "silver"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_yuqyl"]
+script = ExtResource("7_vy3f6")
+statToCheck = "wisdom"
+statMinimum = 5.0
+operation = SubResource("Resource_yxolk")
+
+[sub_resource type="Resource" id="Resource_i061v"]
+script = ExtResource("5_22pki")
+costs = {
+"rocks": 6
+}
+resourceTypeToProduce = "silver"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_ir8p1"]
+script = ExtResource("7_vy3f6")
+statToCheck = "wisdom"
+statMinimum = 10.0
+operation = SubResource("Resource_i061v")
 
 [sub_resource type="Resource" id="Resource_obebs"]
 script = ExtResource("18_0su82")
@@ -193,10 +205,44 @@ costs = {
 script = ExtResource("19_plea6")
 buildingAndCapName = "rocks"
 buildBuildingAmount = 1.0
-increaseCapAmount = 25.0
+increaseCapAmount = 10.0
 costs = {
 "silver": 2
 }
+
+[sub_resource type="Resource" id="Resource_lfi3u"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "rocks"
+minAmount = 150.0
+
+[sub_resource type="Resource" id="Resource_7p4rf"]
+script = ExtResource("18_e08c4")
+buildBuildingAmount = Array[float]([0.2])
+costs = Array[Dictionary]([{
+"rocks": 15,
+"silver": 5
+}])
+
+[sub_resource type="Resource" id="Resource_04242"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "silver"
+minAmount = 13.0
+
+[sub_resource type="Resource" id="Resource_4quvn"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "favor"
+buildBuildingAmount = 0.1
+increaseCapAmount = 2.0
+costs = {
+"rocks": 20,
+"silver": 5,
+"water": 15
+}
+
+[sub_resource type="Resource" id="Resource_u6lds"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "silver"
+minAmount = 18.0
 
 [sub_resource type="Resource" id="Resource_oc8vf"]
 script = ExtResource("6_i72h5")
@@ -440,7 +486,7 @@ layout_mode = 2
 action_name = "Mine"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_e28eb")])
 building = "rocks"
-icon_path = "res://assets/Action_Icons/Small_rocks_vigor.png"
+icon_path = "uid://cdwqcxh7xjbq0"
 tooltip = "+2 Rocks"
 
 [node name="BigRocks" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA1" instance=ExtResource("3_se0lr")]
@@ -457,31 +503,9 @@ action_name = "Build Well"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_usjbx")])
 building = "water"
 icon_path = "res://assets/Action_Icons/Build_well.png"
-tooltip = "Using 10 rocks, build the well, or increase water capacity if built."
+tooltip = "Spend 10 Rocks to build 1/4 of the Well, or increase water capacity by 5"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_8kr8y")])
 unlock_tooltip = "Gather 20 rocks to unlock"
-
-[node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 27
-alignment = 1
-
-[node name="BuildMonument" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
-layout_mode = 2
-action_name = "Build Monument"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_q37yg")])
-building = "monument"
-icon_path = "res://assets/Action_Icons/Small_rocks_vigor.png"
-tooltip = "Build 0.5 of the monument"
-
-[node name="BigRocks2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
-layout_mode = 2
-action_name = "Full Moon Mining"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_pr2o2")])
-building = "rocks"
-icon_path = "res://assets/Action_Icons/Add_rocks.png"
-tooltip = "+10 Rocks if it's full moon"
 
 [node name="WellActions" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions" groups=["water"]]
 visible = false
@@ -494,25 +518,25 @@ alignment = 1
 layout_mode = 2
 action_name = "Draw from Well"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_geayw")])
-building = "rocks"
+building = "water"
 icon_path = "res://assets/Action_Icons/add_water.png"
-tooltip = "+5 Water"
+tooltip = "+3 Water"
 
 [node name="AddWaddWis" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions" instance=ExtResource("3_se0lr")]
 layout_mode = 2
-action_name = "Wisdom of Water"
+action_name = "Study Midnight Dew"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_p4kue"), SubResource("Resource_cagk0")])
 building = "water"
 icon_path = "res://assets/Action_Icons/add_Wisdom_water.png"
 tooltip = "+2 Water, +5 Wisdom"
 
-[node name="AddWaterIfWis" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions" instance=ExtResource("3_se0lr")]
+[node name="Redirect stream" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions" instance=ExtResource("3_se0lr")]
 layout_mode = 2
-action_name = "Redirect a Stream"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_qt8op"), SubResource("Resource_3b4sq")])
+action_name = "Redirect Stream"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_xdjh6"), SubResource("Resource_xsomk")])
 building = "water"
-icon_path = "res://assets/Action_Icons/add_water.png"
-tooltip = "If you have 5 wisdom, +7 water. Otherwise, +2 Water"
+icon_path = "res://assets/Action_Icons/Redirect_Stream.png"
+tooltip = "If you have 5 Wisdom, +5 Water. Otherwise, +1 Water"
 
 [node name="WellActions2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions" groups=["water"]]
 visible = false
@@ -521,41 +545,44 @@ mouse_filter = 2
 theme_override_constants/separation = 27
 alignment = 1
 
-[node name="AddWaterAndRocks" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions2" instance=ExtResource("3_se0lr")]
+[node name="Erosion" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Erosion"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_beln2"), SubResource("Resource_xd52e")])
-building = "water"
-icon_path = "res://assets/Action_Icons/add_Wisdom_water.png"
-tooltip = "+2 Water, +3 Rocks"
+building = "rocks"
+icon_path = "res://assets/Action_Icons/Erosion.png"
+tooltip = "+4 Water, +4 Rocks"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_q4u4a"), SubResource("Resource_q87nt")])
-unlock_tooltip = "Gather 10 water and 10 rocks to unlock"
+unlock_tooltip = "Gather 20 Water and 30 Rocks to unlock"
 
 [node name="AddLove" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
-action_name = "Add Love"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_uo12j")])
-building = "rocks"
-icon_path = "res://assets/Action_Icons/Rocks_to_silver.png"
-tooltip = "+ 1 Love"
+action_name = "Lunar Mist"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_q1u0j")])
+building = "water"
+icon_path = "res://assets/Action_Icons/Lunar_Mist.png"
+tooltip = "Spend 10 water for +1 Love"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_3hm76")])
 unlock_tooltip = "Gather 10 water to unlock"
 
 [node name="BuildSilverStation" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
-action_name = "Build Silver Station"
+action_name = "Build Extractor"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_70o2o")])
+building = "silver"
 icon_path = "res://assets/Action_Icons/Build_silver.png"
-tooltip = "Spend 10 water and 50 rocks. If the silver station hasn't been completed, build it for 50%. If it has, increase the silver cap by one."
+tooltip = "Spend 10 Water and 10 Rocks to build 1/5 of the Silver Furnance, or increase Silver Capacity by 1"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_4h4ig")])
+unlock_tooltip = "Gather 50 Water to unlock"
 
-[node name="SilverActions" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions" groups=["silver"]]
+[node name="SilverActions1" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions" groups=["silver"]]
 visible = false
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 27
 alignment = 1
 
-[node name="RocksToSilver" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/SilverActions" instance=ExtResource("3_se0lr")]
+[node name="RocksToSilver" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/SilverActions1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Silver Smelting"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_djhql")])
@@ -563,21 +590,59 @@ building = "silver"
 icon_path = "res://assets/Action_Icons/Rocks_to_silver.png"
 tooltip = "-10 Rocks, +1 Silver"
 
-[node name="SilverToRockProd" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/SilverActions" instance=ExtResource("3_se0lr")]
+[node name="EfficientSilver" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/SilverActions1" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Efficient Extraction"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_yuqyl"), SubResource("Resource_ir8p1")])
+building = "silver"
+icon_path = "res://assets/Action_Icons/Efficient_Smelting.png"
+tooltip = "If you have 5 Wisdom, -8 Rocks, +1 Silver. If you have 10 Wisdom, -14 Rocks, +2 Silver instead"
+
+[node name="Asteroid" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/SilverActions1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Asteroid Gathering"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_obebs")])
+building = "rocks"
 icon_path = "res://assets/Action_Icons/Silver_to_rock_prod.png"
 tooltip = "Spend one silver to increase the bonus rock production by 10%"
 
-[node name="SilvRockCap" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/SilverActions" instance=ExtResource("3_se0lr")]
+[node name="SilverActions2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions" groups=["silver"]]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 27
+alignment = 1
+
+[node name="ExcavateForest" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/SilverActions2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Dig out an ancient forest to put your rocks there instead"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_k5av1")])
-icon_path = "res://assets/Action_Icons/Silver_to_rock_cap.png"
-tooltip = "-2 Silver, + 25 Rock Capacity"
+icon_path = "res://assets/Action_Icons/Excavate_Forest.png"
+tooltip = "-2 Silver, + 10 Rock Capacity"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_lfi3u")])
+unlock_tooltip = "Gather 150 rocks to unlock"
 
-[node name="SecondaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer" groups=["silver"]]
+[node name="BuildMonument" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/SilverActions2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Build Monument"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_7p4rf")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Build_monument.png"
+tooltip = "Spend 5 Silver and 15 Rocks to build 20% of the Monument up to tier one, spend 50 Rocks and a Relic to build 4% of the Monument up to tier two"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_04242")])
+unlock_tooltip = "Gather 13 Silver to unlock"
+
+[node name="BuildAltar" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/SilverActions2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Build Altar"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_4quvn")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Build_Favour.png"
+tooltip = "Spend 5 Silver, 20 Rocks and 15 Water to build 10% of the Altar, or increase Favor capacity by 2"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_u6lds")])
+unlock_tooltip = "Gather 18 Silver to unlock"
+
+[node name="SecondaryActions" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer"]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 24

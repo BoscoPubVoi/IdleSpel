@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Moonlight_version_1.ogg-4998a092ded20de037c7e
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
