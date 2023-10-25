@@ -405,7 +405,7 @@ offset_right = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 96
+theme_override_constants/margin_top = 88
 theme_override_constants/margin_right = 320
 
 [node name="ScrollContainer" type="ScrollContainer" parent="AllActorsPanel/MarginContainer"]
@@ -464,8 +464,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_left = 21
+theme_override_constants/margin_top = 21
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 32
 
