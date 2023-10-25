@@ -35,8 +35,10 @@ func assign_characters_to_buildings():
 				#move them to the relevant building
 				var building_name = character.actions[Game.placeInCycle].building
 				var building = get_node(building_name)
-				#hide all the non relevant ones
-				characters[i].move_to(building.position + Vector2(buildings_use[character.actions[Game.placeInCycle].building] * 32, 0))
+				if building_name != "monument":
+					characters[i].move_to(building.position + Vector2(buildings_use[character.actions[Game.placeInCycle].building] * 32, building.texture.get_height()/2))
+				else:
+					characters[i].move_to(building.position + Vector2(buildings_use[character.actions[Game.placeInCycle].building] * 32, 30 + building.texture.get_height()/2))
 		i += 1
 
 

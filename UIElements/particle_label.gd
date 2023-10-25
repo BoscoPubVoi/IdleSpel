@@ -1,6 +1,5 @@
 extends Label
 
-
 func _process(delta):
 	position.y -= .1
 	modulate.a -= 0.01
@@ -13,8 +12,10 @@ func create_text(resource_name, amount):
 		newtext += "+"
 	else:
 		newtext += "-"
-	newtext += str(amount) + resource_name
+	newtext += str(amount)
 	text = newtext
+	$Icon.play(resource_name)
+	
 
 func set_start_point(building_position):
-	position = building_position + Vector2(randi()%30 -40, randi()%40 -80)
+	position = building_position + Vector2(randi()%30 -40, randi()%35 -80)

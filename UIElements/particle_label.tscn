@@ -1,16 +1,167 @@
-[gd_scene load_steps=3 format=3 uid="uid://djmxoi2ignhlm"]
+[gd_scene load_steps=25 format=3 uid="uid://djmxoi2ignhlm"]
 
 [ext_resource type="Script" path="res://UIElements/particle_label.gd" id="1_mt3m8"]
 [ext_resource type="FontFile" uid="uid://cbclq1rnc0tk3" path="res://assets/fonts/LowRes 3x4.ttf" id="1_ux61t"]
+[ext_resource type="Texture2D" uid="uid://c1djg85lq87tj" path="res://assets/Resource_Icons/Rocks.png" id="3_bj48s"]
+[ext_resource type="Texture2D" uid="uid://dreushpajl0kh" path="res://assets/Resource_Icons/Water.png" id="3_bl4wb"]
+[ext_resource type="Texture2D" uid="uid://cebtdosjsd76y" path="res://assets/Resource_Icons/Favor.png" id="3_srbwh"]
+[ext_resource type="Texture2D" uid="uid://cgsuy6u70chki" path="res://assets/Resource_Icons/Reverance.png" id="4_qk0wv"]
+[ext_resource type="Texture2D" uid="uid://bilo43mbxs815" path="res://assets/Resource_Icons/Relics.png" id="4_unrmn"]
+[ext_resource type="Texture2D" uid="uid://d37muymk3m77a" path="res://assets/Resource_Icons/Moonlight.png" id="5_rmgf1"]
+[ext_resource type="Texture2D" uid="uid://fyfu6o55i8mp" path="res://assets/Resource_Icons/Silver.png" id="5_xwmmr"]
+[ext_resource type="Texture2D" uid="uid://c5trp2p3ch51r" path="res://assets/Resource_Icons/Moonstone.png" id="6_yi1h2"]
+[ext_resource type="Texture2D" uid="uid://bjawbc7eps6hc" path="res://assets/Resource_Icons/Vigor.png" id="10_ubtt8"]
+[ext_resource type="Texture2D" uid="uid://cj8jvh5fyskdv" path="res://assets/Resource_Icons/Wisdom.png" id="12_xsit8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xljsn"]
+atlas = ExtResource("3_srbwh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hibeg"]
+atlas = ExtResource("4_qk0wv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrsw6"]
+atlas = ExtResource("5_rmgf1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkusa"]
+atlas = ExtResource("6_yi1h2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5so6f"]
+atlas = ExtResource("4_unrmn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37nbk"]
+atlas = ExtResource("4_qk0wv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cna5b"]
+atlas = ExtResource("3_bj48s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwiuw"]
+atlas = ExtResource("5_xwmmr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rqfr"]
+atlas = ExtResource("10_ubtt8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icbuh"]
+atlas = ExtResource("3_bl4wb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6imoc"]
+atlas = ExtResource("12_xsit8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_01m75"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xljsn")
+}],
+"loop": true,
+"name": &"favor",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hibeg")
+}],
+"loop": true,
+"name": &"love",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrsw6")
+}],
+"loop": true,
+"name": &"moonlight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkusa")
+}],
+"loop": true,
+"name": &"moonstone",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5so6f")
+}],
+"loop": true,
+"name": &"relics",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37nbk")
+}],
+"loop": true,
+"name": &"reverance",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cna5b")
+}],
+"loop": true,
+"name": &"rocks",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwiuw")
+}],
+"loop": true,
+"name": &"silver",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rqfr")
+}],
+"loop": true,
+"name": &"vigor",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icbuh")
+}],
+"loop": true,
+"name": &"water",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6imoc")
+}],
+"loop": true,
+"name": &"wisdom",
+"speed": 5.0
+}]
 
 [node name="Label" type="Label"]
 texture_filter = 3
-offset_left = -29.0
+offset_left = -21.0
 offset_top = -11.0
-offset_right = 27.0
+offset_right = 35.0
 offset_bottom = 8.0
 theme_override_fonts/font = ExtResource("1_ux61t")
 theme_override_font_sizes/font_size = 16
-text = "+5 rocks"
+text = "+5 "
 horizontal_alignment = 1
 script = ExtResource("1_mt3m8")
+
+[node name="Icon" type="AnimatedSprite2D" parent="."]
+position = Vector2(11, 12)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_01m75")
+animation = &"love"

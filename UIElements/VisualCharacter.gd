@@ -4,7 +4,7 @@ extends AnimatedSprite2D
 
 
 func move_to(building_position):
-	position = building_position + Vector2(-72, 48)
+	position = building_position + Vector2(-72, 24)
 
 func play_anim():
 	play("dancing")
