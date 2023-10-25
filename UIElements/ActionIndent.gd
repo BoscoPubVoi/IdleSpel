@@ -1,5 +1,6 @@
 extends Panel
 
+@onready var rel_character = $"../../.."
 @onready var textureRect = $TextureRect
 
 @export var enabled = true
@@ -88,7 +89,7 @@ func _get_index():
 func empty_slot():
 	current_data = null
 	var slot = _get_index()
-	Game.characters[0].actions[slot] = null
+	Game.characters[rel_character.characterID].actions[slot] = null
 #	textureRect.texture = null
 	textureRect.hide()
 	tooltip_text = ""
