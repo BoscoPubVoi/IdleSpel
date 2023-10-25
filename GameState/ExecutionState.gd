@@ -48,7 +48,6 @@ func setBuildInProgress(resource_name):
 
 
 func setMonumentInProgress(tier_id):
-	print("poopy")
 	if tree == null:
 		return
 	tree.get_first_node_in_group("Visualiser").set_monument_in_progress(tier_id)
@@ -57,17 +56,30 @@ func unlockBuilding(resource_name):
 	if tree == null:
 		return
 	tree.get_first_node_in_group("Visualiser").unlock_building(resource_name)
+	
+	if resource_name == "water":
+		show_popup("Well Built!", "The Well is now fully constructed! Your follower can now gain Wisdom. Note that stats reset at the end of each moon cycle.")
+		
+		for node in tree.get_nodes_in_group("WisdomLabel"):
+			node.modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+	if resource_name == "favor":
+		for node in tree.get_nodes_in_group("VigorLabel"):
+			node.modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+	if resource_name == "relics":
+		for node in tree.get_nodes_in_group("ReveranceLabel"):
+			node.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 func setMonumentTier(tier_id):
 	if tree == null:
 		return
 	tree.get_first_node_in_group("Visualiser").set_monument_tier(tier_id)
 
-func showPopup(title, text):
+	for node in tree.get_nodes_in_group("VigorLabel"):
+		node.modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+func show_popup(title, text):
 	if tree == null:
 		return
-	tree.get_first_node_in_group("PopupWindow").visible = true
-	tree.get_first_node_in_group("PopupTitle").text = title
-	tree.get_first_node_in_group("PopupText").text = text
-	for n in tree.get_nodes_in_group("PopupWindowClose"):
-		n.visible = true
+	ShowPopup.show_popup(tree, title, text)

@@ -42,6 +42,10 @@ func _process(delta):
 				break
 		if allUnlocksOK:
 			unlocked = true
+			if action_name == "Lunar Mist":
+				ShowPopup.show_popup(get_tree(), "Love Unlocked",
+					"You can now gain Love. Gain a Love to get an additional follower.")
+				get_tree().get_first_node_in_group("love").visible = true
 			set_display()
 
 func _get_drag_data(at_position):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=86 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bilo43mbxs815" path="res://assets/Resource_Icons/Relics.png" id="24_u7pt0"]
 [ext_resource type="Texture2D" uid="uid://c5trp2p3ch51r" path="res://assets/Resource_Icons/Moonstone.png" id="25_62bb2"]
 [ext_resource type="Texture2D" uid="uid://d37muymk3m77a" path="res://assets/Resource_Icons/Moonlight.png" id="26_5eomv"]
+[ext_resource type="Script" path="res://ResourceDisplay.gd" id="27_h32dl"]
 [ext_resource type="AudioStream" uid="uid://ckks3t670hbpj" path="res://assets/music/Moonlight_version_1.ogg" id="34_8tlrw"]
 [ext_resource type="Script" path="res://PopupWindow.gd" id="34_kxafh"]
 [ext_resource type="Script" path="res://CloseButton.gd" id="34_x46rx"]
@@ -641,7 +642,7 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 icon_path = "res://assets/Action_Icons/Excavate_Forest.png"
 tooltip = "-2 Silver, + 10 Rock Capacity"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_lfi3u")])
-unlock_tooltip = "Gather 150 rocks to unlock"
+unlock_tooltip = "Gather 50 rocks to unlock"
 
 [node name="BuildMonument" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/SilverActions2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
@@ -794,6 +795,9 @@ offset_right = 56.0
 offset_bottom = 48.0
 tooltip_text = "Rocks"
 texture = ExtResource("20_gsivp")
+script = ExtResource("27_h32dl")
+normalTooltip = "Rocks"
+associatedResource = "rocks"
 
 [node name="RockLabel" type="Label" parent="ResourcesPanel/Rocks"]
 layout_mode = 0
@@ -812,6 +816,9 @@ offset_right = 56.0
 offset_bottom = 96.0
 tooltip_text = "Water"
 texture = ExtResource("21_sawqo")
+script = ExtResource("27_h32dl")
+normalTooltip = "Water"
+associatedResource = "water"
 
 [node name="WaterLabel" type="Label" parent="ResourcesPanel/Water"]
 layout_mode = 0
@@ -830,6 +837,9 @@ offset_right = 56.0
 offset_bottom = 144.0
 tooltip_text = "Silver"
 texture = ExtResource("22_v80bp")
+script = ExtResource("27_h32dl")
+normalTooltip = "Silver"
+associatedResource = "silver"
 
 [node name="SilverLabel" type="Label" parent="ResourcesPanel/Silver"]
 layout_mode = 0
@@ -848,6 +858,9 @@ offset_right = 56.0
 offset_bottom = 192.0
 tooltip_text = "Favor"
 texture = ExtResource("23_agkff")
+script = ExtResource("27_h32dl")
+normalTooltip = "Favor"
+associatedResource = "favor"
 
 [node name="FavorLabel" type="Label" parent="ResourcesPanel/Favor"]
 layout_mode = 0
@@ -866,6 +879,9 @@ offset_right = 208.0
 offset_bottom = 48.0
 tooltip_text = "Relics"
 texture = ExtResource("24_u7pt0")
+script = ExtResource("27_h32dl")
+normalTooltip = "Relics"
+associatedResource = "relics"
 
 [node name="RelicLabel" type="Label" parent="ResourcesPanel/Relic"]
 layout_mode = 0
@@ -884,6 +900,9 @@ offset_right = 208.0
 offset_bottom = 96.0
 tooltip_text = "Moonstone"
 texture = ExtResource("25_62bb2")
+script = ExtResource("27_h32dl")
+normalTooltip = "Moonstone"
+associatedResource = "moonstone"
 
 [node name="MoonstoneLabel" type="Label" parent="ResourcesPanel/Moonstone"]
 layout_mode = 0
@@ -902,6 +921,9 @@ offset_right = 208.0
 offset_bottom = 144.0
 tooltip_text = "Moonlight"
 texture = ExtResource("26_5eomv")
+script = ExtResource("27_h32dl")
+normalTooltip = "Moonlight"
+associatedResource = "moonlight"
 
 [node name="MoonlightLabel" type="Label" parent="ResourcesPanel/Moonlight"]
 layout_mode = 0
@@ -911,7 +933,7 @@ offset_right = 110.0
 offset_bottom = 34.0
 text = "0"
 
-[node name="Love" type="TextureRect" parent="ResourcesPanel" groups=["water"]]
+[node name="Love" type="TextureRect" parent="ResourcesPanel" groups=["love"]]
 visible = false
 layout_mode = 0
 offset_left = 168.0
@@ -920,6 +942,9 @@ offset_right = 208.0
 offset_bottom = 192.0
 tooltip_text = "Love"
 texture = ExtResource("26_5eomv")
+script = ExtResource("27_h32dl")
+normalTooltip = "Love"
+associatedResource = "love"
 
 [node name="LoveLabel" type="Label" parent="ResourcesPanel/Love"]
 layout_mode = 0

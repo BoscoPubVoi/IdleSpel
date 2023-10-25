@@ -72,28 +72,12 @@ layout_mode = 2
 size_flags_vertical = 0
 enabled = false
 
-[node name="Vigor" type="TextureRect" parent="."]
+[node name="Wisdom" type="TextureRect" parent="." groups=["WisdomLabel"]]
+modulate = Color(1, 1, 1, 0.0980392)
 layout_mode = 2
 offset_left = 274.0
 offset_top = 86.0
 offset_right = 300.0
-offset_bottom = 112.0
-texture = ExtResource("3_i0j11")
-expand_mode = 2
-
-[node name="VigorLabel" type="Label" parent="Vigor"]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 3.0
-offset_right = 132.0
-offset_bottom = 29.0
-text = "0"
-
-[node name="Wisdom" type="TextureRect" parent="."]
-layout_mode = 2
-offset_left = 364.0
-offset_top = 86.0
-offset_right = 390.0
 offset_bottom = 112.0
 texture = ExtResource("4_q62qo")
 expand_mode = 2
@@ -106,7 +90,26 @@ offset_right = 132.0
 offset_bottom = 29.0
 text = "0"
 
-[node name="Reverance" type="TextureRect" parent="."]
+[node name="Vigor" type="TextureRect" parent="." groups=["VigorLabel"]]
+modulate = Color(1, 1, 1, 0.0980392)
+layout_mode = 2
+offset_left = 364.0
+offset_top = 86.0
+offset_right = 390.0
+offset_bottom = 112.0
+texture = ExtResource("3_i0j11")
+expand_mode = 2
+
+[node name="VigorLabel" type="Label" parent="Vigor"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 3.0
+offset_right = 132.0
+offset_bottom = 29.0
+text = "0"
+
+[node name="Reverance" type="TextureRect" parent="." groups=["ReveranceLabel"]]
+modulate = Color(1, 1, 1, 0.0980392)
 layout_mode = 2
 offset_left = 454.0
 offset_top = 86.0
