@@ -24,7 +24,7 @@ func execute(executionState:ExecutionState):
 	
 	if executionState.gameState.buildings[buildingAndCapName] < 1:
 		# Help build the building
-		maxAfford = min(maxAfford, 1 - executionState.gameState.buildings[buildingAndCapName])
+		maxAfford = min(maxAfford, (1 - executionState.gameState.buildings[buildingAndCapName]) / buildBuildingAmount)
 		executionState.gameState.buildings[buildingAndCapName] += maxAfford * buildBuildingAmount
 		executionState.setBuildInProgress(buildingAndCapName)
 		

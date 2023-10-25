@@ -70,7 +70,7 @@ baseProduction = 5.0
 [sub_resource type="Resource" id="Resource_usjbx"]
 script = ExtResource("19_plea6")
 buildingAndCapName = "water"
-buildBuildingAmount = 0.3
+buildBuildingAmount = 0.25
 increaseCapAmount = 10.0
 costs = {
 "rocks": 10
