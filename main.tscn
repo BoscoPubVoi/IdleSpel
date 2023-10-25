@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=85 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -33,6 +33,8 @@
 [ext_resource type="Texture2D" uid="uid://c5trp2p3ch51r" path="res://assets/Resource_Icons/Moonstone.png" id="25_62bb2"]
 [ext_resource type="Texture2D" uid="uid://d37muymk3m77a" path="res://assets/Resource_Icons/Moonlight.png" id="26_5eomv"]
 [ext_resource type="AudioStream" uid="uid://ckks3t670hbpj" path="res://assets/music/Moonlight_version_1.ogg" id="34_8tlrw"]
+[ext_resource type="Script" path="res://PopupWindow.gd" id="34_kxafh"]
+[ext_resource type="Script" path="res://CloseButton.gd" id="34_x46rx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
 bg_color = Color(0.215686, 0.215686, 0.215686, 1)
@@ -323,6 +325,21 @@ script = ExtResource("22_koo6c")
 stat = "vigor"
 statMult = 1.0
 operation = SubResource("Resource_t384u")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ia36"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ws8u"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 
 [node name="Main" type="Control"]
 texture_filter = 3
@@ -920,8 +937,7 @@ stream = ExtResource("34_8tlrw")
 volume_db = -12.418
 autoplay = true
 
-[node name="Panel" type="PanelContainer" parent="."]
-visible = false
+[node name="PopupWindow" type="PanelContainer" parent="." groups=["PopupWindow"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -930,26 +946,45 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ia36")
+script = ExtResource("34_kxafh")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="PopupWindow"]
 layout_mode = 2
-theme_override_constants/margin_left = 14
-theme_override_constants/margin_top = 14
-theme_override_constants/margin_right = 14
-theme_override_constants/margin_bottom = 14
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 28
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupWindow/MarginContainer"]
+custom_minimum_size = Vector2(520, 0)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="PopupWindow/MarginContainer/VBoxContainer" groups=["PopupTitle"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Welcome, Moon God!"
+
+[node name="Text" type="Label" parent="PopupWindow/MarginContainer/VBoxContainer" groups=["PopupText"]]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Welcome to the game!"
+text = "Drag actions from the right onto the available slots on your follower. They will automatically perform these actions every moon cycle. Collect some stone to continue."
+autowrap_mode = 2
 
-[node name="Title2" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PopupWindow/MarginContainer/VBoxContainer" groups=["PopupWindowClose"]]
+visible = false
 layout_mode = 2
-text = "This is a cool little textbox that has text in it as well
-"
+theme_override_constants/margin_bottom = 10
+
+[node name="CloseButton" type="Button" parent="PopupWindow/MarginContainer/VBoxContainer" groups=["PopupWindowClose"]]
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ws8u")
+text = "Close"
+script = ExtResource("34_x46rx")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="PopupWindow/MarginContainer/VBoxContainer/CloseButton" to="PopupWindow/MarginContainer/VBoxContainer/CloseButton" method="_on_pressed"]

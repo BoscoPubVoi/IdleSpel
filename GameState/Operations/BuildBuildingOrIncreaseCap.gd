@@ -37,7 +37,7 @@ func execute(executionState:ExecutionState):
 	else:
 		# Help increase the cap
 		executionState.gameState.resourceCaps[buildingAndCapName] += increaseCapAmount * maxAfford
-		
+
 	# Spend the costs
 	ResourceHelpers.pay_costs(costs, executionState.gameState.resources, maxAfford)
 

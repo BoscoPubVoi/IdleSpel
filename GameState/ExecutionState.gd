@@ -62,4 +62,12 @@ func setMonumentTier(tier_id):
 	if tree == null:
 		return
 	tree.get_first_node_in_group("Visualiser").set_monument_tier(tier_id)
-	
+
+func showPopup(title, text):
+	if tree == null:
+		return
+	tree.get_first_node_in_group("PopupWindow").visible = true
+	tree.get_first_node_in_group("PopupTitle").text = title
+	tree.get_first_node_in_group("PopupText").text = text
+	for n in tree.get_nodes_in_group("PopupWindowClose"):
+		n.visible = true
