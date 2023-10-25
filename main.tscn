@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=74 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://GameState/Operations/BoostCharactersInPosition.gd" id="16_nvuys"]
 [ext_resource type="Script" path="res://GameState/Operations/IncreaseGlobalProductionBonus.gd" id="18_0su82"]
 [ext_resource type="Script" path="res://GameState/Operations/BuildMonument.gd" id="18_e08c4"]
+[ext_resource type="Script" path="res://GameState/Operations/CheckMoonPhase.gd" id="19_eiwq3"]
 [ext_resource type="Script" path="res://GameState/Operations/BuildBuildingOrIncreaseCap.gd" id="19_plea6"]
 [ext_resource type="Texture2D" uid="uid://c1djg85lq87tj" path="res://assets/Resource_Icons/Rocks.png" id="20_gsivp"]
 [ext_resource type="Script" path="res://GameState/UnlockRequirements/RequiresMinimumAmountOfResource.gd" id="21_1cyp2"]
@@ -83,6 +84,21 @@ costs = Array[Dictionary]([{
 "rocks": 1
 }, {}, {}])
 
+[sub_resource type="Resource" id="Resource_ax3du"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "rocks"
+baseProduction = 10.0
+
+[sub_resource type="Resource" id="Resource_omn26"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([4])
+operation = SubResource("Resource_ax3du")
+
+[sub_resource type="Resource" id="Resource_pr2o2"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([4])
+operation = SubResource("Resource_omn26")
+
 [sub_resource type="Resource" id="Resource_geayw"]
 script = ExtResource("4_84l6x")
 resourceTypeToProduce = "water"
@@ -104,16 +120,10 @@ script = ExtResource("4_84l6x")
 resourceTypeToProduce = "water"
 baseProduction = 2.0
 
-[sub_resource type="Resource" id="Resource_t02n8"]
-script = ExtResource("4_84l6x")
-resourceTypeToProduce = "water"
-baseProduction = 5.0
-
 [sub_resource type="Resource" id="Resource_3b4sq"]
 script = ExtResource("7_vy3f6")
-statToCheck = "wisdom"
-statMinimum = 5.0
-operation = SubResource("Resource_t02n8")
+statToCheck = ""
+statMinimum = 0.0
 
 [sub_resource type="Resource" id="Resource_beln2"]
 script = ExtResource("4_84l6x")
@@ -185,16 +195,10 @@ statToIncrease = "vigor"
 statIncreaseAmount = 10.0
 costs = {}
 
-[sub_resource type="Resource" id="Resource_vabre"]
-script = ExtResource("4_84l6x")
-resourceTypeToProduce = "rocks"
-baseProduction = 20.0
-
 [sub_resource type="Resource" id="Resource_6uhrq"]
 script = ExtResource("7_vy3f6")
-statToCheck = "vigor"
-statMinimum = 15.0
-operation = SubResource("Resource_vabre")
+statToCheck = ""
+statMinimum = 0.0
 
 [sub_resource type="Resource" id="Resource_snloy"]
 script = ExtResource("4_84l6x")
@@ -461,6 +465,14 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "rocks"
 icon_path = "res://assets/Action_Icons/Small_rocks_vigor.png"
 tooltip = "Build 0.5 of the monument"
+
+[node name="BigRocks2" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/BA2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Full Moon Mining"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_pr2o2")])
+building = "rocks"
+icon_path = "res://assets/Action_Icons/Add_rocks.png"
+tooltip = "+10 Rocks if it's full moon"
 
 [node name="WellActions" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions" groups=["water"]]
 visible = false
