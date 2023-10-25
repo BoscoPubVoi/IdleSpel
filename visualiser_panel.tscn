@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cfwdqqhq48mwy"]
+[gd_scene load_steps=24 format=3 uid="uid://1eop4jtm8jt5"]
 
 [ext_resource type="Texture2D" uid="uid://blv711c64mkv4" path="res://assets/character_sheet.png" id="1_53qgm"]
 [ext_resource type="Script" path="res://visualiser_panel.gd" id="1_e5etn"]
@@ -57,7 +57,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"dancing",
-"speed": 2.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -90,10 +90,6 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="Curve" id="Curve_2cjdy"]
-_data = [Vector2(0.00436682, 0.978947), 0.0, 0.0, 0, 0, Vector2(0.9869, 0.694737), 0.0, 0.0, 0, 0]
-point_count = 2
-
 [node name="VisualiserPanel" type="Panel" groups=["Visualiser"]]
 texture_filter = 3
 anchors_preset = 2
@@ -111,7 +107,7 @@ position = Vector2(79, 203)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_kqqun")
 animation = &"praying"
-frame_progress = 0.65627
+frame_progress = 0.873957
 script = ExtResource("3_cl67r")
 
 [node name="Character1" type="AnimatedSprite2D" parent="."]
@@ -119,8 +115,8 @@ texture_filter = 3
 position = Vector2(127, 203)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_kqqun")
-animation = &"praying"
-frame_progress = 0.0922798
+animation = &"dancing"
+frame_progress = 0.480118
 script = ExtResource("3_cl67r")
 character_ID = 1
 
@@ -324,5 +320,6 @@ initial_velocity_max = 16.0
 orbit_velocity_min = -0.1
 orbit_velocity_max = 0.1
 radial_accel_max = 0.01
-scale_amount_curve = SubResource("Curve_2cjdy")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
 color = Color(1, 1, 0, 1)
