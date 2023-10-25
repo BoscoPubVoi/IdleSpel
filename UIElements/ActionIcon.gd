@@ -18,7 +18,7 @@ var unlocked = true
 
 func _ready():
 	textureRect.texture = load(icon_path)
-	epic_tooltip = action_name + ":\n" +  tooltip
+	epic_tooltip = action_name + ":\n" +  tooltip.replace("\\n", "\n")
 	
 	# Check for unlocks
 	var allUnlocksOK = true

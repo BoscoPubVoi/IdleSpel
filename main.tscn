@@ -632,7 +632,7 @@ action_name = "Build Monument"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_7p4rf")])
 building = "monument"
 icon_path = "res://assets/Action_Icons/Build_monument.png"
-tooltip = "Spend 5 Silver and 15 Rocks to build 20% of the Monument up to tier one, spend 50 Rocks and a Relic to build 4% of the Monument up to tier two"
+tooltip = "Spend 5 Silver and 15 Rocks to build 20% of the Monument up to tier one\\nSpend 50 Rocks and a Relic to build 4% of the Monument up to tier two"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_04242")])
 unlock_tooltip = "Gather 13 Silver to unlock"
 

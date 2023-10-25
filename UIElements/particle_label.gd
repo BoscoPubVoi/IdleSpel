@@ -12,7 +12,10 @@ func create_text(resource_name, amount):
 		newtext += "+"
 	else:
 		newtext += "-"
-	newtext += str(amount)
+	if amount < 1:
+		newtext += str(snapped(amount, 1))
+	else:
+		newtext += str(floor(amount))
 	text = newtext
 	$Icon.play(resource_name)
 	
