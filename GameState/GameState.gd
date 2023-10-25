@@ -9,6 +9,7 @@ var maxSupportedActions = 8
 var buildings:Dictionary = {rocks = 0, water = 0, silver = 0, favor = 0, relics = 0, moonstone = 0, moonlight = 0}
 var placeInCycle:int
 var globalProductionBonuses:Dictionary
+var previousMoonStateProduction:Dictionary = ResourceHelpers.create_empty_resources()
 
 func _duplicate():
 	var newGameState = GameState.new()
@@ -19,4 +20,5 @@ func _duplicate():
 		newGameState.characters.push_back(character._duplicate())
 	newGameState.globalProductionBonuses = globalProductionBonuses.duplicate(true)
 	newGameState.placeInCycle = placeInCycle
+	newGameState.previousMoonStateProduction = previousMoonStateProduction
 	return newGameState

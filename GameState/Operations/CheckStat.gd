@@ -17,4 +17,4 @@ func execute(executionState:ExecutionState):
 func _duplicate():
 	var newOperation = CheckStat.new()
 	newOperation.construct(statToCheck, statMinimum, operation._duplicate())
-	return newOperation
+	return newOperation 
