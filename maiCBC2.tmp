@@ -978,6 +978,9 @@ offset_bottom = 48.0
 tooltip_text = "Rocks"
 texture = ExtResource("20_gsivp")
 script = ExtResource("27_h32dl")
+normalTooltip = null
+associatedResource = null
+flashUntilMouseOver = null
 
 [node name="RockLabel" type="Label" parent="ResourcesPanel/Rocks"]
 layout_mode = 0
@@ -999,6 +1002,7 @@ texture = ExtResource("21_sawqo")
 script = ExtResource("27_h32dl")
 normalTooltip = "Water"
 associatedResource = "water"
+flashUntilMouseOver = null
 
 [node name="WaterLabel" type="Label" parent="ResourcesPanel/Water"]
 layout_mode = 0
@@ -1020,6 +1024,7 @@ texture = ExtResource("22_v80bp")
 script = ExtResource("27_h32dl")
 normalTooltip = "Silver"
 associatedResource = "silver"
+flashUntilMouseOver = null
 
 [node name="SilverLabel" type="Label" parent="ResourcesPanel/Silver"]
 layout_mode = 0
@@ -1041,6 +1046,7 @@ texture = ExtResource("23_agkff")
 script = ExtResource("27_h32dl")
 normalTooltip = "Favor"
 associatedResource = "favor"
+flashUntilMouseOver = null
 
 [node name="FavorLabel" type="Label" parent="ResourcesPanel/Favor"]
 layout_mode = 0
@@ -1062,6 +1068,7 @@ texture = ExtResource("24_u7pt0")
 script = ExtResource("27_h32dl")
 normalTooltip = "Relics"
 associatedResource = "relics"
+flashUntilMouseOver = null
 
 [node name="RelicLabel" type="Label" parent="ResourcesPanel/Relic"]
 layout_mode = 0
@@ -1083,6 +1090,7 @@ texture = ExtResource("25_62bb2")
 script = ExtResource("27_h32dl")
 normalTooltip = "Moonstone"
 associatedResource = "moonstone"
+flashUntilMouseOver = null
 
 [node name="MoonstoneLabel" type="Label" parent="ResourcesPanel/Moonstone"]
 layout_mode = 0
@@ -1104,6 +1112,7 @@ texture = ExtResource("26_5eomv")
 script = ExtResource("27_h32dl")
 normalTooltip = "Moonlight"
 associatedResource = "moonlight"
+flashUntilMouseOver = null
 
 [node name="MoonlightLabel" type="Label" parent="ResourcesPanel/Moonlight"]
 layout_mode = 0
@@ -1125,6 +1134,7 @@ texture = ExtResource("26_5eomv")
 script = ExtResource("27_h32dl")
 normalTooltip = "Love"
 associatedResource = "love"
+flashUntilMouseOver = null
 
 [node name="LoveLabel" type="Label" parent="ResourcesPanel/Love"]
 layout_mode = 0
@@ -1173,7 +1183,7 @@ text = "Welcome, Moon God!"
 [node name="Text" type="Label" parent="PopupWindow/MarginContainer/VBoxContainer" groups=["PopupText"]]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Drag actions from the right onto the available slots on your follower. They will automatically perform these actions every moon cycle. Collect some rocks to continue."
+text = "Drag actions from the right onto the available slots on your follower. They will automatically perform these actions every moon cycle. Collect some stone to continue."
 autowrap_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="PopupWindow/MarginContainer/VBoxContainer" groups=["PopupWindowClose"]]
@@ -1190,6 +1200,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_5ws8u")
 text = "Close"
 script = ExtResource("34_x46rx")
 
-[connection signal="mouse_entered" from="ResourcesPanel/Rocks" to="ResourcesPanel/Rocks" method="_on_mouse_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="PopupWindow/MarginContainer/VBoxContainer/CloseButton" to="PopupWindow/MarginContainer/VBoxContainer/CloseButton" method="_on_pressed"]
