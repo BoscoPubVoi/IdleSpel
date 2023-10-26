@@ -978,6 +978,8 @@ offset_bottom = 48.0
 tooltip_text = "Rocks"
 texture = ExtResource("20_gsivp")
 script = ExtResource("27_h32dl")
+normalTooltip = "Rocks"
+associatedResource = "rocks"
 
 [node name="RockLabel" type="Label" parent="ResourcesPanel/Rocks"]
 layout_mode = 0

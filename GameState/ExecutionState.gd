@@ -83,3 +83,9 @@ func show_popup(title, text):
 	if tree == null:
 		return
 	ShowPopup.show_popup(tree, title, text)
+	
+func flash_rock_icon():
+	if tree == null:
+		return
+		
+	tree.get_first_node_in_group("rocksResourceIcon").flashUntilMouseOver = true
