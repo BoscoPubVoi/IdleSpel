@@ -73,3 +73,12 @@ func _input(event):
 
 
 
+
+#Search
+func _on_line_edit_text_changed(new_text):
+	for node in $ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid.get_children():
+		if node.is_in_group(new_text):
+			node.show()
+		else:
+			node.hide()
+	pass # Replace with function body.
