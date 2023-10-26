@@ -78,11 +78,21 @@ func _input(event):
 func _on_line_edit_text_changed(new_text):
 	for node in $ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid.get_children():
 		
-		if node.unlocked:
-			if new_text in node.action_name || new_text in node.tooltip:
-				node.show()
-			else:
-				node.hide()
-			if new_text == "":
-				node.show()
+		var nt = new_text.to_upper()
+		if (node.unlocked || new_text == "") && (new_text == "" || (nt in node.action_name.to_upper() || nt in node.tooltip.to_upper())):
+			var nodeGroups = node.get_groups()
+			for gr in nodeGroups:
+				if gr == "monument1":
+					if Game.buildings.has("monument") && Game.buildings["monument"] >= 1:
+						node.show()
+				if gr == "monument2":
+					if Game.buildings.has("monument") && Game.buildings["monument"] >= 2:
+						node.show()
+				if gr == "monument3":
+					if Game.buildings.has("monument") && Game.buildings["monument"] >= 3:
+						node.show()
+				if Game.buildings.has(gr) && Game.buildings[gr] >= 1:
+					node.show()
+		else:
+			node.hide()
 	
