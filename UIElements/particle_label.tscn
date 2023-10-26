@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://djmxoi2ignhlm"]
+[gd_scene load_steps=26 format=3 uid="uid://djmxoi2ignhlm"]
 
 [ext_resource type="Script" path="res://UIElements/particle_label.gd" id="1_mt3m8"]
 [ext_resource type="FontFile" uid="uid://cbclq1rnc0tk3" path="res://assets/fonts/LowRes 3x4.ttf" id="1_ux61t"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cebtdosjsd76y" path="res://assets/Resource_Icons/Favor.png" id="3_srbwh"]
 [ext_resource type="Texture2D" uid="uid://cgsuy6u70chki" path="res://assets/Resource_Icons/Reverance.png" id="4_qk0wv"]
 [ext_resource type="Texture2D" uid="uid://bilo43mbxs815" path="res://assets/Resource_Icons/Relics.png" id="4_unrmn"]
+[ext_resource type="Texture2D" uid="uid://opdis7hbl3pk" path="res://assets/Resource_Icons/Fertility.png" id="5_fkbvh"]
 [ext_resource type="Texture2D" uid="uid://d37muymk3m77a" path="res://assets/Resource_Icons/Moonlight.png" id="5_rmgf1"]
 [ext_resource type="Texture2D" uid="uid://fyfu6o55i8mp" path="res://assets/Resource_Icons/Silver.png" id="5_xwmmr"]
 [ext_resource type="Texture2D" uid="uid://c5trp2p3ch51r" path="res://assets/Resource_Icons/Moonstone.png" id="6_yi1h2"]
@@ -17,8 +18,8 @@
 atlas = ExtResource("3_srbwh")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hibeg"]
-atlas = ExtResource("4_qk0wv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_81sdi"]
+atlas = ExtResource("5_fkbvh")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rrsw6"]
@@ -69,10 +70,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hibeg")
+"texture": SubResource("AtlasTexture_81sdi")
 }],
 "loop": true,
-"name": &"love",
+"name": &"fertility",
 "speed": 5.0
 }, {
 "frames": [{
@@ -164,4 +165,4 @@ script = ExtResource("1_mt3m8")
 position = Vector2(11, 12)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_01m75")
-animation = &"love"
+animation = &"fertility"

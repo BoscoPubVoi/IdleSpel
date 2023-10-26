@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=138 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -39,6 +39,7 @@
 [ext_resource type="AudioStream" uid="uid://yb7y787lt5dk" path="res://assets/music/Moonlight_version_2.ogg" id="33_ca1pa"]
 [ext_resource type="Script" path="res://PopupWindow.gd" id="34_kxafh"]
 [ext_resource type="Script" path="res://CloseButton.gd" id="34_x46rx"]
+[ext_resource type="Texture2D" uid="uid://opdis7hbl3pk" path="res://assets/Resource_Icons/Fertility.png" id="37_7rc8h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
 bg_color = Color(0.215686, 0.215686, 0.215686, 1)
@@ -882,11 +883,11 @@ unlock_tooltip = "Gather 20 Water and 30 Rocks to unlock"
 
 [node name="AddLove" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/BaseActions/WellActions2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
-action_name = "Lunar Mist"
+action_name = "Fertility Ritual"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_q1u0j")])
 building = "water"
 icon_path = "res://assets/Action_Icons/Lunar_Mist.png"
-tooltip = "Spend 10 water for +1 Love"
+tooltip = "Spend 10 water for +1 Fertility"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_3hm76")])
 unlock_tooltip = "Gather 10 water to unlock"
 
@@ -1432,7 +1433,7 @@ offset_right = 110.0
 offset_bottom = 34.0
 text = "0"
 
-[node name="Love" type="TextureRect" parent="ResourcesPanel" groups=["love"]]
+[node name="Fertility" type="TextureRect" parent="ResourcesPanel" groups=["love"]]
 visible = false
 layout_mode = 0
 offset_left = 168.0
@@ -1440,12 +1441,12 @@ offset_top = 152.0
 offset_right = 208.0
 offset_bottom = 192.0
 tooltip_text = "Love"
-texture = ExtResource("26_5eomv")
+texture = ExtResource("37_7rc8h")
 script = ExtResource("27_h32dl")
-normalTooltip = "Love"
+normalTooltip = "Fertility"
 associatedResource = "love"
 
-[node name="LoveLabel" type="Label" parent="ResourcesPanel/Love"]
+[node name="FertilityLabel" type="Label" parent="ResourcesPanel/Fertility"]
 layout_mode = 0
 offset_left = 49.0
 offset_top = 8.0
