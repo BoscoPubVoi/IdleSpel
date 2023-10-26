@@ -92,3 +92,4 @@ func flash_rock_icon():
 		return
 		
 	tree.get_first_node_in_group("rocksResourceIcon").flashUntilMouseOver = true
+ 

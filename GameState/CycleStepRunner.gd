@@ -19,6 +19,9 @@ static func runOneStep(sceneTree):
 	
 	#early step
 	for character in Game.characters:
+		if character.skipAllActionsThisCycle:
+			continue
+		
 		if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
 			continue
 		
@@ -33,6 +36,9 @@ static func runOneStep(sceneTree):
 		figure_out_resource_production(character, placeInCycle, resourcesByBuilding, currentExecutionState)
 	
 	for character in Game.characters:
+		if character.skipAllActionsThisCycle:
+			continue
+		
 		if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
 			continue
 		
@@ -47,6 +53,9 @@ static func runOneStep(sceneTree):
 		figure_out_resource_production(character, placeInCycle, resourcesByBuilding, currentExecutionState)
 		
 	for character in Game.characters:
+		if character.skipAllActionsThisCycle:
+			continue
+		
 		if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
 			continue
 		

@@ -2,12 +2,14 @@
 class_name Character
 var actions:Array
 var stats:Dictionary
+var skipAllActionsThisCycle:bool = false
 
 func constructor(maxSupportedActions):
 	actions = []
 	actions.resize(maxSupportedActions)
 	actions.fill(null)
 	stats = {vigor = 0, reverance = 0, wisdom = 0}
+	skipAllActionsThisCycle = false
 
 func _duplicate():
 	var newCharacter = Character.new()
@@ -16,10 +18,12 @@ func _duplicate():
 	for action in actions:
 		newCharacter.actions.push_back(null if action == null else action._duplicate())
 	newCharacter.stats = stats.duplicate(true)
-		
+	newCharacter.skipAllActionsThisCycle = skipAllActionsThisCycle
+
 	return newCharacter
 
 func onCycleStart():
 	stats.vigor = 0
 	stats.reverance = 0
 	stats.wisdom = 0
+	skipAllActionsThisCycle = false

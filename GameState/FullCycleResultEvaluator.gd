@@ -15,6 +15,9 @@ static func evaluate(gameState:GameState):
 		var boosts = {}
 
 		for character in copiedGameState.characters:
+			if character.skipAllActionsThisCycle:
+				continue
+			
 			if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
 				continue
 
@@ -28,6 +31,9 @@ static func evaluate(gameState:GameState):
 			character.actions[placeInCycle].executeEarly(currentExecutionState)
 
 		for character in copiedGameState.characters:
+			if character.skipAllActionsThisCycle:
+				continue
+			
 			if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
 				continue
 
@@ -41,6 +47,9 @@ static func evaluate(gameState:GameState):
 			character.actions[placeInCycle].execute(currentExecutionState)
 
 		for character in copiedGameState.characters:
+			if character.skipAllActionsThisCycle:
+				continue
+				
 			if placeInCycle >= len(character.actions) || character.actions[placeInCycle] == null:
 				continue
 			

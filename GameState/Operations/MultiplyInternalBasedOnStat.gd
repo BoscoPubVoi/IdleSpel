@@ -22,3 +22,4 @@ func _duplicate():
 	var newOperation = MultiplyInternalBasedOnStat.new()
 	newOperation.construct(stat, statMult, operation._duplicate())
 	return newOperation
+ 
