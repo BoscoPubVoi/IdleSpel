@@ -46,19 +46,19 @@ func setBuildInProgress(resource_name):
 		return
 	tree.get_first_node_in_group("Visualiser").set_build_in_progress(resource_name)
 
-
 func setMonumentInProgress(tier_id):
 	if tree == null:
 		return
 	tree.get_first_node_in_group("Visualiser").set_monument_in_progress(tier_id)
 
-func unlockBuilding(resource_name):
+func unlockBuilding(resource_name, from_load=false):
 	if tree == null:
 		return
 	tree.get_first_node_in_group("Visualiser").unlock_building(resource_name)
 	
 	if resource_name == "water":
-		show_popup("Well Built!", "The Well is now fully constructed! Your follower can now gain Wisdom. Note that stats reset at the end of each moon cycle.")
+		if !from_load:
+			show_popup("Well Built!", "The Well is now fully constructed! Your follower can now gain Wisdom. Note that stats reset at the end of each moon cycle.")
 		
 		for node in tree.get_nodes_in_group("WisdomLabel"):
 			node.modulate = Color(1.0, 1.0, 1.0, 1.0)

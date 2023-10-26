@@ -27,3 +27,29 @@ func onCycleStart():
 	stats.reverance = 0
 	stats.wisdom = 0
 	skipAllActionsThisCycle = false
+
+func restore_state(dict, tree):
+	stats = dict.stats
+	skipAllActionsThisCycle = dict.skipAllActionsThisCycle
+	actions = []
+	for action in dict.actions:
+		if action == null:
+			actions.push_back(null)
+			continue
+		var newAction = Action.new()
+		newAction.restore_state(action, tree)
+		actions.push_back(newAction)
+
+func get_save_dict():
+	var actionsSave = []
+	for action in actions:
+		if action == null:
+			actionsSave.push_back(null)
+		else:
+			actionsSave.push_back(action.get_save_dict())
+	
+	return {
+		actions = actionsSave,
+		stats = stats,
+		skipAllActionsThisCycle = skipAllActionsThisCycle
+	}

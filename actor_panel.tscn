@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bexv0ou3bq3sw"]
+[gd_scene load_steps=6 format=3 uid="uid://bexv0ou3bq3sw"]
 
 [ext_resource type="Script" path="res://actor_panel.gd" id="1_0eeyd"]
 [ext_resource type="PackedScene" uid="uid://ddwdk74737glc" path="res://UIElements/action_indent.tscn" id="1_i1gly"]
@@ -6,16 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://cj8jvh5fyskdv" path="res://assets/Resource_Icons/Wisdom.png" id="4_q62qo"]
 [ext_resource type="Texture2D" uid="uid://cgsuy6u70chki" path="res://assets/Resource_Icons/Reverance.png" id="5_6alcg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlntt"]
-bg_color = Color(0.156863, 0.164706, 0.219608, 1)
-border_color = Color(0.435294, 0.458824, 0.6, 1)
-
 [node name="ActorPanel" type="Panel" groups=["ActorPanel"]]
 texture_filter = 3
 custom_minimum_size = Vector2(0, 123)
 offset_left = -1.0
 offset_bottom = 215.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_jlntt")
 script = ExtResource("1_0eeyd")
 
 [node name="Margin" type="MarginContainer" parent="."]
@@ -39,40 +34,40 @@ layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 1
 
-[node name="ActionIndent1" parent="Margin/HBox" instance=ExtResource("1_i1gly")]
+[node name="ActionIndent1" parent="Margin/HBox" groups=["ActionIdent"] instance=ExtResource("1_i1gly")]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="ActionIndent2" parent="Margin/HBox" groups=["SecondUnlockedAction"] instance=ExtResource("1_i1gly")]
-layout_mode = 2
-size_flags_vertical = 0
-enabled = false
-
-[node name="ActionIndent3" parent="Margin/HBox" groups=["FirstUnlockedAction"] instance=ExtResource("1_i1gly")]
+[node name="ActionIndent2" parent="Margin/HBox" groups=["ActionIdent", "SecondUnlockedAction"] instance=ExtResource("1_i1gly")]
 layout_mode = 2
 size_flags_vertical = 0
 enabled = false
 
-[node name="ActionIndent4" parent="Margin/HBox" groups=["SecondUnlockedAction"] instance=ExtResource("1_i1gly")]
+[node name="ActionIndent3" parent="Margin/HBox" groups=["ActionIdent", "FirstUnlockedAction"] instance=ExtResource("1_i1gly")]
 layout_mode = 2
 size_flags_vertical = 0
 enabled = false
 
-[node name="ActionIndent5" parent="Margin/HBox" instance=ExtResource("1_i1gly")]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="ActionIndent6" parent="Margin/HBox" groups=["SecondUnlockedAction"] instance=ExtResource("1_i1gly")]
+[node name="ActionIndent4" parent="Margin/HBox" groups=["ActionIdent", "SecondUnlockedAction"] instance=ExtResource("1_i1gly")]
 layout_mode = 2
 size_flags_vertical = 0
 enabled = false
 
-[node name="ActionIndent7" parent="Margin/HBox" groups=["FirstUnlockedAction"] instance=ExtResource("1_i1gly")]
+[node name="ActionIndent5" parent="Margin/HBox" groups=["ActionIdent"] instance=ExtResource("1_i1gly")]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ActionIndent6" parent="Margin/HBox" groups=["ActionIdent", "SecondUnlockedAction"] instance=ExtResource("1_i1gly")]
 layout_mode = 2
 size_flags_vertical = 0
 enabled = false
 
-[node name="ActionIndent8" parent="Margin/HBox" groups=["SecondUnlockedAction"] instance=ExtResource("1_i1gly")]
+[node name="ActionIndent7" parent="Margin/HBox" groups=["ActionIdent", "FirstUnlockedAction"] instance=ExtResource("1_i1gly")]
+layout_mode = 2
+size_flags_vertical = 0
+enabled = false
+
+[node name="ActionIndent8" parent="Margin/HBox" groups=["ActionIdent", "SecondUnlockedAction"] instance=ExtResource("1_i1gly")]
 layout_mode = 2
 size_flags_vertical = 0
 enabled = false
@@ -130,5 +125,3 @@ offset_top = 3.0
 offset_right = 132.0
 offset_bottom = 29.0
 text = "0"
-
-[connection signal="gui_input" from="Margin/HBox/ActionIndent1" to="Margin/HBox/ActionIndent1" method="_on_gui_input"]

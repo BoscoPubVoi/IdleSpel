@@ -5,6 +5,8 @@ var name:String
 var operations:Array
 var building:String
 
+var _save_origNode
+
 func update(executionState:ExecutionState):
 	pass
 
@@ -29,3 +31,32 @@ func execute(executionState:ExecutionState):
 func executeLate(executionState:ExecutionState):
 	for operation in operations:
 		operation.executeLate(executionState)
+		
+func get_save_dict():
+	return {
+		name = name,
+		building = building
+	}
+
+func restore_state(dict, tree):
+	name = dict.name
+	building = dict.building
+	
+	# Go ahead and try to find this action in the scene tree somehow
+	var allActions = find_all_action_nodes(tree.get_root())
+	var thisSpecificAction = allActions.filter (func(ac):
+		return ac.action_name == name
+	)[0]
+	_save_origNode = thisSpecificAction
+
+func find_all_action_nodes(node):
+	var found_nodes = []
+	
+	if node is ActionIcon:
+		found_nodes.append(node)
+
+	if node is Node:
+		for child in node.get_children():
+			found_nodes += find_all_action_nodes(child)
+	
+	return found_nodes

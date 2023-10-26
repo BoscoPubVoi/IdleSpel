@@ -11,12 +11,13 @@ var cycleStepRunner = CycleStepRunner.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Game.buildings["rocks"] = 1
-	Visualiser.unlock_building("rocks")
-	
-	var newCharacter = Character.new()
-	newCharacter.constructor(Game.maxSupportedActions)
-	Game.characters.push_back(newCharacter)
+	if ! Game.wasFromLoaded:
+		Game.buildings["rocks"] = 1
+		Visualiser.unlock_building("rocks")
+		
+		var newCharacter = Character.new()
+		newCharacter.constructor(Game.maxSupportedActions)
+		Game.characters.push_back(newCharacter)
 
 	update_resource_labels()
 	updateMoonCycleIcon()

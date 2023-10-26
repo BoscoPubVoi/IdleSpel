@@ -10,6 +10,7 @@ var buildings:Dictionary = {rocks = 0, water = 0, silver = 0, favor = 0, relics 
 var placeInCycle:int
 var globalProductionBonuses:Dictionary
 var previousMoonStateProduction:Dictionary = ResourceHelpers.create_empty_resources()
+var wasFromLoaded:bool = false
 
 func _duplicate():
 	var newGameState = GameState.new()
@@ -26,3 +27,32 @@ func _duplicate():
 func onChange():
 	var fullCycle = FullCycleResultEvaluator.new()
 	fullCycle.evaluate(self)
+
+func restore_state(dict, tree):
+	resources = dict.resources
+	resourceCaps = dict.resourceCaps
+	maxSupportedActions = int(dict.maxSupportedActions)
+	buildings = dict.buildings
+	characters = []
+	for char in dict.characters:
+		var newChar = Character.new()
+		newChar.restore_state(char, tree)
+		characters.push_back(newChar)
+	placeInCycle = dict.placeInCycle
+	globalProductionBonuses = dict.globalProductionBonuses
+	previousMoonStateProduction = dict.previousMoonStateProduction
+
+func get_save_dict():
+	var charactersSave = []
+	for char in characters:
+		charactersSave.push_back(char.get_save_dict())
+	return {
+		resources = resources,
+		resourceCaps = resourceCaps,
+		maxSupportedActions = maxSupportedActions,
+		buildings = buildings,
+		characters = charactersSave,
+		placeInCycle = placeInCycle,
+		globalProductionBonuses = globalProductionBonuses,
+		previousMoonStateProduction = previousMoonStateProduction
+	}

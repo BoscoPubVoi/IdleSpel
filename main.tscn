@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=148 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bv2nay3b4rm" path="res://assets/Moon2_Icon.png" id="4_p0qix"]
 [ext_resource type="Texture2D" uid="uid://caordvs4uxeou" path="res://assets/HalfMoon_Icon.png" id="5_1oedm"]
 [ext_resource type="Script" path="res://GameState/Operations/ProduceSecondaryResource.gd" id="5_22pki"]
-[ext_resource type="PackedScene" uid="uid://yw6q30hvukgg" path="res://UIElements/waning_crescent.tscn" id="6_gfv6t"]
+[ext_resource type="PackedScene" path="res://UIElements/waning_crescent.tscn" id="6_gfv6t"]
 [ext_resource type="Script" path="res://GameState/Operations/BoostCharacterStat.gd" id="6_i72h5"]
 [ext_resource type="Texture2D" uid="uid://cjjkludkbcxgk" path="res://assets/Crescent_Right_Icon.png" id="6_qfmv4"]
 [ext_resource type="Texture2D" uid="uid://dws7mju66i8ox" path="res://assets/NewMoon_Icon.png" id="7_epah6"]
@@ -44,6 +44,7 @@
 [ext_resource type="Script" path="res://PopupWindow.gd" id="34_kxafh"]
 [ext_resource type="Script" path="res://CloseButton.gd" id="34_x46rx"]
 [ext_resource type="Texture2D" uid="uid://opdis7hbl3pk" path="res://assets/Resource_Icons/Fertility.png" id="37_7rc8h"]
+[ext_resource type="Script" path="res://GameSave.gd" id="42_oc06t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
 bg_color = Color(0.0784314, 0.0862745, 0.109804, 1)
@@ -1506,6 +1507,10 @@ text = "0"
 [node name="Timer" type="Timer" parent="." groups=["MainTimer"]]
 autostart = true
 
+[node name="GameSave" type="Timer" parent="." groups=["MainTimer"]]
+autostart = true
+script = ExtResource("42_oc06t")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("33_ca1pa")
 volume_db = -12.418
@@ -1561,4 +1566,5 @@ script = ExtResource("34_x46rx")
 
 [connection signal="mouse_entered" from="ResourcesPanel/Rocks" to="ResourcesPanel/Rocks" method="_on_mouse_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="GameSave" to="GameSave" method="_on_timeout"]
 [connection signal="pressed" from="PopupWindow/MarginContainer/VBoxContainer/CloseButton" to="PopupWindow/MarginContainer/VBoxContainer/CloseButton" method="_on_pressed"]

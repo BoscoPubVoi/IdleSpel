@@ -54,6 +54,9 @@ func _process(delta):
 
 func _get_drag_data(at_position):
 	if !used && unlocked:
+		return get_drag_data_unconstrained();
+
+func get_drag_data_unconstrained():
 		var data = {} 
 		data["origin_node"] = self
 		data["action"] = Action.new()

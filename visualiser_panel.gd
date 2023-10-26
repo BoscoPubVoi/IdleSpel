@@ -47,6 +47,7 @@ func unlock_building(resource):
 	for building in get_children():
 		if building.name == resource:
 			building.frame = 1
+			building.show()
 			building.get_child(0).hide()
 
 func set_build_in_progress(resource):
@@ -73,6 +74,7 @@ func set_monument_in_progress(tierID):
 func set_monument_tier(tierID):
 	for building in get_children():
 		if building.name == "monument":
+			building.show()
 			building.frame = (tierID -1) * 2 + 1; # * 2 + 1 if with in progress images included
 
 func create_particles(resourcesByBuilding):
