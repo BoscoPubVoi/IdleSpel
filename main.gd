@@ -67,7 +67,7 @@ func _input(event):
 		return
 	
 	var just_pressed = event.is_pressed() and not event.is_echo()
-	if Input.is_key_pressed(KEY_C) and just_pressed:
+	if Input.is_key_pressed(KEY_F12) and just_pressed:
 		get_tree().get_first_node_in_group("MainTimer").wait_time = 0.01 if get_tree().get_first_node_in_group("MainTimer").wait_time == 1 else 1
 
 
