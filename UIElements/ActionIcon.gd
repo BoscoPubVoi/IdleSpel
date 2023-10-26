@@ -92,7 +92,7 @@ func set_display():
 		textureRect.modulate = Color(1.0,1.0,1.0,.1)
 		tooltip_text = epic_tooltip
 	elif !unlocked:
-		textureRect.modulate = Color(1.0,1.0,1.0,.2)
+		textureRect.modulate = Color(1.0,1.0,1.0,.1)
 		tooltip_text = unlock_tooltip
 	else:
 		textureRect.modulate = Color(1.0,1.0,1.0,1.0)
