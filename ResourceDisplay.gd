@@ -22,3 +22,4 @@ func _process(_delta):
 
 func _on_mouse_entered():
 	flashUntilMouseOver = false
+	self.modulate = Color.WHITE
