@@ -16,7 +16,7 @@ func execute(executionState:ExecutionState):
 	var compliantCharacters = 0
 	
 	for character in executionState.gameState.characters:
-		if character.stats[statToCheck] >= statMinimum && character != executionState.currentCharacter:
+		if character.stats[statToCheck] >= statMinimum:# && character != executionState.currentCharacter:
 			compliantCharacters += 1
 	
 	if compliantCharacters >= minPeopleWithStat:
