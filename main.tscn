@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=113 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -292,8 +292,8 @@ minOfStat = 10.0
 [sub_resource type="Resource" id="Resource_8rwek"]
 script = ExtResource("5_22pki")
 costs = {}
-resourceTypeToProduce = "3"
-baseProduction = 0.0
+resourceTypeToProduce = "silver"
+baseProduction = 3.0
 
 [sub_resource type="Resource" id="Resource_6738d"]
 script = ExtResource("7_vy3f6")
@@ -446,6 +446,51 @@ costs = {
 script = ExtResource("21_1cyp2")
 resourceTypeToProduce = "favor"
 minAmount = 20.0
+
+[sub_resource type="Resource" id="Resource_svkjg"]
+script = ExtResource("5_22pki")
+costs = {
+"favor": 10,
+"silver": 5
+}
+resourceTypeToProduce = "relics"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_ych5e"]
+script = ExtResource("5_22pki")
+costs = {
+"favor": 10,
+"water": 20
+}
+resourceTypeToProduce = "relics"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_rinmt"]
+script = ExtResource("7_vy3f6")
+statToCheck = "vigor"
+statMinimum = 5.0
+operation = SubResource("Resource_ych5e")
+
+[sub_resource type="Resource" id="Resource_v6pkx"]
+script = ExtResource("5_22pki")
+costs = {
+"favor": 10,
+"silver": 3
+}
+resourceTypeToProduce = "relics"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_grs3v"]
+script = ExtResource("7_vy3f6")
+statToCheck = "wisdom"
+statMinimum = 10.0
+operation = SubResource("Resource_v6pkx")
+
+[sub_resource type="Resource" id="Resource_utcob"]
+script = ExtResource("24_tn8ta")
+statToCheck = ""
+statMinimum = 0.0
+minPeopleWithStat = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ia36"]
 bg_color = Color(0.117647, 0.117647, 0.117647, 1)
@@ -955,6 +1000,78 @@ icon_path = "res://assets/Action_Icons/Build_Relics.png"
 tooltip = "Spend 10 Favor, 3 Silver and 15 Water to build 5% of the Reliquary, or increase Relics capacity by 1"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_ohy52")])
 unlock_tooltip = "Gather 20 Favor to unlock"
+
+[node name="TertiaryActions2" type="VBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer" groups=["relics"]]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="BA1" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2"]
+layout_mode = 2
+theme_override_constants/separation = 27
+alignment = 1
+
+[node name="LustorRelic" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA1" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Craft Lustrous Relic"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_svkjg")])
+building = "relics"
+icon_path = "res://assets/Action_Icons/Craft_Lustrous_relic.png"
+tooltip = "-5 Silver, -10 Favor, +1 Relic"
+
+[node name="NauticalRelic" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA1" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Craft Nautical Relic"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_rinmt")])
+building = "relics"
+icon_path = "res://assets/Action_Icons/Build_Nautical_Relic.png"
+tooltip = "If you have 5 Vigor, -20 Water, -10 Favor, +1 Relic"
+
+[node name="WiseRelic" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA1" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Craft Wise Relic"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_grs3v")])
+building = "relics"
+icon_path = "res://assets/Action_Icons/Build_Wise_relic.png"
+tooltip = "If you have 10 Wisdom, -3 Silver, -10 Favor, +1 Relic"
+
+[node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2"]
+layout_mode = 2
+theme_override_constants/separation = 27
+alignment = 1
+
+[node name="Alchemy" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Alchemy"
+building = "relics"
+icon_path = "res://assets/Action_Icons/Alchemy.png"
+tooltip = "If you have a relic, -1 Rocks, +1 Silver"
+
+[node name="AncientRitual" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Ancient Ritual"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_utcob")])
+building = "monument"
+
+[node name="MudflatWalking" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA2" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Mudflat Walking"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([null])
+building = "water"
+
+[node name="BA3" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2"]
+layout_mode = 2
+theme_override_constants/separation = 27
+alignment = 1
+
+[node name="Relic7" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA3" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+
+[node name="Relic8" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA3" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+
+[node name="Relic9" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA3" instance=ExtResource("3_se0lr")]
+layout_mode = 2
 
 [node name="ResourcesPanel" type="Panel" parent="."]
 texture_filter = 3
