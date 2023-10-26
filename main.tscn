@@ -258,10 +258,13 @@ minAmount = 50.0
 
 [sub_resource type="Resource" id="Resource_7p4rf"]
 script = ExtResource("18_e08c4")
-buildBuildingAmount = Array[float]([0.2])
+buildBuildingAmount = Array[float]([0.2, 0.04])
 costs = Array[Dictionary]([{
 "rocks": 15,
 "silver": 5
+}, {
+"relics": 1,
+"rocks": 50
 }])
 
 [sub_resource type="Resource" id="Resource_04242"]
@@ -748,11 +751,6 @@ script = ExtResource("19_eiwq3")
 requiredMoonPhase = Array[int]([3, 5])
 operation = SubResource("Resource_c1dih")
 
-[sub_resource type="Resource" id="Resource_k5b8k"]
-script = ExtResource("22_b8b85")
-stat = "wisdom"
-minOfStat = 25.0
-
 [sub_resource type="Resource" id="Resource_ce5nw"]
 script = ExtResource("16_nvuys")
 boostInPosition = "all"
@@ -811,6 +809,11 @@ minAmount = 4.0
 [sub_resource type="Resource" id="Resource_3pv7r"]
 script = ExtResource("36_xsavq")
 statToIncrease = "wisdom"
+
+[sub_resource type="Resource" id="Resource_k5b8k"]
+script = ExtResource("22_b8b85")
+stat = "wisdom"
+minOfStat = 25.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ia36"]
 bg_color = Color(0.117647, 0.117647, 0.117647, 1)
@@ -1472,7 +1475,7 @@ tooltip = "Spend 2 Relics and 20 Water to build 2.5% of the Moonstone Shrine, or
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_lvqni")])
 unlock_tooltip = "Have 3 Relics to unlock"
 
-[node name="Monument2" type="VBoxContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/WholeActionContainer" groups=["relics"]]
+[node name="Monument2" type="VBoxContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/WholeActionContainer" groups=["monument2"]]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 24
@@ -1547,7 +1550,6 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "monument"
 icon_path = "res://assets/Action_Icons/Gibbous_Frenzy.png"
 tooltip = "+10 Vigor in Gibbous Phase"
-unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_k5b8k")])
 
 [node name="PrayforProsperity" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/WholeActionContainer/Monument2/BA3" instance=ExtResource("3_se0lr")]
 layout_mode = 2
