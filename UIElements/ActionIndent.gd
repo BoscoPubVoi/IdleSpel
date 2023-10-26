@@ -71,9 +71,7 @@ func put_in_slot(data, tempTexture = null):
 	while par != null && !par.is_in_group("ActorPanel"):
 		par = par.get_parent()
 	Game.characters[par.characterID].actions[slot] = current_data["action"]
-	
-	
-	var fullCycleResult = FullCycleResultEvaluator.evaluate(Game)
+	Game.onChange()
 	
 	if !is_instance_valid(current_data["texture"]):
 		textureRect.texture = tempTexture
@@ -90,6 +88,7 @@ func empty_slot():
 	current_data = null
 	var slot = _get_index()
 	Game.characters[rel_character.characterID].actions[slot] = null
+	Game.onChange()
 #	textureRect.texture = null
 	textureRect.hide()
 	tooltip_text = ""

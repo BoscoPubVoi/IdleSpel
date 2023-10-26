@@ -14,7 +14,7 @@ func _init(gameState_, currentCharacter_, currentActionPosition_, boosts_, tree_
 	currentCharacter = currentCharacter_
 	currentActionPosition = currentActionPosition_
 	currentBoosts = boosts_
-	tree = tree_
+	tree = tree_ 
 
 func prepareForStep():
 	currentBoosts = {}
@@ -91,5 +91,5 @@ func flash_rock_icon():
 	if tree == null:
 		return
 		
-	tree.get_first_node_in_group("rocksResourceIcon").flashUntilMouseOver = true
+	tree.get_first_node_in_group("rocksResourceIcon").flashUntilMouseOver = true 
  

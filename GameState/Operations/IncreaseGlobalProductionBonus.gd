@@ -21,7 +21,7 @@ func execute(executionState:ExecutionState):
 	var boostAmount2 = executionState.gameState.globalProductionBonuses.get(resourceToIncrease)
 	if boostAmount2 == null:
 		executionState.gameState.globalProductionBonuses[resourceToIncrease] = 0
-	if maxAfford * increaseBonusAmount > 0 && executionState.gameState.globalProductionBonuses["rocks"] <= 0:
+	if maxAfford * increaseBonusAmount > 0 && executionState.gameState.globalProductionBonuses.has("rocks") && executionState.gameState.globalProductionBonuses["rocks"] <= 0:
 		executionState.flash_rock_icon()
 	
 	executionState.gameState.globalProductionBonuses[resourceToIncrease] += maxAfford * increaseBonusAmount

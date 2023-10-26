@@ -22,3 +22,7 @@ func _duplicate():
 	newGameState.placeInCycle = placeInCycle
 	newGameState.previousMoonStateProduction = previousMoonStateProduction
 	return newGameState
+
+func onChange():
+	var fullCycle = FullCycleResultEvaluator.new()
+	fullCycle.evaluate(self)
