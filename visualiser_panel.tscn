@@ -16,7 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://chskrj3c0vag1" path="res://assets/Full_Moon_Icon.png" id="14_juq5j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khlr0"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.156863, 0.164706, 0.219608, 1)
+border_color = Color(0.2, 0.203922, 0.227451, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xec8a"]
 atlas = ExtResource("1_53qgm")
@@ -311,12 +312,12 @@ texture = ExtResource("14_juq5j")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="FullMoonIcon"]
 scale = Vector2(1.5, 1.5)
 amount = 20
-lifetime = 3.0
+lifetime = 5.0
 direction = Vector2(-1, 1)
 spread = 80.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 16.0
-initial_velocity_max = 16.0
+initial_velocity_min = 8.0
+initial_velocity_max = 8.0
 orbit_velocity_min = -0.1
 orbit_velocity_max = 0.1
 radial_accel_max = 0.01

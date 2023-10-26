@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://UIElements/ActionIndent.gd" id="1_13hjb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgmkt"]
-bg_color = Color(0.501961, 0.501961, 0.501961, 1)
+bg_color = Color(0.2, 0.203922, 0.227451, 1)
 
 [node name="ActionIndent" type="Panel"]
 custom_minimum_size = Vector2(64, 64)
