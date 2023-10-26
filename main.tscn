@@ -1247,7 +1247,7 @@ action_name = "Passionate Love"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_m0ipd")])
 building = "monument"
 icon_path = "res://assets/Action_Icons/Passion_Love.png"
-tooltip = "If you and another Follower have 5 Vigor, +2 Love"
+tooltip = "If you and another Follower have 5 Vigor, +2 Fertility"
 
 [node name="DigStream" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
 visible = false
