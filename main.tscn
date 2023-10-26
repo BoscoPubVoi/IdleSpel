@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=137 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -33,7 +33,9 @@
 [ext_resource type="Texture2D" uid="uid://bilo43mbxs815" path="res://assets/Resource_Icons/Relics.png" id="24_u7pt0"]
 [ext_resource type="Texture2D" uid="uid://c5trp2p3ch51r" path="res://assets/Resource_Icons/Moonstone.png" id="25_62bb2"]
 [ext_resource type="Texture2D" uid="uid://d37muymk3m77a" path="res://assets/Resource_Icons/Moonlight.png" id="26_5eomv"]
+[ext_resource type="Script" path="res://GameState/Operations/CheckResource.gd" id="27_b5w0i"]
 [ext_resource type="Script" path="res://ResourceDisplay.gd" id="27_h32dl"]
+[ext_resource type="Script" path="res://GameState/Operations/MultiplyInternalBasedOnResource.gd" id="28_j67hj"]
 [ext_resource type="AudioStream" uid="uid://yb7y787lt5dk" path="res://assets/music/Moonlight_version_2.ogg" id="33_ca1pa"]
 [ext_resource type="Script" path="res://PopupWindow.gd" id="34_kxafh"]
 [ext_resource type="Script" path="res://CloseButton.gd" id="34_x46rx"]
@@ -291,7 +293,9 @@ minOfStat = 10.0
 
 [sub_resource type="Resource" id="Resource_8rwek"]
 script = ExtResource("5_22pki")
-costs = {}
+costs = {
+"rocks": 30
+}
 resourceTypeToProduce = "silver"
 baseProduction = 3.0
 
@@ -486,11 +490,145 @@ statToCheck = "wisdom"
 statMinimum = 10.0
 operation = SubResource("Resource_v6pkx")
 
-[sub_resource type="Resource" id="Resource_utcob"]
-script = ExtResource("24_tn8ta")
-statToCheck = ""
-statMinimum = 0.0
-minPeopleWithStat = 0
+[sub_resource type="Resource" id="Resource_4nfrk"]
+script = ExtResource("5_22pki")
+costs = {
+"rocks": 1
+}
+resourceTypeToProduce = "silver"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_mille"]
+script = ExtResource("27_b5w0i")
+resourceToCheck = "relics"
+resourceMinimum = 3.0
+operation = SubResource("Resource_4nfrk")
+
+[sub_resource type="Resource" id="Resource_2nho4"]
+script = ExtResource("6_i72h5")
+statToIncrease = "reverance"
+statIncreaseAmount = 5.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_psm45"]
+script = ExtResource("27_b5w0i")
+resourceToCheck = "relics"
+resourceMinimum = 3.0
+operation = SubResource("Resource_2nho4")
+
+[sub_resource type="Resource" id="Resource_p5i63"]
+script = ExtResource("6_i72h5")
+statToIncrease = "reverance"
+statIncreaseAmount = 10.0
+costs = {
+"water": 10
+}
+
+[sub_resource type="Resource" id="Resource_3di4e"]
+script = ExtResource("22_b8b85")
+stat = "reverance"
+minOfStat = 10.0
+
+[sub_resource type="Resource" id="Resource_4eptx"]
+script = ExtResource("5_22pki")
+costs = {
+"rocks": 30
+}
+resourceTypeToProduce = "silver"
+baseProduction = 3.0
+
+[sub_resource type="Resource" id="Resource_h33ga"]
+script = ExtResource("7_vy3f6")
+statToCheck = "vigor"
+statMinimum = 10.0
+operation = SubResource("Resource_4eptx")
+
+[sub_resource type="Resource" id="Resource_743sy"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "relics"
+minAmount = 2.0
+
+[sub_resource type="Resource" id="Resource_vsiot"]
+script = ExtResource("16_nvuys")
+boostInPosition = "favor"
+boostAmount = 1.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_cbc60"]
+script = ExtResource("7_vy3f6")
+statToCheck = "reverance"
+statMinimum = 5.0
+operation = SubResource("Resource_vsiot")
+
+[sub_resource type="Resource" id="Resource_aff1w"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "relics"
+minAmount = 2.0
+
+[sub_resource type="Resource" id="Resource_gxs8p"]
+script = ExtResource("16_nvuys")
+boostInPosition = "rocks"
+boostAmount = 2.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_cv1eb"]
+script = ExtResource("7_vy3f6")
+statToCheck = "reverance"
+statMinimum = 15.0
+operation = SubResource("Resource_gxs8p")
+
+[sub_resource type="Resource" id="Resource_c7wpi"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "relics"
+minAmount = 5.0
+
+[sub_resource type="Resource" id="Resource_tgopt"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "favor"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_uxibr"]
+script = ExtResource("28_j67hj")
+resource = "relics"
+resourceMult = 1.0
+operation = SubResource("Resource_tgopt")
+
+[sub_resource type="Resource" id="Resource_0w8ya"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "relics"
+minAmount = 10.0
+
+[sub_resource type="Resource" id="Resource_kq8fk"]
+script = ExtResource("6_i72h5")
+statToIncrease = "reverance"
+statIncreaseAmount = 1.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_c865g"]
+script = ExtResource("28_j67hj")
+resource = "relics"
+resourceMult = 1.0
+operation = SubResource("Resource_kq8fk")
+
+[sub_resource type="Resource" id="Resource_4euhv"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "relics"
+minAmount = 5.0
+
+[sub_resource type="Resource" id="Resource_kqxd8"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "moonstone"
+buildBuildingAmount = 0.025
+increaseCapAmount = 1.0
+costs = {
+"relics": 2,
+"water": 30
+}
+
+[sub_resource type="Resource" id="Resource_lvqni"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "relics"
+minAmount = 3.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ia36"]
 bg_color = Color(0.117647, 0.117647, 0.117647, 1)
@@ -1043,35 +1181,97 @@ alignment = 1
 [node name="Alchemy" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Alchemy"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_mille")])
 building = "relics"
 icon_path = "res://assets/Action_Icons/Alchemy.png"
-tooltip = "If you have a relic, -1 Rocks, +1 Silver"
+tooltip = "If you have 3 Relics, -1 Rocks, +1 Silver"
 
 [node name="AncientRitual" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Ancient Ritual"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_utcob")])
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_psm45")])
 building = "monument"
+icon_path = "res://assets/Action_Icons/Ancient_Ritual.png"
+tooltip = "If you have 3 Relics, +5 Reverance"
 
 [node name="MudflatWalking" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA2" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Mudflat Walking"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([null])
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_p5i63")])
 building = "water"
+icon_path = "res://assets/Action_Icons/Mudflat_Walking.png"
+tooltip = "-10 Water, +10 Reverance"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_3di4e")])
 
 [node name="BA3" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2"]
 layout_mode = 2
 theme_override_constants/separation = 27
 alignment = 1
 
-[node name="Relic7" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA3" instance=ExtResource("3_se0lr")]
+[node name="EnergySmelting" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA3" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+action_name = "Energetic Smelting"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_h33ga")])
+building = "silver"
+icon_path = "res://assets/Action_Icons/Energetic_Smelting.png"
+tooltip = "If you have 10 Vigor, -30 Rocks, +3 Silver"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_743sy")])
+unlock_tooltip = "Have 2 Relics to unlock"
 
-[node name="Relic8" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA3" instance=ExtResource("3_se0lr")]
+[node name="DevoutPrayer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA3" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+action_name = "Devout Prayer"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_cbc60")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Devout_Prayer.png"
+tooltip = "If you have 5 Reverance, +100% Favor production in this moon phase"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_aff1w")])
+unlock_tooltip = "Have 2 Relics to unlock"
 
-[node name="Relic9" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA3" instance=ExtResource("3_se0lr")]
+[node name="Pray for Avalanche" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA3" instance=ExtResource("3_se0lr")]
 layout_mode = 2
+action_name = "Pray for Avalanche"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_cv1eb")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Pray_For_Avalanche.png"
+tooltip = "If you have 15 Reverance, +200% Rocks production in this moon phase"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_c7wpi")])
+unlock_tooltip = "Have 2 Relics to unlock"
+
+[node name="BA4" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2"]
+layout_mode = 2
+theme_override_constants/separation = 27
+alignment = 1
+
+[node name="Pilgrimage" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA4" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Pilgrimage"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_uxibr")])
+building = "relics"
+icon_path = "res://assets/Action_Icons/Pilgrimage.png"
+tooltip = "Gain Favor equal to the number of Relics you have"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_0w8ya")])
+unlock_tooltip = "Gain Favor equal to the number of Relics you have"
+
+[node name="PrayToIdol" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA4" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Pray to Effigy"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_c865g")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Pray_to_Effigy.png"
+tooltip = "Gain Reverance equal to the number of Relics you have"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_4euhv")])
+unlock_tooltip = "Have 5 Relics to unlocks"
+
+[node name="BuildMoonstone" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions2/BA4" instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Build Moonstone Shrine"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_kqxd8")])
+building = "moonstone"
+icon_path = "res://assets/Action_Icons/Build_Moonstone.png"
+tooltip = "Spend 2 Relics and 20 Water to build 2.5% of the Moonstone Shrine, or increase Moonstone capacity by 1"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_lvqni")])
+unlock_tooltip = "Have 3 Relics to unlock"
 
 [node name="ResourcesPanel" type="Panel" parent="."]
 texture_filter = 3
