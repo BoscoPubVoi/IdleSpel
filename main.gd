@@ -20,6 +20,7 @@ func _ready():
 
 	update_resource_labels()
 	updateMoonCycleIcon()
+	$AudioStreamPlayer.play()
 
 
 func unlock_secondary_actions():

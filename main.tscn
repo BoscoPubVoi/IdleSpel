@@ -254,11 +254,13 @@ statToIncrease = "vigor"
 statIncreaseAmount = 5.0
 costs = {}
 
-[sub_resource type="Resource" id="Resource_p5ouh"]
-script = ExtResource("5_22pki")
-costs = {}
-resourceTypeToProduce = "wisdom"
-baseProduction = 10.0
+[sub_resource type="Resource" id="Resource_10gpv"]
+script = ExtResource("6_i72h5")
+statToIncrease = "wisdom"
+statIncreaseAmount = 10.0
+costs = {
+"rocks": 2
+}
 
 [sub_resource type="Resource" id="Resource_h1lmi"]
 script = ExtResource("4_84l6x")
@@ -803,7 +805,7 @@ tooltip = "+5 Vigor"
 [node name="Paleo" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions/BA1" instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Paleontology"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_p5ouh")])
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_10gpv")])
 building = "rocks"
 icon_path = "res://assets/Action_Icons/Paleontology.png"
 tooltip = "-2 Rocks, +10 Wisdom"
@@ -883,8 +885,8 @@ layout_mode = 2
 action_name = "Feverish Prayer"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_5ylu1"), SubResource("Resource_m65df")])
 building = "favor"
-icon_path = "res://assets/Action_Icons/Boost_same_phase.png"
-tooltip = "+100% rock production for other characters in this moon phase "
+icon_path = "res://assets/Action_Icons/Feverish_Prayer.png"
+tooltip = "+2 Favor, +5 Vigor"
 
 [node name="BA2" type="HBoxContainer" parent="ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions"]
 layout_mode = 2
@@ -1140,7 +1142,6 @@ autostart = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("33_ca1pa")
 volume_db = -12.418
-autoplay = true
 
 [node name="PopupWindow" type="PanelContainer" parent="." groups=["PopupWindow"]]
 layout_mode = 1
