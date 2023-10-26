@@ -997,7 +997,7 @@ theme_override_constants/separation = 16
 
 [node name="LineEdit" type="LineEdit" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer"]
 layout_mode = 2
-placeholder_text = "Search,,,"
+placeholder_text = "Search..."
 
 [node name="ActionGrid" type="GridContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer"]
 layout_mode = 2
