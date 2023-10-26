@@ -16,7 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://chskrj3c0vag1" path="res://assets/Full_Moon_Icon.png" id="14_juq5j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khlr0"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.156863, 0.164706, 0.219608, 1)
+border_color = Color(0.2, 0.203922, 0.227451, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xec8a"]
 atlas = ExtResource("1_53qgm")

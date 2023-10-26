@@ -46,12 +46,12 @@
 [ext_resource type="Texture2D" uid="uid://opdis7hbl3pk" path="res://assets/Resource_Icons/Fertility.png" id="37_7rc8h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
-bg_color = Color(0.215686, 0.215686, 0.215686, 1)
+bg_color = Color(0.0784314, 0.0862745, 0.109804, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
+border_color = Color(0.27451, 0.290196, 0.376471, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uxme"]
 bg_color = Color(0.121569, 0.121569, 0.121569, 1)
@@ -701,6 +701,7 @@ custom_minimum_size = Vector2(0, 256)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_left = -4.0
 offset_bottom = 388.0
 grow_horizontal = 2
 
@@ -1330,6 +1331,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -294.0
 offset_top = -262.0
+offset_right = 11.0
+offset_bottom = 14.0
 grow_horizontal = 0
 grow_vertical = 0
 
