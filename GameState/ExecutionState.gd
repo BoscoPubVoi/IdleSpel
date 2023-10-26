@@ -62,14 +62,17 @@ func unlockBuilding(resource_name):
 		
 		for node in tree.get_nodes_in_group("WisdomLabel"):
 			node.modulate = Color(1.0, 1.0, 1.0, 1.0)
+			node.tooltip_text = "Wisdom (resets each moon cycle)"
 
 	if resource_name == "favor":
 		for node in tree.get_nodes_in_group("VigorLabel"):
 			node.modulate = Color(1.0, 1.0, 1.0, 1.0)
+			node.tooltip_text = "Vigor (resets each moon cycle)"
 
 	if resource_name == "relics":
 		for node in tree.get_nodes_in_group("ReveranceLabel"):
 			node.modulate = Color(1.0, 1.0, 1.0, 1.0)
+			node.tooltip_text = "Reverance (resets each moon cycle)"
 
 func setMonumentTier(tier_id):
 	if tree == null:
