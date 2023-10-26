@@ -47,6 +47,10 @@ func _process(delta):
 					"You can now gain Love. Gain a Love to get an additional follower.")
 				get_tree().get_first_node_in_group("love").visible = true
 			set_display()
+#		$TextureRect.hide()
+		$Lock.show()
+	else:
+		$Lock.hide()
 
 func _get_drag_data(at_position):
 	if !used && unlocked:
@@ -81,6 +85,8 @@ func make_used(newval):
 	set_display()
 	
 func set_display():
+#	$TextureRect.show()
+	
 	#hide it or something
 	if used:
 		textureRect.modulate = Color(1.0,1.0,1.0,.1)

@@ -103,3 +103,11 @@ func set_enabled(enabled_):
 		var stylebox = StyleBoxFlat.new()
 		add_theme_stylebox_override("panel", stylebox)
 		stylebox.set_bg_color(Color(1.0, 1.0, 1.0, 0.1))
+
+
+func _on_gui_input(event):
+#	print("somethin")
+#	if event.type == InputEventMouseButton:
+#		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+#			print("poopy")
+	pass # Replace with function body.

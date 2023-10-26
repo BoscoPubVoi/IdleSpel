@@ -1,4 +1,4 @@
-[gd_scene load_steps=138 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=139 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -7,14 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://chskrj3c0vag1" path="res://assets/Full_Moon_Icon.png" id="3_gcbcu"]
 [ext_resource type="PackedScene" uid="uid://bnedr2ay2wxg1" path="res://UIElements/action_icon.tscn" id="3_se0lr"]
 [ext_resource type="Script" path="res://GameState/Operations/ProduceBaseResource.gd" id="4_84l6x"]
+[ext_resource type="Script" path="res://MoonCycleContainer.gd" id="4_kw6eu"]
 [ext_resource type="Texture2D" uid="uid://bv2nay3b4rm" path="res://assets/Moon2_Icon.png" id="4_p0qix"]
 [ext_resource type="Texture2D" uid="uid://caordvs4uxeou" path="res://assets/HalfMoon_Icon.png" id="5_1oedm"]
 [ext_resource type="Script" path="res://GameState/Operations/ProduceSecondaryResource.gd" id="5_22pki"]
+[ext_resource type="PackedScene" uid="uid://yw6q30hvukgg" path="res://UIElements/waning_crescent.tscn" id="6_gfv6t"]
 [ext_resource type="Script" path="res://GameState/Operations/BoostCharacterStat.gd" id="6_i72h5"]
 [ext_resource type="Texture2D" uid="uid://cjjkludkbcxgk" path="res://assets/Crescent_Right_Icon.png" id="6_qfmv4"]
 [ext_resource type="Texture2D" uid="uid://dws7mju66i8ox" path="res://assets/NewMoon_Icon.png" id="7_epah6"]
 [ext_resource type="Script" path="res://GameState/Operations/CheckStat.gd" id="7_vy3f6"]
-[ext_resource type="Texture2D" uid="uid://6ihf2ido6jg" path="res://assets/Crescent_Left_Icon.png" id="8_cem8g"]
 [ext_resource type="Texture2D" uid="uid://bqc5evt6w0oxm" path="res://assets/HalfMoon_Rev_Icon.png" id="9_ql6pi"]
 [ext_resource type="Texture2D" uid="uid://cg5cjryb2vdn" path="res://assets/Moon3_Icon.png" id="10_xq01v"]
 [ext_resource type="Script" path="res://ActionsPanel.gd" id="11_rxd04"]
@@ -674,22 +675,31 @@ anchor_right = 1.0
 offset_bottom = 388.0
 grow_horizontal = 2
 
-[node name="MoonCycleContainer" type="HBoxContainer" parent="AllActorsPanel"]
-layout_mode = 0
-offset_left = 47.0
-offset_top = 29.0
-offset_right = 799.0
-offset_bottom = 61.0
+[node name="MoonCycleContainer" type="HBoxContainer" parent="AllActorsPanel" groups=["MoonContainer"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.042
+anchor_top = 0.157
+anchor_right = 0.694
+anchor_bottom = 0.157
+offset_left = -0.384003
+offset_top = -31.916
+offset_right = 0.511963
+offset_bottom = 0.0839996
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(377, 42)
 theme_override_constants/separation = 63
 alignment = 1
+script = ExtResource("4_kw6eu")
 
 [node name="NewMoon" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 texture = ExtResource("7_epah6")
 
-[node name="WaningCrescent" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+[node name="WaningCrescent" parent="AllActorsPanel/MoonCycleContainer" instance=ExtResource("6_gfv6t")]
 layout_mode = 2
-texture = ExtResource("8_cem8g")
 
 [node name="ThirdQuarter" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
 layout_mode = 2

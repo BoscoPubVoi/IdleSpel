@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://yw6q30hvukgg"]
+
+[ext_resource type="Texture2D" uid="uid://6ihf2ido6jg" path="res://assets/Crescent_Left_Icon.png" id="1_mtcbd"]
+
+[node name="WaningCrescent" type="TextureRect"]
+layout_direction = 1
+anchors_preset = -1
+anchor_left = -0.014
+anchor_top = -0.025
+anchor_right = 0.014
+anchor_bottom = 0.025
+offset_left = 0.128
+offset_top = 0.200001
+offset_right = -0.128
+offset_bottom = -0.200001
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 10.57
+texture = ExtResource("1_mtcbd")
+stretch_mode = 2
