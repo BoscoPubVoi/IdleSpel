@@ -47,9 +47,9 @@ func update_resource_labels():
 	$ResourcesPanel/Moonlight/MoonlightLabel.text = str(floor(Game.resources["moonlight"])) + " / " + str(floor(Game.resourceCaps["moonlight"]))
 	var loveGoal = CycleStepRunner.get_current_love_goal(Game)
 	if loveGoal < 10000:
-		$ResourcesPanel/Love/LoveLabel.text = str(floor(Game.resources["love"])) + (" / " + str(CycleStepRunner.get_current_love_goal(Game)))
+		$ResourcesPanel/Fertility/FertilityLabel.text = str(floor(Game.resources["love"])) + (" / " + str(CycleStepRunner.get_current_love_goal(Game)))
 	else:
-		$ResourcesPanel/Love/LoveLabel.text = str(floor(Game.resources["love"]))
+		$ResourcesPanel/Fertility/FertilityLabel.text = str(floor(Game.resources["love"]))
 
 func updateMoonCycleIcon():
 	Game.placeInCycle
