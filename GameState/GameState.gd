@@ -74,3 +74,13 @@ func get_save_dict():
 		previousMoonStateProduction = previousMoonStateProduction,
 		numOfCycles = numOfCycles
 	}
+
+func restart_game():
+# Erase the save file
+	var dir = DirAccess.open("user://")
+	dir.remove("idlemoonkingdom.save")
+	
+	reset()
+	
+	# Reload the scene
+	get_tree().reload_current_scene()
