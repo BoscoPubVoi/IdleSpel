@@ -68,12 +68,17 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Congratulations, Deity!"
 
-[node name="Text" type="RichTextLabel" parent="MarginContainer/VBoxContainer" groups=["PopupText"]]
+[node name="Text" type="RichTextLabel" parent="MarginContainer/VBoxContainer" groups=["PopupText2"]]
 layout_mode = 2
 bbcode_enabled = true
-text = "You've completed the game :)
-In commemoration of your perfect godhood, you've unlocked some powerful new abilities!
+text = "You've completed the game :)"
+fit_content = true
+autowrap_mode = 2
 
+[node name="Text2" type="RichTextLabel" parent="MarginContainer/VBoxContainer" groups=["PopupText1"]]
+layout_mode = 2
+bbcode_enabled = true
+text = "
 Check out our other games here:
 [url=https://flori9.itch.io/worldshaper-idle]WorldShaper Idle by Florian van Strien[/url]
 [url=https://bosc-pv.itch.io/untitled-valkyrie-game?secret=dA5WLwuOfbfwD4e7kBriUsaU1Y]Some kinda PSX Platformer[/url]
@@ -100,4 +105,5 @@ position = Vector2(778, 34)
 texture = ExtResource("2_egty1")
 
 [connection signal="meta_clicked" from="MarginContainer/VBoxContainer/Text" to="." method="_on_text_meta_clicked"]
+[connection signal="meta_clicked" from="MarginContainer/VBoxContainer/Text2" to="." method="_on_text_meta_clicked"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

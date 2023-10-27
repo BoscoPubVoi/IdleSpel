@@ -10,6 +10,10 @@ func construct(resourceToCheck_, resourceMinimum_, operation_):
 	operation = operation_
 
 
+func executeEarly(executionState:ExecutionState):
+	if executionState.gameState.resources[resourceToCheck] >= resourceMinimum:
+		operation.executeEarly(executionState)
+		
 func execute(executionState:ExecutionState):
 	if executionState.gameState.resources[resourceToCheck] >= resourceMinimum:
 		operation.execute(executionState)

@@ -10,6 +10,11 @@ func construct(statToCheck_, statMinimum_, operation_):
 	operation = operation_
 
 
+
+func executeEarly(executionState:ExecutionState):
+	if executionState.currentCharacter.stats[statToCheck] >= statMinimum:
+		operation.executeEarly(executionState)
+
 func execute(executionState:ExecutionState):
 	if executionState.currentCharacter.stats[statToCheck] >= statMinimum:
 		operation.execute(executionState)

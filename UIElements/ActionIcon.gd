@@ -79,7 +79,8 @@ static func check_primary_type(operation):
 		operation is MultiplyInternalBasedOnResource ||
 		operation is MultiplyInternalBasedOnStat):
 		return check_primary_type(operation.operation)
-	if operation is PayCostAndDo:
+	if (operation is PayCostAndDo ||
+		operation is PayCapAndDo):
 		var primaryType = ""
 		for op in operation.operations:
 			var primaryTypeOfOp = check_primary_type(op)

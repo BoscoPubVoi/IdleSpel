@@ -11,8 +11,27 @@ func construct(statToCheck_, statMinimum_, forAll_, operation_):
 	forAllCharacters = forAll_
 	operation = operation_
 
+func executeEarly(executionState:ExecutionState):
+	if operation is BoostCharactersInPosition:
+		if forAllCharacters:
+			var failed = false
+			for char in executionState.gameState.characters:
+				if char.stats[statToCheck] < statMinimum:
+					failed = true
+			if !failed:
+				for char in executionState.gameState.characters:
+					char.stats[statToCheck] -= statMinimum
+				
+					operation.executeEarly(executionState)
+		else:
+			if executionState.currentCharacter.stats[statToCheck] >= statMinimum:
+				executionState.currentCharacter.stats[statToCheck] -= statMinimum
+				operation.executeEarly(executionState)
 
 func execute(executionState:ExecutionState):
+	if operation is BoostCharactersInPosition:
+		return
+	
 	if forAllCharacters:
 		var failed = false
 		for char in executionState.gameState.characters:

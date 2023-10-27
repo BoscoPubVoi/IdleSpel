@@ -1,4 +1,4 @@
-[gd_scene load_steps=284 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=291 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -56,6 +56,7 @@
 [ext_resource type="Script" path="res://GameState/UnlockRequirements/RequireMultipleCharacterStats.gd" id="42_4qnbc"]
 [ext_resource type="Script" path="res://GameSave.gd" id="42_oc06t"]
 [ext_resource type="Script" path="res://GameState/Operations/SkipAllOtherActions.gd" id="43_yuy3f"]
+[ext_resource type="Script" path="res://GameState/Operations/PayCapAndDo.gd" id="44_cvy4t"]
 [ext_resource type="StyleBox" uid="uid://hiywia75xh5y" path="res://main.tres" id="53_u6067"]
 [ext_resource type="Texture2D" uid="uid://lahxr6mb57d2" path="res://assets/ui/mute_audio.png" id="54_mrq52"]
 [ext_resource type="Script" path="res://AudioSwitchButton.gd" id="54_yadiy"]
@@ -1375,6 +1376,40 @@ stat = "wisdom"
 statMult = 1.0
 operation = SubResource("Resource_vdc2p")
 
+[sub_resource type="Resource" id="Resource_6mi27"]
+script = ExtResource("22_b8b85")
+stat = "wisdom"
+minOfStat = 100.0
+
+[sub_resource type="Resource" id="Resource_jumwq"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "relics"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_clh2u"]
+script = ExtResource("39_tnt77")
+resource = "relics"
+minOfCapacity = 100.0
+
+[sub_resource type="Resource" id="Resource_eflhg"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "silver"
+buildBuildingAmount = 0.0
+increaseCapAmount = 20.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_3joi1"]
+script = ExtResource("44_cvy4t")
+costs = {
+"rocks": 10
+}
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_eflhg")])
+
+[sub_resource type="Resource" id="Resource_ugnuk"]
+script = ExtResource("39_tnt77")
+resource = "rocks"
+minOfCapacity = 5000.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqcgu"]
 content_margin_left = 4.0
 bg_color = Color(0.0784314, 0.0862745, 0.109804, 1)
@@ -2642,6 +2677,30 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "monument"
 icon_path = "res://assets/Action_Icons/Add_rocks.png"
 tooltip = "Double your stats"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_6mi27")])
+unlock_tooltip = "Have 100 Wisdom to unlock"
+
+[node name="CraftThinAirRelic" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Craft Relic from Thin Air"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_jumwq")])
+building = "relics"
+icon_path = "res://assets/Action_Icons/Add_rocks.png"
+tooltip = "Gain a relic"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_clh2u")])
+unlock_tooltip = "Have 100 Relics Capacity to unlock"
+
+[node name="ExcavateEldorado" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Excavate Eldorado"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_3joi1")])
+building = "silver"
+icon_path = "res://assets/Action_Icons/Add_rocks.png"
+tooltip = "Reduce your rocks capacity by 10 to increase your silver capacity by 20"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_ugnuk")])
+unlock_tooltip = "Have 5000 rocks capacity"
 
 [node name="ResourcesPanel" type="Panel" parent="."]
 texture_filter = 3

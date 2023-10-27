@@ -16,6 +16,13 @@ offset_bottom = -0.152008
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_u22y6")
 script = ExtResource("2_vn8gx")
+action_name = null
+operations = null
+building = null
+icon_path = null
+tooltip = null
+unlock_requirements = null
+unlock_tooltip = null
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
