@@ -22,6 +22,8 @@ func _ready():
 	update_resource_labels()
 	updateMoonCycleIcon()
 	$AudioStreamPlayer.play()
+	
+	DisplayServer.window_set_min_size(Vector2(1152, 652))
 
 
 func unlock_secondary_actions():
