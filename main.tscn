@@ -2082,6 +2082,10 @@ icon_path = "res://assets/Action_Icons/Build_Moonlight.png"
 tooltip = "Spend 10 Moonstone and 30 Silver to build 1% of the Moonlight Distiller, or increase Moonlight capacity by 1"
 unlock_tooltip = "Have 20 Moonstone to Unlock"
 
+[node name="Moonstone14" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+
 [node name="MarginContainer10" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"]]
 visible = false
 layout_mode = 2
@@ -2094,10 +2098,6 @@ layout_mode = 2
 text = "Age of Moonlight"
 label_settings = SubResource("LabelSettings_re3f1")
 horizontal_alignment = 1
-
-[node name="Moonstone14" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
-visible = false
-layout_mode = 2
 
 [node name="ResourcesPanel" type="Panel" parent="."]
 texture_filter = 3

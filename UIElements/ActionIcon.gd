@@ -31,7 +31,6 @@ func _ready():
 		unlocked = false
 	
 	set_display()
-	set_color_for_primary_type(operations, textureRect)
 
 static func set_color_for_primary_type(operations, texture):
 	var primaryType = ""
