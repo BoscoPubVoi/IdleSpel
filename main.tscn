@@ -1,4 +1,4 @@
-[gd_scene load_steps=178 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=176 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -70,10 +70,6 @@ texture_margin_top = 6.0
 texture_margin_right = 6.0
 texture_margin_bottom = 6.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lwopv"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ijhpg"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_txpij"]
 
 [sub_resource type="Theme" id="Theme_ogi3r"]
@@ -90,8 +86,8 @@ VScrollBar/icons/increment = ExtResource("2_tyyqh")
 VScrollBar/icons/increment_highlight = ExtResource("2_tyyqh")
 VScrollBar/icons/increment_pressed = ExtResource("2_tyyqh")
 VScrollBar/styles/grabber = SubResource("StyleBoxTexture_wk6w3")
-VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_lwopv")
-VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_ijhpg")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_wk6w3")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_wk6w3")
 VScrollBar/styles/scroll = null
 VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_txpij")
 
@@ -493,8 +489,8 @@ minAmount = 20.0
 [sub_resource type="Resource" id="Resource_svkjg"]
 script = ExtResource("5_22pki")
 costs = {
-"favor": 10,
-"silver": 5
+"favor": 20,
+"silver": 10
 }
 resourceTypeToProduce = "relics"
 baseProduction = 1.0
@@ -502,8 +498,8 @@ baseProduction = 1.0
 [sub_resource type="Resource" id="Resource_ych5e"]
 script = ExtResource("5_22pki")
 costs = {
-"favor": 10,
-"water": 20
+"favor": 20,
+"water": 40
 }
 resourceTypeToProduce = "relics"
 baseProduction = 1.0
@@ -511,7 +507,7 @@ baseProduction = 1.0
 [sub_resource type="Resource" id="Resource_rinmt"]
 script = ExtResource("7_vy3f6")
 statToCheck = "vigor"
-statMinimum = 5.0
+statMinimum = 10.0
 operation = SubResource("Resource_ych5e")
 
 [sub_resource type="Resource" id="Resource_v6pkx"]
@@ -526,7 +522,7 @@ baseProduction = 1.0
 [sub_resource type="Resource" id="Resource_grs3v"]
 script = ExtResource("7_vy3f6")
 statToCheck = "wisdom"
-statMinimum = 10.0
+statMinimum = 15.0
 operation = SubResource("Resource_v6pkx")
 
 [sub_resource type="Resource" id="Resource_4nfrk"]
@@ -850,7 +846,7 @@ anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -264.0
+offset_top = -265.0
 offset_right = -300.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -944,59 +940,64 @@ layout_direction = 1
 layout_mode = 2
 vertical_scroll_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AllActorsPanel/MarginContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="AllActorsPanel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AllActorsPanel/MarginContainer/ScrollContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(814, 0)
 layout_direction = 1
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 16
+theme_override_constants/separation = 12
 alignment = 1
 
-[node name="ActorPanel" parent="AllActorsPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+[node name="ActorPanel" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="AllActorsPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/ActorPanel"]
+[node name="TextureRect2" type="TextureRect" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/ActorPanel"]
 modulate = Color(0.388235, 0.560784, 0.784314, 1)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("17_6t2sr")
 
-[node name="ActorPanel2" parent="AllActorsPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+[node name="ActorPanel2" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
 visible = false
 layout_mode = 2
 characterID = 1
 
-[node name="TextureRect" type="TextureRect" parent="AllActorsPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/ActorPanel2"]
+[node name="TextureRect" type="TextureRect" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/ActorPanel2"]
 modulate = Color(0.784314, 0.388235, 0.611765, 1)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("17_6t2sr")
 
-[node name="ActorPanel3" parent="AllActorsPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+[node name="ActorPanel3" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
 visible = false
 layout_mode = 2
 characterID = 2
 
-[node name="TextureRect" type="TextureRect" parent="AllActorsPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/ActorPanel3"]
+[node name="TextureRect" type="TextureRect" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/ActorPanel3"]
 modulate = Color(0.611765, 0.388235, 0.784314, 1)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("17_6t2sr")
 
-[node name="ActorPanel4" parent="AllActorsPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+[node name="ActorPanel4" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
 visible = false
 layout_mode = 2
 characterID = 3
 
-[node name="TextureRect" type="TextureRect" parent="AllActorsPanel/MarginContainer/ScrollContainer/HBoxContainer/VBoxContainer/ActorPanel4"]
+[node name="TextureRect" type="TextureRect" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/ActorPanel4"]
 modulate = Color(0.388235, 0.784314, 0.490196, 1)
 layout_mode = 0
 offset_right = 40.0
@@ -1010,7 +1011,7 @@ anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -300.0
+offset_left = -302.0
 offset_bottom = -263.0
 grow_horizontal = 0
 grow_vertical = 2
@@ -1035,10 +1036,10 @@ vertical_scroll_mode = 2
 [node name="Margin" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 18
+theme_override_constants/margin_left = 22
 theme_override_constants/margin_top = 11
-theme_override_constants/margin_right = 18
-theme_override_constants/margin_bottom = 0
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 18
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin"]
 layout_mode = 2
@@ -1599,7 +1600,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -300.0
+offset_left = -302.0
 offset_top = -265.0
 grow_horizontal = 0
 grow_vertical = 0
