@@ -15,26 +15,25 @@ texture_filter = 3
 custom_minimum_size = Vector2(0, 128)
 offset_left = -289.0
 offset_right = 294.0
-offset_bottom = 128.0
+offset_bottom = 292.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jlntt")
 script = ExtResource("1_0eeyd")
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -400.0
-offset_top = 80.0
 offset_right = 400.0
-offset_bottom = -116.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 0
+theme_override_constants/margin_bottom = 16
 
 [node name="HBox" type="HBoxContainer" parent="Margin"]
 custom_minimum_size = Vector2(0, 108)
