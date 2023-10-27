@@ -63,6 +63,8 @@ static func check_primary_type(operation):
 		return "boost"
 	if operation is BoostCharacterStat:
 		return "stat"
+	if operation is BoostCharacterStatOfAll:
+		return "stat"
 	if operation is BoostCharacterStatOfAllEqualToSelf:
 		return "stat"
 	if operation is BuildBuildingOrIncreaseCap:

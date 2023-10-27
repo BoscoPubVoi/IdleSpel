@@ -11,6 +11,7 @@ var placeInCycle:int
 var globalProductionBonuses:Dictionary
 var previousMoonStateProduction:Dictionary = ResourceHelpers.create_empty_resources()
 var wasFromLoaded:bool = false
+var numOfCycles:int = 0
 
 func reset():
 	resources = ResourceHelpers.create_empty_resources()
@@ -23,6 +24,7 @@ func reset():
 	globalProductionBonuses = {}
 	previousMoonStateProduction = ResourceHelpers.create_empty_resources()
 	wasFromLoaded = false
+	numOfCycles = 0
 
 func _duplicate():
 	var newGameState = GameState.new()
@@ -34,6 +36,7 @@ func _duplicate():
 	newGameState.globalProductionBonuses = globalProductionBonuses.duplicate(true)
 	newGameState.placeInCycle = placeInCycle
 	newGameState.previousMoonStateProduction = previousMoonStateProduction
+	newGameState.numOfCycles = numOfCycles
 	return newGameState
 
 func onChange():
@@ -53,6 +56,8 @@ func restore_state(dict, tree):
 	placeInCycle = dict.placeInCycle
 	globalProductionBonuses = dict.globalProductionBonuses
 	previousMoonStateProduction = dict.previousMoonStateProduction
+	if dict.has("numOfCycles"):
+		numOfCycles = dict.numOfCycles
 
 func get_save_dict():
 	var charactersSave = []
@@ -66,5 +71,6 @@ func get_save_dict():
 		characters = charactersSave,
 		placeInCycle = placeInCycle,
 		globalProductionBonuses = globalProductionBonuses,
-		previousMoonStateProduction = previousMoonStateProduction
+		previousMoonStateProduction = previousMoonStateProduction,
+		numOfCycles = numOfCycles
 	}

@@ -10,6 +10,7 @@ static func runOneStep(sceneTree):
 		# Please go ahead and reset shit
 		for character in Game.characters:
 			character.onCycleStart()
+		Game.numOfCycles += 1
 	
 	var placeInCycle = Game.placeInCycle
 	var boosts = {}

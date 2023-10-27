@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bp82qs5f041ay"]
+[gd_scene load_steps=7 format=3 uid="uid://va40u1v4srun"]
 
 [ext_resource type="Script" path="res://UIElements/win_screen.gd" id="1_jvgun"]
 [ext_resource type="Texture2D" uid="uid://iedrhcbu7rv" path="res://assets/Icon.png" id="2_egty1"]
@@ -75,7 +75,7 @@ text = "You've completed the game :)
 In commemoration of your perfect godhood, you've unlocked some powerful new abilities!
 
 Check out our other games here:
-[url=some_link]Some kinda Idle Game[/url]
+[url=https://flori9.itch.io/worldshaper-idle]WorldShaper Idle by Florian van Strien[/url]
 [url=https://bosc-pv.itch.io/untitled-valkyrie-game?secret=dA5WLwuOfbfwD4e7kBriUsaU1Y]Some kinda PSX Platformer[/url]
 
 If you'd like to try the game again, there's a reset button in the credits."
