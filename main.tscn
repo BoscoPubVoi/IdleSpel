@@ -59,7 +59,9 @@
 [ext_resource type="StyleBox" uid="uid://hiywia75xh5y" path="res://main.tres" id="53_u6067"]
 [ext_resource type="Texture2D" uid="uid://lahxr6mb57d2" path="res://assets/ui/mute_audio.png" id="54_mrq52"]
 [ext_resource type="Script" path="res://AudioSwitchButton.gd" id="54_yadiy"]
+[ext_resource type="Texture2D" uid="uid://drwaq7hgx616p" path="res://assets/ui/Credits.png" id="56_ospfq"]
 [ext_resource type="PackedScene" uid="uid://va40u1v4srun" path="res://UIElements/win_screen.tscn" id="60_as1xf"]
+[ext_resource type="PackedScene" path="res://UIElements/credits.tscn" id="60_tknhq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
 bg_color = Color(0.0784314, 0.0862745, 0.109804, 1)
