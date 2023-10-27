@@ -101,7 +101,9 @@ func set_enabled(enabled_):
 	else:
 		var stylebox = StyleBoxFlat.new()
 		add_theme_stylebox_override("panel", stylebox)
-		stylebox.set_bg_color(Color(1.0, 1.0, 1.0, 0.1))
+		stylebox.set_bg_color(Color(.5, .5, .5, 0.1))
+		stylebox.border_color = Color(1.0, 1.0, 1.0, 0.1)
+		stylebox.set_border_width_all(2)
 
 
 func _on_gui_input(event):
