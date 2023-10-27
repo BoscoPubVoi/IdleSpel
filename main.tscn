@@ -1776,6 +1776,7 @@ text = "0"
 autostart = true
 
 [node name="GameSave" type="Timer" parent="." groups=["MainTimer"]]
+wait_time = 8.0
 autostart = true
 script = ExtResource("42_oc06t")
 
