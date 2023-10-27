@@ -1,4 +1,4 @@
-[gd_scene load_steps=278 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=284 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -1339,6 +1339,42 @@ script = ExtResource("4_84l6x")
 resourceTypeToProduce = "rock"
 baseProduction = 50.0
 
+[sub_resource type="Resource" id="Resource_oo4fo"]
+script = ExtResource("6_i72h5")
+statToIncrease = "vigor"
+statIncreaseAmount = 1.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_r55mv"]
+script = ExtResource("33_fkewf")
+stat = "vigor"
+statMult = 1.0
+operation = SubResource("Resource_oo4fo")
+
+[sub_resource type="Resource" id="Resource_xfc2c"]
+script = ExtResource("6_i72h5")
+statToIncrease = "reverance"
+statIncreaseAmount = 1.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_gk3o6"]
+script = ExtResource("33_fkewf")
+stat = "reverance"
+statMult = 1.0
+operation = SubResource("Resource_xfc2c")
+
+[sub_resource type="Resource" id="Resource_vdc2p"]
+script = ExtResource("6_i72h5")
+statToIncrease = "wisdom"
+statIncreaseAmount = 1.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_nci23"]
+script = ExtResource("33_fkewf")
+stat = "wisdom"
+statMult = 1.0
+operation = SubResource("Resource_vdc2p")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqcgu"]
 content_margin_left = 4.0
 bg_color = Color(0.0784314, 0.0862745, 0.109804, 1)
@@ -2597,6 +2633,15 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "rocks"
 icon_path = "res://assets/Action_Icons/Add_rocks.png"
 tooltip = "+50 Rocks"
+
+[node name="SpiritualAwakening" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Spiritual Awakening"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_r55mv"), SubResource("Resource_gk3o6"), SubResource("Resource_nci23")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Add_rocks.png"
+tooltip = "Double your stats"
 
 [node name="ResourcesPanel" type="Panel" parent="."]
 texture_filter = 3

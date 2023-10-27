@@ -22,6 +22,9 @@ func execute(executionState:ExecutionState):
 		var maxAfford = min(boostAmount, ResourceHelpers.calculate_max_afford_with_cost(
 			costs[nextBuildingState - 1], executionState.gameState.resources))
 		
+		if maxAfford < 0.001:
+			return
+		
 		# Help build the building
 		maxAfford = min(maxAfford, (nextBuildingState - executionState.gameState.buildings["monument"]) / buildBuildingAmount[nextBuildingState - 1])
 		ResourceHelpers.pay_costs(costs[nextBuildingState - 1], executionState.gameState.resources, maxAfford)
