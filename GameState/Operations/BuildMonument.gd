@@ -40,8 +40,8 @@ func execute(executionState:ExecutionState):
 				executionState.unlockActionLocations(0)
 			elif nextBuildingState == 2:
 				executionState.unlockActionLocations(1)
-			else:
-				pass #Win the game???
+			elif nextBuildingState == 3:
+				executionState.unlockActionLocations(2)
 
 func _duplicate():
 	var newOperation = BuildMonument.new()

@@ -19,6 +19,7 @@ func _get_drag_data(at_position):
 		drag_texture.texture = textureRect.texture
 		drag_texture.size = Vector2(32,32)
 		drag_texture.size = Vector2(32,32)
+		drag_texture.modulate = textureRect.modulate
 		
 		var control = Control.new()
 		control.add_child(drag_texture)
@@ -79,6 +80,8 @@ func put_in_slot(data, tempTexture = null):
 		textureRect.texture = current_data["texture"].texture
 	textureRect.show()
 	tooltip_text = current_data["tooltip"]
+	
+	ActionIcon.set_color_for_primary_type(current_data["action"].operations, textureRect)
 
 
 func _get_index():

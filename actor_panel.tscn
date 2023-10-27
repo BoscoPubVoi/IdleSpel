@@ -54,7 +54,7 @@ layout_mode = 2
 size_flags_vertical = 0
 enabled = false
 
-[node name="ActionIndent4" parent="Margin/HBox" groups=["ActionIndent", "SecondUnlockedAction"] instance=ExtResource("1_i1gly")]
+[node name="ActionIndent4" parent="Margin/HBox" groups=["ActionIndent", "ThirdUnlockedAction"] instance=ExtResource("1_i1gly")]
 layout_mode = 2
 size_flags_vertical = 0
 enabled = false
@@ -63,7 +63,7 @@ enabled = false
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="ActionIndent6" parent="Margin/HBox" groups=["ActionIndent", "SecondUnlockedAction"] instance=ExtResource("1_i1gly")]
+[node name="ActionIndent6" parent="Margin/HBox" groups=["ActionIndent", "ThirdUnlockedAction"] instance=ExtResource("1_i1gly")]
 layout_mode = 2
 size_flags_vertical = 0
 enabled = false

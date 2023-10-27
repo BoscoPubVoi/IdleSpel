@@ -78,8 +78,18 @@ func _input(event):
 
 #Search
 func _on_line_edit_text_changed(new_text):
+	var shouldHidePrevContainer = false;
+	var prevContainer = null
+	var nothingFound = true
+	
 	for node in $ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid.get_children():
 		if node is MarginContainer:
+			if shouldHidePrevContainer:
+				prevContainer.hide()
+				
+			node.show()
+			shouldHidePrevContainer = true
+			prevContainer = node
 			continue
 		
 		var nt = new_text.to_upper()
@@ -92,14 +102,29 @@ func _on_line_edit_text_changed(new_text):
 				if gr == "monument1":
 					if Game.buildings.has("monument") && Game.buildings["monument"] >= 1:
 						node.show()
+						shouldHidePrevContainer = false
+						nothingFound = false
 				if gr == "monument2":
 					if Game.buildings.has("monument") && Game.buildings["monument"] >= 2:
 						node.show()
+						shouldHidePrevContainer = false
+						nothingFound = false
 				if gr == "monument3":
 					if Game.buildings.has("monument") && Game.buildings["monument"] >= 3:
 						node.show()
+						shouldHidePrevContainer = false
+						nothingFound = false
 				if Game.buildings.has(gr) && Game.buildings[gr] >= 1:
 					node.show()
+					shouldHidePrevContainer = false
+					nothingFound = false
 		else:
 			node.hide()
 	
+	if prevContainer != null && shouldHidePrevContainer:
+		prevContainer.hide()
+	
+	if nothingFound:
+		get_tree().get_first_node_in_group("searchNothingFound").show()
+	else:
+		get_tree().get_first_node_in_group("searchNothingFound").hide()

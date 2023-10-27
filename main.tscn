@@ -1059,6 +1059,20 @@ theme_override_constants/h_separation = 27
 theme_override_constants/v_separation = 27
 script = ExtResource("18_gjriy")
 
+[node name="MarginContainer7" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["searchNothingFound"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer7"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "You searched the earth and the moon, yet nothing was found."
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid"]
 layout_mode = 2
 theme_override_constants/margin_top = -4
@@ -1440,7 +1454,7 @@ action_name = "Craft Lustrous Relic"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_svkjg")])
 building = "relics"
 icon_path = "res://assets/Action_Icons/Craft_Lustrous_relic.png"
-tooltip = "-5 Silver, -10 Favor, +1 Relic"
+tooltip = "-10 Silver, -20 Favor, +1 Relic"
 
 [node name="NauticalRelic" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -1449,7 +1463,7 @@ action_name = "Craft Nautical Relic"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_rinmt")])
 building = "relics"
 icon_path = "res://assets/Action_Icons/Build_Nautical_Relic.png"
-tooltip = "If you have 5 Vigor, -20 Water, -10 Favor, +1 Relic"
+tooltip = "If you have 10 Vigor, -40 Water, -20 Favor, +1 Relic"
 
 [node name="WiseRelic" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -1458,7 +1472,7 @@ action_name = "Craft Wise Relic"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_grs3v")])
 building = "relics"
 icon_path = "res://assets/Action_Icons/Build_Wise_relic.png"
-tooltip = "If you have 10 Wisdom, -3 Silver, -10 Favor, +1 Relic"
+tooltip = "If you have 15 Wisdom, -3 Silver, -10 Favor, +1 Relic"
 
 [node name="Alchemy" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false

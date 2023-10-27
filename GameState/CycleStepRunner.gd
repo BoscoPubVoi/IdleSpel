@@ -104,7 +104,7 @@ static func get_current_love_goal(gameState):
 	if len(gameState.characters) >= 4:
 		return 10000000000 #Basically make this impossible
 	if len(gameState.characters) >= 3:
-		return 10
+		return 12
 	if len(gameState.characters) >= 2:
 		return 3
 	return 1

@@ -33,6 +33,11 @@ func unlockActionLocations(tierNo):
 		for node in newUnlockActions:
 			node.set_enabled(true)
 
+	if tierNo == 2:
+		var newUnlockActions = tree.get_nodes_in_group("ThirdUnlockedAction")
+		for node in newUnlockActions:
+			node.set_enabled(true)
+
 func unlockActionsGroup(groupName):
 	if tree == null:
 		return

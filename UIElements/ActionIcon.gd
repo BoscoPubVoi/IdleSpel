@@ -31,6 +31,62 @@ func _ready():
 		unlocked = false
 	
 	set_display()
+	set_color_for_primary_type(operations, textureRect)
+
+static func set_color_for_primary_type(operations, texture):
+	var primaryType = ""
+	for op in operations:
+		var primaryTypeOfOp = check_primary_type(op)
+		if primaryTypeOfOp != "":
+			if primaryType != "" && primaryTypeOfOp != primaryType:
+				primaryType = "multi"
+			else:
+				primaryType = primaryTypeOfOp
+	
+	match primaryType:
+		"produce":
+			texture.modulate = Color.from_string("#7FFF9F", Color.BLACK)
+		"boost":
+			texture.modulate = Color.from_string("#FF7F7F", Color.BLACK)
+		"build":
+			texture.modulate = Color.from_string("#7F88FF", Color.BLACK)
+		"stat":
+			texture.modulate = Color.from_string("#FFB67F", Color.BLACK)
+		"multi":
+			texture.modulate = Color.from_string("#FFFFFF", Color.BLACK)
+
+static func check_primary_type(operation):
+	if operation is ProduceBaseResource:
+		return "produce"
+	if operation is BoostCharactersInPosition:
+		return "boost"
+	if operation is BoostCharacterStat:
+		return "stat"
+	if operation is BoostCharacterStatOfAllEqualToSelf:
+		return "stat"
+	if operation is BuildBuildingOrIncreaseCap:
+		return "build"
+	if operation is BuildMonument:
+		return "build"
+	if (operation is CheckMoonPhase ||
+		operation is CheckResource ||
+		operation is CheckStat ||
+		operation is CheckStatOther ||
+		operation is ConsumeStatAndDo ||
+		operation is MultiplyInternalBasedOnResource ||
+		operation is MultiplyInternalBasedOnStat ||
+		operation is PayCostAndDo):
+		return check_primary_type(operation.operation)
+	if operation is IncreaseGlobalProductionBonus:
+		return "boost"
+	
+	if operation is ProduceBaseResource:
+		return "produce"
+	if operation is ProduceSecondaryResource:
+		return "produce"
+	if operation is SkipAllOtherActions:
+		return "special"
+	return ""
 
 func _process(delta):
 	if ! unlocked:
@@ -68,6 +124,7 @@ func get_drag_data_unconstrained():
 		var drag_texture = TextureRect.new()
 		drag_texture.texture = load(icon_path)
 		drag_texture.size = Vector2(32,32)
+		set_color_for_primary_type(operations, drag_texture)
 		
 		var control = Control.new()
 		control.add_child(drag_texture)
@@ -99,4 +156,5 @@ func set_display():
 		tooltip_text = unlock_tooltip
 	else:
 		textureRect.modulate = Color(1.0,1.0,1.0,1.0)
+		set_color_for_primary_type(operations, textureRect)
 		tooltip_text = epic_tooltip

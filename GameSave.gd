@@ -59,6 +59,7 @@ func load_our_game(dat):
 		currentExecutionState.unlockActionsGroup("monument2")
 		currentExecutionState.setMonumentTier(2)
 	if Game.buildings.has("monument") && Game.buildings["monument"] >= 3:
+		currentExecutionState.unlockActionLocations(2)
 		currentExecutionState.unlockActionsGroup("monument3")
 		currentExecutionState.setMonumentTier(3)
 	if Game.buildings.has("monument") && Game.buildings["monument"] - floor(Game.buildings["monument"]) > 0:
