@@ -65,6 +65,7 @@ func _drop_data(at_position, data):
 			var temptexture = textureRect.texture
 			origin_slot.put_in_slot(data["target_slot"], temptexture)
 			put_in_slot(data)
+	current_data = data
 
 func put_in_slot(data, tempTexture = null):
 	AudioManager.play("put_down_icon")
@@ -112,8 +113,9 @@ func set_enabled(enabled_):
 
 
 func _on_gui_input(event):
-#	print("somethin")
-#	if event.type == InputEventMouseButton:
-#		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-#			print("poopy")
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			if current_data != null:
+				get_tree().get_first_node_in_group("ActionsPanel").reset_action(current_data["original_original"])
+				empty_slot()
 	pass # Replace with function body.

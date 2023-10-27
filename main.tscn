@@ -56,7 +56,7 @@
 [ext_resource type="Script" path="res://GameState/UnlockRequirements/RequireMultipleCharacterStats.gd" id="42_4qnbc"]
 [ext_resource type="Script" path="res://GameSave.gd" id="42_oc06t"]
 [ext_resource type="Script" path="res://GameState/Operations/SkipAllOtherActions.gd" id="43_yuy3f"]
-[ext_resource type="StyleBox" uid="uid://hiywia75xh5y" path="res://main.tres" id="53_u6067"]
+[ext_resource type="StyleBox" path="res://main.tres" id="53_u6067"]
 [ext_resource type="Texture2D" uid="uid://lahxr6mb57d2" path="res://assets/ui/mute_audio.png" id="54_mrq52"]
 [ext_resource type="Script" path="res://AudioSwitchButton.gd" id="54_yadiy"]
 
