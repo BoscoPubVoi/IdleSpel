@@ -625,7 +625,7 @@ script = ExtResource("4_84l6x")
 resourceTypeToProduce = "favor"
 baseProduction = 1.0
 
-[sub_resource type="Resource" id="Resource_uxibr"]
+[sub_resource type="Resource" id="Resource_h7yd6"]
 script = ExtResource("28_j67hj")
 resource = "relics"
 resourceMult = 1.0
@@ -1396,7 +1396,7 @@ unlock_tooltip = "Have 2 Relics to unlock"
 visible = false
 layout_mode = 2
 action_name = "Pilgrimage"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_uxibr")])
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_h7yd6")])
 building = "relics"
 icon_path = "res://assets/Action_Icons/Pilgrimage.png"
 tooltip = "Gain Favor equal to the number of Relics you have"

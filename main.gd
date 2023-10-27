@@ -79,6 +79,9 @@ func _on_line_edit_text_changed(new_text):
 	for node in $ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid.get_children():
 		
 		var nt = new_text.to_upper()
+		if nt == "ROCKS":
+			nt = "ROCK"
+		
 		if (node.unlocked || new_text == "") && (new_text == "" || (nt in node.action_name.to_upper() || nt in node.tooltip.to_upper())):
 			var nodeGroups = node.get_groups()
 			for gr in nodeGroups:

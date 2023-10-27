@@ -19,6 +19,6 @@ func execute(executionState:ExecutionState):
 	operation.execute(executionState)
  
 func _duplicate():
-	var newOperation = MultiplyInternalBasedOnStat.new()
+	var newOperation = MultiplyInternalBasedOnResource.new()
 	newOperation.construct(resource, resourceMult, operation._duplicate())
 	return newOperation
