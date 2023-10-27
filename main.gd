@@ -24,6 +24,8 @@ func _ready():
 	$AudioStreamPlayer.play()
 	
 	DisplayServer.window_set_min_size(Vector2(1152, 652))
+	$Timer.start()
+	$GameSave.start()
 
 
 func unlock_secondary_actions():
