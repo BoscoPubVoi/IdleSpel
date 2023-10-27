@@ -673,17 +673,17 @@ script = ExtResource("21_1cyp2")
 resourceTypeToProduce = "relics"
 minAmount = 3.0
 
-[sub_resource type="Resource" id="Resource_4nf5n"]
+[sub_resource type="Resource" id="Resource_hl1kn"]
 script = ExtResource("6_i72h5")
 statToIncrease = "vigor"
 statIncreaseAmount = 10.0
 costs = {}
 
-[sub_resource type="Resource" id="Resource_5ea0p"]
-script = ExtResource("7_vy3f6")
-statToCheck = "relics"
-statMinimum = 3.0
-operation = SubResource("Resource_4nf5n")
+[sub_resource type="Resource" id="Resource_a8r2a"]
+script = ExtResource("27_b5w0i")
+resourceToCheck = "relics"
+resourceMinimum = 3.0
+operation = SubResource("Resource_hl1kn")
 
 [sub_resource type="Resource" id="Resource_yn07k"]
 script = ExtResource("6_i72h5")
@@ -1288,7 +1288,7 @@ costs = {}
 [sub_resource type="Resource" id="Resource_r7dje"]
 script = ExtResource("33_fkewf")
 stat = "reverance"
-statMult = 20.0
+statMult = 1.0
 operation = SubResource("Resource_xls8m")
 
 [sub_resource type="Resource" id="Resource_p1hy5"]
@@ -1298,7 +1298,9 @@ minAmount = 30.0
 
 [sub_resource type="Resource" id="Resource_bxck8"]
 script = ExtResource("5_22pki")
-costs = {}
+costs = {
+"relics": 5
+}
 resourceTypeToProduce = "water"
 baseProduction = 200.0
 
@@ -1317,6 +1319,11 @@ costs = {}
 script = ExtResource("19_eiwq3")
 requiredMoonPhase = Array[int]([3, 5])
 operation = SubResource("Resource_c1dih")
+
+[sub_resource type="Resource" id="Resource_cdgrd"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "rock"
+baseProduction = 50.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ia36"]
 bg_color = Color(0, 0, 0, 1)
@@ -2100,7 +2107,7 @@ horizontal_alignment = 1
 visible = false
 layout_mode = 2
 action_name = "Zealotry"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_5ea0p")])
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_a8r2a")])
 building = "favor"
 icon_path = "res://assets/Action_Icons/Zealotry.png"
 tooltip = "If you have 3 Relics, +10 Vigor"
@@ -2112,7 +2119,7 @@ action_name = "Monastery Offering"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_yn07k"), SubResource("Resource_tqk2e"), SubResource("Resource_iy2xb")])
 building = "monument"
 icon_path = "res://assets/Action_Icons/Monastery_Offering.png"
-tooltip = "-1 Relic, +5 Reverance, +5 Vigor, +5 Wisdom"
+tooltip = "-1 Relic, +15 Reverance, +15 Vigor, +15 Wisdom"
 
 [node name="FervantPrayer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2507,7 +2514,7 @@ text = "Age of the Moon God"
 label_settings = SubResource("LabelSettings_re3f1")
 horizontal_alignment = 1
 
-[node name="GibbousFrenzy" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+[node name="GibbousFrenzy" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Gibbous Frenzy"
@@ -2515,6 +2522,15 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "monument"
 icon_path = "res://assets/Action_Icons/Gibbous_Frenzy.png"
 tooltip = "+10 Vigor in Gibbous Phase"
+
+[node name="SummonRocks" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Summon Rocks"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_cdgrd")])
+building = "rocks"
+icon_path = "res://assets/Action_Icons/Add_rocks.png"
+tooltip = "+50 Rocks"
 
 [node name="ResourcesPanel" type="Panel" parent="."]
 texture_filter = 3
