@@ -1,4 +1,4 @@
-[gd_scene load_steps=176 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=177 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -90,6 +90,9 @@ VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_wk6w3")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_wk6w3")
 VScrollBar/styles/scroll = null
 VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_txpij")
+
+[sub_resource type="LabelSettings" id="LabelSettings_re3f1"]
+line_spacing = 0.0
 
 [sub_resource type="Resource" id="Resource_e28eb"]
 script = ExtResource("4_84l6x")
@@ -1049,12 +1052,24 @@ theme_override_constants/separation = 16
 layout_mode = 2
 placeholder_text = "Search..."
 
-[node name="ActionGrid" type="GridContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer"]
+[node name="ActionGrid" type="HFlowContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_constants/h_separation = 27
 theme_override_constants/v_separation = 27
-columns = 3
 script = ExtResource("18_gjriy")
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid"]
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Stone"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
 
 [node name="SmallRocks" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["rocks"] instance=ExtResource("3_se0lr")]
 layout_mode = 2
@@ -1081,6 +1096,19 @@ icon_path = "res://assets/Action_Icons/Build_well.png"
 tooltip = "Spend 10 Rocks to build 1/4 of the Well, or increase water capacity by 5"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_8kr8y")])
 unlock_tooltip = "Gather 20 rocks to unlock"
+
+[node name="MarginContainer2" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["water"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Water"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
 
 [node name="AddWater" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -1142,6 +1170,19 @@ tooltip = "Spend 10 Water and 10 Rocks to build 1/5 of the Silver Furnance, or i
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_4h4ig")])
 unlock_tooltip = "Gather 50 Water to unlock"
 
+[node name="MarginContainer3" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["silver"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer3"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Silver"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+
 [node name="RocksToSilver" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
@@ -1200,6 +1241,19 @@ icon_path = "res://assets/Action_Icons/Build_Favour.png"
 tooltip = "Spend 5 Silver, 20 Rocks and 15 Water to build 10% of the Altar, or increase Favor capacity by 2"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_u6lds")])
 unlock_tooltip = "Gather 18 Silver to unlock"
+
+[node name="MarginContainer4" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument1"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer4"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Vigor"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
 
 [node name="Religious_Fervor" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -1261,6 +1315,19 @@ icon_path = "res://assets/Action_Icons/Waterfall_Catching.png"
 tooltip = "If you have 5 Vigor, +5 Water"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_xmaxx")])
 unlock_tooltip = "Gather 25 Water to unlock"
+
+[node name="MarginContainer5" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["favor"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer5"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Favor"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
 
 [node name="Pray" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -1352,6 +1419,19 @@ icon_path = "res://assets/Action_Icons/Build_Relics.png"
 tooltip = "Spend 10 Favor, 3 Silver and 15 Water to build 5% of the Reliquary, or increase Relics capacity by 1"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_ohy52")])
 unlock_tooltip = "Gather 20 Favor to unlock"
+
+[node name="MarginContainer6" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer6"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Relics"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
 
 [node name="LustorRelic" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
