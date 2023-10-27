@@ -291,7 +291,6 @@ texture_under = ExtResource("6_88r2q")
 texture_progress = ExtResource("7_0qnac")
 
 [node name="monument" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 3
 position = Vector2(80, 121)
 scale = Vector2(2, 2)
@@ -302,9 +301,9 @@ hframes = 6
 anchors_preset = -1
 anchor_right = 0.979
 offset_left = -24.3333
-offset_top = -35.0
+offset_top = -51.0
 offset_right = -38.9893
-offset_bottom = -23.0
+offset_bottom = -39.0
 max_value = 1.0
 step = 0.1
 texture_under = ExtResource("6_88r2q")

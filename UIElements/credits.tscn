@@ -63,13 +63,13 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Credits"
 
-[node name="Text" type="Label" parent="MarginContainer/VBoxContainer" groups=["PopupText"]]
+[node name="Text" type="RichTextLabel" parent="MarginContainer/VBoxContainer" groups=["PopupText"]]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
 text = "This game was made over the course of 5 days as part of Spelkollektivet's Halloween Game Jam 2023.
 - Florian van Strein
 - Bosco Bartilomo
 - Lin Viberg"
+fit_content = true
 autowrap_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" groups=["PopupWindowClose"]]

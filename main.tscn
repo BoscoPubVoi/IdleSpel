@@ -705,7 +705,7 @@ script = ExtResource("6_i72h5")
 statToIncrease = "wisdom"
 statIncreaseAmount = 15.0
 costs = {
-"silver": 1
+"relics": 1
 }
 
 [sub_resource type="Resource" id="Resource_tqk2e"]
@@ -1281,7 +1281,9 @@ minOfCapacity = 50.0
 script = ExtResource("18_0su82")
 resourceToIncrease = "moonstone"
 increaseBonusAmount = 0.05
-costs = {}
+costs = {
+"relics": 10
+}
 
 [sub_resource type="Resource" id="Resource_7xjhu"]
 script = ExtResource("7_vy3f6")
@@ -2131,6 +2133,7 @@ building = "water"
 icon_path = "res://assets/Action_Icons/Mudflat_Walking.png"
 tooltip = "-10 Water, +10 Reverance"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_3di4e")])
+unlock_tooltip = "Have 10 Reverance to unlock"
 
 [node name="EnergySmelting" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2259,7 +2262,7 @@ action_name = "Record Wisdom"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_va207")])
 building = "monument"
 icon_path = "res://assets/Action_Icons/Record_Wisdom.png"
-tooltip = "Increase your bonus favor production by a percentage equal to your wisdom"
+tooltip = "Increase your bonus favor production by a percentage equal to your a quarter of your Wisdom"
 
 [node name="FullMoonMining" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2282,11 +2285,11 @@ tooltip = "If 3 followers have 5 Vigor, +15 Vigor"
 [node name="CraftLoveRelic" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
-action_name = "Craft Love Relic"
+action_name = "Craft Fertility Relic"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_s5tym")])
 building = "relics"
 icon_path = "res://assets/Action_Icons/Relic_of_Love.png"
-tooltip = "-3 Love, -10 Favor, +1 Relic"
+tooltip = "-3 Fertility, -10 Favor, +1 Relic"
 
 [node name="PrayforProsperity" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2886,9 +2889,9 @@ text = "0"
 [node name="Credits" type="Button" parent="ResourcesPanel"]
 layout_mode = 0
 offset_left = 236.0
-offset_top = 198.0
+offset_top = 206.0
 offset_right = 261.0
-offset_bottom = 223.0
+offset_bottom = 231.0
 scale = Vector2(2, 2)
 tooltip_text = "Credits"
 theme_override_styles/normal = SubResource("StyleBoxFlat_uqcgu")
@@ -2900,9 +2903,9 @@ icon = ExtResource("56_ospfq")
 [node name="MuteButton" type="Button" parent="ResourcesPanel"]
 layout_mode = 0
 offset_left = 172.0
-offset_top = 198.0
+offset_top = 206.0
 offset_right = 197.0
-offset_bottom = 223.0
+offset_bottom = 231.0
 scale = Vector2(2, 2)
 tooltip_text = "Mute Audio"
 theme_override_styles/normal = SubResource("StyleBoxFlat_uqcgu")
