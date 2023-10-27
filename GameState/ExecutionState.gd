@@ -78,6 +78,12 @@ func unlockBuilding(resource_name, from_load=false):
 		for node in tree.get_nodes_in_group("ReveranceLabel"):
 			node.modulate = Color(1.0, 1.0, 1.0, 1.0)
 			node.tooltip_text = "Reverance (resets each moon cycle)"
+		if gameState.buildings.has("monument") && gameState.buildings["monument"] < 2:
+			tree.get_first_node_in_group("UpgradeMonumentHint").visible = true
+	
+	if resource_name == "moonlight":
+		if gameState.buildings.has("monument") && gameState.buildings["monument"] < 3:
+			tree.get_first_node_in_group("UpgradeMonumentHint2").visible = true
 
 func setMonumentTier(tier_id):
 	if tree == null:
@@ -86,6 +92,11 @@ func setMonumentTier(tier_id):
 
 	for node in tree.get_nodes_in_group("VigorLabel"):
 		node.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	
+	if tier_id == 2:
+		tree.get_first_node_in_group("UpgradeMonumentHint").visible = false
+	if tier_id == 3:
+		tree.get_first_node_in_group("UpgradeMonumentHint2").visible = false
 
 func show_popup(title, text):
 	if tree == null:

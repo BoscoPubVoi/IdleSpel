@@ -12,6 +12,18 @@ var globalProductionBonuses:Dictionary
 var previousMoonStateProduction:Dictionary = ResourceHelpers.create_empty_resources()
 var wasFromLoaded:bool = false
 
+func reset():
+	resources = ResourceHelpers.create_empty_resources()
+	resourceCaps = ResourceHelpers.create_some_resources({rocks = 50, water = 50, silver=3, favor = 10, relics = 1, moonstone = 3, moonlight = 10, love = 10000000000}) 
+	characters = []
+	maxSupportedActions = 8
+	# Buildings: (building, float)
+	buildings = {rocks = 0, water = 0, silver = 0, favor = 0, relics = 0, moonstone = 0, moonlight = 0}
+	placeInCycle = 0
+	globalProductionBonuses = {}
+	previousMoonStateProduction = ResourceHelpers.create_empty_resources()
+	wasFromLoaded = false
+
 func _duplicate():
 	var newGameState = GameState.new()
 	newGameState.resources = resources.duplicate()

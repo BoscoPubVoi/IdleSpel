@@ -74,9 +74,15 @@ func _input(event):
 	if Input.is_key_pressed(KEY_F12) and just_pressed:
 		get_tree().get_first_node_in_group("MainTimer").wait_time = 0.01 if get_tree().get_first_node_in_group("MainTimer").wait_time == 1 else 1
 
-
-
-
+func reset_game():
+	# Erase the save file
+	var dir = DirAccess.open("user://")
+	dir.remove("idlemoonkingdom.save")
+	
+	Game.reset()
+	
+	# Reload the scene
+	get_tree().reload_current_scene()
 
 #Search
 func _on_line_edit_text_changed(new_text):
@@ -86,6 +92,23 @@ func _on_line_edit_text_changed(new_text):
 	
 	for node in $ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid.get_children():
 		if node is MarginContainer:
+			if node.get_groups().has("UpgradeMonumentHint"):
+				if new_text != "":
+					node.hide()
+				elif Game.buildings.has("relics") && (Game.buildings.has("monument") && Game.buildings["monument"] < 2):
+					node.show()
+				else:
+					node.hide()
+				continue
+			if node.get_groups().has("UpgradeMonumentHint2"):
+				if new_text != "":
+					node.hide()
+				elif Game.buildings.has("monument") && Game.buildings["monument"] < 3:
+					node.show()
+				else:
+					node.hide()
+				continue
+			
 			if shouldHidePrevContainer:
 				prevContainer.hide()
 				
