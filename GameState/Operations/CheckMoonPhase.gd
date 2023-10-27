@@ -8,6 +8,7 @@ func construct(requiredMoonPhase_, operation_):
 	operation = operation_
 
 func execute(executionState:ExecutionState):
+	print(executionState.gameState.placeInCycle)
 	if requiredMoonPhase.has(executionState.gameState.placeInCycle):
 		operation.execute(executionState)
 

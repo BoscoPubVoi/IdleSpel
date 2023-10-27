@@ -1106,7 +1106,7 @@ baseProduction = 1.0
 [sub_resource type="Resource" id="Resource_ra1xu"]
 script = ExtResource("33_fkewf")
 stat = "reverance"
-statMult = 0.05
+statMult = 0.2
 operation = SubResource("Resource_bxdc1")
 
 [sub_resource type="Resource" id="Resource_0drww"]
