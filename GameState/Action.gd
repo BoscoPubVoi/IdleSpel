@@ -22,14 +22,17 @@ func _duplicate():
 
 func executeEarly(executionState:ExecutionState):
 	for operation in operations:
+		executionState.internalBoostMultiplier = 1
 		operation.executeEarly(executionState)
 
 func execute(executionState:ExecutionState):
 	for operation in operations:
+		executionState.internalBoostMultiplier = 1
 		operation.execute(executionState)
 
 func executeLate(executionState:ExecutionState):
 	for operation in operations:
+		executionState.internalBoostMultiplier = 1
 		operation.executeLate(executionState)
 		
 func get_save_dict():
