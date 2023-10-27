@@ -316,10 +316,10 @@ texture = ExtResource("14_juq5j")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="FullMoonIcon"]
 scale = Vector2(1.5, 1.5)
-amount = 20
+amount = 25
 lifetime = 5.0
 direction = Vector2(-1, 1)
-spread = 80.0
+spread = 120.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 8.0
 initial_velocity_max = 8.0
@@ -329,3 +329,11 @@ radial_accel_max = 0.01
 scale_amount_min = 2.0
 scale_amount_max = 2.0
 color = Color(1, 1, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 31.0
+offset_top = 142.0
+offset_right = 256.0
+offset_bottom = 267.0

@@ -1,11 +1,11 @@
 class_name PayCostAndDo extends Operation
 
 @export var costs:Dictionary
-@export var operation:Operation
+@export var operations:Array[Operation]
 
 func construct(costs_, operation_):
 	costs = costs_
-	operation = operation_
+	operations = operation_
 
 
 func execute(executionState:ExecutionState):
@@ -20,9 +20,11 @@ func execute(executionState:ExecutionState):
 	# Spend the costs
 	ResourceHelpers.pay_costs(costs, executionState.gameState.resources, maxAfford)
 	executionState.internalBoostMultiplier *= maxAfford
-	operation.execute(executionState)
+	for operation in operations:
+		operation.execute(executionState)
 
 func _duplicate():
 	var newOperation = PayCostAndDo.new()
-	newOperation.construct(costs, operation)
+	for operation in operations:
+		newOperation.construct(costs, operation)
 	return newOperation

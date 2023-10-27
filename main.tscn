@@ -1,4 +1,4 @@
-[gd_scene load_steps=177 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=220 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bv2nay3b4rm" path="res://assets/Moon2_Icon.png" id="4_p0qix"]
 [ext_resource type="Texture2D" uid="uid://caordvs4uxeou" path="res://assets/HalfMoon_Icon.png" id="5_1oedm"]
 [ext_resource type="Script" path="res://GameState/Operations/ProduceSecondaryResource.gd" id="5_22pki"]
-[ext_resource type="PackedScene" path="res://UIElements/waning_crescent.tscn" id="6_gfv6t"]
+[ext_resource type="PackedScene" uid="uid://yw6q30hvukgg" path="res://UIElements/waning_crescent.tscn" id="6_gfv6t"]
 [ext_resource type="Script" path="res://GameState/Operations/BoostCharacterStat.gd" id="6_i72h5"]
 [ext_resource type="Texture2D" uid="uid://cjjkludkbcxgk" path="res://assets/Crescent_Right_Icon.png" id="6_qfmv4"]
 [ext_resource type="Texture2D" uid="uid://dws7mju66i8ox" path="res://assets/NewMoon_Icon.png" id="7_epah6"]
@@ -50,6 +50,10 @@
 [ext_resource type="Script" path="res://GameState/UnlockRequirements/ProduceMinimumInOneMoonPhase.gd" id="35_0xf2j"]
 [ext_resource type="Script" path="res://GameState/Operations/BoostCharacterStatOfAllEqualToSelf.gd" id="36_xsavq"]
 [ext_resource type="Texture2D" uid="uid://opdis7hbl3pk" path="res://assets/Resource_Icons/Fertility.png" id="37_7rc8h"]
+[ext_resource type="Script" path="res://GameState/Operations/PayCostAndDo.gd" id="39_f7agh"]
+[ext_resource type="Script" path="res://GameState/UnlockRequirements/RequiresMinimumCap.gd" id="39_tnt77"]
+[ext_resource type="Script" path="res://GameState/Operations/BoostCharacterStatOfAll.gd" id="41_inif2"]
+[ext_resource type="Script" path="res://GameState/UnlockRequirements/RequireMultipleCharacterStats.gd" id="42_4qnbc"]
 [ext_resource type="Script" path="res://GameSave.gd" id="42_oc06t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
@@ -815,6 +819,248 @@ script = ExtResource("22_b8b85")
 stat = "wisdom"
 minOfStat = 25.0
 
+[sub_resource type="Resource" id="Resource_elpuq"]
+script = ExtResource("5_22pki")
+costs = {
+"favor": 10,
+"rocks": 15,
+"water": 10
+}
+resourceTypeToProduce = "moonstone"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_0n31o"]
+script = ExtResource("7_vy3f6")
+statToCheck = "reverance"
+statMinimum = 5.0
+operation = SubResource("Resource_elpuq")
+
+[sub_resource type="Resource" id="Resource_nyxo0"]
+script = ExtResource("5_22pki")
+costs = {
+"favor": 30,
+"rock": 100
+}
+resourceTypeToProduce = "moonstone"
+baseProduction = 3.0
+
+[sub_resource type="Resource" id="Resource_ji581"]
+script = ExtResource("7_vy3f6")
+statToCheck = "reverance"
+statMinimum = 10.0
+operation = SubResource("Resource_nyxo0")
+
+[sub_resource type="Resource" id="Resource_fgonq"]
+script = ExtResource("7_vy3f6")
+statToCheck = "vigor"
+statMinimum = 10.0
+operation = SubResource("Resource_ji581")
+
+[sub_resource type="Resource" id="Resource_mks6y"]
+script = ExtResource("7_vy3f6")
+statToCheck = "wisdom"
+statMinimum = 10.0
+operation = SubResource("Resource_fgonq")
+
+[sub_resource type="Resource" id="Resource_q1ecs"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "favor"
+baseProduction = 5.0
+
+[sub_resource type="Resource" id="Resource_j802k"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([1, 7])
+operation = SubResource("Resource_q1ecs")
+
+[sub_resource type="Resource" id="Resource_mxiw5"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "water"
+baseProduction = 15.0
+
+[sub_resource type="Resource" id="Resource_2uj0u"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([1, 7])
+operation = SubResource("Resource_mxiw5")
+
+[sub_resource type="Resource" id="Resource_yle70"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "reverance"
+baseProduction = 10.0
+
+[sub_resource type="Resource" id="Resource_rrwur"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([1, 7])
+operation = SubResource("Resource_yle70")
+
+[sub_resource type="Resource" id="Resource_ru0iw"]
+script = ExtResource("6_i72h5")
+statToIncrease = "reverance"
+statIncreaseAmount = 15.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_hy3w4"]
+script = ExtResource("34_h3opu")
+statToCheck = "wisdom"
+statMinimum = 15.0
+forAllCharacters = false
+operation = SubResource("Resource_ru0iw")
+
+[sub_resource type="Resource" id="Resource_h77i4"]
+script = ExtResource("16_nvuys")
+boostInPosition = "all"
+boostAmount = 0.5
+costs = {}
+
+[sub_resource type="Resource" id="Resource_go4aa"]
+script = ExtResource("7_vy3f6")
+statToCheck = "reverance"
+statMinimum = 15.0
+operation = SubResource("Resource_h77i4")
+
+[sub_resource type="Resource" id="Resource_0k1ih"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "rocks"
+buildBuildingAmount = 0.0
+increaseCapAmount = 20.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_1c77i"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "water"
+buildBuildingAmount = 0.0
+increaseCapAmount = 20.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_vybgm"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "silver"
+buildBuildingAmount = 0.0
+increaseCapAmount = 3.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_xcql1"]
+script = ExtResource("39_f7agh")
+costs = {
+"moonstone": 1
+}
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_0k1ih"), SubResource("Resource_1c77i"), SubResource("Resource_vybgm")])
+
+[sub_resource type="Resource" id="Resource_d1o2b"]
+script = ExtResource("6_i72h5")
+statToIncrease = "wisdom"
+statIncreaseAmount = 15.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_mjoc5"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([1, 2, 3])
+operation = SubResource("Resource_d1o2b")
+
+[sub_resource type="Resource" id="Resource_twk32"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "favor"
+baseProduction = 5.0
+
+[sub_resource type="Resource" id="Resource_av0i2"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([1, 2, 3])
+operation = SubResource("Resource_twk32")
+
+[sub_resource type="Resource" id="Resource_tu0kt"]
+script = ExtResource("5_22pki")
+costs = {
+"rocks": 80,
+"water": 30
+}
+resourceTypeToProduce = "moonstone"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_xv17w"]
+script = ExtResource("39_tnt77")
+resource = "rocks"
+minOfCapacity = 500.0
+
+[sub_resource type="Resource" id="Resource_wf4ei"]
+script = ExtResource("16_nvuys")
+boostInPosition = "all"
+boostAmount = 1.0
+costs = {
+"water": 10
+}
+
+[sub_resource type="Resource" id="Resource_4jcso"]
+script = ExtResource("7_vy3f6")
+statToCheck = "vigor"
+statMinimum = 15.0
+operation = SubResource("Resource_wf4ei")
+
+[sub_resource type="Resource" id="Resource_irmso"]
+script = ExtResource("5_22pki")
+costs = {
+"moonstone": 5
+}
+resourceTypeToProduce = "love"
+baseProduction = 5.0
+
+[sub_resource type="Resource" id="Resource_h62s5"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "relics"
+minAmount = 60.0
+
+[sub_resource type="Resource" id="Resource_ewqns"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "silver"
+baseProduction = 2.0
+
+[sub_resource type="Resource" id="Resource_w2gfu"]
+script = ExtResource("6_i72h5")
+statToIncrease = "wisdom"
+statIncreaseAmount = 5.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_cpxic"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "silver"
+minAmount = 100.0
+
+[sub_resource type="Resource" id="Resource_srqm5"]
+script = ExtResource("18_0su82")
+resourceToIncrease = "silver"
+increaseBonusAmount = 0.01
+costs = {}
+
+[sub_resource type="Resource" id="Resource_8cgmf"]
+script = ExtResource("7_vy3f6")
+statToCheck = "reverance"
+statMinimum = 30.0
+operation = SubResource("Resource_srqm5")
+
+[sub_resource type="Resource" id="Resource_t74yt"]
+script = ExtResource("22_b8b85")
+stat = "reverance"
+minOfStat = 50.0
+
+[sub_resource type="Resource" id="Resource_hks2s"]
+script = ExtResource("41_inif2")
+statToIncrease = "reverance"
+amount = 10
+
+[sub_resource type="Resource" id="Resource_67075"]
+script = ExtResource("42_4qnbc")
+stat = "reverance"
+minOfStat = 15.0
+numOfFollowers = 3
+
+[sub_resource type="Resource" id="Resource_615q6"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "moonlight"
+buildBuildingAmount = 0.01
+increaseCapAmount = 1.0
+costs = {
+"moonstone": 10,
+"silver": 30
+}
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ia36"]
 bg_color = Color(0.117647, 0.117647, 0.117647, 1)
 border_width_left = 2
@@ -1568,6 +1814,19 @@ tooltip = "Spend 2 Relics and 20 Water to build 2.5% of the Moonstone Shrine, or
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_lvqni")])
 unlock_tooltip = "Have 3 Relics to unlock"
 
+[node name="MarginContainer8" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer8"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Reverance"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+
 [node name="?" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
@@ -1684,6 +1943,161 @@ building = "monument"
 icon_path = "res://assets/Action_Icons/Word_to_the_WISE.png"
 tooltip = "All other followers gain Wisdom equal to you"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_k5b8k")])
+
+[node name="MarginContainer7" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer7"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Moonstone"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+
+[node name="PrayAsteroid" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Pray for Asteroids"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_0n31o")])
+building = "moonstone"
+icon_path = "res://assets/Action_Icons/Pray_For_Asteroid.png"
+tooltip = "If you have 5 Reverance, -15 Rocks, -10 Water, -10 Favor, +1 Moonstone"
+
+[node name="CraftMoonstone" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Craft Moonstone"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_mks6y")])
+building = "moonstone"
+icon_path = "res://assets/Action_Icons/create_moonstone.png"
+tooltip = "If you have 10 Wisdom, 10 Vigor and 10 Reverance, -100 Rocks, -30 Favor, +3 Moonstones"
+
+[node name="LunarRevel" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Lunar Revel"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_j802k"), SubResource("Resource_2uj0u"), SubResource("Resource_rrwur")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Lunar_Revel.png"
+tooltip = "If Crescent Moon, +5 favor, +15 water, +10 reverance"
+
+[node name="Lunacy" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Lunacy"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_hy3w4"), SubResource("Resource_go4aa")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Lunacy.png"
+tooltip = "-15 wisdom, +15 reverance, boost production 50% for all other followers in phase"
+
+[node name="MoonstoneBasin" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Moonstone Basin"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_xcql1")])
+building = "moonstone"
+icon_path = "res://assets/Action_Icons/Moonstone_Basin.png"
+tooltip = "Spend a Moonstone to increase the capacity for Rocks by 20, Water by 20 and Silver by 3"
+
+[node name="WaxPhilo" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Wax Philosophically"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_mjoc5"), SubResource("Resource_av0i2")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Wax_Philosophical.png"
+tooltip = "If Moon is Waxing, +15 Wisdom, +5 Favor"
+
+[node name="ExcavateAnicentSite" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Excavate Ancient Site"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_tu0kt")])
+building = "moonstone"
+icon_path = "res://assets/Action_Icons/Excavate_Forest.png"
+tooltip = "-80 rocks, -30 water, +1 moonstone"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_xv17w")])
+unlock_tooltip = "Have 500 Rock capacity to unlock"
+
+[node name="PaganicPercussion" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Paganic Percussion"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_4jcso")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Paganic_Percussion.png"
+tooltip = "If you have 15 Vigor, -10 Water, boost production by 100% for all other followers in phase"
+
+[node name="FertilityFigurine" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "FertilityFigurine"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_irmso")])
+building = "moonstone"
+icon_path = "res://assets/Action_Icons/Fertility_Figurine.png"
+tooltip = "Spend 5 Moonstone to gain 5 Fertility"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_h62s5")])
+
+[node name="SummonSilver" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Summon Silver"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ewqns"), SubResource("Resource_w2gfu")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Summon_Silver.png"
+tooltip = "+2 Silver, +5 Wisdom"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_cpxic")])
+
+[node name="CelestialBlessing" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Celestial Blessing"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_8cgmf")])
+building = "silver"
+icon_path = "res://assets/Action_Icons/Celestial_Blessing.png"
+tooltip = "If you have 30 Reverance, +1% Silver production"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_t74yt")])
+unlock_tooltip = "Have 50 Reverance to unlock"
+
+[node name="DogmaticCongregation" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Dogmatic Congregation"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_hks2s")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Dogmatic_Congregation.png"
+tooltip = "If you and another follower have 10 reverance, all followers gain 10 reverance"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_67075")])
+
+[node name="MoonlightDistiller" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Build Moonlight Distiller"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_615q6")])
+building = "moonlight"
+icon_path = "res://assets/Action_Icons/Build_Moonlight.png"
+tooltip = "Spend 10 Moonstone and 30 Silver to build 1% of the Moonlight Distiller, or increase Moonlight capacity by 1"
+unlock_tooltip = "Have 20 Moonstone to Unlock"
+
+[node name="MarginContainer9" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer9"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Moonlight"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+
+[node name="Moonstone14" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
 
 [node name="ResourcesPanel" type="Panel" parent="."]
 texture_filter = 3
@@ -1867,11 +2281,9 @@ offset_bottom = 34.0
 text = "0"
 
 [node name="Timer" type="Timer" parent="." groups=["MainTimer"]]
-autostart = true
 
 [node name="GameSave" type="Timer" parent="." groups=["MainTimer"]]
 wait_time = 8.0
-autostart = true
 script = ExtResource("42_oc06t")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
