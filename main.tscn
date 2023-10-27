@@ -1,4 +1,4 @@
-[gd_scene load_steps=177 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=178 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cg5cjryb2vdn" path="res://assets/Moon3_Icon.png" id="10_xq01v"]
 [ext_resource type="Script" path="res://ActionsPanel.gd" id="11_rxd04"]
 [ext_resource type="Script" path="res://GameState/Operations/BoostCharactersInPosition.gd" id="16_nvuys"]
+[ext_resource type="Texture2D" uid="uid://o8slpgweqi2t" path="res://assets/ui/Color_Indicator.png" id="17_6t2sr"]
 [ext_resource type="Script" path="res://GameState/Operations/IncreaseGlobalProductionBonus.gd" id="18_0su82"]
 [ext_resource type="Script" path="res://GameState/Operations/BuildMonument.gd" id="18_e08c4"]
 [ext_resource type="Script" path="res://ActionGrid.gd" id="18_gjriy"]
@@ -942,20 +943,46 @@ alignment = 2
 [node name="ActorPanel" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
 layout_mode = 2
 
+[node name="TextureRect2" type="TextureRect" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer/ActorPanel"]
+modulate = Color(0.388235, 0.560784, 0.784314, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("17_6t2sr")
+
 [node name="ActorPanel2" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
-visible = false
 layout_mode = 2
 characterID = 1
 
+[node name="TextureRect" type="TextureRect" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer/ActorPanel2"]
+modulate = Color(0.784314, 0.388235, 0.611765, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("17_6t2sr")
+
 [node name="ActorPanel3" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
-visible = false
 layout_mode = 2
 characterID = 2
+
+[node name="TextureRect" type="TextureRect" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer/ActorPanel3"]
+modulate = Color(0.611765, 0.388235, 0.784314, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("17_6t2sr")
 
 [node name="ActorPanel4" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
 visible = false
 layout_mode = 2
 characterID = 3
+
+[node name="TextureRect" type="TextureRect" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer/ActorPanel4"]
+modulate = Color(0.388235, 0.784314, 0.490196, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("17_6t2sr")
 
 [node name="ActionsPanel" type="Panel" parent="." groups=["ActionsPanel"]]
 layout_mode = 1
@@ -1007,7 +1034,7 @@ theme_override_constants/v_separation = 27
 columns = 3
 script = ExtResource("18_gjriy")
 
-[node name="SmallRocks" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" instance=ExtResource("3_se0lr")]
+[node name="SmallRocks" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["rocks"] instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Mine"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_e28eb")])
@@ -1015,7 +1042,7 @@ building = "rocks"
 icon_path = "uid://cdwqcxh7xjbq0"
 tooltip = "+2 Rocks"
 
-[node name="BigRocks" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" instance=ExtResource("3_se0lr")]
+[node name="BigRocks" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["rocks"] instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Break Boulder"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ni4id")])
@@ -1023,7 +1050,7 @@ building = "rocks"
 icon_path = "res://assets/Action_Icons/Add_rocks.png"
 tooltip = "+5 Rocks"
 
-[node name="BuildWell" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" instance=ExtResource("3_se0lr")]
+[node name="BuildWell" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["rocks"] instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Build Well"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_usjbx")])
