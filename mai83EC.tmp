@@ -1,4 +1,4 @@
-[gd_scene load_steps=275 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=274 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -1340,14 +1340,12 @@ border_color = Color(0.364706, 0.384314, 0.498039, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0uepa"]
 content_margin_left = 4.0
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.317647, 0.352941, 0.45098, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8cxly"]
+border_color = Color(0.364706, 0.384314, 0.498039, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ia36"]
 bg_color = Color(0, 0, 0, 1)
@@ -2740,16 +2738,15 @@ text = "0"
 
 [node name="MuteButton" type="Button" parent="ResourcesPanel"]
 layout_mode = 0
-offset_left = 236.0
+offset_left = 16.0
 offset_top = 198.0
-offset_right = 261.0
+offset_right = 41.0
 offset_bottom = 223.0
 scale = Vector2(2, 2)
 tooltip_text = "Mute Audio"
 theme_override_styles/normal = SubResource("StyleBoxFlat_uqcgu")
 theme_override_styles/hover = ExtResource("53_u6067")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0uepa")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8cxly")
 icon = ExtResource("54_mrq52")
 script = ExtResource("54_yadiy")
 

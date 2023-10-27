@@ -1,4 +1,4 @@
-[gd_scene load_steps=275 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=272 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -56,8 +56,7 @@
 [ext_resource type="Script" path="res://GameState/UnlockRequirements/RequireMultipleCharacterStats.gd" id="42_4qnbc"]
 [ext_resource type="Script" path="res://GameSave.gd" id="42_oc06t"]
 [ext_resource type="Script" path="res://GameState/Operations/SkipAllOtherActions.gd" id="43_yuy3f"]
-[ext_resource type="StyleBox" uid="uid://hiywia75xh5y" path="res://main.tres" id="53_u6067"]
-[ext_resource type="Texture2D" uid="uid://lahxr6mb57d2" path="res://assets/ui/mute_audio.png" id="54_mrq52"]
+[ext_resource type="Texture2D" uid="uid://jcod65hwlk7n" path="res://assets/ui/mute_audio.bmp" id="53_hgqy4"]
 [ext_resource type="Script" path="res://AudioSwitchButton.gd" id="54_yadiy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
@@ -1328,26 +1327,14 @@ script = ExtResource("4_84l6x")
 resourceTypeToProduce = "rock"
 baseProduction = 50.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqcgu"]
-content_margin_left = 4.0
-bg_color = Color(0.0784314, 0.0862745, 0.109804, 1)
-draw_center = false
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.364706, 0.384314, 0.498039, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0uepa"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmmon"]
 content_margin_left = 4.0
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8cxly"]
+border_color = Color(0.27451, 0.290196, 0.376471, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ia36"]
 bg_color = Color(0, 0, 0, 1)
@@ -2738,19 +2725,16 @@ offset_right = 110.0
 offset_bottom = 34.0
 text = "0"
 
-[node name="MuteButton" type="Button" parent="ResourcesPanel"]
+[node name="TextureButton" type="Button" parent="ResourcesPanel"]
 layout_mode = 0
-offset_left = 236.0
+offset_left = 16.0
 offset_top = 198.0
-offset_right = 261.0
+offset_right = 41.0
 offset_bottom = 223.0
 scale = Vector2(2, 2)
 tooltip_text = "Mute Audio"
-theme_override_styles/normal = SubResource("StyleBoxFlat_uqcgu")
-theme_override_styles/hover = ExtResource("53_u6067")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_0uepa")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8cxly")
-icon = ExtResource("54_mrq52")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hmmon")
+icon = ExtResource("53_hgqy4")
 script = ExtResource("54_yadiy")
 
 [node name="Timer" type="Timer" parent="." groups=["MainTimer"]]
@@ -2820,7 +2804,7 @@ script = ExtResource("34_x46rx")
 
 [connection signal="text_changed" from="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="mouse_entered" from="ResourcesPanel/Rocks" to="ResourcesPanel/Rocks" method="_on_mouse_entered"]
-[connection signal="pressed" from="ResourcesPanel/MuteButton" to="ResourcesPanel/MuteButton" method="_on_pressed"]
+[connection signal="pressed" from="ResourcesPanel/TextureButton" to="ResourcesPanel/TextureButton" method="_on_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="GameSave" to="GameSave" method="_on_timeout"]
 [connection signal="pressed" from="PopupWindow/MarginContainer/VBoxContainer/CloseButton" to="PopupWindow/MarginContainer/VBoxContainer/CloseButton" method="_on_pressed"]
