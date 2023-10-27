@@ -1,4 +1,4 @@
-[gd_scene load_steps=268 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=269 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -2219,6 +2219,7 @@ building = "monument"
 icon_path = "res://assets/Action_Icons/Word_to_the_WISE.png"
 tooltip = "All other followers gain Wisdom equal to you"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_k5b8k")])
+unlock_tooltip = "Have 25 wisdom to unlock"
 
 [node name="MarginContainer9" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"]]
 visible = false
@@ -2486,7 +2487,7 @@ action_name = "Affirm Devotion"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_r7dje")])
 building = "moonlight"
 icon_path = "res://assets/Action_Icons/Affirm_Devotion.png"
-tooltip = "Double Reverence"
+tooltip = "Double your Reverence"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_p1hy5")])
 unlock_tooltip = "Have 30 Moonlight to unlock"
 

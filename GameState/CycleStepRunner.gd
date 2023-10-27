@@ -100,6 +100,14 @@ static func runOneStep(sceneTree):
 	#send the data to visualiser to create particles
 	sceneTree.get_first_node_in_group("Visualiser").create_particles(resourcesByBuilding)
 
+	# Something for skipping characters
+	var actorPanels = sceneTree.get_nodes_in_group("ActorPanel")
+	for node in actorPanels:
+		if node.characterID < len(Game.characters) && Game.characters[node.characterID].skipAllActionsThisCycle:
+			node.modulate = Color(0.6, 0.6, 0.6, 1)
+		else:
+			node.modulate = Color(1, 1, 1, 1)
+
 static func get_current_love_goal(gameState):
 	if len(gameState.characters) >= 4:
 		return 10000000000 #Basically make this impossible
