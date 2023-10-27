@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://bp82qs5f041ay"]
+
+[ext_resource type="Script" path="res://UIElements/win_screen.gd" id="1_jvgun"]
+[ext_resource type="Texture2D" uid="uid://iedrhcbu7rv" path="res://assets/Icon.png" id="2_egty1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ia36"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ws8u"]
+bg_color = Color(0.0784314, 0.0862745, 0.109804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbd7e"]
+bg_color = Color(0.211765, 0.235294, 0.301961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nu8qt"]
+bg_color = Color(0.35, 0.39, 0.5, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="WinScreen" type="PanelContainer" groups=["CompleteGame"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -409.0
+offset_top = -142.5
+offset_right = 409.0
+offset_bottom = 142.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ia36")
+script = ExtResource("1_jvgun")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 28
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" groups=["PopupWindowClose"]]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" groups=["PopupTitle"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Congratulations, Deity!"
+
+[node name="Text" type="RichTextLabel" parent="MarginContainer/VBoxContainer" groups=["PopupText"]]
+layout_mode = 2
+bbcode_enabled = true
+text = "You've completed the game :)
+Great job buddy, real proud of you <3
+
+Check out our other games here:
+[url=some_link]Some kinda Idle Game[/url]
+[url=https://bosc-pv.itch.io/untitled-valkyrie-game?secret=dA5WLwuOfbfwD4e7kBriUsaU1Y]Some kinda PSX Platformer[/url]
+
+If you'd like to try the game agian, there's a reset button in the credits."
+fit_content = true
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" groups=["PopupWindowClose"]]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer" groups=["PopupWindowClose"]]
+layout_mode = 2
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ws8u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xbd7e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nu8qt")
+text = "Close"
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(778, 34)
+texture = ExtResource("2_egty1")
+
+[connection signal="meta_clicked" from="MarginContainer/VBoxContainer/Text" to="." method="_on_text_meta_clicked"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

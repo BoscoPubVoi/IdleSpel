@@ -86,6 +86,10 @@ func setMonumentTier(tier_id):
 
 	for node in tree.get_nodes_in_group("VigorLabel"):
 		node.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		
+	if tier_id == 3:
+		tree.get_first_node_in_group("CompleteGame").visible = true
+		pass
 
 func show_popup(title, text):
 	if tree == null:
