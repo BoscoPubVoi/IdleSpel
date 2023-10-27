@@ -23,7 +23,7 @@ func load_our_game(dat):
 	Game.restore_state(dat.gameState, get_tree())
 	
 	# Restore actions to their rightful positions
-	var actionIdents = get_tree().get_nodes_in_group("ActionIdent")
+	var actionIdents = get_tree().get_nodes_in_group("ActionIndent")
 	for ai in actionIdents:
 		var slot = ai._get_index()
 		var par = ai.get_parent()
