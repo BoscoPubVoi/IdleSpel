@@ -22,6 +22,7 @@ func _ready():
 	update_resource_labels()
 	updateMoonCycleIcon()
 	$AudioStreamPlayer.play()
+	AudioServer.set_bus_mute(0, false)
 	
 	DisplayServer.window_set_min_size(Vector2(1152, 652))
 	$Timer.start()
@@ -40,7 +41,7 @@ func _on_timer_timeout():
 	cycleStepRunner.runOneStep(get_tree())
 	update_resource_labels()
 	updateMoonCycleIcon()
-
+	
 
 func update_resource_labels():
 	$ResourcesPanel/Rocks/RockLabel.text = str(floor(Game.resources["rocks"])) + " / " + str(floor(Game.resourceCaps["rocks"]))

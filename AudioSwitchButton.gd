@@ -24,4 +24,4 @@ func _on_pressed():
 	else:
 		icon = icon_mute
 		tooltip_text = "Mute Audio"
-	pass # Replace with function body.
+	AudioServer.set_bus_mute(0, muted)

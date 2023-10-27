@@ -21,7 +21,6 @@ func _ready():
 
 func load_our_game(dat):
 	Game.restore_state(dat.gameState, get_tree())
-	
 	# Restore actions to their rightful positions
 	var actionIdents = get_tree().get_nodes_in_group("ActionIndent")
 	for ai in actionIdents:
@@ -96,10 +95,8 @@ func load_our_game(dat):
 	for node in actorPanels:
 		if node.characterID <= len(Game.characters) - 1:
 			node.visible = true
+	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func _on_timeout():
