@@ -1,4 +1,4 @@
-[gd_scene load_steps=220 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=222 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -1063,7 +1063,7 @@ costs = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ia36"]
-bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+bg_color = Color(0, 0, 0, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -1071,7 +1071,21 @@ border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ws8u"]
-bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+bg_color = Color(0.0784314, 0.0862745, 0.109804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbd7e"]
+bg_color = Color(0.211765, 0.235294, 0.301961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nu8qt"]
+bg_color = Color(0.35, 0.39, 0.5, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -1280,7 +1294,6 @@ theme_override_constants/margin_bottom = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="ActionsPanel/MarginContainer"]
 layout_mode = 2
 horizontal_scroll_mode = 3
-vertical_scroll_mode = 2
 
 [node name="Margin" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer"]
 layout_mode = 2
@@ -2340,6 +2353,8 @@ layout_mode = 2
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_5ws8u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xbd7e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nu8qt")
 text = "Close"
 script = ExtResource("34_x46rx")
 

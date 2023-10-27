@@ -89,7 +89,7 @@ static func runOneStep(sceneTree):
 	for bld in resourcesByBuilding:
 		for res in resourcesByBuilding[bld]:
 			Game.previousMoonStateProduction[res] = resourcesByBuilding[bld][res]
-	
+
 	#make the moons POP
 	sceneTree.get_first_node_in_group("MoonContainer").make_moon_big()
 	

@@ -16,11 +16,11 @@ func execute(executionState:ExecutionState):
 	if forAllCharacters:
 		var failed = false
 		for char in executionState.gameState.characters:
-			if executionState.currentCharacter.stats[statToCheck] < statMinimum:
+			if char.stats[statToCheck] < statMinimum:
 				failed = true
 		if !failed:
 			for char in executionState.gameState.characters:
-				executionState.currentCharacter.stats[statToCheck] -= statMinimum
+				char.stats[statToCheck] -= statMinimum
 			
 				operation.execute(executionState)
 	else:
