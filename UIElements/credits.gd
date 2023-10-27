@@ -17,3 +17,7 @@ func _on_restart_pressed():
 
 func _on_are_you_sure_pressed():
 	Game.restart_game()
+
+
+func _on_text_meta_clicked(meta):
+	OS.shell_open(meta) # Replace with function body.

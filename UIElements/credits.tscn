@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4s7b0n73c6mp"]
+[gd_scene load_steps=6 format=3 uid="uid://c48bkguay5nk5"]
 
 [ext_resource type="Script" path="res://UIElements/credits.gd" id="1_m2nre"]
 
@@ -65,10 +65,16 @@ text = "Credits"
 
 [node name="Text" type="RichTextLabel" parent="MarginContainer/VBoxContainer" groups=["PopupText"]]
 layout_mode = 2
+bbcode_enabled = true
 text = "This game was made over the course of 5 days as part of Spelkollektivet's Halloween Game Jam 2023.
-- Florian van Strein
+- Florian van Strien
 - Bosco Bartilomo
-- Lin Viberg"
+- Audio: Lin Viberg
+
+Check out our other games here:
+[url=https://flori9.itch.io/worldshaper-idle]WorldShaper Idle by Florian van Strien[/url]
+[url=https://bosc-pv.itch.io/untitled-valkyrie-game?secret=dA5WLwuOfbfwD4e7kBriUsaU1Y]Some kinda PSX Platformer[/url]
+"
 fit_content = true
 autowrap_mode = 2
 
@@ -110,6 +116,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_xbd7e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_nu8qt")
 text = "Close"
 
+[connection signal="meta_clicked" from="MarginContainer/VBoxContainer/Text" to="." method="_on_text_meta_clicked"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/AreYouSure" to="." method="_on_are_you_sure_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
