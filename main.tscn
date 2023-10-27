@@ -882,15 +882,16 @@ script = ExtResource("19_eiwq3")
 requiredMoonPhase = Array[int]([1, 7])
 operation = SubResource("Resource_mxiw5")
 
-[sub_resource type="Resource" id="Resource_yle70"]
-script = ExtResource("4_84l6x")
-resourceTypeToProduce = "reverance"
-baseProduction = 10.0
+[sub_resource type="Resource" id="Resource_nyy15"]
+script = ExtResource("6_i72h5")
+statToIncrease = "reverance"
+statIncreaseAmount = 10.0
+costs = {}
 
 [sub_resource type="Resource" id="Resource_rrwur"]
 script = ExtResource("19_eiwq3")
 requiredMoonPhase = Array[int]([1, 7])
-operation = SubResource("Resource_yle70")
+operation = SubResource("Resource_nyy15")
 
 [sub_resource type="Resource" id="Resource_ru0iw"]
 script = ExtResource("6_i72h5")
@@ -1187,7 +1188,6 @@ theme_override_constants/margin_bottom = 2
 custom_minimum_size = Vector2(838, 0)
 layout_direction = 1
 layout_mode = 2
-vertical_scroll_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="AllActorsPanel/MarginContainer/ScrollContainer"]
 layout_mode = 2

@@ -27,6 +27,7 @@ func execute(executionState:ExecutionState):
 		ResourceHelpers.pay_costs(costs[nextBuildingState - 1], executionState.gameState.resources, maxAfford)
 		executionState.gameState.buildings["monument"] += maxAfford
 		executionState.setBuildInProgress("monument")
+		executionState.setMonumentInProgress(nextBuildingState)
 		if executionState.gameState.buildings["monument"] >= nextBuildingState - 0.00001:
 			#Unlock the building (i think)
 			executionState.gameState.buildings["monument"] = nextBuildingState
