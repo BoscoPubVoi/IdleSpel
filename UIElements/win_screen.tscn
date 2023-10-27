@@ -72,13 +72,13 @@ text = "Congratulations, Deity!"
 layout_mode = 2
 bbcode_enabled = true
 text = "You've completed the game :)
-Great job buddy, real proud of you <3
+In commemoration of your perfect godhood, you've unlocked some powerful new abilities!
 
 Check out our other games here:
 [url=some_link]Some kinda Idle Game[/url]
 [url=https://bosc-pv.itch.io/untitled-valkyrie-game?secret=dA5WLwuOfbfwD4e7kBriUsaU1Y]Some kinda PSX Platformer[/url]
 
-If you'd like to try the game agian, there's a reset button in the credits."
+If you'd like to try the game again, there's a reset button in the credits."
 fit_content = true
 autowrap_mode = 2
 

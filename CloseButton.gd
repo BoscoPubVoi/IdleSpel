@@ -11,4 +11,4 @@ func _process(delta):
 	pass
 
 func _on_pressed():
-	
+	get_tree().get_root().get_node('Main/PopupWindow').visible = false

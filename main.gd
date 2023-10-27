@@ -23,7 +23,7 @@ func _ready():
 	updateMoonCycleIcon()
 	$AudioStreamPlayer.play()
 	AudioServer.set_bus_mute(0, false)
-	
+	$WinScreen.hide()
 	DisplayServer.window_set_min_size(Vector2(1152, 652))
 	$Timer.start()
 	$GameSave.start()
