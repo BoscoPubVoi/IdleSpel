@@ -34,7 +34,7 @@ func load_audio():
 		audio_buses[key] = audio_files[key][1]
 
 
-func play(sound_name, volume = -5, pitch = 0.5, fade = 0):
+func play(sound_name, volume = -4, pitch = 0.5, fade = 0):
 	if !audio_streams.has(sound_name):
 		print("Cannot find sound %s" % sound_name)
 		return null

@@ -39,6 +39,7 @@ func restore_state(dict, tree):
 		var newAction = Action.new()
 		newAction.restore_state(action, tree)
 		actions.push_back(newAction)
+	
 
 func get_save_dict():
 	var actionsSave = []
