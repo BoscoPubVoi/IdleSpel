@@ -25,6 +25,5 @@ func execute(executionState:ExecutionState):
 
 func _duplicate():
 	var newOperation = PayCostAndDo.new()
-	for operation in operations:
-		newOperation.construct(costs, operation)
+	newOperation.construct(costs, operations)
 	return newOperation

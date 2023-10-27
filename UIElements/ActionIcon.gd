@@ -74,9 +74,18 @@ static func check_primary_type(operation):
 		operation is CheckStatOther ||
 		operation is ConsumeStatAndDo ||
 		operation is MultiplyInternalBasedOnResource ||
-		operation is MultiplyInternalBasedOnStat ||
-		operation is PayCostAndDo):
+		operation is MultiplyInternalBasedOnStat):
 		return check_primary_type(operation.operation)
+	if operation is PayCostAndDo:
+		var primaryType = ""
+		for op in operation.operations:
+			var primaryTypeOfOp = check_primary_type(op)
+			if primaryTypeOfOp != "":
+				if primaryType != "" && primaryTypeOfOp != primaryType:
+					primaryType = "multi"
+				else:
+					primaryType = primaryTypeOfOp
+		return primaryType
 	if operation is IncreaseGlobalProductionBonus:
 		return "boost"
 	
