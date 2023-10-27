@@ -1319,13 +1319,6 @@ label_settings = SubResource("LabelSettings_re3f1")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Label2" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer7"]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-text = "Age of Moonstone"
-label_settings = SubResource("LabelSettings_re3f1")
-horizontal_alignment = 1
-
 [node name="MarginContainer" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid"]
 layout_mode = 2
 theme_override_constants/margin_top = -4
@@ -2094,6 +2087,13 @@ visible = false
 layout_mode = 2
 theme_override_constants/margin_top = -4
 theme_override_constants/margin_bottom = -4
+
+[node name="Label2" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer10"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Moonstone"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
 
 [node name="Moonstone14" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
