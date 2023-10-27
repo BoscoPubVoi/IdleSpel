@@ -20,10 +20,6 @@ config/icon="res://icon.svg"
 
 Game="*res://GameState/GameState.gd"
 
-[display]
-
-window/stretch/mode="canvas_items"
-
 [gui]
 
 timers/tooltip_delay_sec=0.1

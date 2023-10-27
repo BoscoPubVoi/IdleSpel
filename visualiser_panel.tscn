@@ -162,6 +162,7 @@ max_value = 1.0
 step = 0.1
 texture_under = ExtResource("6_88r2q")
 texture_progress = ExtResource("7_0qnac")
+metadata/_edit_use_anchors_ = true
 
 [node name="water" type="Sprite2D" parent="."]
 visible = false

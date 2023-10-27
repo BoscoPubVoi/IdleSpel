@@ -1,7 +1,7 @@
 extends Control
 
 @onready var MoonContainer = $AllActorsPanel/MoonCycleContainer
-@onready var Visualiser = $VisualiserPanel
+@onready var Visualiser = $Panel/HBoxContainer/VisualiserPanel
 
 @onready var secondaryActions = $ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions
 @onready var tertiaryActions = $ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions
