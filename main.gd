@@ -145,3 +145,7 @@ func _on_line_edit_text_changed(new_text):
 		get_tree().get_first_node_in_group("searchNothingFound").show()
 	else:
 		get_tree().get_first_node_in_group("searchNothingFound").hide()
+
+
+func _on_credits_pressed():
+	$Credits.show()
