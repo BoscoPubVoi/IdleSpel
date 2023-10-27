@@ -103,6 +103,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_khlr0")
 script = ExtResource("1_e5etn")
 
 [node name="Character0" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.388235, 0.560784, 0.784314, 1)
 texture_filter = 3
 position = Vector2(79, 203)
 scale = Vector2(2, 2)
@@ -112,6 +113,7 @@ frame_progress = 0.873957
 script = ExtResource("3_cl67r")
 
 [node name="Character1" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.784314, 0.388235, 0.611765, 1)
 texture_filter = 3
 position = Vector2(127, 203)
 scale = Vector2(2, 2)
@@ -122,6 +124,7 @@ script = ExtResource("3_cl67r")
 character_ID = 1
 
 [node name="Character2" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.611765, 0.388235, 0.784314, 1)
 texture_filter = 3
 position = Vector2(223, 203)
 scale = Vector2(2, 2)
@@ -132,6 +135,7 @@ script = ExtResource("3_cl67r")
 character_ID = 2
 
 [node name="Character3" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.388235, 0.784314, 0.490196, 1)
 texture_filter = 3
 position = Vector2(271, 203)
 scale = Vector2(2, 2)
