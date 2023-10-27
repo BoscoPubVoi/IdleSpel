@@ -87,7 +87,7 @@ func _on_line_edit_text_changed(new_text):
 			if node.get_groups().has("UpgradeMonumentHint"):
 				if new_text != "":
 					node.hide()
-				elif Game.buildings.has("relics") && (Game.buildings.has("monument") && Game.buildings["monument"] < 2):
+				elif (Game.buildings.has("relics") && Game.buildings["relics"] == 1) && (Game.buildings.has("monument") && Game.buildings["monument"] < 2):
 					node.show()
 				else:
 					node.hide()
@@ -95,7 +95,7 @@ func _on_line_edit_text_changed(new_text):
 			if node.get_groups().has("UpgradeMonumentHint2"):
 				if new_text != "":
 					node.hide()
-				elif Game.buildings.has("monument") && Game.buildings["monument"] < 3:
+				elif (Game.buildings.has("moonlight") && Game.buildings["moonlight"] == 1) && (Game.buildings.has("monument") && Game.buildings["monument"] < 3):
 					node.show()
 				else:
 					node.hide()

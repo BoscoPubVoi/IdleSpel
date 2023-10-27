@@ -23,9 +23,9 @@ func execute(executionState:ExecutionState):
 			costs[nextBuildingState - 1], executionState.gameState.resources))
 		
 		# Help build the building
-		maxAfford = min(maxAfford * buildBuildingAmount[nextBuildingState - 1], nextBuildingState - executionState.gameState.buildings["monument"])
+		maxAfford = min(maxAfford, (nextBuildingState - executionState.gameState.buildings["monument"]) / buildBuildingAmount[nextBuildingState - 1])
 		ResourceHelpers.pay_costs(costs[nextBuildingState - 1], executionState.gameState.resources, maxAfford)
-		executionState.gameState.buildings["monument"] += maxAfford
+		executionState.gameState.buildings["monument"] += maxAfford * buildBuildingAmount[nextBuildingState - 1]
 		executionState.setBuildInProgress("monument")
 		executionState.setMonumentInProgress(nextBuildingState)
 		if executionState.gameState.buildings["monument"] >= nextBuildingState - 0.00001:
