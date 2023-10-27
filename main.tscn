@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bv2nay3b4rm" path="res://assets/Moon2_Icon.png" id="4_p0qix"]
 [ext_resource type="Texture2D" uid="uid://caordvs4uxeou" path="res://assets/HalfMoon_Icon.png" id="5_1oedm"]
 [ext_resource type="Script" path="res://GameState/Operations/ProduceSecondaryResource.gd" id="5_22pki"]
-[ext_resource type="PackedScene" path="res://UIElements/waning_crescent.tscn" id="6_gfv6t"]
+[ext_resource type="PackedScene" uid="uid://yw6q30hvukgg" path="res://UIElements/waning_crescent.tscn" id="6_gfv6t"]
 [ext_resource type="Script" path="res://GameState/Operations/BoostCharacterStat.gd" id="6_i72h5"]
 [ext_resource type="Texture2D" uid="uid://cjjkludkbcxgk" path="res://assets/Crescent_Right_Icon.png" id="6_qfmv4"]
 [ext_resource type="Texture2D" uid="uid://dws7mju66i8ox" path="res://assets/NewMoon_Icon.png" id="7_epah6"]
@@ -57,12 +57,12 @@
 [ext_resource type="Script" path="res://GameSave.gd" id="42_oc06t"]
 [ext_resource type="Script" path="res://GameState/Operations/SkipAllOtherActions.gd" id="43_yuy3f"]
 [ext_resource type="Script" path="res://GameState/Operations/PayCapAndDo.gd" id="44_cvy4t"]
-[ext_resource type="StyleBox" uid="uid://hiywia75xh5y" path="res://main.tres" id="53_u6067"]
+[ext_resource type="StyleBox" path="res://main.tres" id="53_u6067"]
 [ext_resource type="Texture2D" uid="uid://lahxr6mb57d2" path="res://assets/ui/mute_audio.png" id="54_mrq52"]
 [ext_resource type="Script" path="res://AudioSwitchButton.gd" id="54_yadiy"]
 [ext_resource type="Texture2D" uid="uid://drwaq7hgx616p" path="res://assets/ui/Credits.png" id="56_ospfq"]
 [ext_resource type="PackedScene" uid="uid://va40u1v4srun" path="res://UIElements/win_screen.tscn" id="60_as1xf"]
-[ext_resource type="PackedScene" path="res://UIElements/credits.tscn" id="60_tknhq"]
+[ext_resource type="PackedScene" uid="uid://c4s7b0n73c6mp" path="res://UIElements/credits.tscn" id="60_tknhq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
 bg_color = Color(0.0784314, 0.0862745, 0.109804, 1)
@@ -2678,7 +2678,7 @@ layout_mode = 2
 action_name = "Spiritual Awakening"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_r55mv"), SubResource("Resource_gk3o6"), SubResource("Resource_nci23")])
 building = "monument"
-icon_path = "res://assets/Action_Icons/Add_rocks.png"
+icon_path = "res://assets/Action_Icons/Spritual_Awakening.png"
 tooltip = "Double your stats"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_6mi27")])
 unlock_tooltip = "Have 100 Wisdom to unlock"
@@ -2689,7 +2689,7 @@ layout_mode = 2
 action_name = "Craft Relic from Thin Air"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_jumwq")])
 building = "relics"
-icon_path = "res://assets/Action_Icons/Add_rocks.png"
+icon_path = "res://assets/Action_Icons/Thin_Air_Relic.png"
 tooltip = "Gain a relic"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_clh2u")])
 unlock_tooltip = "Have 100 Relics Capacity to unlock"
@@ -2700,7 +2700,7 @@ layout_mode = 2
 action_name = "Excavate Eldorado"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_3joi1")])
 building = "silver"
-icon_path = "res://assets/Action_Icons/Add_rocks.png"
+icon_path = "res://assets/Action_Icons/Excavate_ElDorado.png"
 tooltip = "Reduce your rocks capacity by 10 to increase your silver capacity by 20"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_ugnuk")])
 unlock_tooltip = "Have 5000 rocks capacity"
