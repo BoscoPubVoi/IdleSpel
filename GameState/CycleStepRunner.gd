@@ -4,7 +4,6 @@ class_name CycleStepRunner
 static func runOneStep(sceneTree):
 	Game.placeInCycle += 1
 	Game.placeInCycle = Game.placeInCycle % Game.maxSupportedActions
-	
 	if Game.placeInCycle == 0:
 		# No love anymore, sorry
 		Game.resources["love"] = 0

@@ -13,6 +13,7 @@ func _ready():
 	
 func _get_drag_data(at_position):
 	if current_data != null:
+		AudioManager.play("pick_up_icon")
 		var data = current_data
 		data["origin_node"] = self
 		var drag_texture = TextureRect.new()
@@ -66,6 +67,7 @@ func _drop_data(at_position, data):
 			put_in_slot(data)
 
 func put_in_slot(data, tempTexture = null):
+	AudioManager.play("put_down_icon")
 	var slot = _get_index()
 	current_data = data
 	var par = get_parent()
