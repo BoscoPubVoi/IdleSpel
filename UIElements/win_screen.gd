@@ -8,7 +8,6 @@ func _process(delta):
 
 func _on_text_meta_clicked(meta):
 	OS.shell_open(meta)
-	pass # Replace with function body.
 
 
 func _on_close_button_pressed():
