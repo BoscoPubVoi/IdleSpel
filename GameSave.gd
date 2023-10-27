@@ -20,6 +20,8 @@ func _ready():
 	Game.wasFromLoaded = true
 
 func load_our_game(dat):
+	AudioManager.muted = true
+	
 	Game.restore_state(dat.gameState, get_tree())
 	# Restore actions to their rightful positions
 	var actionIdents = get_tree().get_nodes_in_group("ActionIndent")
@@ -95,6 +97,9 @@ func load_our_game(dat):
 	for node in actorPanels:
 		if node.characterID <= len(Game.characters) - 1:
 			node.visible = true
+			
+	
+	AudioManager.muted = false
 	
 
 
