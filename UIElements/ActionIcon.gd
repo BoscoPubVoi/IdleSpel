@@ -52,6 +52,8 @@ static func set_color_for_primary_type(operations, texture):
 			texture.modulate = Color.from_string("#7F88FF", Color.BLACK)
 		"stat":
 			texture.modulate = Color.from_string("#FFB67F", Color.BLACK)
+		"boostPerm":
+			texture.modulate = Color.from_string("#FCFF7F", Color.BLACK)
 		"multi":
 			texture.modulate = Color.from_string("#FFFFFF", Color.BLACK)
 
@@ -87,14 +89,14 @@ static func check_primary_type(operation):
 					primaryType = primaryTypeOfOp
 		return primaryType
 	if operation is IncreaseGlobalProductionBonus:
-		return "boost"
+		return "boostPerm"
 	
 	if operation is ProduceBaseResource:
 		return "produce"
 	if operation is ProduceSecondaryResource:
 		return "produce"
 	if operation is SkipAllOtherActions:
-		return "special"
+		return ""
 	return ""
 
 func _process(delta):
