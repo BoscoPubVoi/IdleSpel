@@ -75,15 +75,6 @@ func _input(event):
 	if Input.is_key_pressed(KEY_F12) and just_pressed:
 		get_tree().get_first_node_in_group("MainTimer").wait_time = 0.01 if get_tree().get_first_node_in_group("MainTimer").wait_time == 1 else 1
 
-func reset_game():
-	# Erase the save file
-	var dir = DirAccess.open("user://")
-	dir.remove("idlemoonkingdom.save")
-	
-	Game.reset()
-	
-	# Reload the scene
-	get_tree().reload_current_scene()
 
 #Search
 func _on_line_edit_text_changed(new_text):
