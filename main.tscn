@@ -839,7 +839,7 @@ operation = SubResource("Resource_elpuq")
 script = ExtResource("5_22pki")
 costs = {
 "favor": 30,
-"rock": 100
+"rocks": 100
 }
 resourceTypeToProduce = "moonstone"
 baseProduction = 3.0
@@ -1857,7 +1857,7 @@ tooltip = "Gain as much Favor as you have Vigor"
 [node name="RecordWisdom" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
-action_name = "RecordWisdom"
+action_name = "Record Wisdom"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_va207")])
 building = "monument"
 icon_path = "res://assets/Action_Icons/Record_Wisdom.png"
@@ -1916,7 +1916,7 @@ unlock_tooltip = "Produce three Relics in one moon phase to unlock"
 visible = false
 layout_mode = 2
 action_name = "Stargazing"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_qtwgo"), null])
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_qtwgo")])
 building = "water"
 icon_path = "res://assets/Action_Icons/Stargazing.png"
 tooltip = "+10 Wisdom"
