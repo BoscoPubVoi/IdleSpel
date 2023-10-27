@@ -951,6 +951,7 @@ offset_bottom = 40.0
 texture = ExtResource("17_6t2sr")
 
 [node name="ActorPanel2" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+visible = false
 layout_mode = 2
 characterID = 1
 
@@ -962,6 +963,7 @@ offset_bottom = 40.0
 texture = ExtResource("17_6t2sr")
 
 [node name="ActorPanel3" parent="AllActorsPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+visible = false
 layout_mode = 2
 characterID = 2
 

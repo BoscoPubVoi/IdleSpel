@@ -15,6 +15,6 @@ func update_worshiper_stats():
 	if !visible:
 		return
 	
-	$Vigor/VigorLabel.text = str(Game.characters[characterID]["stats"]["vigor"])
-	$Wisdom/WisdomLabel.text = str(Game.characters[characterID]["stats"]["wisdom"])
-	$Reverance/ReveranceLabel.text = str(Game.characters[characterID]["stats"]["reverance"])
+	$Vigor/VigorLabel.text = str(floor(Game.characters[characterID]["stats"]["vigor"]))
+	$Wisdom/WisdomLabel.text = str(floor(Game.characters[characterID]["stats"]["wisdom"]))
+	$Reverance/ReveranceLabel.text = str(floor(Game.characters[characterID]["stats"]["reverance"]))
