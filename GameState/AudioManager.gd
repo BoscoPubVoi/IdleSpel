@@ -14,7 +14,7 @@ var audio_files = \
 var audio_streams = {}
 var audio_buses = {}
 var audio_stream_players = {}
-
+static var muted = false
 
 var music_streams = []
 
@@ -35,6 +35,9 @@ func load_audio():
 
 
 func play(sound_name, volume = -4, pitch = 0.5, fade = 0):
+	if muted:
+		return null
+	
 	if !audio_streams.has(sound_name):
 		print("Cannot find sound %s" % sound_name)
 		return null
