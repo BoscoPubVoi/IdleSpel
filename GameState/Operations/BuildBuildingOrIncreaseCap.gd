@@ -34,6 +34,7 @@ func execute(executionState:ExecutionState):
 			executionState.unlockBuilding(buildingAndCapName)
 			
 			executionState.unlockActionsGroup(buildingAndCapName)
+			AudioManager.play("monument_done", 0, 1.0)
 	else:
 		# Help increase the cap
 		executionState.gameState.resourceCaps[buildingAndCapName] += increaseCapAmount * maxAfford

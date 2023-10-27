@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 Game="*res://GameState/GameState.gd"
+AudioManager="*res://GameState/AudioManager.gd"
+
+[dotnet]
+
+project/assembly_name="Idle Spel"
 
 [gui]
 

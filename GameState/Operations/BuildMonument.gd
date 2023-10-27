@@ -35,6 +35,7 @@ func execute(executionState:ExecutionState):
 			executionState.setMonumentTier(nextBuildingState)
 			executionState.unlockActionsGroup("monument")
 			executionState.unlockActionsGroup("monument" + str(nextBuildingState))
+			AudioManager.play("monument_building", 0, 1.0)
 
 			# For certain buildings, do an unlock of actions somehow
 			if nextBuildingState == 1:

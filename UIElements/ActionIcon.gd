@@ -120,6 +120,7 @@ func _process(delta):
 
 func _get_drag_data(at_position):
 	if !used && unlocked:
+		AudioManager.play("pick_up_icon")
 		return get_drag_data_unconstrained();
 
 func get_drag_data_unconstrained():
