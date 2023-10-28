@@ -1742,6 +1742,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "rocks"
 icon_path = "uid://cdwqcxh7xjbq0"
 tooltip = "+2 Rocks"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="BigRocks" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["rocks"] instance=ExtResource("3_se0lr")]
 layout_mode = 2
@@ -1750,6 +1752,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "rocks"
 icon_path = "res://assets/Action_Icons/Add_rocks.png"
 tooltip = "+5 Rocks"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="BuildWell" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["rocks"] instance=ExtResource("3_se0lr")]
 layout_mode = 2
@@ -1782,6 +1786,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "water"
 icon_path = "res://assets/Action_Icons/add_water.png"
 tooltip = "+3 Water"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="AddWaddWis" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -1791,6 +1797,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "water"
 icon_path = "res://assets/Action_Icons/add_Wisdom_water.png"
 tooltip = "+2 Water, +5 Wisdom"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="Redirect stream" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -1800,6 +1808,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "water"
 icon_path = "res://assets/Action_Icons/Redirect_Stream.png"
 tooltip = "If you have 5 Wisdom, +5 Water. Otherwise, +1 Water"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="Erosion" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -1819,7 +1829,7 @@ action_name = "Fertility Ritual"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_q1u0j")])
 building = "water"
 icon_path = "res://assets/Action_Icons/Lunar_Mist.png"
-tooltip = "Spend 10 water for +1 Fertility"
+tooltip = "Spend 10 water for +1 Fertility. Fertility resets each cycle."
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_3hm76")])
 unlock_tooltip = "Gather 10 water to unlock"
 
@@ -1855,6 +1865,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "silver"
 icon_path = "res://assets/Action_Icons/Rocks_to_silver.png"
 tooltip = "-10 Rocks, +1 Silver"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="EfficientSilver" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -1864,6 +1876,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "silver"
 icon_path = "res://assets/Action_Icons/Efficient_Smelting.png"
 tooltip = "If you have 5 Wisdom, -8 Rocks, +1 Silver. If you have 10 Wisdom, -14 Rocks, +2 Silver instead"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="Asteroid" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -1873,12 +1887,15 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "rocks"
 icon_path = "res://assets/Action_Icons/Silver_to_rock_prod.png"
 tooltip = "-1 Silver to increase the bonus rock production by 10%"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="ExcavateForest" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Dig out an ancient forest to put your rocks there instead"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_k5av1")])
+building = ""
 icon_path = "res://assets/Action_Icons/Excavate_Forest.png"
 tooltip = "-2 Silver, + 10 Rock Capacity"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_lfi3u")])
@@ -1927,6 +1944,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "monument"
 icon_path = "res://assets/Action_Icons/Religious_Fervor.png"
 tooltip = "+5 Vigor"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="Paleo" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -1936,6 +1955,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "rocks"
 icon_path = "res://assets/Action_Icons/Paleontology.png"
 tooltip = "-2 Rocks, +10 Wisdom"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="ManicDigging" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -1945,6 +1966,7 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "rocks"
 icon_path = "res://assets/Action_Icons/Vigour_to_rocks.png"
 tooltip = "If you have 5 Vigor, +10 Rocks"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
 unlock_tooltip = "Unlock with 15 water"
 
 [node name="MountingWaiting" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
@@ -2001,6 +2023,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "favor"
 icon_path = "res://assets/Action_Icons/Add_Favour.png"
 tooltip = "+3 Favor"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="Meditate" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2010,6 +2034,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "favor"
 icon_path = "res://assets/Action_Icons/Meditate.png"
 tooltip = "If you have 10 Wisdom, +5 Favor"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="FeverishPrayer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2019,6 +2045,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "favor"
 icon_path = "res://assets/Action_Icons/Feverish_Prayer.png"
 tooltip = "+2 Favor, +5 Vigor"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="PassionLove" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2028,6 +2056,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "monument"
 icon_path = "res://assets/Action_Icons/Passion_Love.png"
 tooltip = "If you and another Follower have 5 Vigor, +2 Fertility"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="DigStream" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2105,6 +2135,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "relics"
 icon_path = "res://assets/Action_Icons/Craft_Lustrous_relic.png"
 tooltip = "-10 Silver, -20 Favor, +1 Relic"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="NauticalRelic" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2114,6 +2146,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "relics"
 icon_path = "res://assets/Action_Icons/Build_Nautical_Relic.png"
 tooltip = "If you have 10 Vigor, -40 Water, -20 Favor, +1 Relic"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="WiseRelic" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2123,6 +2157,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "relics"
 icon_path = "res://assets/Action_Icons/Build_Wise_relic.png"
 tooltip = "If you have 15 Wisdom, -3 Silver, -10 Favor, +1 Relic"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="Alchemy" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2132,6 +2168,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "relics"
 icon_path = "res://assets/Action_Icons/Alchemy.png"
 tooltip = "If you have 3 Relics, -1 Rocks, +1 Silver"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="AncientRitual" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2141,6 +2179,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "monument"
 icon_path = "res://assets/Action_Icons/Ancient_Ritual.png"
 tooltip = "If you have 3 Relics, +5 Reverance"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="MudflatWalking" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2254,6 +2294,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "favor"
 icon_path = "res://assets/Action_Icons/Zealotry.png"
 tooltip = "If you have 3 Relics, +10 Vigor"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="MonasteryOffering" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2263,6 +2305,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "monument"
 icon_path = "res://assets/Action_Icons/Monastery_Offering.png"
 tooltip = "-1 Relic, +15 Reverance, +15 Vigor, +15 Wisdom"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="FervantPrayer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2272,6 +2316,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "favor"
 icon_path = "res://assets/Action_Icons/Fervent_Prayer.png"
 tooltip = "Gain as much Favor as you have Vigor"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="RecordWisdom" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2281,6 +2327,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "monument"
 icon_path = "res://assets/Action_Icons/Record_Wisdom.png"
 tooltip = "Increase your bonus favor production by a percentage equal to your a quarter of your Wisdom"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="FullMoonMining" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2290,6 +2338,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "rocks"
 icon_path = "res://assets/Action_Icons/Full_Moon_mining.png"
 tooltip = "If it's full moon, +15 Rocks"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="Crusade" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2299,6 +2349,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "rocks"
 icon_path = "res://assets/Action_Icons/Crusade.png"
 tooltip = "If 3 followers have 5 Vigor, +15 Vigor"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="CraftLoveRelic" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2308,6 +2360,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "relics"
 icon_path = "res://assets/Action_Icons/Relic_of_Love.png"
 tooltip = "-3 Fertility, -10 Favor, +1 Relic"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="PrayforProsperity" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2385,6 +2439,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "moonstone"
 icon_path = "res://assets/Action_Icons/Pray_For_Asteroid.png"
 tooltip = "If you have 5 Reverance, -15 Rocks, -10 Water, -10 Favor, +1 Moonstone"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="CraftMoonstone" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2394,6 +2450,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "moonstone"
 icon_path = "res://assets/Action_Icons/create_moonstone.png"
 tooltip = "If you have 10 Wisdom, 10 Vigor and 10 Reverance, -100 Rocks, -30 Favor, +3 Moonstones"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="LunarRevel" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2403,6 +2461,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "monument"
 icon_path = "res://assets/Action_Icons/Lunar_Revel.png"
 tooltip = "If Crescent Moon, +5 favor, +15 water, +10 reverance"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="Lunacy" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2412,6 +2472,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "monument"
 icon_path = "res://assets/Action_Icons/Lunacy.png"
 tooltip = "-15 wisdom, +15 reverance, boost production 50% for all other followers in phase"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="MoonstoneBasin" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2421,6 +2483,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "moonstone"
 icon_path = "res://assets/Action_Icons/Moonstone_Basin.png"
 tooltip = "Spend a Moonstone to increase the capacity for Rocks by 20, Water by 20 and Silver by 3"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="WaxPhilo" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2430,6 +2494,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "favor"
 icon_path = "res://assets/Action_Icons/Wax_Philosophical.png"
 tooltip = "If Moon is Waxing, +15 Wisdom, +5 Favor"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="TraitorPact" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2439,6 +2505,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "favor"
 icon_path = "res://assets/Action_Icons/Traitorous_Pact.png"
 tooltip = "-20 Reverance, -1 Moonstone, +200% Silver production in this moon phase"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="Metallurgy" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2448,6 +2516,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "moonstone"
 icon_path = "res://assets/Action_Icons/Metallurgy.png"
 tooltip = "-1 Moonstone, +4 Silver"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="ExcavateAnicentSite" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2468,6 +2538,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "monument"
 icon_path = "res://assets/Action_Icons/Paganic_Percussion.png"
 tooltip = "If you have 15 Vigor, -10 Water, boost production by 100% for all other followers in phase"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="FertilityFigurine" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2521,6 +2593,7 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "moonlight"
 icon_path = "res://assets/Action_Icons/Build_Moonlight.png"
 tooltip = "Spend 5 Moonstone and 15 Silver to build 0.5% of the Moonlight Distiller, or increase Moonlight capacity by 5"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
 unlock_tooltip = "Have 20 Moonstone to Unlock"
 
 [node name="Moonlight2" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"]]
@@ -2544,6 +2617,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "moonlight"
 icon_path = "res://assets/Action_Icons/SuperMoon.png"
 tooltip = "If it's Full Moon, -1 Moonstone, +1 Moonlight per 10 Wisdom you have."
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="Bloodmoon" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2553,6 +2628,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "moonlight"
 icon_path = "res://assets/Action_Icons/BloodMoon.png"
 tooltip = "If it's full moon, this follower skips all other actions this cycle. Gain 1 moonlight per 5 Reverance they had."
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="Bluemoon" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2562,6 +2639,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "moonlight"
 icon_path = "res://assets/Action_Icons/BlueMoon.png"
 tooltip = "If it's full moon, pay 3 Fertility to gain 1 moonlight"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="AsteroidShower" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2571,6 +2650,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "moonlight"
 icon_path = "res://assets/Action_Icons/Asteroid_Shower.png"
 tooltip = "If it's a Crescent Moon, +10 Favor, +20 Rocks"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="WinterSolstice" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2580,6 +2661,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "moonlight"
 icon_path = "res://assets/Action_Icons/WinterSolstice.png"
 tooltip = "If it's a Waxing Crescent Moon, -10 Vigor, +10 Wisdom, +10 Reverence"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="LunarEclipse" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2589,6 +2672,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "moonlight"
 icon_path = "res://assets/Action_Icons/Lunar_Eclipse.png"
 tooltip = "If its a Waning Crescent Moon, gain 1 Moonlight per 10 Relics"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="ConcentratedMoonlight" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2598,6 +2683,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "moonlight"
 icon_path = "res://assets/Action_Icons/Concentrated_Moonlight.png"
 tooltip = "-1 moonlight, +100% to all other non-boost actions"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="CraftMoonlightRelic" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2689,6 +2776,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "monument"
 icon_path = "res://assets/Action_Icons/Gibbous_Frenzy.png"
 tooltip = "+10 Vigor in Gibbous Phase"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="SummonRocks" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2698,6 +2787,8 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "rocks"
 icon_path = "res://assets/Action_Icons/Add_rocks.png"
 tooltip = "+50 Rocks"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([])
+unlock_tooltip = ""
 
 [node name="CastFrenzy" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
 visible = false

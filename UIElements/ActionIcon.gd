@@ -112,8 +112,8 @@ func _process(delta):
 		if allUnlocksOK:
 			unlocked = true
 			if action_name == "Fertility Ritual":
-				ShowPopup.show_popup(get_tree(), "Love Unlocked",
-					"You can now gain Love. Gain a Love to get an additional follower.")
+				ShowPopup.show_popup(get_tree(), "Fertility Unlocked",
+					"You can now gain Fertility. Gain a Fertility to get an additional follower.")
 				get_tree().get_first_node_in_group("love").visible = true
 			set_display()
 #		$TextureRect.hide()
