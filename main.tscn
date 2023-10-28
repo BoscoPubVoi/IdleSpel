@@ -1,4 +1,4 @@
-[gd_scene load_steps=291 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=294 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bv2nay3b4rm" path="res://assets/Moon2_Icon.png" id="4_p0qix"]
 [ext_resource type="Texture2D" uid="uid://caordvs4uxeou" path="res://assets/HalfMoon_Icon.png" id="5_1oedm"]
 [ext_resource type="Script" path="res://GameState/Operations/ProduceSecondaryResource.gd" id="5_22pki"]
-[ext_resource type="PackedScene" path="res://UIElements/waning_crescent.tscn" id="6_gfv6t"]
+[ext_resource type="PackedScene" uid="uid://yw6q30hvukgg" path="res://UIElements/waning_crescent.tscn" id="6_gfv6t"]
 [ext_resource type="Script" path="res://GameState/Operations/BoostCharacterStat.gd" id="6_i72h5"]
 [ext_resource type="Texture2D" uid="uid://cjjkludkbcxgk" path="res://assets/Crescent_Right_Icon.png" id="6_qfmv4"]
 [ext_resource type="Texture2D" uid="uid://dws7mju66i8ox" path="res://assets/NewMoon_Icon.png" id="7_epah6"]
@@ -57,7 +57,7 @@
 [ext_resource type="Script" path="res://GameSave.gd" id="42_oc06t"]
 [ext_resource type="Script" path="res://GameState/Operations/SkipAllOtherActions.gd" id="43_yuy3f"]
 [ext_resource type="Script" path="res://GameState/Operations/PayCapAndDo.gd" id="44_cvy4t"]
-[ext_resource type="StyleBox" uid="uid://hiywia75xh5y" path="res://main.tres" id="53_u6067"]
+[ext_resource type="StyleBox" path="res://main.tres" id="53_u6067"]
 [ext_resource type="Texture2D" uid="uid://lahxr6mb57d2" path="res://assets/ui/mute_audio.png" id="54_mrq52"]
 [ext_resource type="Script" path="res://AudioSwitchButton.gd" id="54_yadiy"]
 [ext_resource type="Texture2D" uid="uid://drwaq7hgx616p" path="res://assets/ui/Credits.png" id="56_ospfq"]
@@ -1002,6 +1002,14 @@ statMinimum = 20.0
 forAllCharacters = false
 operation = SubResource("Resource_eopky")
 
+[sub_resource type="Resource" id="Resource_4syy3"]
+script = ExtResource("5_22pki")
+costs = {
+"moonlight": 1
+}
+resourceTypeToProduce = "silver"
+baseProduction = 4.0
+
 [sub_resource type="Resource" id="Resource_tu0kt"]
 script = ExtResource("5_22pki")
 costs = {
@@ -1341,6 +1349,16 @@ operation = SubResource("Resource_c1dih")
 script = ExtResource("4_84l6x")
 resourceTypeToProduce = "rock"
 baseProduction = 50.0
+
+[sub_resource type="Resource" id="Resource_23ejq"]
+script = ExtResource("41_inif2")
+statToIncrease = "vigor"
+amount = 25
+
+[sub_resource type="Resource" id="Resource_1ohrd"]
+script = ExtResource("22_b8b85")
+stat = "vigor"
+minOfStat = 50.0
 
 [sub_resource type="Resource" id="Resource_oo4fo"]
 script = ExtResource("6_i72h5")
@@ -2422,6 +2440,15 @@ building = "favor"
 icon_path = "res://assets/Action_Icons/Traitorous_Pact.png"
 tooltip = "-20 Reverance, -1 Moonstone, +200% Silver production in this moon phase"
 
+[node name="Metallurgy" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Metallurgy"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_4syy3")])
+building = "moonstone"
+icon_path = "res://assets/Action_Icons/Metallurgy.png"
+tooltip = "-1 Moonstone, +4 Silver"
+
 [node name="ExcavateAnicentSite" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
@@ -2671,6 +2698,17 @@ operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubReso
 building = "rocks"
 icon_path = "res://assets/Action_Icons/Add_rocks.png"
 tooltip = "+50 Rocks"
+
+[node name="CastFrenzy" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "CastFrenzy"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_23ejq")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Cast Frenzy.png"
+tooltip = "All Followers gain 25 Vigor"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_1ohrd")])
+unlock_tooltip = "Have 50 Vigor to unlcok"
 
 [node name="SpiritualAwakening" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
 visible = false
