@@ -82,7 +82,7 @@ static func runOneStep(sceneTree):
 
 		if len(Game.characters) <= 2:
 			ShowPopup.show_popup(sceneTree, "New Follower!",
-				"You've gained an additional follower. You'll need more love to unlock another follower. Love resets on each moon cycle, so unlocking a new character will only be possible later in the game.")
+				"You've gained an additional follower. You'll need more fertility to unlock another follower. Fertility resets on each moon cycle, so unlocking a new character will only be possible later in the game.")
 
 	# Store the previousMoonStateProduction
 	Game.previousMoonStateProduction = ResourceHelpers.create_empty_resources()

@@ -86,7 +86,7 @@ offset_left = 26.0
 offset_top = 98.0
 offset_right = 52.0
 offset_bottom = 124.0
-tooltip_text = "Wisdom"
+tooltip_text = "Unlocks later!"
 texture = ExtResource("4_q62qo")
 expand_mode = 2
 
@@ -105,7 +105,7 @@ offset_left = 108.0
 offset_top = 98.0
 offset_right = 134.0
 offset_bottom = 124.0
-tooltip_text = "Vigor"
+tooltip_text = "Unlocks later!"
 texture = ExtResource("3_i0j11")
 expand_mode = 2
 
@@ -124,7 +124,7 @@ offset_left = 190.0
 offset_top = 98.0
 offset_right = 216.0
 offset_bottom = 124.0
-tooltip_text = "Reverance"
+tooltip_text = "Unlocks later!"
 texture = ExtResource("5_6alcg")
 expand_mode = 2
 

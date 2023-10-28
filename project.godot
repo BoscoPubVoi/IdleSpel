@@ -21,6 +21,10 @@ config/icon="res://assets/Icon.png"
 Game="*res://GameState/GameState.gd"
 AudioManager="*res://GameState/AudioManager.gd"
 
+[display]
+
+window/size/mode=3
+
 [dotnet]
 
 project/assembly_name="Idle Spel"

@@ -27,7 +27,8 @@ func assign_characters_to_buildings():
 	for character in Game.characters:
 		characters[i].show()
 		if character.actions[Game.placeInCycle] != null:
-			if character.actions[Game.placeInCycle].building != "" && Game.buildings[character.actions[Game.placeInCycle].building] != 0:
+			var bld = character.actions[Game.placeInCycle].building
+			if character.actions[Game.placeInCycle].building != "" && Game.buildings.has(bld) && Game.buildings[bld] != 0:
 				buildings_use[character.actions[Game.placeInCycle].building] += 1
 				#get the child with the id equal to the array index
 				var relevant_kid = get_child(i)
