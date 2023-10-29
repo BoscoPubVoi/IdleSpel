@@ -1761,7 +1761,7 @@ action_name = "Build Well"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_usjbx")])
 building = "water"
 icon_path = "res://assets/Action_Icons/Build_well.png"
-tooltip = "Spend 10 Rocks to build 1/4 of the Well, or increase water capacity by 5"
+tooltip = "Spend 10 Rocks to build 1/4 of the Well, or increase water capacity by 10"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_8kr8y")])
 unlock_tooltip = "Gather 20 rocks to unlock"
 
