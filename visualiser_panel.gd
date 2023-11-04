@@ -60,12 +60,12 @@ func set_build_in_progress(resource):
 			elif Game.buildings[resource] < 1:
 				building.show()
 				progbar.show()
-				progbar.value = Game.buildings[resource]
+				progbar.value = min(0.9, Game.buildings[resource])
 				building.frame = 0
 			elif Game.buildings[resource] > 1:
 				building.show()
 				progbar.show()
-				progbar.value = Game.buildings[resource] - floor(Game.buildings[resource])
+				progbar.value = min(0.9, Game.buildings[resource] - floor(Game.buildings[resource]))
 				building.frame = 0
 
 func set_monument_in_progress(tierID):

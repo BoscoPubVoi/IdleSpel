@@ -98,7 +98,7 @@ func setMonumentTier(tier_id):
 	if tier_id == 3:
 		tree.get_first_node_in_group("UpgradeMonumentHint2").visible = false
 		tree.get_first_node_in_group("CompleteGame").visible = true
-		tree.get_first_node_in_group("PopupText2").text = "You've completed the game :)\nYou spent " + str(Game.numOfCycles) + " moon cycles.";
+		tree.get_first_node_in_group("PopupText2").text = "You've completed the game :)\nYou spent " + str(Game.numOfCycles) + " moon cycles.\nIn commemoration of your perfect godhood, you've unlocked some powerful new abilities!";
 
 func show_popup(title, text):
 	if tree == null:

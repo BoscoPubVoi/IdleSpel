@@ -1005,9 +1005,7 @@ operation = SubResource("Resource_eopky")
 
 [sub_resource type="Resource" id="Resource_4syy3"]
 script = ExtResource("5_22pki")
-costs = {
-"moonlight": 1
-}
+costs = {}
 resourceTypeToProduce = "silver"
 baseProduction = 4.0
 
@@ -1348,7 +1346,7 @@ operation = SubResource("Resource_c1dih")
 
 [sub_resource type="Resource" id="Resource_cdgrd"]
 script = ExtResource("4_84l6x")
-resourceTypeToProduce = "rock"
+resourceTypeToProduce = "rocks"
 baseProduction = 50.0
 
 [sub_resource type="Resource" id="Resource_23ejq"]
@@ -1692,7 +1690,7 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 22
 theme_override_constants/margin_top = 11
-theme_override_constants/margin_right = 16
+theme_override_constants/margin_right = 11
 theme_override_constants/margin_bottom = 18
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin"]
@@ -2281,7 +2279,7 @@ action_name = "Record Wisdom"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_va207")])
 building = "monument"
 icon_path = "res://assets/Action_Icons/Record_Wisdom.png"
-tooltip = "Increase your bonus favor production by a percentage equal to your a quarter of your Wisdom"
+tooltip = "Increase your bonus favor production by a percentage equal to a quarter of your Wisdom"
 
 [node name="FullMoonMining" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
@@ -2352,7 +2350,7 @@ building = "favor"
 icon_path = "res://assets/Action_Icons/Moongazing.png"
 tooltip = "+10 Reverance"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_2ircx")])
-unlock_tooltip = "Have 4 love to unlock"
+unlock_tooltip = "Have 4 Fertility to unlock"
 
 [node name="WiseWord" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false

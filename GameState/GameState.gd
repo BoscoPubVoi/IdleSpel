@@ -43,6 +43,21 @@ func onChange():
 	var fullCycle = FullCycleResultEvaluator.new()
 	fullCycle.evaluate(self)
 
+func get_loadout():
+	var charactersSave = []
+	for char in characters:
+		charactersSave.push_back(char.get_save_dict())
+	return charactersSave
+
+func restore_loadout(savedLoadout, tree):
+	for i in len(characters):
+		characters[i].actions = []
+		for j in maxSupportedActions:
+			characters[i].actions.push_back(null)
+		if i < len(savedLoadout):
+			var char = characters[i]
+			char.restore_state_actions(savedLoadout[i], tree)
+
 func restore_state(dict, tree):
 	resources = dict.resources
 	resourceCaps = dict.resourceCaps

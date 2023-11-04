@@ -71,7 +71,10 @@ text = "Congratulations, Deity!"
 [node name="Text" type="RichTextLabel" parent="MarginContainer/VBoxContainer" groups=["PopupText2"]]
 layout_mode = 2
 bbcode_enabled = true
-text = "You've completed the game :)"
+text = "You've completed the game :)
+You spent X moon cycles.
+
+In commemoration of your perfect godhood, you've unlocked some powerful new abilities!"
 fit_content = true
 autowrap_mode = 2
 

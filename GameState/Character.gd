@@ -31,6 +31,9 @@ func onCycleStart():
 func restore_state(dict, tree):
 	stats = dict.stats
 	skipAllActionsThisCycle = dict.skipAllActionsThisCycle
+	restore_state_actions(dict, tree)
+	
+func restore_state_actions(dict, tree):
 	actions = []
 	for action in dict.actions:
 		if action == null:
