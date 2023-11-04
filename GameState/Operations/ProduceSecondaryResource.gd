@@ -13,6 +13,10 @@ func execute(executionState:ExecutionState):
 	var actualProductionMultiplier = ResourceHelpers.calculate_max_afford_with_cost(
 		costs, executionState.gameState.resources)
 	
+	if (resourceTypeToProduce == "love" &&
+		actualProductionMultiplier < 1):
+		return
+	
 	# Take boosts into account
 	actualProductionMultiplier = min(ResourceHelpers.calculate_boost(executionState, resourceTypeToProduce),
 		actualProductionMultiplier)
