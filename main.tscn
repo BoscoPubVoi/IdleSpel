@@ -1657,6 +1657,30 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("17_6t2sr")
 
+[node name="Loadouts" type="HBoxContainer" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/Loadouts"]
+layout_mode = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "Loadout 1"
+popup/item_0/id = 0
+popup/item_1/text = "Loadout 2"
+popup/item_1/id = 1
+popup/item_2/text = "Loadout 3"
+popup/item_2/id = 2
+
+[node name="Save" type="Button" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/Loadouts"]
+layout_mode = 2
+text = "Save"
+
+[node name="Load" type="Button" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/Loadouts"]
+layout_mode = 2
+text = "Load"
+
 [node name="ActionsPanel" type="Panel" parent="." groups=["ActionsPanel"]]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 1
@@ -1699,7 +1723,7 @@ theme_override_constants/separation = 16
 
 [node name="LineEdit" type="LineEdit" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer"]
 layout_mode = 2
-placeholder_text = "Search..."
+placeholder_text = "Search... e.g. \"rocks\""
 
 [node name="ActionGrid" type="HFlowContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
