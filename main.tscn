@@ -1,4 +1,4 @@
-[gd_scene load_steps=297 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=299 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -27,7 +27,9 @@
 [ext_resource type="Script" path="res://GameState/Operations/IncreaseGlobalProductionBonus.gd" id="18_0su82"]
 [ext_resource type="Script" path="res://GameState/Operations/BuildMonument.gd" id="18_e08c4"]
 [ext_resource type="Script" path="res://ActionGrid.gd" id="18_gjriy"]
+[ext_resource type="Script" path="res://Save.gd" id="18_tqkik"]
 [ext_resource type="Script" path="res://GameState/Operations/CheckMoonPhase.gd" id="19_eiwq3"]
+[ext_resource type="Script" path="res://Load.gd" id="19_ilblt"]
 [ext_resource type="Script" path="res://GameState/Operations/BuildBuildingOrIncreaseCap.gd" id="19_plea6"]
 [ext_resource type="Texture2D" uid="uid://c1djg85lq87tj" path="res://assets/Resource_Icons/Rocks.png" id="20_gsivp"]
 [ext_resource type="Script" path="res://GameState/UnlockRequirements/RequiresMinimumAmountOfResource.gd" id="21_1cyp2"]
@@ -1688,10 +1690,12 @@ popup/item_2/id = 2
 [node name="Save" type="Button" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/Loadouts"]
 layout_mode = 2
 text = "Save"
+script = ExtResource("18_tqkik")
 
 [node name="Load" type="Button" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/Loadouts"]
 layout_mode = 2
 text = "Load"
+script = ExtResource("19_ilblt")
 
 [node name="ActionsPanel" type="Panel" parent="." groups=["ActionsPanel"]]
 custom_minimum_size = Vector2(300, 0)
@@ -3092,6 +3096,8 @@ theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 25
 text = "Third-party cookies are not supported by your browser. Please click anywhere to open the game in a new tab, to make saving possible."
 
+[connection signal="pressed" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/Loadouts/Save" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/Loadouts/Save" method="_on_pressed"]
+[connection signal="pressed" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/Loadouts/Load" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/Loadouts/Load" method="_on_pressed"]
 [connection signal="text_changed" from="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="mouse_entered" from="ResourcesPanel/Rocks" to="ResourcesPanel/Rocks" method="_on_mouse_entered"]
 [connection signal="pressed" from="ResourcesPanel/Credits" to="." method="_on_credits_pressed"]

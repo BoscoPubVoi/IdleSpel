@@ -6,8 +6,6 @@ extends Control
 @onready var secondaryActions = $ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions
 @onready var tertiaryActions = $ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions
 
-static var savedLoadout = null;
-
 var cycleStepRunner = CycleStepRunner.new()
 
 # Called when the node enters the scene tree for the first time.
@@ -82,12 +80,6 @@ func _input(event):
 	var just_pressed = event.is_pressed() and not event.is_echo()
 	if Input.is_key_pressed(KEY_F12) and just_pressed:
 		get_tree().get_first_node_in_group("MainTimer").wait_time = 0.01 if get_tree().get_first_node_in_group("MainTimer").wait_time == 1 else 1
-
-	if Input.is_key_pressed(KEY_F2) and just_pressed:
-		savedLoadout = LoadoutSaver.save_loadout()
-	if Input.is_key_pressed(KEY_F3) and just_pressed:
-		if savedLoadout != null:
-			LoadoutSaver.load_loadout(savedLoadout, get_tree())
 
 #Search
 func _on_line_edit_text_changed(new_text):
