@@ -3002,6 +3002,20 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_8cxly")
 icon = ExtResource("54_mrq52")
 script = ExtResource("54_yadiy")
 
+[node name="Fullscreen" type="Button" parent="ResourcesPanel"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 206.0
+offset_right = 133.0
+offset_bottom = 231.0
+scale = Vector2(2, 2)
+tooltip_text = "Mute Audio"
+theme_override_styles/normal = SubResource("StyleBoxFlat_uqcgu")
+theme_override_styles/hover = ExtResource("53_u6067")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0uepa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8cxly")
+icon = ExtResource("54_mrq52")
+
 [node name="Timer" type="Timer" parent="." groups=["MainTimer"]]
 
 [node name="GameSave" type="Timer" parent="." groups=["MainTimer"]]
@@ -3110,10 +3124,11 @@ text = "Third-party cookies are not supported by your browser. Please click anyw
 
 [connection signal="pressed" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/Loadouts/Save" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/Loadouts/Save" method="_on_pressed"]
 [connection signal="pressed" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/Loadouts/Load" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/Loadouts/Load" method="_on_pressed"]
-[connection signal="text_changed" from="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_changed" from="ActionsPanel/MarginContainer/SearchMargin/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="mouse_entered" from="ResourcesPanel/Rocks" to="ResourcesPanel/Rocks" method="_on_mouse_entered"]
 [connection signal="pressed" from="ResourcesPanel/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="ResourcesPanel/MuteButton" to="ResourcesPanel/MuteButton" method="_on_pressed"]
+[connection signal="pressed" from="ResourcesPanel/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="GameSave" to="GameSave" method="_on_timeout"]
 [connection signal="pressed" from="PopupWindow/MarginContainer/VBoxContainer/CloseButton" to="PopupWindow/MarginContainer/VBoxContainer/CloseButton" method="_on_pressed"]

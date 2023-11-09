@@ -146,3 +146,8 @@ func _on_line_edit_text_changed(new_text):
 
 func _on_credits_pressed():
 	$Credits.show()
+
+
+func _on_fullscreen_pressed():
+#	OS.window_fullscreen()
+	pass
