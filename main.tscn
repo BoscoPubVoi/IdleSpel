@@ -1,4 +1,4 @@
-[gd_scene load_steps=305 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=306 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]

@@ -102,6 +102,10 @@ func load_our_game(dat):
 	AudioManager.muted = false
 	
 
+	var optionsButton = $"../AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/OptionButton"
+	for lo in optionsButton.item_count:
+		optionsButton.set_item_text(lo, dat.loadoutNames[lo])
+
 
 
 func _on_timeout():
@@ -114,6 +118,12 @@ func _on_timeout():
 	for action in allActions:
 		if action.unlocked:
 			data.gameState.unlockedActions[action.name] = true
+			
+	var optionsButton = $"../AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/OptionButton"
+	data.loadoutNames = []
+	for lo in optionsButton.item_count:
+		data.loadoutNames.push_back(optionsButton.get_item_text(lo))
+
 	save_game.store_line(JSON.stringify(data))
 	
 	save_game.close()
