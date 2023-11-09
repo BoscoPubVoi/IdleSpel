@@ -1,4 +1,4 @@
-[gd_scene load_steps=303 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=304 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -541,6 +541,14 @@ costs = {
 script = ExtResource("21_1cyp2")
 resourceTypeToProduce = "favor"
 minAmount = 20.0
+
+[sub_resource type="Resource" id="Resource_sk0gu"]
+script = ExtResource("5_22pki")
+costs = {
+"favor": 3
+}
+resourceTypeToProduce = "silver"
+baseProduction = 1.0
 
 [sub_resource type="Resource" id="Resource_svkjg"]
 script = ExtResource("5_22pki")
@@ -2184,6 +2192,15 @@ icon_path = "res://assets/Action_Icons/Build_Relics.png"
 tooltip = "Spend 10 Favor, 3 Silver and 15 Water to build 5% of the Reliquary, or increase Relics capacity by 1"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_ohy52")])
 unlock_tooltip = "Gather 20 Favor to unlock"
+
+[node name="FavorToSilver" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favorIfNoVigor"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Begging"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_sk0gu")])
+building = "silver"
+icon_path = "res://assets/Action_Icons/Rocks_to_silver.png"
+tooltip = "-3 Favor, +1 Silver"
 
 [node name="MarginContainer6" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"]]
 visible = false
