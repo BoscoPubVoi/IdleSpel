@@ -65,7 +65,7 @@ static func evaluate(gameState:GameState):
 			for res in copiedGameState.resources:
 				if copiedGameState.resources[res] != resourcesPre[res]:
 					var addProd = copiedGameState.resources[res] - resourcesPre[res]
-					if productionPerCharacter.has(res):
+					if productionPerCharacter[i].has(res):
 						productionPerCharacter[i][res] += addProd
 					else:
 						productionPerCharacter[i][res] = addProd
