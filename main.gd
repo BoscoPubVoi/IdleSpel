@@ -73,12 +73,6 @@ func _input(event):
 	if Input.is_key_pressed(KEY_F12) and just_pressed:
 		get_tree().get_first_node_in_group("MainTimer").wait_time = 0.01 if get_tree().get_first_node_in_group("MainTimer").wait_time == 1 else 1
 
-	if Input.is_key_pressed(KEY_F2) and just_pressed:
-		savedLoadout = LoadoutSaver.save_loadout()
-	if Input.is_key_pressed(KEY_F3) and just_pressed:
-		if savedLoadout != null:
-			LoadoutSaver.load_loadout(savedLoadout, get_tree())
-
 #Search
 func _on_line_edit_text_changed(new_text):
 	var shouldHidePrevContainer = false;

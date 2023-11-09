@@ -2,7 +2,6 @@ class_name LoadoutSaver
 
 static func save_loadout():
 	var loadout = Game.get_loadout()
-	print(loadout)
 	return loadout
 
 static func load_loadout(savedLoadout, tree):

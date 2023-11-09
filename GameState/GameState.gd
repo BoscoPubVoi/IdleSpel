@@ -13,6 +13,8 @@ var previousMoonStateProduction:Dictionary = ResourceHelpers.create_empty_resour
 var wasFromLoaded:bool = false
 var numOfCycles:int = 0
 
+var savedLoadouts:Array = [null, null, null]
+
 func reset():
 	resources = ResourceHelpers.create_empty_resources()
 	resourceCaps = ResourceHelpers.create_some_resources({rocks = 50, water = 50, silver=3, favor = 10, relics = 1, moonstone = 3, moonlight = 10, love = 10000000000}) 
@@ -73,11 +75,14 @@ func restore_state(dict, tree):
 	previousMoonStateProduction = dict.previousMoonStateProduction
 	if dict.has("numOfCycles"):
 		numOfCycles = dict.numOfCycles
+	if dict.has("loadouts"):
+		savedLoadouts = dict.loadouts
 
 func get_save_dict():
 	var charactersSave = []
 	for char in characters:
 		charactersSave.push_back(char.get_save_dict())
+
 	return {
 		resources = resources,
 		resourceCaps = resourceCaps,
@@ -87,7 +92,8 @@ func get_save_dict():
 		placeInCycle = placeInCycle,
 		globalProductionBonuses = globalProductionBonuses,
 		previousMoonStateProduction = previousMoonStateProduction,
-		numOfCycles = numOfCycles
+		numOfCycles = numOfCycles,
+		loadouts = savedLoadouts
 	}
 
 func restart_game():
