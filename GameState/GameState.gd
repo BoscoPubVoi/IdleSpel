@@ -14,7 +14,7 @@ var wasFromLoaded:bool = false
 var numOfCycles:int = 0
 var mockResourcesAt:Dictionary = {}
 
-var savedLoadouts:Array = [null, null, null]
+var savedLoadouts:Array = [null, null, null, null, null]
 
 func reset():
 	resources = ResourceHelpers.create_empty_resources()
