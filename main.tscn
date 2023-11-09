@@ -113,14 +113,6 @@ VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_wk6w3")
 VScrollBar/styles/scroll = null
 VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_txpij")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6pdy2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lroxc"]
-bg_color = Color(0.0901961, 0.0941176, 0.101961, 1)
-shadow_size = 2
-shadow_offset = Vector2(2, 2)
-anti_aliasing = false
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khhgb"]
 content_margin_left = 4.0
 bg_color = Color(0.0784314, 0.0862745, 0.109804, 1)
@@ -143,6 +135,15 @@ border_width_bottom = 2
 border_color = Color(0.364706, 0.384314, 0.498039, 1)
 expand_margin_left = 8.0
 expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lroxc"]
+bg_color = Color(0.0901961, 0.0941176, 0.101961, 1)
+expand_margin_left = 10.0
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6pdy2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_re3f1"]
 line_spacing = 0.0
@@ -1726,33 +1727,6 @@ layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts"]
-custom_minimum_size = Vector2(140, 0)
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_6pdy2")
-placeholder_text = "Rename Loadout"
-script = ExtResource("20_s2smd")
-
-[node name="OptionButton" type="OptionButton" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts"]
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxFlat_lroxc")
-theme_override_styles/normal = SubResource("StyleBoxFlat_lroxc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_lroxc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lroxc")
-item_count = 5
-selected = 0
-popup/item_0/text = "Loadout 1"
-popup/item_0/id = 0
-popup/item_1/text = "Loadout 2"
-popup/item_1/id = 1
-popup/item_2/text = "Loadout 3"
-popup/item_2/id = 2
-popup/item_3/text = "Loadout 4"
-popup/item_3/id = 3
-popup/item_4/text = "Loadout 5"
-popup/item_4/id = 4
-
 [node name="Save" type="Button" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_khhgb")
@@ -1770,6 +1744,43 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_khhgb")
 theme_override_styles/focus = SubResource("StyleBoxFlat_khhgb")
 text = "Load"
 script = ExtResource("19_ilblt")
+
+[node name="OptionButton" type="OptionButton" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_lroxc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lroxc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lroxc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lroxc")
+text_overrun_behavior = 1
+item_count = 5
+selected = 0
+popup/item_0/text = "Loadout 1"
+popup/item_0/id = 0
+popup/item_1/text = "Loadout 2"
+popup/item_1/id = 1
+popup/item_2/text = "Loadout 3"
+popup/item_2/id = 2
+popup/item_3/text = "Loadout 4"
+popup/item_3/id = 3
+popup/item_4/text = "Loadout 5"
+popup/item_4/id = 4
+
+[node name="LineEdit" type="LineEdit" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6pdy2")
+placeholder_text = "Rename Loadout"
+script = ExtResource("20_s2smd")
+
+[node name="Button" type="Button" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_khhgb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f5q76")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_khhgb")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_khhgb")
+theme_override_styles/focus = SubResource("StyleBoxFlat_khhgb")
+text = "Rename"
 
 [node name="ActionsPanel" type="Panel" parent="." groups=["ActionsPanel"]]
 custom_minimum_size = Vector2(300, 0)
@@ -3205,9 +3216,11 @@ theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 25
 text = "Third-party cookies are not supported by your browser. Please click anywhere to open the game in a new tab, to make saving possible."
 
-[connection signal="text_submitted" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/LineEdit" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/LineEdit" method="_on_text_submitted"]
 [connection signal="pressed" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/Save" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/Save" method="_on_pressed"]
 [connection signal="pressed" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/Load" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/Load" method="_on_pressed"]
+[connection signal="item_selected" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/OptionButton" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/LineEdit" method="_on_option_button_item_selected"]
+[connection signal="text_submitted" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/LineEdit" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/LineEdit" method="_on_text_submitted"]
+[connection signal="pressed" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/Button" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/LineEdit" method="_on_button_pressed"]
 [connection signal="text_changed" from="ActionsPanel/MarginContainer/SearchMargin/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="mouse_entered" from="ResourcesPanel/Rocks" to="ResourcesPanel/Rocks" method="_on_mouse_entered"]
 [connection signal="pressed" from="ResourcesPanel/Credits" to="." method="_on_credits_pressed"]
