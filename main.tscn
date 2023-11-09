@@ -1,4 +1,4 @@
-[gd_scene load_steps=302 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=303 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -64,6 +64,7 @@
 [ext_resource type="Script" path="res://AudioSwitchButton.gd" id="54_yadiy"]
 [ext_resource type="Texture2D" uid="uid://drwaq7hgx616p" path="res://assets/ui/Credits.png" id="56_ospfq"]
 [ext_resource type="PackedScene" uid="uid://va40u1v4srun" path="res://UIElements/win_screen.tscn" id="60_as1xf"]
+[ext_resource type="Texture2D" uid="uid://6b6u3nec6o8c" path="res://assets/ui/Fullscreen.png" id="60_rlr8a"]
 [ext_resource type="PackedScene" uid="uid://c48bkguay5nk5" path="res://UIElements/credits.tscn" id="60_tknhq"]
 [ext_resource type="Script" path="res://CookieErrorProblem.gd" id="64_eh6va"]
 
@@ -1522,7 +1523,7 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" groups=["main"]]
 texture_filter = 3
 layout_mode = 3
 anchors_preset = 15
@@ -3065,7 +3066,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uqcgu")
 theme_override_styles/hover = ExtResource("53_u6067")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0uepa")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8cxly")
-icon = ExtResource("54_mrq52")
+icon = ExtResource("60_rlr8a")
 
 [node name="Timer" type="Timer" parent="." groups=["MainTimer"]]
 

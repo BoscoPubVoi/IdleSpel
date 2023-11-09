@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxfxfwqbqb4il"]
+[gd_scene load_steps=10 format=3 uid="uid://cxfxfwqbqb4il"]
 
+[ext_resource type="Script" path="res://UIElements/character_production.gd" id="1_rgx6i"]
 [ext_resource type="Texture2D" uid="uid://c1djg85lq87tj" path="res://assets/Resource_Icons/Rocks.png" id="1_rpmbo"]
 [ext_resource type="Texture2D" uid="uid://dreushpajl0kh" path="res://assets/Resource_Icons/Water.png" id="2_jnekf"]
 [ext_resource type="Texture2D" uid="uid://fyfu6o55i8mp" path="res://assets/Resource_Icons/Silver.png" id="3_cuq0d"]
@@ -13,107 +14,108 @@
 texture_filter = 1
 theme_override_constants/separation = 12
 alignment = 2
+script = ExtResource("1_rgx6i")
 
-[node name="Rocks" type="HBoxContainer" parent="."]
+[node name="rocks" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="Rocks"]
+[node name="TextureRect" type="TextureRect" parent="rocks"]
 layout_mode = 2
 texture = ExtResource("1_rpmbo")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="Rocks"]
+[node name="Label" type="Label" parent="rocks"]
 layout_mode = 2
 text = " +10"
 
-[node name="Water" type="HBoxContainer" parent="."]
+[node name="water" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="Water"]
+[node name="TextureRect" type="TextureRect" parent="water"]
 layout_mode = 2
 texture = ExtResource("2_jnekf")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="Water"]
+[node name="Label" type="Label" parent="water"]
 layout_mode = 2
 text = " +10"
 
-[node name="Silver" type="HBoxContainer" parent="."]
+[node name="silver" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="Silver"]
+[node name="TextureRect" type="TextureRect" parent="silver"]
 layout_mode = 2
 texture = ExtResource("3_cuq0d")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="Silver"]
+[node name="Label" type="Label" parent="silver"]
 layout_mode = 2
 text = " +10"
 
-[node name="Favor" type="HBoxContainer" parent="."]
+[node name="favor" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="Favor"]
+[node name="TextureRect" type="TextureRect" parent="favor"]
 layout_mode = 2
 texture = ExtResource("4_poypv")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="Favor"]
+[node name="Label" type="Label" parent="favor"]
 layout_mode = 2
 text = " +10"
 
-[node name="Relics" type="HBoxContainer" parent="."]
+[node name="relics" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="Relics"]
+[node name="TextureRect" type="TextureRect" parent="relics"]
 layout_mode = 2
 texture = ExtResource("5_u1vv0")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="Relics"]
+[node name="Label" type="Label" parent="relics"]
 layout_mode = 2
 text = " +10"
 
-[node name="Moonstone" type="HBoxContainer" parent="."]
+[node name="moonstone" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="Moonstone"]
+[node name="TextureRect" type="TextureRect" parent="moonstone"]
 layout_mode = 2
 texture = ExtResource("6_cp4m1")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="Moonstone"]
+[node name="Label" type="Label" parent="moonstone"]
 layout_mode = 2
 text = " +10"
 
-[node name="Moonlight" type="HBoxContainer" parent="."]
+[node name="moonlight" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="Moonlight"]
+[node name="TextureRect" type="TextureRect" parent="moonlight"]
 layout_mode = 2
 texture = ExtResource("7_u5e5a")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="Moonlight"]
+[node name="Label" type="Label" parent="moonlight"]
 layout_mode = 2
 text = " +10"
 
-[node name="Fertility" type="HBoxContainer" parent="."]
+[node name="love" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="Fertility"]
+[node name="TextureRect" type="TextureRect" parent="love"]
 layout_mode = 2
 texture = ExtResource("8_tttl6")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="Fertility"]
+[node name="Label" type="Label" parent="love"]
 layout_mode = 2
 text = " +10"

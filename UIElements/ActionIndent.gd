@@ -85,6 +85,7 @@ func put_in_slot(data, tempTexture = null):
 	tooltip_text = current_data["tooltip"]
 	
 	ActionIcon.set_color_for_primary_type(current_data["action"].operations, textureRect)
+	update_production()
 
 
 func _get_index():
@@ -98,7 +99,7 @@ func empty_slot():
 #	textureRect.texture = null
 	textureRect.hide()
 	tooltip_text = ""
-	pass
+	update_production()
 
 func set_enabled(enabled_):
 	enabled = enabled_
@@ -119,3 +120,10 @@ func _on_gui_input(event):
 				get_tree().get_first_node_in_group("ActionsPanel").reset_action(current_data["original_original"])
 				empty_slot()
 	pass # Replace with function body.
+
+
+func update_production():
+	get_tree().get_first_node_in_group("main").update_production_for_characters()
+
+
+
