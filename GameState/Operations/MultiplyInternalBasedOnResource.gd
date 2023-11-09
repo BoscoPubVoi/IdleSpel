@@ -11,11 +11,17 @@ func construct(resource_, resourceMult_, operation_):
 
 
 func executeEarly(executionState:ExecutionState):
-	executionState.internalBoostMultiplier *= resourceMult * executionState.gameState.resources[resource]
+	if executionState.gameState.mockResourcesAt.has(resource):
+		executionState.internalBoostMultiplier *= resourceMult * executionState.gameState.mockResourcesAt[resource]
+	else:
+		executionState.internalBoostMultiplier *= resourceMult * executionState.gameState.resources[resource]
 	operation.executeEarly(executionState)
 
 func execute(executionState:ExecutionState):
-	executionState.internalBoostMultiplier *= resourceMult * executionState.gameState.resources[resource]
+	if executionState.gameState.mockResourcesAt.has(resource):
+		executionState.internalBoostMultiplier *= resourceMult * executionState.gameState.mockResourcesAt[resource]
+	else:
+		executionState.internalBoostMultiplier *= resourceMult * executionState.gameState.resources[resource]
 	operation.execute(executionState)
  
 func _duplicate():

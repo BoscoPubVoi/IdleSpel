@@ -12,6 +12,7 @@ var globalProductionBonuses:Dictionary
 var previousMoonStateProduction:Dictionary = ResourceHelpers.create_empty_resources()
 var wasFromLoaded:bool = false
 var numOfCycles:int = 0
+var mockResourcesAt:Dictionary = {}
 
 var savedLoadouts:Array = [null, null, null]
 

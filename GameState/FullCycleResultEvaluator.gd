@@ -2,6 +2,7 @@ class_name FullCycleResultEvaluator
 static func evaluate(gameState:GameState):
 	# Make a copy of the game state, then work on that
 	var copiedGameState = gameState._duplicate()
+	copiedGameState.mockResourcesAt = copiedGameState.resources.duplicate()
 	var productionPerCharacter = []
 	
 	for char in copiedGameState.characters:
@@ -21,6 +22,7 @@ static func evaluate(gameState:GameState):
 	
 	# Go through the whole cycle
 	for placeInCycle in copiedGameState.maxSupportedActions:
+		copiedGameState.placeInCycle = placeInCycle
 		var boosts = {}
 
 		for character in copiedGameState.characters:
@@ -57,6 +59,7 @@ static func evaluate(gameState:GameState):
 				boosts,
 				null
 			)
+#			
 			character.actions[placeInCycle].execute(currentExecutionState)
 			
 			for res in copiedGameState.resources:
