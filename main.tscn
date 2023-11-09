@@ -1717,11 +1717,29 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ActionsPanel/MarginContainer"]
+[node name="SearchMargin" type="MarginContainer" parent="ActionsPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="LineEdit" type="LineEdit" parent="ActionsPanel/MarginContainer/SearchMargin"]
+layout_mode = 2
+size_flags_vertical = 0
+placeholder_text = "Search...   e.g. \"rocks\""
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionsPanel/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 36
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ActionsPanel/MarginContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
 horizontal_scroll_mode = 3
 
-[node name="Margin" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer"]
+[node name="Margin" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 22
@@ -1729,28 +1747,20 @@ theme_override_constants/margin_top = 11
 theme_override_constants/margin_right = 11
 theme_override_constants/margin_bottom = 18
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin"]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="LineEdit" type="LineEdit" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer"]
-layout_mode = 2
-placeholder_text = "Search... e.g. \"rocks\""
-
-[node name="ActionGrid" type="HFlowContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer"]
+[node name="ActionGrid" type="HFlowContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_constants/h_separation = 27
 theme_override_constants/v_separation = 27
 script = ExtResource("18_gjriy")
 
-[node name="MarginContainer7" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["searchNothingFound"]]
+[node name="MarginContainer7" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["searchNothingFound"]]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_top = -4
 theme_override_constants/margin_bottom = -4
 
-[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer7"]
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer7"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "You searched the earth and the moon, yet nothing was found."
@@ -1758,19 +1768,19 @@ label_settings = SubResource("LabelSettings_re3f1")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid"]
+[node name="MarginContainer" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid"]
 layout_mode = 2
 theme_override_constants/margin_top = -4
 theme_override_constants/margin_bottom = -4
 
-[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer"]
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Age of Stone"
 label_settings = SubResource("LabelSettings_re3f1")
 horizontal_alignment = 1
 
-[node name="SmallRocks" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["rocks"] instance=ExtResource("3_se0lr")]
+[node name="SmallRocks" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["rocks"] instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Mine"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_e28eb")])
@@ -1778,7 +1788,7 @@ building = "rocks"
 icon_path = "uid://cdwqcxh7xjbq0"
 tooltip = "+2 Rocks"
 
-[node name="BigRocks" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["rocks"] instance=ExtResource("3_se0lr")]
+[node name="BigRocks" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["rocks"] instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Break Boulder"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ni4id")])
@@ -1786,7 +1796,7 @@ building = "rocks"
 icon_path = "res://assets/Action_Icons/Add_rocks.png"
 tooltip = "+5 Rocks"
 
-[node name="BuildWell" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["rocks"] instance=ExtResource("3_se0lr")]
+[node name="BuildWell" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["rocks"] instance=ExtResource("3_se0lr")]
 layout_mode = 2
 action_name = "Build Well"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_usjbx")])
@@ -1796,20 +1806,20 @@ tooltip = "Spend 10 Rocks to build 1/4 of the Well, or increase water capacity b
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_8kr8y")])
 unlock_tooltip = "Gather 20 rocks to unlock"
 
-[node name="MarginContainer2" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["water"]]
+[node name="MarginContainer2" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["water"]]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_top = -4
 theme_override_constants/margin_bottom = -4
 
-[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer2"]
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer2"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Age of Water"
 label_settings = SubResource("LabelSettings_re3f1")
 horizontal_alignment = 1
 
-[node name="AddWater" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
+[node name="AddWater" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Draw from Well"
@@ -1818,7 +1828,7 @@ building = "water"
 icon_path = "res://assets/Action_Icons/add_water.png"
 tooltip = "+3 Water"
 
-[node name="AddWaddWis" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
+[node name="AddWaddWis" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Study Midnight Dew"
@@ -1827,7 +1837,7 @@ building = "water"
 icon_path = "res://assets/Action_Icons/add_Wisdom_water.png"
 tooltip = "+2 Water, +5 Wisdom"
 
-[node name="Redirect stream" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
+[node name="Redirect stream" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Redirect Stream"
@@ -1836,7 +1846,7 @@ building = "water"
 icon_path = "res://assets/Action_Icons/Redirect_Stream.png"
 tooltip = "If you have 5 Wisdom, +5 Water. Otherwise, +1 Water"
 
-[node name="Erosion" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
+[node name="Erosion" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Erosion"
@@ -1847,7 +1857,7 @@ tooltip = "+4 Water, +4 Rocks"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_q4u4a"), SubResource("Resource_q87nt")])
 unlock_tooltip = "Gather 20 Water and 30 Rocks to unlock"
 
-[node name="AddLove" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
+[node name="AddLove" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Fertility Ritual"
@@ -1858,7 +1868,7 @@ tooltip = "Spend 10 water for +1 Fertility. Fertility resets each cycle."
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_3hm76")])
 unlock_tooltip = "Gather 10 water to unlock"
 
-[node name="BuildSilverStation" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
+[node name="BuildSilverStation" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Build Silver Furnace"
@@ -1869,20 +1879,20 @@ tooltip = "Spend 10 Water and 10 Rocks to build 1/5 of the Silver Furnance, or i
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_4h4ig")])
 unlock_tooltip = "Gather 50 Water to unlock"
 
-[node name="MarginContainer3" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["silver"]]
+[node name="MarginContainer3" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["silver"]]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_top = -4
 theme_override_constants/margin_bottom = -4
 
-[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer3"]
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer3"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Age of Silver"
 label_settings = SubResource("LabelSettings_re3f1")
 horizontal_alignment = 1
 
-[node name="RocksToSilver" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
+[node name="RocksToSilver" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Silver Smelting"
@@ -1891,7 +1901,7 @@ building = "silver"
 icon_path = "res://assets/Action_Icons/Rocks_to_silver.png"
 tooltip = "-10 Rocks, +1 Silver"
 
-[node name="EfficientSilver" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
+[node name="EfficientSilver" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Efficient Extraction"
@@ -1900,7 +1910,7 @@ building = "silver"
 icon_path = "res://assets/Action_Icons/Efficient_Smelting.png"
 tooltip = "If you have 5 Wisdom, -8 Rocks, +1 Silver. If you have 10 Wisdom, -14 Rocks, +2 Silver instead"
 
-[node name="Asteroid" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
+[node name="Asteroid" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Asteroid Gathering"
@@ -1909,7 +1919,7 @@ building = "rocks"
 icon_path = "res://assets/Action_Icons/Silver_to_rock_prod.png"
 tooltip = "-1 Silver to increase the bonus rock production by 10%"
 
-[node name="ExcavateForest" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
+[node name="ExcavateForest" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Dig out an ancient forest to put your rocks there instead"
@@ -1919,7 +1929,7 @@ tooltip = "-2 Silver, + 10 Rock Capacity"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_lfi3u")])
 unlock_tooltip = "Gather 50 rocks to unlock"
 
-[node name="BuildMonument" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
+[node name="BuildMonument" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Build Monument"
@@ -1930,7 +1940,7 @@ tooltip = "-5 Silver and -15 Rocks to build 20% of the Monument up to tier one.\
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_04242")])
 unlock_tooltip = "Gather 13 Silver to unlock"
 
-[node name="BuildAltar" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
+[node name="BuildAltar" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Build Altar"
@@ -1941,20 +1951,20 @@ tooltip = "Spend 5 Silver, 20 Rocks and 15 Water to build 10% of the Altar, or i
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_u6lds")])
 unlock_tooltip = "Gather 18 Silver to unlock"
 
-[node name="MarginContainer4" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument1"]]
+[node name="MarginContainer4" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument1"]]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_top = -4
 theme_override_constants/margin_bottom = -4
 
-[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer4"]
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer4"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Age of Vigor"
 label_settings = SubResource("LabelSettings_re3f1")
 horizontal_alignment = 1
 
-[node name="Religious_Fervor" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
+[node name="Religious_Fervor" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Religious Fervor"
@@ -1963,7 +1973,7 @@ building = "monument"
 icon_path = "res://assets/Action_Icons/Religious_Fervor.png"
 tooltip = "+5 Vigor"
 
-[node name="Paleo" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
+[node name="Paleo" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Paleontology"
@@ -1972,7 +1982,7 @@ building = "rocks"
 icon_path = "res://assets/Action_Icons/Paleontology.png"
 tooltip = "-2 Rocks, +10 Wisdom"
 
-[node name="ManicDigging" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
+[node name="ManicDigging" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Manic Digging"
@@ -1982,7 +1992,7 @@ icon_path = "res://assets/Action_Icons/Vigour_to_rocks.png"
 tooltip = "If you have 5 Vigor, +10 Rocks"
 unlock_tooltip = "Unlock with 15 water"
 
-[node name="MountingWaiting" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
+[node name="MountingWaiting" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Waiting Until The Mountain Comes To You"
@@ -1993,7 +2003,7 @@ tooltip = "If you have 10 Wisdom, +10 Rocks"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_x2k4f")])
 unlock_tooltip = "Have 10 Wisdom to unlock"
 
-[node name="DistillSilver" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
+[node name="DistillSilver" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Distill Silver Essence"
@@ -2004,7 +2014,7 @@ tooltip = "If you have 5 Wisdom and 5 Vigor, -30 Rocks, +3 Silver"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_e8h24"), SubResource("Resource_xm1x5")])
 unlock_tooltip = "Have 5 Wisdom and 5 Vigor to unlock"
 
-[node name="WaterfallChasing" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
+[node name="WaterfallChasing" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Waterfall Chasing"
@@ -2015,20 +2025,20 @@ tooltip = "If you have 5 Vigor, +5 Water"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_xmaxx")])
 unlock_tooltip = "Gather 25 Water to unlock"
 
-[node name="MarginContainer5" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["favor"]]
+[node name="MarginContainer5" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"]]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_top = -4
 theme_override_constants/margin_bottom = -4
 
-[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer5"]
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer5"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Age of Favor"
 label_settings = SubResource("LabelSettings_re3f1")
 horizontal_alignment = 1
 
-[node name="Pray" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+[node name="Pray" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Pray"
@@ -2037,7 +2047,7 @@ building = "favor"
 icon_path = "res://assets/Action_Icons/Add_Favour.png"
 tooltip = "+3 Favor"
 
-[node name="Meditate" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+[node name="Meditate" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Meditate"
@@ -2046,7 +2056,7 @@ building = "favor"
 icon_path = "res://assets/Action_Icons/Meditate.png"
 tooltip = "If you have 10 Wisdom, +5 Favor"
 
-[node name="FeverishPrayer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+[node name="FeverishPrayer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Feverish Prayer"
@@ -2055,7 +2065,7 @@ building = "favor"
 icon_path = "res://assets/Action_Icons/Feverish_Prayer.png"
 tooltip = "+2 Favor, +5 Vigor"
 
-[node name="PassionLove" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+[node name="PassionLove" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Passionate Love"
@@ -2064,7 +2074,7 @@ building = "monument"
 icon_path = "res://assets/Action_Icons/Passion_Love.png"
 tooltip = "If you and another Follower have 5 Vigor, +2 Fertility"
 
-[node name="DigStream" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+[node name="DigStream" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Dig Mountain Stream"
@@ -2075,7 +2085,7 @@ tooltip = "Spend 10 Rocks and 5 Favor to increase bonus water production by 10%"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_qroau")])
 unlock_tooltip = "Gather 100 Rocks to unlock"
 
-[node name="WisNewMoon" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+[node name="WisNewMoon" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Wisdom of the New Moon"
@@ -2086,7 +2096,7 @@ tooltip = "+2 Favor. If it's New Moon, +5 Wisdom."
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_6wjht")])
 unlock_tooltip = "Gather 10 Favor to unlock"
 
-[node name="RainPrayer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+[node name="RainPrayer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Pray for Rain"
@@ -2097,7 +2107,7 @@ tooltip = "-1 Favor, +100% Water production in this moon phase"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_4tkep")])
 unlock_tooltip = "Have 2 Love to unlock"
 
-[node name="RichesPrayer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+[node name="RichesPrayer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Pray for Riches"
@@ -2108,7 +2118,7 @@ tooltip = "-1 Favor, +100% Silver production in this moon phase"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_oi3dw")])
 unlock_tooltip = "Have 10 Wisdom to unlock"
 
-[node name="BuildReliquary" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+[node name="BuildReliquary" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Build Reliquary"
@@ -2119,20 +2129,20 @@ tooltip = "Spend 10 Favor, 3 Silver and 15 Water to build 5% of the Reliquary, o
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_ohy52")])
 unlock_tooltip = "Gather 20 Favor to unlock"
 
-[node name="MarginContainer6" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"]]
+[node name="MarginContainer6" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"]]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_top = -4
 theme_override_constants/margin_bottom = -4
 
-[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer6"]
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer6"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Age of Relics"
 label_settings = SubResource("LabelSettings_re3f1")
 horizontal_alignment = 1
 
-[node name="LustorRelic" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+[node name="LustorRelic" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Craft Lustrous Relic"
@@ -2141,7 +2151,7 @@ building = "relics"
 icon_path = "res://assets/Action_Icons/Craft_Lustrous_relic.png"
 tooltip = "-10 Silver, -20 Favor, +1 Relic"
 
-[node name="NauticalRelic" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+[node name="NauticalRelic" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Craft Nautical Relic"
@@ -2150,7 +2160,7 @@ building = "relics"
 icon_path = "res://assets/Action_Icons/Build_Nautical_Relic.png"
 tooltip = "If you have 10 Vigor, -40 Water, -20 Favor, +1 Relic"
 
-[node name="WiseRelic" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+[node name="WiseRelic" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Craft Wise Relic"
@@ -2159,7 +2169,7 @@ building = "relics"
 icon_path = "res://assets/Action_Icons/Build_Wise_relic.png"
 tooltip = "If you have 15 Wisdom, -3 Silver, -10 Favor, +1 Relic"
 
-[node name="Alchemy" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+[node name="Alchemy" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Alchemy"
@@ -2168,7 +2178,7 @@ building = "relics"
 icon_path = "res://assets/Action_Icons/Alchemy.png"
 tooltip = "If you have 3 Relics, -1 Rocks, +1 Silver"
 
-[node name="AncientRitual" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+[node name="AncientRitual" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Ancient Ritual"
@@ -2177,7 +2187,7 @@ building = "monument"
 icon_path = "res://assets/Action_Icons/Ancient_Ritual.png"
 tooltip = "If you have 3 Relics, +5 Reverance"
 
-[node name="MudflatWalking" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+[node name="MudflatWalking" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Mudflat Walking"
@@ -2188,7 +2198,7 @@ tooltip = "-10 Water, +10 Reverance"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_3di4e")])
 unlock_tooltip = "Have 10 Reverance to unlock"
 
-[node name="EnergySmelting" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+[node name="EnergySmelting" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Energetic Smelting"
@@ -2199,7 +2209,7 @@ tooltip = "If you have 10 Vigor, -30 Rocks, +3 Silver"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_743sy")])
 unlock_tooltip = "Have 2 Relics to unlock"
 
-[node name="DevoutPrayer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+[node name="DevoutPrayer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Devout Prayer"
@@ -2210,7 +2220,7 @@ tooltip = "If you have 5 Reverance, +100% Favor production in this moon phase"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_aff1w")])
 unlock_tooltip = "Have 2 Relics to unlock"
 
-[node name="Pray for Avalanche" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+[node name="Pray for Avalanche" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Pray for Avalanche"
@@ -2221,7 +2231,7 @@ tooltip = "If you have 15 Reverance, +200% Rocks production in this moon phase"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_c7wpi")])
 unlock_tooltip = "Have 2 Relics to unlock"
 
-[node name="Pilgrimage" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+[node name="Pilgrimage" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Pilgrimage"
@@ -2232,7 +2242,7 @@ tooltip = "Gain Favor equal to the number of Relics you have"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_0w8ya")])
 unlock_tooltip = "Gain Favor equal to the number of Relics you have"
 
-[node name="PrayToIdol" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+[node name="PrayToIdol" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Pray to Effigy"
@@ -2243,7 +2253,7 @@ tooltip = "Gain Reverance equal to the number of Relics you have"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_4euhv")])
 unlock_tooltip = "Have 5 Relics to unlocks"
 
-[node name="BuildMoonstone" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+[node name="BuildMoonstone" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Build Moonstone Shrine"
@@ -2254,13 +2264,13 @@ tooltip = "Spend 2 Relics and 20 Water to build 2.5% of the Moonstone Shrine, or
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_lvqni")])
 unlock_tooltip = "Have 3 Relics to unlock"
 
-[node name="MarginContainer10" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["UpgradeMonumentHint"]]
+[node name="MarginContainer10" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["UpgradeMonumentHint"]]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_top = -4
 theme_override_constants/margin_bottom = -4
 
-[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer10"]
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer10"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Tip: you can now upgrade to Monument Tier 2 with the Build Monument action."
@@ -2268,20 +2278,20 @@ label_settings = SubResource("LabelSettings_re3f1")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="MarginContainer8" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"]]
+[node name="MarginContainer8" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"]]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_top = -4
 theme_override_constants/margin_bottom = -4
 
-[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer8"]
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer8"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Age of Reverance"
 label_settings = SubResource("LabelSettings_re3f1")
 horizontal_alignment = 1
 
-[node name="Zealotry" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+[node name="Zealotry" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Zealotry"
@@ -2290,7 +2300,7 @@ building = "favor"
 icon_path = "res://assets/Action_Icons/Zealotry.png"
 tooltip = "If you have 3 Relics, +10 Vigor"
 
-[node name="MonasteryOffering" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+[node name="MonasteryOffering" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Monastery Offering"
@@ -2299,7 +2309,7 @@ building = "monument"
 icon_path = "res://assets/Action_Icons/Monastery_Offering.png"
 tooltip = "-1 Relic, +15 Reverance, +15 Vigor, +15 Wisdom"
 
-[node name="FervantPrayer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+[node name="FervantPrayer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Fervant Prayer"
@@ -2308,7 +2318,7 @@ building = "favor"
 icon_path = "res://assets/Action_Icons/Fervent_Prayer.png"
 tooltip = "Gain as much Favor as you have Vigor"
 
-[node name="RecordWisdom" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+[node name="RecordWisdom" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Record Wisdom"
@@ -2317,7 +2327,7 @@ building = "monument"
 icon_path = "res://assets/Action_Icons/Record_Wisdom.png"
 tooltip = "Increase your bonus favor production by a percentage equal to a quarter of your Wisdom"
 
-[node name="FullMoonMining" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+[node name="FullMoonMining" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Full Moon Mining"
@@ -2326,7 +2336,7 @@ building = "rocks"
 icon_path = "res://assets/Action_Icons/Full_Moon_mining.png"
 tooltip = "If it's full moon, +15 Rocks"
 
-[node name="Crusade" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+[node name="Crusade" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Crusade"
@@ -2335,7 +2345,7 @@ building = "rocks"
 icon_path = "res://assets/Action_Icons/Crusade.png"
 tooltip = "If 3 followers have 5 Vigor, +15 Vigor, +1 Silver"
 
-[node name="CraftLoveRelic" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+[node name="CraftLoveRelic" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Craft Fertility Relic"
@@ -2344,7 +2354,7 @@ building = "relics"
 icon_path = "res://assets/Action_Icons/Relic_of_Love.png"
 tooltip = "-3 Fertility, -10 Favor, +1 Relic"
 
-[node name="PrayforProsperity" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+[node name="PrayforProsperity" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Pray for Prosperity"
@@ -2355,7 +2365,7 @@ tooltip = "-2 favor, +50% to all other non-boost actions"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_mijku")])
 unlock_tooltip = "Produce 50 Rocks in one moon phase to unlock"
 
-[node name="DarkRitual" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+[node name="DarkRitual" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Dark Ritual"
@@ -2366,7 +2376,7 @@ tooltip = "-1 Relic, -5 Vigor for all followers, +8 Silver"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_vfhfj")])
 unlock_tooltip = "Produce three Relics in one moon phase to unlock"
 
-[node name="Stargaze" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+[node name="Stargaze" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Stargazing"
@@ -2377,7 +2387,7 @@ tooltip = "+10 Wisdom"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_n37vu")])
 unlock_tooltip = "Produce 15 favor in one moone phase to unlock"
 
-[node name="Moongaze" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+[node name="Moongaze" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Moongaze"
@@ -2388,7 +2398,7 @@ tooltip = "+10 Reverance"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_2ircx")])
 unlock_tooltip = "Have 4 Fertility to unlock"
 
-[node name="WiseWord" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+[node name="WiseWord" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Word of the Wise"
@@ -2399,20 +2409,20 @@ tooltip = "All other followers gain Wisdom equal to you"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_k5b8k")])
 unlock_tooltip = "Have 25 wisdom to unlock"
 
-[node name="MarginContainer9" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"]]
+[node name="MarginContainer9" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"]]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_top = -4
 theme_override_constants/margin_bottom = -4
 
-[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer9"]
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer9"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Age of Moonstone"
 label_settings = SubResource("LabelSettings_re3f1")
 horizontal_alignment = 1
 
-[node name="PrayAsteroid" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+[node name="PrayAsteroid" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Pray for Asteroids"
@@ -2421,7 +2431,7 @@ building = "moonstone"
 icon_path = "res://assets/Action_Icons/Pray_For_Asteroid.png"
 tooltip = "If you have 5 Reverance, -15 Rocks, -10 Water, -10 Favor, +1 Moonstone"
 
-[node name="CraftMoonstone" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+[node name="CraftMoonstone" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Craft Moonstone"
@@ -2430,7 +2440,7 @@ building = "moonstone"
 icon_path = "res://assets/Action_Icons/create_moonstone.png"
 tooltip = "If you have 10 Wisdom, 10 Vigor and 10 Reverance, -100 Rocks, -30 Favor, +3 Moonstones"
 
-[node name="LunarRevel" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+[node name="LunarRevel" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Lunar Revel"
@@ -2439,7 +2449,7 @@ building = "monument"
 icon_path = "res://assets/Action_Icons/Lunar_Revel.png"
 tooltip = "If Crescent Moon, +5 favor, +15 water, +10 reverance"
 
-[node name="Lunacy" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+[node name="Lunacy" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Lunacy"
@@ -2448,7 +2458,7 @@ building = "monument"
 icon_path = "res://assets/Action_Icons/Lunacy.png"
 tooltip = "-15 wisdom, +15 reverance, boost production 50% for all other followers in phase"
 
-[node name="MoonstoneBasin" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+[node name="MoonstoneBasin" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Moonstone Basin"
@@ -2457,7 +2467,7 @@ building = "moonstone"
 icon_path = "res://assets/Action_Icons/Moonstone_Basin.png"
 tooltip = "Spend a Moonstone to increase the capacity for Rocks by 20, Water by 20 and Silver by 3"
 
-[node name="WaxPhilo" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+[node name="WaxPhilo" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Wax Philosophically"
@@ -2466,7 +2476,7 @@ building = "favor"
 icon_path = "res://assets/Action_Icons/Wax_Philosophical.png"
 tooltip = "If Moon is Waxing, +15 Wisdom, +5 Favor"
 
-[node name="TraitorPact" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+[node name="TraitorPact" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Traitorous Pact"
@@ -2475,7 +2485,7 @@ building = "favor"
 icon_path = "res://assets/Action_Icons/Traitorous_Pact.png"
 tooltip = "-20 Reverance, -1 Moonstone, +200% Silver production in this moon phase"
 
-[node name="Metallurgy" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+[node name="Metallurgy" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Metallurgy"
@@ -2484,7 +2494,7 @@ building = "moonstone"
 icon_path = "res://assets/Action_Icons/Metallurgy.png"
 tooltip = "-1 Moonstone, +4 Silver"
 
-[node name="ExcavateAnicentSite" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+[node name="ExcavateAnicentSite" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Excavate Ancient Site"
@@ -2495,7 +2505,7 @@ tooltip = "-80 rocks, -30 water, +1 moonstone"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_xv17w")])
 unlock_tooltip = "Have 500 Rock capacity to unlock"
 
-[node name="PaganicPercussion" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+[node name="PaganicPercussion" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Paganic Percussion"
@@ -2504,7 +2514,7 @@ building = "monument"
 icon_path = "res://assets/Action_Icons/Paganic_Percussion.png"
 tooltip = "If you have 15 Vigor, -10 Water, boost production by 100% for all other followers in phase"
 
-[node name="FertilityFigurine" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+[node name="FertilityFigurine" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "FertilityFigurine"
@@ -2515,7 +2525,7 @@ tooltip = "Spend 5 Moonstone to gain 5 Fertility"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_h62s5")])
 unlock_tooltip = "Have 60 Relics to unlock"
 
-[node name="SummonSilver" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+[node name="SummonSilver" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Summon Silver"
@@ -2526,7 +2536,7 @@ tooltip = "+2 Silver, +5 Wisdom"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_cpxic")])
 unlock_tooltip = "Have 100 Silver to unlock"
 
-[node name="CelestialBlessing" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+[node name="CelestialBlessing" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Celestial Blessing"
@@ -2537,7 +2547,7 @@ tooltip = "If you have 30 Reverance, +1% Silver production"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_t74yt")])
 unlock_tooltip = "Have 50 Reverance to unlock"
 
-[node name="DogmaticCongregation" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+[node name="DogmaticCongregation" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Dogmatic Congregation"
@@ -2548,7 +2558,7 @@ tooltip = "If you and another follower have 10 reverance, all followers gain 10 
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_67075")])
 unlock_tooltip = "Have 3 followers with 15 Reverance at the same time to unlock"
 
-[node name="MoonlightDistiller" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+[node name="MoonlightDistiller" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Build Moonlight Distiller"
@@ -2558,20 +2568,20 @@ icon_path = "res://assets/Action_Icons/Build_Moonlight.png"
 tooltip = "Spend 5 Moonstone and 15 Silver to build 0.5% of the Moonlight Distiller, or increase Moonlight capacity by 5"
 unlock_tooltip = "Have 20 Moonstone to Unlock"
 
-[node name="Moonlight2" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"]]
+[node name="Moonlight2" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"]]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_top = -4
 theme_override_constants/margin_bottom = -4
 
-[node name="Label2" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/Moonlight2"]
+[node name="Label2" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/Moonlight2"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Age of Moonlight"
 label_settings = SubResource("LabelSettings_re3f1")
 horizontal_alignment = 1
 
-[node name="Supermoon" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+[node name="Supermoon" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Supermoon"
@@ -2580,7 +2590,7 @@ building = "moonlight"
 icon_path = "res://assets/Action_Icons/SuperMoon.png"
 tooltip = "If it's Full Moon, -1 Moonstone, +1 Moonlight per 10 Wisdom you have."
 
-[node name="Bloodmoon" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+[node name="Bloodmoon" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Blood Moon"
@@ -2589,7 +2599,7 @@ building = "moonlight"
 icon_path = "res://assets/Action_Icons/BloodMoon.png"
 tooltip = "If it's full moon, this follower skips all other actions this cycle. Gain 1 moonlight per 5 Reverance they had."
 
-[node name="Bluemoon" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+[node name="Bluemoon" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Blue Moon"
@@ -2598,7 +2608,7 @@ building = "moonlight"
 icon_path = "res://assets/Action_Icons/BlueMoon.png"
 tooltip = "If it's full moon, pay 3 Fertility to gain 1 moonlight"
 
-[node name="AsteroidShower" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+[node name="AsteroidShower" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Asteroid Shower"
@@ -2607,7 +2617,7 @@ building = "moonlight"
 icon_path = "res://assets/Action_Icons/Asteroid_Shower.png"
 tooltip = "If it's a Crescent Moon, +10 Favor, +20 Rocks"
 
-[node name="WinterSolstice" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+[node name="WinterSolstice" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Winter Solstice"
@@ -2616,7 +2626,7 @@ building = "moonlight"
 icon_path = "res://assets/Action_Icons/WinterSolstice.png"
 tooltip = "If it's a Waxing Crescent Moon, -10 Vigor, +10 Wisdom, +10 Reverence"
 
-[node name="LunarEclipse" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+[node name="LunarEclipse" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Lunar Eclipse"
@@ -2625,7 +2635,7 @@ building = "moonlight"
 icon_path = "res://assets/Action_Icons/Lunar_Eclipse.png"
 tooltip = "If its a Waning Crescent Moon, gain 1 Moonlight per 10 Relics"
 
-[node name="ConcentratedMoonlight" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+[node name="ConcentratedMoonlight" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Concentrated Moonlight"
@@ -2634,7 +2644,7 @@ building = "moonlight"
 icon_path = "res://assets/Action_Icons/Concentrated_Moonlight.png"
 tooltip = "-1 moonlight, +100% to all other non-boost actions"
 
-[node name="CraftMoonlightRelic" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+[node name="CraftMoonlightRelic" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Craft Moonlight Relic"
@@ -2645,7 +2655,7 @@ tooltip = "-2 moonlight, -10 Favor, +1 Relic"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_xhaob")])
 unlock_tooltip = "Have 10 Relics to unlock"
 
-[node name="Hermitude" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+[node name="Hermitude" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Hermitude"
@@ -2656,7 +2666,7 @@ tooltip = "If its a New Moon, skip all other actions. +1 Moonlight, +1 Moonlight
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_yyyn8")])
 unlock_tooltip = "Have 50 Moonlight Capacity to unlock"
 
-[node name="CelestialCharting" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+[node name="CelestialCharting" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Celestial Charting"
@@ -2667,7 +2677,7 @@ tooltip = "If you have at least 40 Wisdom, -10 Relics, increase Moonstone produc
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_1s7xv")])
 unlock_tooltip = "Make 5 Moonstone in one Moon Phase"
 
-[node name="AffirmDevotion" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+[node name="AffirmDevotion" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Affirm Devotion"
@@ -2678,7 +2688,7 @@ tooltip = "Double your Reverence"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_p1hy5")])
 unlock_tooltip = "Have 30 Moonlight to unlock"
 
-[node name="Consecrate" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+[node name="Consecrate" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Consecrate"
@@ -2689,13 +2699,13 @@ tooltip = "-5 Relics, +200 water"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_k1pdw")])
 unlock_tooltip = "Have 250 Water to unlock"
 
-[node name="MarginContainer11" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["UpgradeMonumentHint2"]]
+[node name="MarginContainer11" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["UpgradeMonumentHint2"]]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_top = -4
 theme_override_constants/margin_bottom = -4
 
-[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/MarginContainer11"]
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer11"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Tip: you can now win the game with the Build Monument action."
@@ -2703,20 +2713,20 @@ label_settings = SubResource("LabelSettings_re3f1")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Monument3" type="MarginContainer" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument3"]]
+[node name="Monument3" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument3"]]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_top = -4
 theme_override_constants/margin_bottom = -4
 
-[node name="Label2" type="Label" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid/Monument3"]
+[node name="Label2" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/Monument3"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "Age of the Moon God"
 label_settings = SubResource("LabelSettings_re3f1")
 horizontal_alignment = 1
 
-[node name="GibbousFrenzy" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
+[node name="GibbousFrenzy" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Gibbous Frenzy"
@@ -2725,7 +2735,7 @@ building = "monument"
 icon_path = "res://assets/Action_Icons/Gibbous_Frenzy.png"
 tooltip = "+10 Vigor in Gibbous Phase"
 
-[node name="SummonRocks" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
+[node name="SummonRocks" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Summon Rocks"
@@ -2734,7 +2744,7 @@ building = "rocks"
 icon_path = "res://assets/Action_Icons/Add_rocks.png"
 tooltip = "+50 Rocks"
 
-[node name="CastFrenzy" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
+[node name="CastFrenzy" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "CastFrenzy"
@@ -2745,7 +2755,7 @@ tooltip = "All Followers gain 25 Vigor"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_1ohrd")])
 unlock_tooltip = "Have 50 Vigor to unlcok"
 
-[node name="SpiritualAwakening" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
+[node name="SpiritualAwakening" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Spiritual Awakening"
@@ -2756,7 +2766,7 @@ tooltip = "Double your stats"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_6mi27")])
 unlock_tooltip = "Have 100 Wisdom to unlock"
 
-[node name="CraftThinAirRelic" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
+[node name="CraftThinAirRelic" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Craft Relic from Thin Air"
@@ -2767,7 +2777,7 @@ tooltip = "Gain a relic"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_clh2u")])
 unlock_tooltip = "Have 100 Relics Capacity to unlock"
 
-[node name="ExcavateEldorado" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
+[node name="ExcavateEldorado" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
 action_name = "Excavate Eldorado"
@@ -2999,6 +3009,7 @@ stream = ExtResource("33_ca1pa")
 volume_db = -12.418
 
 [node name="PopupWindow" type="PanelContainer" parent="." groups=["PopupWindow"]]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -3060,6 +3071,7 @@ offset_top = -168.5
 offset_bottom = 168.5
 
 [node name="WinScreen" parent="." instance=ExtResource("60_as1xf")]
+visible = false
 layout_mode = 1
 offset_top = -158.0
 offset_bottom = 158.0
@@ -3092,7 +3104,7 @@ theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 25
 text = "Third-party cookies are not supported by your browser. Please click anywhere to open the game in a new tab, to make saving possible."
 
-[connection signal="text_changed" from="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_changed" from="ActionsPanel/MarginContainer/SearchMargin/LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="mouse_entered" from="ResourcesPanel/Rocks" to="ResourcesPanel/Rocks" method="_on_mouse_entered"]
 [connection signal="pressed" from="ResourcesPanel/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="ResourcesPanel/MuteButton" to="ResourcesPanel/MuteButton" method="_on_pressed"]

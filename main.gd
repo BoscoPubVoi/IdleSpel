@@ -3,9 +3,6 @@ extends Control
 @onready var MoonContainer = $AllActorsPanel/MoonCycleContainer
 @onready var Visualiser = $Panel/HBoxContainer/VisualiserPanel
 
-@onready var secondaryActions = $ActionsPanel/ScrollContainer/Margin/WholeActionContainer/SecondaryActions
-@onready var tertiaryActions = $ActionsPanel/ScrollContainer/Margin/WholeActionContainer/TertiaryActions
-
 static var savedLoadout = null;
 
 var cycleStepRunner = CycleStepRunner.new()
@@ -30,13 +27,6 @@ func _ready():
 	$GameSave.start()
 
 
-
-
-func unlock_secondary_actions():
-	secondaryActions.show()
-
-func unlock_tertiary_actions():
-	tertiaryActions.show()
 
 
 
@@ -95,7 +85,7 @@ func _on_line_edit_text_changed(new_text):
 	var prevContainer = null
 	var nothingFound = true
 	
-	for node in $ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid.get_children():
+	for node in $ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid.get_children():
 		if node is MarginContainer:
 			if node.get_groups().has("UpgradeMonumentHint"):
 				if new_text != "":
