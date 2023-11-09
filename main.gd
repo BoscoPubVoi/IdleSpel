@@ -161,9 +161,9 @@ func update_production_for_characters():
 	var new_character_productions = FullCycleResultEvaluator.evaluate(Game)
 	if Game.characters[0] != null:
 		actorPanelContainer.get_children()[0].update_cycle_production(new_character_productions[0])
-	if Game.characters.size() >=2:
+	if Game.characters.size() >= 2:
 		actorPanelContainer.get_children()[1].update_cycle_production(new_character_productions[1])
-	if Game.characters.size() >=3:
+	if Game.characters.size() >= 3:
 		actorPanelContainer.get_children()[2].update_cycle_production(new_character_productions[2])
-	if Game.characters.size() >=4:
+	if Game.characters.size() >= 4:
 		actorPanelContainer.get_children()[3].update_cycle_production(new_character_productions[3])
