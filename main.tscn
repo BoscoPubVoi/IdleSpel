@@ -1,4 +1,4 @@
-[gd_scene load_steps=295 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=297 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -766,6 +766,18 @@ statToCheck = "vigor"
 statMinimum = 5.0
 minPeopleWithStat = 3
 operation = SubResource("Resource_58rib")
+
+[sub_resource type="Resource" id="Resource_mjmxm"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "silver"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_11r15"]
+script = ExtResource("24_tn8ta")
+statToCheck = "vigor"
+statMinimum = 5.0
+minPeopleWithStat = 3
+operation = SubResource("Resource_mjmxm")
 
 [sub_resource type="Resource" id="Resource_s5tym"]
 script = ExtResource("5_22pki")
@@ -2294,10 +2306,10 @@ tooltip = "If it's full moon, +15 Rocks"
 visible = false
 layout_mode = 2
 action_name = "Crusade"
-operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_fcbom")])
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_fcbom"), SubResource("Resource_11r15")])
 building = "rocks"
 icon_path = "res://assets/Action_Icons/Crusade.png"
-tooltip = "If 3 followers have 5 Vigor, +15 Vigor"
+tooltip = "If 3 followers have 5 Vigor, +15 Vigor, +1 Silver"
 
 [node name="CraftLoveRelic" parent="ActionsPanel/MarginContainer/ScrollContainer/Margin/VBoxContainer/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
 visible = false
