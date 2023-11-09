@@ -153,6 +153,7 @@ func _can_drop_data(at_position, data):
 
 func _drop_data(at_position, data):
 	get_tree().get_first_node_in_group("ActionsPanel")._drop_data(at_position, data)
+	update_production()
 	
 func make_used(newval):
 	used = newval
@@ -172,3 +173,6 @@ func set_display():
 		textureRect.modulate = Color(1.0,1.0,1.0,1.0)
 		set_color_for_primary_type(operations, textureRect)
 		tooltip_text = epic_tooltip
+
+func update_production():
+	get_tree().get_first_node_in_group("main").update_production_for_characters()

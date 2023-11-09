@@ -1,4 +1,4 @@
-extends Button
+extends LineEdit
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,9 +11,7 @@ func _process(delta):
 	pass
 
 
-func _on_pressed():
+func _on_text_submitted(new_text):
 	var loadoutx = $"../OptionButton".get_selected_id()
-
-	if len(Game.savedLoadouts) > loadoutx && Game.savedLoadouts[loadoutx] != null:
-		LoadoutSaver.load_loadout(Game.savedLoadouts[loadoutx], get_tree())
-	get_tree().get_first_node_in_group("main").update_production_for_characters()
+	$"../OptionButton".set_item_text(loadoutx, new_text)
+	pass # Replace with function body.

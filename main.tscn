@@ -1,4 +1,4 @@
-[gd_scene load_steps=304 format=3 uid="uid://d2rkcfl4ip62c"]
+[gd_scene load_steps=305 format=3 uid="uid://d2rkcfl4ip62c"]
 
 [ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
 [ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
@@ -32,6 +32,7 @@
 [ext_resource type="Script" path="res://Load.gd" id="19_ilblt"]
 [ext_resource type="Script" path="res://GameState/Operations/BuildBuildingOrIncreaseCap.gd" id="19_plea6"]
 [ext_resource type="Texture2D" uid="uid://c1djg85lq87tj" path="res://assets/Resource_Icons/Rocks.png" id="20_gsivp"]
+[ext_resource type="Script" path="res://LineEdit.gd" id="20_s2smd"]
 [ext_resource type="Script" path="res://GameState/UnlockRequirements/RequiresMinimumAmountOfResource.gd" id="21_1cyp2"]
 [ext_resource type="Texture2D" uid="uid://dreushpajl0kh" path="res://assets/Resource_Icons/Water.png" id="21_sawqo"]
 [ext_resource type="Script" path="res://GameState/UnlockRequirements/RequiresStat.gd" id="22_b8b85"]
@@ -111,6 +112,8 @@ VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_wk6w3")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_wk6w3")
 VScrollBar/styles/scroll = null
 VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_txpij")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6pdy2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lroxc"]
 bg_color = Color(0.0901961, 0.0941176, 0.101961, 1)
@@ -1723,6 +1726,13 @@ layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 1
 
+[node name="LineEdit" type="LineEdit" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6pdy2")
+placeholder_text = "Rename Loadout"
+script = ExtResource("20_s2smd")
+
 [node name="OptionButton" type="OptionButton" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
@@ -1730,7 +1740,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_lroxc")
 theme_override_styles/normal = SubResource("StyleBoxFlat_lroxc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_lroxc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lroxc")
-item_count = 3
+item_count = 5
 selected = 0
 popup/item_0/text = "Loadout 1"
 popup/item_0/id = 0
@@ -1738,6 +1748,10 @@ popup/item_1/text = "Loadout 2"
 popup/item_1/id = 1
 popup/item_2/text = "Loadout 3"
 popup/item_2/id = 2
+popup/item_3/text = "Loadout 4"
+popup/item_3/id = 3
+popup/item_4/text = "Loadout 5"
+popup/item_4/id = 4
 
 [node name="Save" type="Button" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts"]
 layout_mode = 2
@@ -3078,7 +3092,7 @@ offset_top = 206.0
 offset_right = 133.0
 offset_bottom = 231.0
 scale = Vector2(2, 2)
-tooltip_text = "Mute Audio"
+tooltip_text = "Fullscreen"
 theme_override_styles/normal = SubResource("StyleBoxFlat_uqcgu")
 theme_override_styles/hover = ExtResource("53_u6067")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0uepa")
@@ -3191,6 +3205,7 @@ theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 25
 text = "Third-party cookies are not supported by your browser. Please click anywhere to open the game in a new tab, to make saving possible."
 
+[connection signal="text_submitted" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/LineEdit" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/LineEdit" method="_on_text_submitted"]
 [connection signal="pressed" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/Save" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/Save" method="_on_pressed"]
 [connection signal="pressed" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/Load" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/Load" method="_on_pressed"]
 [connection signal="text_changed" from="ActionsPanel/MarginContainer/SearchMargin/LineEdit" to="." method="_on_line_edit_text_changed"]
