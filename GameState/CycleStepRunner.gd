@@ -11,7 +11,7 @@ static func runOneStep(sceneTree):
 		for character in Game.characters:
 			character.onCycleStart()
 		Game.numOfCycles += 1
-	
+		
 	var placeInCycle = Game.placeInCycle
 	var boosts = {}
 	
@@ -107,6 +107,11 @@ static func runOneStep(sceneTree):
 			node.modulate = Color(0.6, 0.6, 0.6, 1)
 		else:
 			node.modulate = Color(1, 1, 1, 1)
+			
+	
+	# update prod/cycle
+	if sceneTree != null:
+		sceneTree.get_first_node_in_group("main").update_production_for_characters()
 
 static func get_current_love_goal(gameState):
 	if len(gameState.characters) >= 4:

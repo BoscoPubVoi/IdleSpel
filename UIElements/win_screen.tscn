@@ -82,9 +82,9 @@ autowrap_mode = 2
 layout_mode = 2
 bbcode_enabled = true
 text = "
-Check out our other games here:
-[url=https://flori9.itch.io/worldshaper-idle]WorldShaper Idle by Florian van Strien[/url]
-[url=https://bosc-pv.itch.io/untitled-valkyrie-game?secret=dA5WLwuOfbfwD4e7kBriUsaU1Y]Some kinda PSX Platformer[/url]
+Check out our other games below. A wishlist would be very welcome!
+[url=https://store.steampowered.com/app/2562020/WorldShaper_Idle/]WorldShaper Idle by Florian van Strien[/url]
+[url=https://store.steampowered.com/app/2663150/Valkyrie_Saga/]Some kinda PSX Platformer[/url]
 
 If you'd like to try the game again, there's a reset button in the credits."
 fit_content = true

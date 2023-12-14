@@ -98,6 +98,13 @@ func _on_line_edit_text_changed(new_text):
 					node.hide()
 				continue
 			
+			if node.get_groups().has("promo"):
+				if new_text == "" && Game.buildings.has("monument") && Game.buildings["monument"] >= 1:
+					node.show()
+				else:
+					node.hide()
+				continue
+			
 			if shouldHidePrevContainer:
 				prevContainer.hide()
 				
@@ -167,3 +174,7 @@ func update_production_for_characters():
 		actorPanelContainer.get_children()[2].update_cycle_production(new_character_productions[2])
 	if Game.characters.size() >= 4:
 		actorPanelContainer.get_children()[3].update_cycle_production(new_character_productions[3])
+
+
+func _on_label_3_meta_clicked(meta):
+	OS.shell_open(meta)
