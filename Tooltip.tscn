@@ -1,12 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://br03tgafigndw"]
+[gd_scene load_steps=4 format=3 uid="uid://br03tgafigndw"]
 
 [ext_resource type="Script" path="res://Tooltip.gd" id="1_glm6v"]
+[ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_w0iur"]
 
-[node name="Label" type="Label"]
+[sub_resource type="FontVariation" id="FontVariation_qprxc"]
+base_font = ExtResource("1_w0iur")
+variation_embolden = 0.5
+
+[node name="Label" type="RichTextLabel"]
 offset_left = -100.0
 offset_right = -60.0
 offset_bottom = 23.0
-text = "test"
+theme_override_fonts/bold_font = SubResource("FontVariation_qprxc")
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
 script = ExtResource("1_glm6v")
 
 [connection signal="resized" from="." to="." method="_on_resized"]

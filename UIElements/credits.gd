@@ -14,7 +14,6 @@ func _on_restart_pressed():
 	$MarginContainer/VBoxContainer/Restart.hide()
 	$MarginContainer/VBoxContainer/AreYouSure.show()
 
-
 func _on_are_you_sure_pressed():
 	Game.restart_game()
 

@@ -29,4 +29,9 @@ func _make_custom_tooltip(for_text):
 	var tooltip = preload("res://Tooltip.tscn").instantiate()
 	tooltip.viewPortRect = get_viewport_rect().size
 	tooltip.text = for_text
+	tooltip.textLiveUpdate = func():
+		if Game.globalProductionBonuses.has(associatedResource) && Game.globalProductionBonuses[associatedResource] > 0:
+			return normalTooltip + " (" + str(ceil(Game.globalProductionBonuses[associatedResource] * 100)) + "% bonus production)"
+		else:
+			return normalTooltip
 	return tooltip
