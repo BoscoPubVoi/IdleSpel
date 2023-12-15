@@ -1,0 +1,3255 @@
+[gd_scene load_steps=308 format=3 uid="uid://d2rkcfl4ip62c"]
+
+[ext_resource type="FontFile" uid="uid://uhp6higjuxku" path="res://assets/fonts/Fondamento-Regular.ttf" id="1_0d4y2"]
+[ext_resource type="Script" path="res://main.gd" id="1_crvfl"]
+[ext_resource type="PackedScene" uid="uid://1eop4jtm8jt5" path="res://visualiser_panel.tscn" id="2_hip1u"]
+[ext_resource type="PackedScene" uid="uid://bexv0ou3bq3sw" path="res://actor_panel.tscn" id="2_jsf26"]
+[ext_resource type="Texture2D" uid="uid://but4b0bkt2tx5" path="res://assets/ui/scroll_down.png" id="2_tyyqh"]
+[ext_resource type="Texture2D" uid="uid://r0jnrf5lactf" path="res://assets/ui/scroll_up.png" id="3_cix5t"]
+[ext_resource type="Texture2D" uid="uid://chskrj3c0vag1" path="res://assets/Full_Moon_Icon.png" id="3_gcbcu"]
+[ext_resource type="PackedScene" uid="uid://bnedr2ay2wxg1" path="res://UIElements/action_icon.tscn" id="3_se0lr"]
+[ext_resource type="Script" path="res://GameState/Operations/ProduceBaseResource.gd" id="4_84l6x"]
+[ext_resource type="Texture2D" uid="uid://bdy5172l055xm" path="res://assets/ui/scroll_bar.png" id="4_hexoq"]
+[ext_resource type="Script" path="res://MoonCycleContainer.gd" id="4_kw6eu"]
+[ext_resource type="Texture2D" uid="uid://bv2nay3b4rm" path="res://assets/Moon2_Icon.png" id="4_p0qix"]
+[ext_resource type="Texture2D" uid="uid://caordvs4uxeou" path="res://assets/HalfMoon_Icon.png" id="5_1oedm"]
+[ext_resource type="Script" path="res://GameState/Operations/ProduceSecondaryResource.gd" id="5_22pki"]
+[ext_resource type="PackedScene" uid="uid://yw6q30hvukgg" path="res://UIElements/waning_crescent.tscn" id="6_gfv6t"]
+[ext_resource type="Script" path="res://GameState/Operations/BoostCharacterStat.gd" id="6_i72h5"]
+[ext_resource type="Texture2D" uid="uid://cjjkludkbcxgk" path="res://assets/Crescent_Right_Icon.png" id="6_qfmv4"]
+[ext_resource type="Texture2D" uid="uid://dws7mju66i8ox" path="res://assets/NewMoon_Icon.png" id="7_epah6"]
+[ext_resource type="Script" path="res://GameState/Operations/CheckStat.gd" id="7_vy3f6"]
+[ext_resource type="Texture2D" uid="uid://bqc5evt6w0oxm" path="res://assets/HalfMoon_Rev_Icon.png" id="9_ql6pi"]
+[ext_resource type="Texture2D" uid="uid://cg5cjryb2vdn" path="res://assets/Moon3_Icon.png" id="10_xq01v"]
+[ext_resource type="Script" path="res://ActionsPanel.gd" id="11_rxd04"]
+[ext_resource type="Script" path="res://GameState/Operations/BoostCharactersInPosition.gd" id="16_nvuys"]
+[ext_resource type="Texture2D" uid="uid://o8slpgweqi2t" path="res://assets/ui/Color_Indicator.png" id="17_6t2sr"]
+[ext_resource type="Script" path="res://GameState/Operations/IncreaseGlobalProductionBonus.gd" id="18_0su82"]
+[ext_resource type="Script" path="res://GameState/Operations/BuildMonument.gd" id="18_e08c4"]
+[ext_resource type="Script" path="res://ActionGrid.gd" id="18_gjriy"]
+[ext_resource type="Script" path="res://Save.gd" id="18_tqkik"]
+[ext_resource type="Script" path="res://GameState/Operations/CheckMoonPhase.gd" id="19_eiwq3"]
+[ext_resource type="Script" path="res://Load.gd" id="19_ilblt"]
+[ext_resource type="Script" path="res://GameState/Operations/BuildBuildingOrIncreaseCap.gd" id="19_plea6"]
+[ext_resource type="Texture2D" uid="uid://c1djg85lq87tj" path="res://assets/Resource_Icons/Rocks.png" id="20_gsivp"]
+[ext_resource type="Script" path="res://LineEdit.gd" id="20_s2smd"]
+[ext_resource type="Script" path="res://GameState/UnlockRequirements/RequiresMinimumAmountOfResource.gd" id="21_1cyp2"]
+[ext_resource type="Texture2D" uid="uid://dreushpajl0kh" path="res://assets/Resource_Icons/Water.png" id="21_sawqo"]
+[ext_resource type="Script" path="res://GameState/UnlockRequirements/RequiresStat.gd" id="22_b8b85"]
+[ext_resource type="Texture2D" uid="uid://fyfu6o55i8mp" path="res://assets/Resource_Icons/Silver.png" id="22_v80bp"]
+[ext_resource type="Texture2D" uid="uid://cebtdosjsd76y" path="res://assets/Resource_Icons/Favor.png" id="23_agkff"]
+[ext_resource type="Script" path="res://GameState/Operations/CheckStatOther.gd" id="24_tn8ta"]
+[ext_resource type="Texture2D" uid="uid://bilo43mbxs815" path="res://assets/Resource_Icons/Relics.png" id="24_u7pt0"]
+[ext_resource type="Texture2D" uid="uid://c5trp2p3ch51r" path="res://assets/Resource_Icons/Moonstone.png" id="25_62bb2"]
+[ext_resource type="Texture2D" uid="uid://d37muymk3m77a" path="res://assets/Resource_Icons/Moonlight.png" id="26_5eomv"]
+[ext_resource type="Script" path="res://GameState/Operations/CheckResource.gd" id="27_b5w0i"]
+[ext_resource type="Script" path="res://ResourceDisplay.gd" id="27_h32dl"]
+[ext_resource type="Script" path="res://GameState/Operations/MultiplyInternalBasedOnResource.gd" id="28_j67hj"]
+[ext_resource type="AudioStream" uid="uid://yb7y787lt5dk" path="res://assets/music/Moonlight_version_2.ogg" id="33_ca1pa"]
+[ext_resource type="Script" path="res://GameState/Operations/MultiplyInternalBasedOnStat.gd" id="33_fkewf"]
+[ext_resource type="Script" path="res://GameState/Operations/ConsumeStatAndDo.gd" id="34_h3opu"]
+[ext_resource type="Script" path="res://PopupWindow.gd" id="34_kxafh"]
+[ext_resource type="Script" path="res://CloseButton.gd" id="34_x46rx"]
+[ext_resource type="Script" path="res://GameState/UnlockRequirements/ProduceMinimumInOneMoonPhase.gd" id="35_0xf2j"]
+[ext_resource type="Script" path="res://GameState/Operations/BoostCharacterStatOfAllEqualToSelf.gd" id="36_xsavq"]
+[ext_resource type="Texture2D" uid="uid://opdis7hbl3pk" path="res://assets/Resource_Icons/Fertility.png" id="37_7rc8h"]
+[ext_resource type="Script" path="res://GameState/Operations/PayCostAndDo.gd" id="39_f7agh"]
+[ext_resource type="Script" path="res://GameState/UnlockRequirements/RequiresMinimumCap.gd" id="39_tnt77"]
+[ext_resource type="Script" path="res://GameState/Operations/BoostCharacterStatOfAll.gd" id="41_inif2"]
+[ext_resource type="Script" path="res://GameState/UnlockRequirements/RequireMultipleCharacterStats.gd" id="42_4qnbc"]
+[ext_resource type="Script" path="res://GameSave.gd" id="42_oc06t"]
+[ext_resource type="Script" path="res://GameState/Operations/SkipAllOtherActions.gd" id="43_yuy3f"]
+[ext_resource type="Script" path="res://GameState/Operations/PayCapAndDo.gd" id="44_cvy4t"]
+[ext_resource type="StyleBox" uid="uid://hiywia75xh5y" path="res://main.tres" id="53_u6067"]
+[ext_resource type="Texture2D" uid="uid://lahxr6mb57d2" path="res://assets/ui/mute_audio.png" id="54_mrq52"]
+[ext_resource type="Script" path="res://AudioSwitchButton.gd" id="54_yadiy"]
+[ext_resource type="Texture2D" uid="uid://drwaq7hgx616p" path="res://assets/ui/Credits.png" id="56_ospfq"]
+[ext_resource type="Script" path="res://Credits.gd" id="59_xdjlr"]
+[ext_resource type="PackedScene" uid="uid://va40u1v4srun" path="res://UIElements/win_screen.tscn" id="60_as1xf"]
+[ext_resource type="Texture2D" uid="uid://6b6u3nec6o8c" path="res://assets/ui/Fullscreen.png" id="60_rlr8a"]
+[ext_resource type="PackedScene" uid="uid://c48bkguay5nk5" path="res://UIElements/credits.tscn" id="60_tknhq"]
+[ext_resource type="Script" path="res://Fullscreen.gd" id="63_2cccy"]
+[ext_resource type="Script" path="res://CookieErrorProblem.gd" id="64_eh6va"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tix1"]
+bg_color = Color(0.0784314, 0.0862745, 0.109804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.27451, 0.290196, 0.376471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uxme"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wk6w3"]
+texture = ExtResource("4_hexoq")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_txpij"]
+
+[sub_resource type="Theme" id="Theme_ogi3r"]
+default_font = ExtResource("1_0d4y2")
+CheckBox/fonts/font = ExtResource("1_0d4y2")
+Panel/styles/panel = SubResource("StyleBoxFlat_5tix1")
+TooltipLabel/font_sizes/font_size = 18
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_1uxme")
+VBoxContainer/constants/separation = 120
+VScrollBar/icons/decrement = ExtResource("3_cix5t")
+VScrollBar/icons/decrement_highlight = ExtResource("3_cix5t")
+VScrollBar/icons/decrement_pressed = ExtResource("3_cix5t")
+VScrollBar/icons/increment = ExtResource("2_tyyqh")
+VScrollBar/icons/increment_highlight = ExtResource("2_tyyqh")
+VScrollBar/icons/increment_pressed = ExtResource("2_tyyqh")
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_wk6w3")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_wk6w3")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_wk6w3")
+VScrollBar/styles/scroll = null
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_txpij")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khhgb"]
+content_margin_left = 4.0
+bg_color = Color(0.0784314, 0.0862745, 0.109804, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.364706, 0.384314, 0.498039, 1)
+expand_margin_left = 8.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f5q76"]
+content_margin_left = 4.0
+bg_color = Color(0.184314, 0.203922, 0.258824, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.364706, 0.384314, 0.498039, 1)
+expand_margin_left = 8.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lroxc"]
+bg_color = Color(0.0901961, 0.0941176, 0.101961, 1)
+expand_margin_left = 10.0
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6pdy2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_re3f1"]
+line_spacing = 0.0
+
+[sub_resource type="Resource" id="Resource_e28eb"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "rocks"
+baseProduction = 2.0
+
+[sub_resource type="Resource" id="Resource_ni4id"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "rocks"
+baseProduction = 5.0
+
+[sub_resource type="Resource" id="Resource_usjbx"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "water"
+buildBuildingAmount = 0.25
+increaseCapAmount = 10.0
+costs = {
+"rocks": 10
+}
+
+[sub_resource type="Resource" id="Resource_8kr8y"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "rocks"
+minAmount = 20.0
+
+[sub_resource type="Resource" id="Resource_geayw"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "water"
+baseProduction = 3.0
+
+[sub_resource type="Resource" id="Resource_p4kue"]
+script = ExtResource("6_i72h5")
+statToIncrease = "wisdom"
+statIncreaseAmount = 5.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_cagk0"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "water"
+baseProduction = 2.0
+
+[sub_resource type="Resource" id="Resource_xdjh6"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "water"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_san5w"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "water"
+baseProduction = 4.0
+
+[sub_resource type="Resource" id="Resource_xsomk"]
+script = ExtResource("7_vy3f6")
+statToCheck = "wisdom"
+statMinimum = 5.0
+operation = SubResource("Resource_san5w")
+
+[sub_resource type="Resource" id="Resource_beln2"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "rocks"
+baseProduction = 4.0
+
+[sub_resource type="Resource" id="Resource_xd52e"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "water"
+baseProduction = 4.0
+
+[sub_resource type="Resource" id="Resource_q4u4a"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "rocks"
+minAmount = 30.0
+
+[sub_resource type="Resource" id="Resource_q87nt"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "water"
+minAmount = 20.0
+
+[sub_resource type="Resource" id="Resource_q1u0j"]
+script = ExtResource("5_22pki")
+costs = {
+"water": 10
+}
+resourceTypeToProduce = "love"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_3hm76"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "water"
+minAmount = 10.0
+
+[sub_resource type="Resource" id="Resource_70o2o"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "silver"
+buildBuildingAmount = 0.2
+increaseCapAmount = 1.0
+costs = {
+"rocks": 10,
+"water": 10
+}
+
+[sub_resource type="Resource" id="Resource_4h4ig"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "water"
+minAmount = 50.0
+
+[sub_resource type="Resource" id="Resource_djhql"]
+script = ExtResource("5_22pki")
+costs = {
+"rocks": 10
+}
+resourceTypeToProduce = "silver"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_yxolk"]
+script = ExtResource("5_22pki")
+costs = {
+"rocks": 8
+}
+resourceTypeToProduce = "silver"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_yuqyl"]
+script = ExtResource("7_vy3f6")
+statToCheck = "wisdom"
+statMinimum = 5.0
+operation = SubResource("Resource_yxolk")
+
+[sub_resource type="Resource" id="Resource_i061v"]
+script = ExtResource("5_22pki")
+costs = {
+"rocks": 6
+}
+resourceTypeToProduce = "silver"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_ir8p1"]
+script = ExtResource("7_vy3f6")
+statToCheck = "wisdom"
+statMinimum = 10.0
+operation = SubResource("Resource_i061v")
+
+[sub_resource type="Resource" id="Resource_obebs"]
+script = ExtResource("18_0su82")
+resourceToIncrease = "rocks"
+increaseBonusAmount = 0.1
+costs = {
+"silver": 1
+}
+
+[sub_resource type="Resource" id="Resource_k5av1"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "rocks"
+buildBuildingAmount = 1.0
+increaseCapAmount = 10.0
+costs = {
+"silver": 2
+}
+
+[sub_resource type="Resource" id="Resource_lfi3u"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "rocks"
+minAmount = 50.0
+
+[sub_resource type="Resource" id="Resource_7p4rf"]
+script = ExtResource("18_e08c4")
+buildBuildingAmount = Array[float]([0.2, 0.04, 0.02])
+costs = Array[Dictionary]([{
+"rocks": 15,
+"silver": 5
+}, {
+"relics": 3,
+"rocks": 50
+}, {
+"moonlight": 50,
+"moonstone": 20
+}])
+
+[sub_resource type="Resource" id="Resource_04242"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "silver"
+minAmount = 13.0
+
+[sub_resource type="Resource" id="Resource_4quvn"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "favor"
+buildBuildingAmount = 0.1
+increaseCapAmount = 2.0
+costs = {
+"rocks": 20,
+"silver": 5,
+"water": 15
+}
+
+[sub_resource type="Resource" id="Resource_u6lds"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "silver"
+minAmount = 18.0
+
+[sub_resource type="Resource" id="Resource_oc8vf"]
+script = ExtResource("6_i72h5")
+statToIncrease = "vigor"
+statIncreaseAmount = 5.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_10gpv"]
+script = ExtResource("6_i72h5")
+statToIncrease = "wisdom"
+statIncreaseAmount = 10.0
+costs = {
+"rocks": 2
+}
+
+[sub_resource type="Resource" id="Resource_h1lmi"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "rocks"
+baseProduction = 10.0
+
+[sub_resource type="Resource" id="Resource_x6n53"]
+script = ExtResource("7_vy3f6")
+statToCheck = "vigor"
+statMinimum = 5.0
+operation = SubResource("Resource_h1lmi")
+
+[sub_resource type="Resource" id="Resource_4mugs"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "rocks"
+baseProduction = 10.0
+
+[sub_resource type="Resource" id="Resource_mba6d"]
+script = ExtResource("7_vy3f6")
+statToCheck = "wisdom"
+statMinimum = 10.0
+operation = SubResource("Resource_4mugs")
+
+[sub_resource type="Resource" id="Resource_x2k4f"]
+script = ExtResource("22_b8b85")
+stat = "wisdom"
+minOfStat = 10.0
+
+[sub_resource type="Resource" id="Resource_8rwek"]
+script = ExtResource("5_22pki")
+costs = {
+"rocks": 30
+}
+resourceTypeToProduce = "silver"
+baseProduction = 3.0
+
+[sub_resource type="Resource" id="Resource_6738d"]
+script = ExtResource("7_vy3f6")
+statToCheck = "wisdom"
+statMinimum = 5.0
+operation = SubResource("Resource_8rwek")
+
+[sub_resource type="Resource" id="Resource_vxdcu"]
+script = ExtResource("7_vy3f6")
+statToCheck = "vigor"
+statMinimum = 5.0
+operation = SubResource("Resource_6738d")
+
+[sub_resource type="Resource" id="Resource_e8h24"]
+script = ExtResource("22_b8b85")
+stat = "wisdom"
+minOfStat = 5.0
+
+[sub_resource type="Resource" id="Resource_xm1x5"]
+script = ExtResource("22_b8b85")
+stat = "vigor"
+minOfStat = 5.0
+
+[sub_resource type="Resource" id="Resource_3jowm"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "water"
+baseProduction = 5.0
+
+[sub_resource type="Resource" id="Resource_p3orf"]
+script = ExtResource("7_vy3f6")
+statToCheck = "vigor"
+statMinimum = 5.0
+operation = SubResource("Resource_3jowm")
+
+[sub_resource type="Resource" id="Resource_xmaxx"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "water"
+minAmount = 25.0
+
+[sub_resource type="Resource" id="Resource_sxusp"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "favor"
+baseProduction = 3.0
+
+[sub_resource type="Resource" id="Resource_g7vwj"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "favor"
+baseProduction = 5.0
+
+[sub_resource type="Resource" id="Resource_c1umb"]
+script = ExtResource("7_vy3f6")
+statToCheck = "wisdom"
+statMinimum = 10.0
+operation = SubResource("Resource_g7vwj")
+
+[sub_resource type="Resource" id="Resource_5ylu1"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "favor"
+baseProduction = 2.0
+
+[sub_resource type="Resource" id="Resource_m65df"]
+script = ExtResource("6_i72h5")
+statToIncrease = "vigor"
+statIncreaseAmount = 5.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_3ecgl"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "love"
+baseProduction = 2.0
+
+[sub_resource type="Resource" id="Resource_m0ipd"]
+script = ExtResource("24_tn8ta")
+statToCheck = "vigor"
+statMinimum = 5.0
+minPeopleWithStat = 2
+operation = SubResource("Resource_3ecgl")
+
+[sub_resource type="Resource" id="Resource_t0ko2"]
+script = ExtResource("18_0su82")
+resourceToIncrease = "water"
+increaseBonusAmount = 0.1
+costs = {
+"favor": 5,
+"rocks": 10
+}
+
+[sub_resource type="Resource" id="Resource_qroau"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "rocks"
+minAmount = 100.0
+
+[sub_resource type="Resource" id="Resource_rdo80"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "favor"
+baseProduction = 2.0
+
+[sub_resource type="Resource" id="Resource_e2txg"]
+script = ExtResource("6_i72h5")
+statToIncrease = "wisdom"
+statIncreaseAmount = 5.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_5daqv"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([0])
+operation = SubResource("Resource_e2txg")
+
+[sub_resource type="Resource" id="Resource_6wjht"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "favor"
+minAmount = 10.0
+
+[sub_resource type="Resource" id="Resource_geddv"]
+script = ExtResource("16_nvuys")
+boostInPosition = "water"
+boostAmount = 1.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_4tkep"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "love"
+minAmount = 2.0
+
+[sub_resource type="Resource" id="Resource_s6jir"]
+script = ExtResource("16_nvuys")
+boostInPosition = "silver"
+boostAmount = 1.0
+costs = {
+"favor": 1
+}
+
+[sub_resource type="Resource" id="Resource_oi3dw"]
+script = ExtResource("22_b8b85")
+stat = "wisdom"
+minOfStat = 10.0
+
+[sub_resource type="Resource" id="Resource_wssfx"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "relics"
+buildBuildingAmount = 0.05
+increaseCapAmount = 1.0
+costs = {
+"favor": 10,
+"silver": 3,
+"water": 15
+}
+
+[sub_resource type="Resource" id="Resource_ohy52"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "favor"
+minAmount = 20.0
+
+[sub_resource type="Resource" id="Resource_sk0gu"]
+script = ExtResource("5_22pki")
+costs = {
+"favor": 3
+}
+resourceTypeToProduce = "silver"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_svkjg"]
+script = ExtResource("5_22pki")
+costs = {
+"favor": 20,
+"silver": 10
+}
+resourceTypeToProduce = "relics"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_ych5e"]
+script = ExtResource("5_22pki")
+costs = {
+"favor": 20,
+"water": 40
+}
+resourceTypeToProduce = "relics"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_rinmt"]
+script = ExtResource("7_vy3f6")
+statToCheck = "vigor"
+statMinimum = 10.0
+operation = SubResource("Resource_ych5e")
+
+[sub_resource type="Resource" id="Resource_v6pkx"]
+script = ExtResource("5_22pki")
+costs = {
+"favor": 10,
+"silver": 3
+}
+resourceTypeToProduce = "relics"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_grs3v"]
+script = ExtResource("7_vy3f6")
+statToCheck = "wisdom"
+statMinimum = 15.0
+operation = SubResource("Resource_v6pkx")
+
+[sub_resource type="Resource" id="Resource_4nfrk"]
+script = ExtResource("5_22pki")
+costs = {
+"rocks": 1
+}
+resourceTypeToProduce = "silver"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_mille"]
+script = ExtResource("27_b5w0i")
+resourceToCheck = "relics"
+resourceMinimum = 3.0
+operation = SubResource("Resource_4nfrk")
+
+[sub_resource type="Resource" id="Resource_2nho4"]
+script = ExtResource("6_i72h5")
+statToIncrease = "reverance"
+statIncreaseAmount = 5.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_psm45"]
+script = ExtResource("27_b5w0i")
+resourceToCheck = "relics"
+resourceMinimum = 3.0
+operation = SubResource("Resource_2nho4")
+
+[sub_resource type="Resource" id="Resource_p5i63"]
+script = ExtResource("6_i72h5")
+statToIncrease = "reverance"
+statIncreaseAmount = 10.0
+costs = {
+"water": 10
+}
+
+[sub_resource type="Resource" id="Resource_3di4e"]
+script = ExtResource("22_b8b85")
+stat = "reverance"
+minOfStat = 10.0
+
+[sub_resource type="Resource" id="Resource_4eptx"]
+script = ExtResource("5_22pki")
+costs = {
+"rocks": 30
+}
+resourceTypeToProduce = "silver"
+baseProduction = 3.0
+
+[sub_resource type="Resource" id="Resource_h33ga"]
+script = ExtResource("7_vy3f6")
+statToCheck = "vigor"
+statMinimum = 10.0
+operation = SubResource("Resource_4eptx")
+
+[sub_resource type="Resource" id="Resource_743sy"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "relics"
+minAmount = 2.0
+
+[sub_resource type="Resource" id="Resource_vsiot"]
+script = ExtResource("16_nvuys")
+boostInPosition = "favor"
+boostAmount = 1.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_cbc60"]
+script = ExtResource("7_vy3f6")
+statToCheck = "reverance"
+statMinimum = 5.0
+operation = SubResource("Resource_vsiot")
+
+[sub_resource type="Resource" id="Resource_aff1w"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "relics"
+minAmount = 2.0
+
+[sub_resource type="Resource" id="Resource_gxs8p"]
+script = ExtResource("16_nvuys")
+boostInPosition = "rocks"
+boostAmount = 2.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_cv1eb"]
+script = ExtResource("7_vy3f6")
+statToCheck = "reverance"
+statMinimum = 15.0
+operation = SubResource("Resource_gxs8p")
+
+[sub_resource type="Resource" id="Resource_c7wpi"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "relics"
+minAmount = 5.0
+
+[sub_resource type="Resource" id="Resource_tgopt"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "favor"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_h7yd6"]
+script = ExtResource("28_j67hj")
+resource = "relics"
+resourceMult = 1.0
+operation = SubResource("Resource_tgopt")
+
+[sub_resource type="Resource" id="Resource_0w8ya"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "relics"
+minAmount = 10.0
+
+[sub_resource type="Resource" id="Resource_kq8fk"]
+script = ExtResource("6_i72h5")
+statToIncrease = "reverance"
+statIncreaseAmount = 1.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_c865g"]
+script = ExtResource("28_j67hj")
+resource = "relics"
+resourceMult = 1.0
+operation = SubResource("Resource_kq8fk")
+
+[sub_resource type="Resource" id="Resource_4euhv"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "relics"
+minAmount = 5.0
+
+[sub_resource type="Resource" id="Resource_kqxd8"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "moonstone"
+buildBuildingAmount = 0.025
+increaseCapAmount = 1.0
+costs = {
+"relics": 2,
+"water": 30
+}
+
+[sub_resource type="Resource" id="Resource_lvqni"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "relics"
+minAmount = 3.0
+
+[sub_resource type="Resource" id="Resource_hl1kn"]
+script = ExtResource("6_i72h5")
+statToIncrease = "vigor"
+statIncreaseAmount = 10.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_a8r2a"]
+script = ExtResource("27_b5w0i")
+resourceToCheck = "relics"
+resourceMinimum = 3.0
+operation = SubResource("Resource_hl1kn")
+
+[sub_resource type="Resource" id="Resource_yn07k"]
+script = ExtResource("6_i72h5")
+statToIncrease = "wisdom"
+statIncreaseAmount = 15.0
+costs = {
+"relics": 1
+}
+
+[sub_resource type="Resource" id="Resource_tqk2e"]
+script = ExtResource("6_i72h5")
+statToIncrease = "vigor"
+statIncreaseAmount = 15.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_iy2xb"]
+script = ExtResource("6_i72h5")
+statToIncrease = "reverance"
+statIncreaseAmount = 15.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_7i5h2"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "favor"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_fp22w"]
+script = ExtResource("33_fkewf")
+stat = "vigor"
+statMult = 1.0
+operation = SubResource("Resource_7i5h2")
+
+[sub_resource type="Resource" id="Resource_8ilwv"]
+script = ExtResource("18_0su82")
+resourceToIncrease = "favor"
+increaseBonusAmount = 0.1
+costs = {}
+
+[sub_resource type="Resource" id="Resource_va207"]
+script = ExtResource("33_fkewf")
+stat = "wisdom"
+statMult = 0.1
+operation = SubResource("Resource_8ilwv")
+
+[sub_resource type="Resource" id="Resource_ojdyt"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "rocks"
+baseProduction = 15.0
+
+[sub_resource type="Resource" id="Resource_akn0s"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([4])
+operation = SubResource("Resource_ojdyt")
+
+[sub_resource type="Resource" id="Resource_58rib"]
+script = ExtResource("6_i72h5")
+statToIncrease = "vigor"
+statIncreaseAmount = 15.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_fcbom"]
+script = ExtResource("24_tn8ta")
+statToCheck = "vigor"
+statMinimum = 5.0
+minPeopleWithStat = 3
+operation = SubResource("Resource_58rib")
+
+[sub_resource type="Resource" id="Resource_mjmxm"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "silver"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_11r15"]
+script = ExtResource("24_tn8ta")
+statToCheck = "vigor"
+statMinimum = 5.0
+minPeopleWithStat = 3
+operation = SubResource("Resource_mjmxm")
+
+[sub_resource type="Resource" id="Resource_s5tym"]
+script = ExtResource("5_22pki")
+costs = {
+"favor": 10,
+"love": 3
+}
+resourceTypeToProduce = "relics"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_ce5nw"]
+script = ExtResource("16_nvuys")
+boostInPosition = "all"
+boostAmount = 0.5
+costs = {
+"silver": 2
+}
+
+[sub_resource type="Resource" id="Resource_mijku"]
+script = ExtResource("35_0xf2j")
+resourceTypeToProduce = "rocks"
+minAmount = 50.0
+
+[sub_resource type="Resource" id="Resource_ylvyt"]
+script = ExtResource("5_22pki")
+costs = {
+"relics": 1
+}
+resourceTypeToProduce = "silver"
+baseProduction = 8.0
+
+[sub_resource type="Resource" id="Resource_mg5fp"]
+script = ExtResource("34_h3opu")
+statToCheck = "vigor"
+statMinimum = 5.0
+forAllCharacters = true
+operation = SubResource("Resource_ylvyt")
+
+[sub_resource type="Resource" id="Resource_vfhfj"]
+script = ExtResource("35_0xf2j")
+resourceTypeToProduce = "relics"
+minAmount = 3.0
+
+[sub_resource type="Resource" id="Resource_qtwgo"]
+script = ExtResource("6_i72h5")
+statToIncrease = "wisdom"
+statIncreaseAmount = 10.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_n37vu"]
+script = ExtResource("35_0xf2j")
+resourceTypeToProduce = "favor"
+minAmount = 15.0
+
+[sub_resource type="Resource" id="Resource_4fuog"]
+script = ExtResource("6_i72h5")
+statToIncrease = "reverance"
+statIncreaseAmount = 10.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_2ircx"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "love"
+minAmount = 4.0
+
+[sub_resource type="Resource" id="Resource_3pv7r"]
+script = ExtResource("36_xsavq")
+statToIncrease = "wisdom"
+
+[sub_resource type="Resource" id="Resource_k5b8k"]
+script = ExtResource("22_b8b85")
+stat = "wisdom"
+minOfStat = 25.0
+
+[sub_resource type="Resource" id="Resource_elpuq"]
+script = ExtResource("5_22pki")
+costs = {
+"favor": 10,
+"rocks": 15,
+"water": 10
+}
+resourceTypeToProduce = "moonstone"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_0n31o"]
+script = ExtResource("7_vy3f6")
+statToCheck = "reverance"
+statMinimum = 5.0
+operation = SubResource("Resource_elpuq")
+
+[sub_resource type="Resource" id="Resource_nyxo0"]
+script = ExtResource("5_22pki")
+costs = {
+"favor": 30,
+"rocks": 100
+}
+resourceTypeToProduce = "moonstone"
+baseProduction = 3.0
+
+[sub_resource type="Resource" id="Resource_ji581"]
+script = ExtResource("7_vy3f6")
+statToCheck = "reverance"
+statMinimum = 10.0
+operation = SubResource("Resource_nyxo0")
+
+[sub_resource type="Resource" id="Resource_fgonq"]
+script = ExtResource("7_vy3f6")
+statToCheck = "vigor"
+statMinimum = 10.0
+operation = SubResource("Resource_ji581")
+
+[sub_resource type="Resource" id="Resource_mks6y"]
+script = ExtResource("7_vy3f6")
+statToCheck = "wisdom"
+statMinimum = 10.0
+operation = SubResource("Resource_fgonq")
+
+[sub_resource type="Resource" id="Resource_q1ecs"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "favor"
+baseProduction = 5.0
+
+[sub_resource type="Resource" id="Resource_j802k"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([1, 7])
+operation = SubResource("Resource_q1ecs")
+
+[sub_resource type="Resource" id="Resource_mxiw5"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "water"
+baseProduction = 15.0
+
+[sub_resource type="Resource" id="Resource_2uj0u"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([1, 7])
+operation = SubResource("Resource_mxiw5")
+
+[sub_resource type="Resource" id="Resource_nyy15"]
+script = ExtResource("6_i72h5")
+statToIncrease = "reverance"
+statIncreaseAmount = 10.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_rrwur"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([1, 7])
+operation = SubResource("Resource_nyy15")
+
+[sub_resource type="Resource" id="Resource_ru0iw"]
+script = ExtResource("6_i72h5")
+statToIncrease = "reverance"
+statIncreaseAmount = 15.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_hy3w4"]
+script = ExtResource("34_h3opu")
+statToCheck = "wisdom"
+statMinimum = 15.0
+forAllCharacters = false
+operation = SubResource("Resource_ru0iw")
+
+[sub_resource type="Resource" id="Resource_h77i4"]
+script = ExtResource("16_nvuys")
+boostInPosition = "all"
+boostAmount = 0.5
+costs = {}
+
+[sub_resource type="Resource" id="Resource_go4aa"]
+script = ExtResource("7_vy3f6")
+statToCheck = "reverance"
+statMinimum = 15.0
+operation = SubResource("Resource_h77i4")
+
+[sub_resource type="Resource" id="Resource_0k1ih"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "rocks"
+buildBuildingAmount = 0.0
+increaseCapAmount = 20.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_1c77i"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "water"
+buildBuildingAmount = 0.0
+increaseCapAmount = 20.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_vybgm"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "silver"
+buildBuildingAmount = 0.0
+increaseCapAmount = 3.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_xcql1"]
+script = ExtResource("39_f7agh")
+costs = {
+"moonstone": 1
+}
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_0k1ih"), SubResource("Resource_1c77i"), SubResource("Resource_vybgm")])
+
+[sub_resource type="Resource" id="Resource_d1o2b"]
+script = ExtResource("6_i72h5")
+statToIncrease = "wisdom"
+statIncreaseAmount = 15.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_mjoc5"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([1, 2, 3])
+operation = SubResource("Resource_d1o2b")
+
+[sub_resource type="Resource" id="Resource_twk32"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "favor"
+baseProduction = 5.0
+
+[sub_resource type="Resource" id="Resource_av0i2"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([1, 2, 3])
+operation = SubResource("Resource_twk32")
+
+[sub_resource type="Resource" id="Resource_eopky"]
+script = ExtResource("16_nvuys")
+boostInPosition = "silver"
+boostAmount = 2.0
+costs = {
+"moonstone": 1
+}
+
+[sub_resource type="Resource" id="Resource_rgp27"]
+script = ExtResource("34_h3opu")
+statToCheck = "reverance"
+statMinimum = 20.0
+forAllCharacters = false
+operation = SubResource("Resource_eopky")
+
+[sub_resource type="Resource" id="Resource_4syy3"]
+script = ExtResource("5_22pki")
+costs = {}
+resourceTypeToProduce = "silver"
+baseProduction = 4.0
+
+[sub_resource type="Resource" id="Resource_tu0kt"]
+script = ExtResource("5_22pki")
+costs = {
+"rocks": 80,
+"water": 30
+}
+resourceTypeToProduce = "moonstone"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_xv17w"]
+script = ExtResource("39_tnt77")
+resource = "rocks"
+minOfCapacity = 500.0
+
+[sub_resource type="Resource" id="Resource_wf4ei"]
+script = ExtResource("16_nvuys")
+boostInPosition = "all"
+boostAmount = 1.0
+costs = {
+"water": 10
+}
+
+[sub_resource type="Resource" id="Resource_4jcso"]
+script = ExtResource("7_vy3f6")
+statToCheck = "vigor"
+statMinimum = 15.0
+operation = SubResource("Resource_wf4ei")
+
+[sub_resource type="Resource" id="Resource_irmso"]
+script = ExtResource("5_22pki")
+costs = {
+"moonstone": 5
+}
+resourceTypeToProduce = "love"
+baseProduction = 5.0
+
+[sub_resource type="Resource" id="Resource_h62s5"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "relics"
+minAmount = 60.0
+
+[sub_resource type="Resource" id="Resource_ewqns"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "silver"
+baseProduction = 2.0
+
+[sub_resource type="Resource" id="Resource_w2gfu"]
+script = ExtResource("6_i72h5")
+statToIncrease = "wisdom"
+statIncreaseAmount = 5.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_cpxic"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "silver"
+minAmount = 100.0
+
+[sub_resource type="Resource" id="Resource_srqm5"]
+script = ExtResource("18_0su82")
+resourceToIncrease = "silver"
+increaseBonusAmount = 0.01
+costs = {}
+
+[sub_resource type="Resource" id="Resource_8cgmf"]
+script = ExtResource("7_vy3f6")
+statToCheck = "reverance"
+statMinimum = 30.0
+operation = SubResource("Resource_srqm5")
+
+[sub_resource type="Resource" id="Resource_t74yt"]
+script = ExtResource("22_b8b85")
+stat = "reverance"
+minOfStat = 50.0
+
+[sub_resource type="Resource" id="Resource_hks2s"]
+script = ExtResource("41_inif2")
+statToIncrease = "reverance"
+amount = 10
+
+[sub_resource type="Resource" id="Resource_67075"]
+script = ExtResource("42_4qnbc")
+stat = "reverance"
+minOfStat = 15.0
+numOfFollowers = 3
+
+[sub_resource type="Resource" id="Resource_615q6"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "moonlight"
+buildBuildingAmount = 0.005
+increaseCapAmount = 5.0
+costs = {
+"moonstone": 5,
+"silver": 15
+}
+
+[sub_resource type="Resource" id="Resource_r6u6p"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "moonlight"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_n3krb"]
+script = ExtResource("33_fkewf")
+stat = "wisdom"
+statMult = 0.1
+operation = SubResource("Resource_r6u6p")
+
+[sub_resource type="Resource" id="Resource_arl3n"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([4])
+operation = SubResource("Resource_n3krb")
+
+[sub_resource type="Resource" id="Resource_bxdc1"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "moonlight"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_ra1xu"]
+script = ExtResource("33_fkewf")
+stat = "reverance"
+statMult = 0.2
+operation = SubResource("Resource_bxdc1")
+
+[sub_resource type="Resource" id="Resource_0drww"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([4])
+operation = SubResource("Resource_ra1xu")
+
+[sub_resource type="Resource" id="Resource_okr4c"]
+script = ExtResource("43_yuy3f")
+
+[sub_resource type="Resource" id="Resource_w1s3h"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([4])
+operation = SubResource("Resource_okr4c")
+
+[sub_resource type="Resource" id="Resource_ncdkm"]
+script = ExtResource("5_22pki")
+costs = {}
+resourceTypeToProduce = "moonlight"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_b8dqh"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([4])
+operation = SubResource("Resource_ncdkm")
+
+[sub_resource type="Resource" id="Resource_13ybj"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "favor"
+baseProduction = 10.0
+
+[sub_resource type="Resource" id="Resource_ftvok"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([1, 7])
+operation = SubResource("Resource_13ybj")
+
+[sub_resource type="Resource" id="Resource_dif8j"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "rocks"
+baseProduction = 20.0
+
+[sub_resource type="Resource" id="Resource_5xvd6"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([4, 7])
+operation = SubResource("Resource_dif8j")
+
+[sub_resource type="Resource" id="Resource_x8kk6"]
+script = ExtResource("6_i72h5")
+statToIncrease = "wisdom"
+statIncreaseAmount = 10.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_gvavj"]
+script = ExtResource("34_h3opu")
+statToCheck = "vigor"
+statMinimum = 5.0
+forAllCharacters = false
+operation = SubResource("Resource_x8kk6")
+
+[sub_resource type="Resource" id="Resource_k6w0v"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([1])
+operation = SubResource("Resource_gvavj")
+
+[sub_resource type="Resource" id="Resource_x2udo"]
+script = ExtResource("6_i72h5")
+statToIncrease = "reverance"
+statIncreaseAmount = 10.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_dkk0h"]
+script = ExtResource("34_h3opu")
+statToCheck = "vigor"
+statMinimum = 5.0
+forAllCharacters = false
+operation = SubResource("Resource_x2udo")
+
+[sub_resource type="Resource" id="Resource_02uo2"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([1])
+operation = SubResource("Resource_dkk0h")
+
+[sub_resource type="Resource" id="Resource_y8se0"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "moonlight"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_r3rty"]
+script = ExtResource("28_j67hj")
+resource = "relics"
+resourceMult = 0.1
+operation = SubResource("Resource_y8se0")
+
+[sub_resource type="Resource" id="Resource_rlbyv"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([7])
+operation = SubResource("Resource_r3rty")
+
+[sub_resource type="Resource" id="Resource_12tnd"]
+script = ExtResource("16_nvuys")
+boostInPosition = "all"
+boostAmount = 1.0
+costs = {
+"moonlight": 1
+}
+
+[sub_resource type="Resource" id="Resource_f3362"]
+script = ExtResource("5_22pki")
+costs = {
+"favor": 10,
+"moonlight": 2
+}
+resourceTypeToProduce = "relics"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_xhaob"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "relics"
+minAmount = 10.0
+
+[sub_resource type="Resource" id="Resource_lx8rt"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "moonlight"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_uc8ed"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([0])
+operation = SubResource("Resource_lx8rt")
+
+[sub_resource type="Resource" id="Resource_y8qf7"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "moonlight"
+buildBuildingAmount = 0.0
+increaseCapAmount = 1.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_gdlbu"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([0])
+operation = SubResource("Resource_y8qf7")
+
+[sub_resource type="Resource" id="Resource_ltyxg"]
+script = ExtResource("43_yuy3f")
+
+[sub_resource type="Resource" id="Resource_ngk6o"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([0])
+operation = SubResource("Resource_ltyxg")
+
+[sub_resource type="Resource" id="Resource_yyyn8"]
+script = ExtResource("39_tnt77")
+resource = "moonlight"
+minOfCapacity = 50.0
+
+[sub_resource type="Resource" id="Resource_oah32"]
+script = ExtResource("18_0su82")
+resourceToIncrease = "moonstone"
+increaseBonusAmount = 0.05
+costs = {
+"relics": 10
+}
+
+[sub_resource type="Resource" id="Resource_7xjhu"]
+script = ExtResource("7_vy3f6")
+statToCheck = "wisdom"
+statMinimum = 40.0
+operation = SubResource("Resource_oah32")
+
+[sub_resource type="Resource" id="Resource_1s7xv"]
+script = ExtResource("35_0xf2j")
+resourceTypeToProduce = "moonstone"
+minAmount = 5.0
+
+[sub_resource type="Resource" id="Resource_xls8m"]
+script = ExtResource("6_i72h5")
+statToIncrease = "reverance"
+statIncreaseAmount = 1.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_r7dje"]
+script = ExtResource("33_fkewf")
+stat = "reverance"
+statMult = 1.0
+operation = SubResource("Resource_xls8m")
+
+[sub_resource type="Resource" id="Resource_p1hy5"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "moonlight"
+minAmount = 30.0
+
+[sub_resource type="Resource" id="Resource_bxck8"]
+script = ExtResource("5_22pki")
+costs = {
+"relics": 5
+}
+resourceTypeToProduce = "water"
+baseProduction = 200.0
+
+[sub_resource type="Resource" id="Resource_k1pdw"]
+script = ExtResource("21_1cyp2")
+resourceTypeToProduce = "water"
+minAmount = 250.0
+
+[sub_resource type="Resource" id="Resource_c1dih"]
+script = ExtResource("6_i72h5")
+statToIncrease = "vigor"
+statIncreaseAmount = 10.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_0iv36"]
+script = ExtResource("19_eiwq3")
+requiredMoonPhase = Array[int]([3, 5])
+operation = SubResource("Resource_c1dih")
+
+[sub_resource type="Resource" id="Resource_cdgrd"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "rocks"
+baseProduction = 50.0
+
+[sub_resource type="Resource" id="Resource_23ejq"]
+script = ExtResource("41_inif2")
+statToIncrease = "vigor"
+amount = 25
+
+[sub_resource type="Resource" id="Resource_1ohrd"]
+script = ExtResource("22_b8b85")
+stat = "vigor"
+minOfStat = 50.0
+
+[sub_resource type="Resource" id="Resource_oo4fo"]
+script = ExtResource("6_i72h5")
+statToIncrease = "vigor"
+statIncreaseAmount = 1.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_r55mv"]
+script = ExtResource("33_fkewf")
+stat = "vigor"
+statMult = 1.0
+operation = SubResource("Resource_oo4fo")
+
+[sub_resource type="Resource" id="Resource_xfc2c"]
+script = ExtResource("6_i72h5")
+statToIncrease = "reverance"
+statIncreaseAmount = 1.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_gk3o6"]
+script = ExtResource("33_fkewf")
+stat = "reverance"
+statMult = 1.0
+operation = SubResource("Resource_xfc2c")
+
+[sub_resource type="Resource" id="Resource_vdc2p"]
+script = ExtResource("6_i72h5")
+statToIncrease = "wisdom"
+statIncreaseAmount = 1.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_nci23"]
+script = ExtResource("33_fkewf")
+stat = "wisdom"
+statMult = 1.0
+operation = SubResource("Resource_vdc2p")
+
+[sub_resource type="Resource" id="Resource_6mi27"]
+script = ExtResource("22_b8b85")
+stat = "wisdom"
+minOfStat = 100.0
+
+[sub_resource type="Resource" id="Resource_jumwq"]
+script = ExtResource("4_84l6x")
+resourceTypeToProduce = "relics"
+baseProduction = 1.0
+
+[sub_resource type="Resource" id="Resource_clh2u"]
+script = ExtResource("39_tnt77")
+resource = "relics"
+minOfCapacity = 100.0
+
+[sub_resource type="Resource" id="Resource_eflhg"]
+script = ExtResource("19_plea6")
+buildingAndCapName = "silver"
+buildBuildingAmount = 0.0
+increaseCapAmount = 20.0
+costs = {}
+
+[sub_resource type="Resource" id="Resource_3joi1"]
+script = ExtResource("44_cvy4t")
+costs = {
+"rocks": 10
+}
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_eflhg")])
+
+[sub_resource type="Resource" id="Resource_ugnuk"]
+script = ExtResource("39_tnt77")
+resource = "rocks"
+minOfCapacity = 5000.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqcgu"]
+content_margin_left = 4.0
+bg_color = Color(0.0784314, 0.0862745, 0.109804, 1)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.364706, 0.384314, 0.498039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0uepa"]
+content_margin_left = 4.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8cxly"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ia36"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ws8u"]
+bg_color = Color(0.0784314, 0.0862745, 0.109804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbd7e"]
+bg_color = Color(0.211765, 0.235294, 0.301961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nu8qt"]
+bg_color = Color(0.35, 0.39, 0.5, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="Main" type="Control" groups=["main"]]
+texture_filter = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_ogi3r")
+script = ExtResource("1_crvfl")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -265.0
+offset_right = -300.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -426.0
+offset_right = -426.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VisualiserPanel" parent="Panel/HBoxContainer" instance=ExtResource("2_hip1u")]
+layout_mode = 2
+
+[node name="AllActorsPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -299.0
+offset_bottom = -263.0
+grow_vertical = 2
+
+[node name="MoonCycleContainer" type="HBoxContainer" parent="AllActorsPanel" groups=["MoonContainer"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -349.0
+offset_top = 25.0
+offset_right = 348.0
+offset_bottom = 57.0
+grow_horizontal = 2
+theme_override_constants/separation = 63
+alignment = 1
+script = ExtResource("4_kw6eu")
+
+[node name="NewMoon" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("7_epah6")
+
+[node name="WaningCrescent" parent="AllActorsPanel/MoonCycleContainer" instance=ExtResource("6_gfv6t")]
+layout_mode = 2
+
+[node name="ThirdQuarter" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("9_ql6pi")
+
+[node name="WaningGibbous" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("10_xq01v")
+
+[node name="FullMoon" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("3_gcbcu")
+expand_mode = 3
+stretch_mode = 2
+
+[node name="WaxingGibbous" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("4_p0qix")
+
+[node name="FirstQuarter" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("5_1oedm")
+
+[node name="WaxingCrescent" type="TextureRect" parent="AllActorsPanel/MoonCycleContainer"]
+layout_mode = 2
+texture = ExtResource("6_qfmv4")
+
+[node name="MarginContainer" type="MarginContainer" parent="AllActorsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 88
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="AllActorsPanel/MarginContainer"]
+custom_minimum_size = Vector2(838, 0)
+layout_direction = 1
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="AllActorsPanel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(814, 0)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="ActorPanel" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/ActorPanel"]
+modulate = Color(0.388235, 0.560784, 0.784314, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("17_6t2sr")
+
+[node name="ActorPanel2" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+visible = false
+layout_mode = 2
+characterID = 1
+
+[node name="TextureRect" type="TextureRect" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/ActorPanel2"]
+modulate = Color(0.784314, 0.388235, 0.611765, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("17_6t2sr")
+
+[node name="ActorPanel3" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+visible = false
+layout_mode = 2
+characterID = 2
+
+[node name="TextureRect" type="TextureRect" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/ActorPanel3"]
+modulate = Color(0.611765, 0.388235, 0.784314, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("17_6t2sr")
+
+[node name="ActorPanel4" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_jsf26")]
+visible = false
+layout_mode = 2
+characterID = 3
+
+[node name="TextureRect" type="TextureRect" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/ActorPanel4"]
+modulate = Color(0.388235, 0.784314, 0.490196, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("17_6t2sr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Loadouts:"
+horizontal_alignment = 1
+
+[node name="Loadouts" type="HBoxContainer" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Save" type="Button" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_khhgb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f5q76")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_khhgb")
+theme_override_styles/focus = SubResource("StyleBoxFlat_khhgb")
+text = "Save"
+script = ExtResource("18_tqkik")
+
+[node name="Load" type="Button" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_khhgb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f5q76")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_khhgb")
+theme_override_styles/focus = SubResource("StyleBoxFlat_khhgb")
+text = "Load"
+script = ExtResource("19_ilblt")
+
+[node name="OptionButton" type="OptionButton" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_lroxc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lroxc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lroxc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lroxc")
+text_overrun_behavior = 1
+item_count = 5
+selected = 0
+popup/item_0/text = "Loadout 1"
+popup/item_0/id = 0
+popup/item_1/text = "Loadout 2"
+popup/item_1/id = 1
+popup/item_2/text = "Loadout 3"
+popup/item_2/id = 2
+popup/item_3/text = "Loadout 4"
+popup/item_3/id = 3
+popup/item_4/text = "Loadout 5"
+popup/item_4/id = 4
+
+[node name="LineEdit" type="LineEdit" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6pdy2")
+placeholder_text = "Rename Loadout"
+script = ExtResource("20_s2smd")
+
+[node name="Button" type="Button" parent="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_khhgb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f5q76")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_khhgb")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_khhgb")
+theme_override_styles/focus = SubResource("StyleBoxFlat_khhgb")
+text = "Rename"
+
+[node name="ActionsPanel" type="Panel" parent="." groups=["ActionsPanel"]]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -302.0
+offset_bottom = -263.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("11_rxd04")
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="SearchMargin" type="MarginContainer" parent="ActionsPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="LineEdit" type="LineEdit" parent="ActionsPanel/MarginContainer/SearchMargin"]
+layout_mode = 2
+size_flags_vertical = 0
+placeholder_text = "Search...   e.g. \"rocks\""
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionsPanel/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 36
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ActionsPanel/MarginContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+horizontal_scroll_mode = 3
+
+[node name="Margin" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 11
+theme_override_constants/margin_right = 11
+theme_override_constants/margin_bottom = 18
+
+[node name="ActionGrid" type="HFlowContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/h_separation = 27
+theme_override_constants/v_separation = 27
+script = ExtResource("18_gjriy")
+
+[node name="MarginContainer7" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["searchNothingFound"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer7"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "You searched the earth and the moon, yet nothing was found."
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid"]
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Stone"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+
+[node name="SmallRocks" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["rocks"] instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Mine"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_e28eb")])
+building = "rocks"
+icon_path = "uid://cdwqcxh7xjbq0"
+tooltip = "+2 Rocks"
+
+[node name="BigRocks" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["rocks"] instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Break Boulder"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ni4id")])
+building = "rocks"
+icon_path = "res://assets/Action_Icons/Add_rocks.png"
+tooltip = "+5 Rocks"
+
+[node name="BuildWell" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["rocks"] instance=ExtResource("3_se0lr")]
+layout_mode = 2
+action_name = "Build Well"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_usjbx")])
+building = "water"
+icon_path = "res://assets/Action_Icons/Build_well.png"
+tooltip = "Spend 10 Rocks to build 1/4 of the Well, or increase water capacity by 10"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_8kr8y")])
+unlock_tooltip = "Gather 20 rocks to unlock"
+
+[node name="MarginContainer2" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["water"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Water"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+
+[node name="AddWater" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Draw from Well"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_geayw")])
+building = "water"
+icon_path = "res://assets/Action_Icons/add_water.png"
+tooltip = "+3 Water"
+
+[node name="AddWaddWis" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Study Midnight Dew"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_p4kue"), SubResource("Resource_cagk0")])
+building = "water"
+icon_path = "res://assets/Action_Icons/add_Wisdom_water.png"
+tooltip = "+2 Water, +5 Wisdom"
+
+[node name="Redirect stream" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Redirect Stream"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_xdjh6"), SubResource("Resource_xsomk")])
+building = "water"
+icon_path = "res://assets/Action_Icons/Redirect_Stream.png"
+tooltip = "If you have 5 Wisdom, +5 Water. Otherwise, +1 Water"
+
+[node name="Erosion" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Erosion"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_beln2"), SubResource("Resource_xd52e")])
+building = "rocks"
+icon_path = "res://assets/Action_Icons/Erosion.png"
+tooltip = "+4 Water, +4 Rocks"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_q4u4a"), SubResource("Resource_q87nt")])
+unlock_tooltip = "Gather 20 Water and 30 Rocks to unlock"
+
+[node name="AddLove" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Fertility Ritual"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_q1u0j")])
+building = "water"
+icon_path = "res://assets/Action_Icons/Lunar_Mist.png"
+tooltip = "Spend 10 water for +1 Fertility. Fertility resets each cycle."
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_3hm76")])
+unlock_tooltip = "Gather 10 water to unlock"
+
+[node name="BuildSilverStation" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["water"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Build Silver Furnace"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_70o2o")])
+building = "silver"
+icon_path = "res://assets/Action_Icons/Build_silver.png"
+tooltip = "Spend 10 Water and 10 Rocks to build 1/5 of the Silver Furnance, or increase Silver Capacity by 1"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_4h4ig")])
+unlock_tooltip = "Gather 50 Water to unlock"
+
+[node name="MarginContainer3" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["silver"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer3"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Silver"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+
+[node name="RocksToSilver" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Silver Smelting"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_djhql")])
+building = "silver"
+icon_path = "res://assets/Action_Icons/Rocks_to_silver.png"
+tooltip = "-10 Rocks, +1 Silver"
+
+[node name="EfficientSilver" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Efficient Extraction"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_yuqyl"), SubResource("Resource_ir8p1")])
+building = "silver"
+icon_path = "res://assets/Action_Icons/Efficient_Smelting.png"
+tooltip = "If you have 5 Wisdom, -8 Rocks, +1 Silver. If you have 10 Wisdom, -14 Rocks, +2 Silver instead"
+
+[node name="Asteroid" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Asteroid Gathering"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_obebs")])
+building = "rocks"
+icon_path = "res://assets/Action_Icons/Silver_to_rock_prod.png"
+tooltip = "-1 Silver to increase the bonus rock production by 10%"
+
+[node name="ExcavateForest" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Dig out an ancient forest to put your rocks there instead"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_k5av1")])
+icon_path = "res://assets/Action_Icons/Excavate_Forest.png"
+tooltip = "-2 Silver, + 10 Rock Capacity"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_lfi3u")])
+unlock_tooltip = "Gather 50 rocks to unlock"
+
+[node name="BuildMonument" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Build Monument"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_7p4rf")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Build_monument.png"
+tooltip = "-5 Silver and -15 Rocks to build 20% of the Monument up to tier one.\\n-50 Rocks and -3 Relics to build 4% of the Monument up to tier two.\\n-20 Moonstone, -50 Moonlight, build 2% of the Monument up to tier three.\\nThe monument gives you extra action slots. Building Monument Tier 3 wins you the game."
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_04242")])
+unlock_tooltip = "Gather 13 Silver to unlock"
+
+[node name="BuildAltar" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["silver"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Build Altar"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_4quvn")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Build_Favour.png"
+tooltip = "Spend 5 Silver, 20 Rocks and 15 Water to build 10% of the Altar, or increase Favor capacity by 2"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_u6lds")])
+unlock_tooltip = "Gather 18 Silver to unlock"
+
+[node name="MarginContainer4" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument1"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer4"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Vigor"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+
+[node name="Religious_Fervor" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Religious Fervor"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_oc8vf")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Religious_Fervor.png"
+tooltip = "+5 Vigor"
+
+[node name="Paleo" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Paleontology"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_10gpv")])
+building = "rocks"
+icon_path = "res://assets/Action_Icons/Paleontology.png"
+tooltip = "-2 Rocks, +10 Wisdom"
+
+[node name="ManicDigging" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Manic Digging"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_x6n53")])
+building = "rocks"
+icon_path = "res://assets/Action_Icons/Vigour_to_rocks.png"
+tooltip = "If you have 5 Vigor, +10 Rocks"
+unlock_tooltip = "Unlock with 15 water"
+
+[node name="MountingWaiting" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Waiting Until The Mountain Comes To You"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_mba6d")])
+building = "rocks"
+icon_path = "res://assets/Action_Icons/Waiting_For_Mountain.png"
+tooltip = "If you have 10 Wisdom, +10 Rocks"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_x2k4f")])
+unlock_tooltip = "Have 10 Wisdom to unlock"
+
+[node name="DistillSilver" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Distill Silver Essence"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_vxdcu")])
+building = "silver"
+icon_path = "res://assets/Action_Icons/Distill_Silver_Essence.png"
+tooltip = "If you have 5 Wisdom and 5 Vigor, -30 Rocks, +3 Silver"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_e8h24"), SubResource("Resource_xm1x5")])
+unlock_tooltip = "Have 5 Wisdom and 5 Vigor to unlock"
+
+[node name="WaterfallChasing" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument1"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Waterfall Chasing"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_p3orf")])
+building = "water"
+icon_path = "res://assets/Action_Icons/Waterfall_Catching.png"
+tooltip = "If you have 5 Vigor, +5 Water"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_xmaxx")])
+unlock_tooltip = "Gather 25 Water to unlock"
+
+[node name="MarginContainer5" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer5"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Favor"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+
+[node name="Pray" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Pray"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_sxusp")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Add_Favour.png"
+tooltip = "+3 Favor"
+
+[node name="Meditate" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Meditate"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_c1umb")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Meditate.png"
+tooltip = "If you have 10 Wisdom, +5 Favor"
+
+[node name="FeverishPrayer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Feverish Prayer"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_5ylu1"), SubResource("Resource_m65df")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Feverish_Prayer.png"
+tooltip = "+2 Favor, +5 Vigor"
+
+[node name="PassionLove" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Passionate Love"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_m0ipd")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Passion_Love.png"
+tooltip = "If you and another Follower have 5 Vigor, +2 Fertility"
+
+[node name="DigStream" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Dig Mountain Stream"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_t0ko2")])
+building = "water"
+icon_path = "res://assets/Action_Icons/Dig_Mountain.png"
+tooltip = "Spend 10 Rocks and 5 Favor to increase bonus water production by 10%"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_qroau")])
+unlock_tooltip = "Gather 100 Rocks to unlock"
+
+[node name="WisNewMoon" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Wisdom of the New Moon"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_rdo80"), SubResource("Resource_5daqv")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Wisdom_New_Moon.png"
+tooltip = "+2 Favor. If it's New Moon, +5 Wisdom."
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_6wjht")])
+unlock_tooltip = "Gather 10 Favor to unlock"
+
+[node name="RainPrayer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Pray for Rain"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_geddv")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Rain.png"
+tooltip = "-1 Favor, +100% Water production in this moon phase"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_4tkep")])
+unlock_tooltip = "Have 2 Love to unlock"
+
+[node name="RichesPrayer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Pray for Riches"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_s6jir")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Pray_Riches.png"
+tooltip = "-1 Favor, +100% Silver production in this moon phase"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_oi3dw")])
+unlock_tooltip = "Have 10 Wisdom to unlock"
+
+[node name="BuildReliquary" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favor"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Build Reliquary"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_wssfx")])
+building = "relics"
+icon_path = "res://assets/Action_Icons/Build_Relics.png"
+tooltip = "Spend 10 Favor, 3 Silver and 15 Water to build 5% of the Reliquary, or increase Relics capacity by 1"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_ohy52")])
+unlock_tooltip = "Gather 20 Favor to unlock"
+
+[node name="FavorToSilver" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["favorIfNoVigor"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Begging"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_sk0gu")])
+building = "silver"
+icon_path = "res://assets/Action_Icons/Rocks_to_silver.png"
+tooltip = "-3 Favor, +1 Silver"
+
+[node name="MarginContainer6" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer6"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Relics"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+
+[node name="LustorRelic" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Craft Lustrous Relic"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_svkjg")])
+building = "relics"
+icon_path = "res://assets/Action_Icons/Craft_Lustrous_relic.png"
+tooltip = "-10 Silver, -20 Favor, +1 Relic"
+
+[node name="NauticalRelic" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Craft Nautical Relic"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_rinmt")])
+building = "relics"
+icon_path = "res://assets/Action_Icons/Build_Nautical_Relic.png"
+tooltip = "If you have 10 Vigor, -40 Water, -20 Favor, +1 Relic"
+
+[node name="WiseRelic" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Craft Wise Relic"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_grs3v")])
+building = "relics"
+icon_path = "res://assets/Action_Icons/Build_Wise_relic.png"
+tooltip = "If you have 15 Wisdom, -3 Silver, -10 Favor, +1 Relic"
+
+[node name="Alchemy" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Alchemy"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_mille")])
+building = "relics"
+icon_path = "res://assets/Action_Icons/Alchemy.png"
+tooltip = "If you have 3 Relics, -1 Rocks, +1 Silver"
+
+[node name="AncientRitual" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Ancient Ritual"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_psm45")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Ancient_Ritual.png"
+tooltip = "If you have 3 Relics, +5 Reverance"
+
+[node name="MudflatWalking" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Mudflat Walking"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_p5i63")])
+building = "water"
+icon_path = "res://assets/Action_Icons/Mudflat_Walking.png"
+tooltip = "-10 Water, +10 Reverance"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_3di4e")])
+unlock_tooltip = "Have 10 Reverance to unlock"
+
+[node name="EnergySmelting" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Energetic Smelting"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_h33ga")])
+building = "silver"
+icon_path = "res://assets/Action_Icons/Energetic_Smelting.png"
+tooltip = "If you have 10 Vigor, -30 Rocks, +3 Silver"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_743sy")])
+unlock_tooltip = "Have 2 Relics to unlock"
+
+[node name="DevoutPrayer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Devout Prayer"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_cbc60")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Devout_Prayer.png"
+tooltip = "If you have 5 Reverance, +100% Favor production in this moon phase"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_aff1w")])
+unlock_tooltip = "Have 2 Relics to unlock"
+
+[node name="Pray for Avalanche" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Pray for Avalanche"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_cv1eb")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Pray_For_Avalanche.png"
+tooltip = "If you have 15 Reverance, +200% Rocks production in this moon phase"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_c7wpi")])
+unlock_tooltip = "Have 2 Relics to unlock"
+
+[node name="Pilgrimage" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Pilgrimage"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_h7yd6")])
+building = "relics"
+icon_path = "res://assets/Action_Icons/Pilgrimage.png"
+tooltip = "Gain Favor equal to the number of Relics you have"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_0w8ya")])
+unlock_tooltip = "Gain Favor equal to the number of Relics you have"
+
+[node name="PrayToIdol" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Pray to Effigy"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_c865g")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Pray_to_Effigy.png"
+tooltip = "Gain Reverance equal to the number of Relics you have"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_4euhv")])
+unlock_tooltip = "Have 5 Relics to unlocks"
+
+[node name="BuildMoonstone" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["relics"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Build Moonstone Shrine"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_kqxd8")])
+building = "moonstone"
+icon_path = "res://assets/Action_Icons/Build_Moonstone.png"
+tooltip = "Spend 2 Relics and 20 Water to build 2.5% of the Moonstone Shrine, or increase Moonstone capacity by 1"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_lvqni")])
+unlock_tooltip = "Have 3 Relics to unlock"
+
+[node name="MarginContainer10" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["UpgradeMonumentHint"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer10"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Tip: you can now upgrade to Monument Tier 2 with the Build Monument action."
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer8" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer8"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Reverance"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+
+[node name="Zealotry" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Zealotry"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_a8r2a")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Zealotry.png"
+tooltip = "If you have 3 Relics, +10 Vigor"
+
+[node name="MonasteryOffering" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Monastery Offering"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_yn07k"), SubResource("Resource_tqk2e"), SubResource("Resource_iy2xb")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Monastery_Offering.png"
+tooltip = "-1 Relic, +15 Reverance, +15 Vigor, +15 Wisdom"
+
+[node name="FervantPrayer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Fervant Prayer"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_fp22w")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Fervent_Prayer.png"
+tooltip = "Gain as much Favor as you have Vigor"
+
+[node name="RecordWisdom" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Record Wisdom"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_va207")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Record_Wisdom.png"
+tooltip = "Increase your bonus favor production by a percentage equal to a quarter of your Wisdom"
+
+[node name="FullMoonMining" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Full Moon Mining"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_akn0s")])
+building = "rocks"
+icon_path = "res://assets/Action_Icons/Full_Moon_mining.png"
+tooltip = "If it's full moon, +15 Rocks"
+
+[node name="Crusade" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Crusade"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_fcbom"), SubResource("Resource_11r15")])
+building = "rocks"
+icon_path = "res://assets/Action_Icons/Crusade.png"
+tooltip = "If 3 followers have 5 Vigor, +15 Vigor, +1 Silver"
+
+[node name="CraftLoveRelic" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Craft Fertility Relic"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_s5tym")])
+building = "relics"
+icon_path = "res://assets/Action_Icons/Relic_of_Love.png"
+tooltip = "-3 Fertility, -10 Favor, +1 Relic"
+
+[node name="PrayforProsperity" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Pray for Prosperity"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ce5nw")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Prayer_For_Prosperity.png"
+tooltip = "-2 favor, +50% to all other non-boost actions"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_mijku")])
+unlock_tooltip = "Produce 50 Rocks in one moon phase to unlock"
+
+[node name="DarkRitual" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Dark Ritual"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_mg5fp")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Dark_Ritual.png"
+tooltip = "-1 Relic, -5 Vigor for all followers, +8 Silver"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_vfhfj")])
+unlock_tooltip = "Produce three Relics in one moon phase to unlock"
+
+[node name="Stargaze" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Stargazing"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_qtwgo")])
+building = "water"
+icon_path = "res://assets/Action_Icons/Stargazing.png"
+tooltip = "+10 Wisdom"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_n37vu")])
+unlock_tooltip = "Produce 15 favor in one moone phase to unlock"
+
+[node name="Moongaze" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Moongaze"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_4fuog")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Moongazing.png"
+tooltip = "+10 Reverance"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_2ircx")])
+unlock_tooltip = "Have 4 Fertility to unlock"
+
+[node name="WiseWord" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument2"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Word of the Wise"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_3pv7r")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Word_to_the_WISE.png"
+tooltip = "All other followers gain Wisdom equal to you"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_k5b8k")])
+unlock_tooltip = "Have 25 wisdom to unlock"
+
+[node name="MarginContainer9" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer9"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Moonstone"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+
+[node name="PrayAsteroid" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Pray for Asteroids"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_0n31o")])
+building = "moonstone"
+icon_path = "res://assets/Action_Icons/Pray_For_Asteroid.png"
+tooltip = "If you have 5 Reverance, -15 Rocks, -10 Water, -10 Favor, +1 Moonstone"
+
+[node name="CraftMoonstone" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Craft Moonstone"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_mks6y")])
+building = "moonstone"
+icon_path = "res://assets/Action_Icons/create_moonstone.png"
+tooltip = "If you have 10 Wisdom, 10 Vigor and 10 Reverance, -100 Rocks, -30 Favor, +3 Moonstones"
+
+[node name="LunarRevel" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Lunar Revel"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_j802k"), SubResource("Resource_2uj0u"), SubResource("Resource_rrwur")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Lunar_Revel.png"
+tooltip = "If Crescent Moon, +5 favor, +15 water, +10 reverance"
+
+[node name="Lunacy" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Lunacy"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_hy3w4"), SubResource("Resource_go4aa")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Lunacy.png"
+tooltip = "-15 wisdom, +15 reverance, boost production 50% for all other followers in phase"
+
+[node name="MoonstoneBasin" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Moonstone Basin"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_xcql1")])
+building = "moonstone"
+icon_path = "res://assets/Action_Icons/Moonstone_Basin.png"
+tooltip = "Spend a Moonstone to increase the capacity for Rocks by 20, Water by 20 and Silver by 3"
+
+[node name="WaxPhilo" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Wax Philosophically"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_mjoc5"), SubResource("Resource_av0i2")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Wax_Philosophical.png"
+tooltip = "If Moon is Waxing, +15 Wisdom, +5 Favor"
+
+[node name="TraitorPact" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Traitorous Pact"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_rgp27")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Traitorous_Pact.png"
+tooltip = "-20 Reverance, -1 Moonstone, +200% Silver production in this moon phase"
+
+[node name="Metallurgy" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Metallurgy"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_4syy3")])
+building = "moonstone"
+icon_path = "res://assets/Action_Icons/Metallurgy.png"
+tooltip = "-1 Moonstone, +4 Silver"
+
+[node name="ExcavateAnicentSite" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Excavate Ancient Site"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_tu0kt")])
+building = "moonstone"
+icon_path = "res://assets/Action_Icons/Excavate_Forest.png"
+tooltip = "-80 rocks, -30 water, +1 moonstone"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_xv17w")])
+unlock_tooltip = "Have 500 Rock capacity to unlock"
+
+[node name="PaganicPercussion" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Paganic Percussion"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_4jcso")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Paganic_Percussion.png"
+tooltip = "If you have 15 Vigor, -10 Water, boost production by 100% for all other followers in phase"
+
+[node name="FertilityFigurine" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "FertilityFigurine"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_irmso")])
+building = "moonstone"
+icon_path = "res://assets/Action_Icons/Fertility_Figurine.png"
+tooltip = "Spend 5 Moonstone to gain 5 Fertility"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_h62s5")])
+unlock_tooltip = "Have 60 Relics to unlock"
+
+[node name="SummonSilver" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Summon Silver"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ewqns"), SubResource("Resource_w2gfu")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Summon_Silver.png"
+tooltip = "+2 Silver, +5 Wisdom"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_cpxic")])
+unlock_tooltip = "Have 100 Silver to unlock"
+
+[node name="CelestialBlessing" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Celestial Blessing"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_8cgmf")])
+building = "silver"
+icon_path = "res://assets/Action_Icons/Celestial_Blessing.png"
+tooltip = "If you have 30 Reverance, +1% Silver production"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_t74yt")])
+unlock_tooltip = "Have 50 Reverance to unlock"
+
+[node name="DogmaticCongregation" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Dogmatic Congregation"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_hks2s")])
+building = "favor"
+icon_path = "res://assets/Action_Icons/Dogmatic_Congregation.png"
+tooltip = "If you and another follower have 10 reverance, all followers gain 10 reverance"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_67075")])
+unlock_tooltip = "Have 3 followers with 15 Reverance at the same time to unlock"
+
+[node name="MoonlightDistiller" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Build Moonlight Distiller"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_615q6")])
+building = "moonlight"
+icon_path = "res://assets/Action_Icons/Build_Moonlight.png"
+tooltip = "Spend 5 Moonstone and 15 Silver to build 0.5% of the Moonlight Distiller, or increase Moonlight capacity by 5"
+unlock_tooltip = "Have 20 Moonstone to Unlock"
+
+[node name="Moonlight2" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label2" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/Moonlight2"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of Moonlight"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+
+[node name="Supermoon" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Supermoon"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_arl3n")])
+building = "moonlight"
+icon_path = "res://assets/Action_Icons/SuperMoon.png"
+tooltip = "If it's Full Moon, -1 Moonstone, +1 Moonlight per 10 Wisdom you have."
+
+[node name="Bloodmoon" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Blood Moon"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_0drww"), SubResource("Resource_w1s3h")])
+building = "moonlight"
+icon_path = "res://assets/Action_Icons/BloodMoon.png"
+tooltip = "If it's full moon, this follower skips all other actions this cycle. Gain 1 moonlight per 5 Reverance they had."
+
+[node name="Bluemoon" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Blue Moon"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_b8dqh")])
+building = "moonlight"
+icon_path = "res://assets/Action_Icons/BlueMoon.png"
+tooltip = "If it's full moon, pay 3 Fertility to gain 1 moonlight"
+
+[node name="AsteroidShower" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Asteroid Shower"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_ftvok"), SubResource("Resource_5xvd6")])
+building = "moonlight"
+icon_path = "res://assets/Action_Icons/Asteroid_Shower.png"
+tooltip = "If it's a Crescent Moon, +10 Favor, +20 Rocks"
+
+[node name="WinterSolstice" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Winter Solstice"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_k6w0v"), SubResource("Resource_02uo2")])
+building = "moonlight"
+icon_path = "res://assets/Action_Icons/WinterSolstice.png"
+tooltip = "If it's a Waxing Crescent Moon, -10 Vigor, +10 Wisdom, +10 Reverence"
+
+[node name="LunarEclipse" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Lunar Eclipse"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_rlbyv")])
+building = "moonlight"
+icon_path = "res://assets/Action_Icons/Lunar_Eclipse.png"
+tooltip = "If its a Waning Crescent Moon, gain 1 Moonlight per 10 Relics"
+
+[node name="ConcentratedMoonlight" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Concentrated Moonlight"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_12tnd")])
+building = "moonlight"
+icon_path = "res://assets/Action_Icons/Concentrated_Moonlight.png"
+tooltip = "-1 moonlight, +100% to all other non-boost actions"
+
+[node name="CraftMoonlightRelic" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Craft Moonlight Relic"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_f3362")])
+building = "moonlight"
+icon_path = "res://assets/Action_Icons/Craft_Moonlight_Relic.png"
+tooltip = "-2 moonlight, -10 Favor, +1 Relic"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_xhaob")])
+unlock_tooltip = "Have 10 Relics to unlock"
+
+[node name="Hermitude" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Hermitude"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_uc8ed"), SubResource("Resource_gdlbu"), SubResource("Resource_ngk6o")])
+building = "moonlight"
+icon_path = "res://assets/Action_Icons/Hermitude.png"
+tooltip = "If its a New Moon, skip all other actions. +1 Moonlight, +1 Moonlight Capacity"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_yyyn8")])
+unlock_tooltip = "Have 50 Moonlight Capacity to unlock"
+
+[node name="CelestialCharting" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Celestial Charting"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_7xjhu")])
+building = "moonlight"
+icon_path = "res://assets/Action_Icons/Celestial_Charting.png"
+tooltip = "If you have at least 40 Wisdom, -10 Relics, increase Moonstone production by 5%"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_1s7xv")])
+unlock_tooltip = "Make 5 Moonstone in one Moon Phase"
+
+[node name="AffirmDevotion" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Affirm Devotion"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_r7dje")])
+building = "moonlight"
+icon_path = "res://assets/Action_Icons/Affirm_Devotion.png"
+tooltip = "Double your Reverence"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_p1hy5")])
+unlock_tooltip = "Have 30 Moonlight to unlock"
+
+[node name="Consecrate" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonlight"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Consecrate"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_bxck8")])
+building = "moonlight"
+icon_path = "res://assets/Action_Icons/Consecrate.png"
+tooltip = "-5 Relics, +200 water"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_k1pdw")])
+unlock_tooltip = "Have 250 Water to unlock"
+
+[node name="MarginContainer11" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["UpgradeMonumentHint2"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/MarginContainer11"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Tip: you can now win the game with the Build Monument action."
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Monument3" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument3"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label2" type="Label" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/Monument3"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Age of the Moon God"
+label_settings = SubResource("LabelSettings_re3f1")
+horizontal_alignment = 1
+
+[node name="GibbousFrenzy" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Gibbous Frenzy"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_0iv36")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Gibbous_Frenzy.png"
+tooltip = "+10 Vigor in Gibbous Phase"
+
+[node name="SummonRocks" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Summon Rocks"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_cdgrd")])
+building = "rocks"
+icon_path = "res://assets/Action_Icons/Add_rocks.png"
+tooltip = "+50 Rocks"
+
+[node name="CastFrenzy" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "CastFrenzy"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_23ejq")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Cast Frenzy.png"
+tooltip = "All Followers gain 25 Vigor"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_1ohrd")])
+unlock_tooltip = "Have 50 Vigor to unlcok"
+
+[node name="SpiritualAwakening" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Spiritual Awakening"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_r55mv"), SubResource("Resource_gk3o6"), SubResource("Resource_nci23")])
+building = "monument"
+icon_path = "res://assets/Action_Icons/Spritual_Awakening.png"
+tooltip = "Double your stats"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_6mi27")])
+unlock_tooltip = "Have 100 Wisdom to unlock"
+
+[node name="CraftThinAirRelic" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Craft Relic from Thin Air"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_jumwq")])
+building = "relics"
+icon_path = "res://assets/Action_Icons/Thin_Air_Relic.png"
+tooltip = "Gain a relic"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_clh2u")])
+unlock_tooltip = "Have 100 Relics Capacity to unlock"
+
+[node name="ExcavateEldorado" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
+visible = false
+layout_mode = 2
+action_name = "Excavate Eldorado"
+operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_3joi1")])
+building = "silver"
+icon_path = "res://assets/Action_Icons/Excavate_ElDorado.png"
+tooltip = "Reduce your rocks capacity by 10 to increase your silver capacity by 20"
+unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_ugnuk")])
+unlock_tooltip = "Have 5000 rocks capacity"
+
+[node name="OtherGamesPromo" type="MarginContainer" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument1", "promo"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+theme_override_constants/margin_bottom = -4
+
+[node name="Label3" type="RichTextLabel" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/OtherGamesPromo"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=6]
+[/font_size][font_size=18][center]Note from the Developers[/center][/font_size]
+If you like this free web game, we'd really appreciate if you check out and wishlist our upcoming releases:[font_size=8]
+
+[/font_size][url=https://store.steampowered.com/app/2562020/WorldShaper_Idle/]WorldShaper Idle[/url]
+[url=https://store.steampowered.com/app/2663150/Valkyrie_Saga/]Valkyrie Saga[/url]"
+fit_content = true
+autowrap_mode = 2
+
+[node name="ResourcesPanel" type="Panel" parent="."]
+texture_filter = 3
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -302.0
+offset_top = -265.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Rocks" type="TextureRect" parent="ResourcesPanel" groups=["rocksResourceIcon"]]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 48.0
+tooltip_text = "Rocks"
+texture = ExtResource("20_gsivp")
+script = ExtResource("27_h32dl")
+normalTooltip = "Rocks"
+associatedResource = "rocks"
+
+[node name="RockLabel" type="Label" parent="ResourcesPanel/Rocks"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 34.0
+text = "0"
+
+[node name="Water" type="TextureRect" parent="ResourcesPanel" groups=["water"]]
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = 56.0
+offset_right = 56.0
+offset_bottom = 96.0
+tooltip_text = "Water"
+texture = ExtResource("21_sawqo")
+script = ExtResource("27_h32dl")
+normalTooltip = "Water"
+associatedResource = "water"
+
+[node name="WaterLabel" type="Label" parent="ResourcesPanel/Water"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 8.0
+offset_right = 114.0
+offset_bottom = 34.0
+text = "0"
+
+[node name="Silver" type="TextureRect" parent="ResourcesPanel" groups=["silver"]]
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = 104.0
+offset_right = 56.0
+offset_bottom = 144.0
+tooltip_text = "Silver"
+texture = ExtResource("22_v80bp")
+script = ExtResource("27_h32dl")
+normalTooltip = "Silver"
+associatedResource = "silver"
+
+[node name="SilverLabel" type="Label" parent="ResourcesPanel/Silver"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 8.0
+offset_right = 110.0
+offset_bottom = 34.0
+text = "0"
+
+[node name="Favor" type="TextureRect" parent="ResourcesPanel" groups=["favor"]]
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = 152.0
+offset_right = 56.0
+offset_bottom = 192.0
+tooltip_text = "Favor"
+texture = ExtResource("23_agkff")
+script = ExtResource("27_h32dl")
+normalTooltip = "Favor"
+associatedResource = "favor"
+
+[node name="FavorLabel" type="Label" parent="ResourcesPanel/Favor"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 8.0
+offset_right = 110.0
+offset_bottom = 34.0
+text = "0"
+
+[node name="Relic" type="TextureRect" parent="ResourcesPanel" groups=["relics"]]
+visible = false
+layout_mode = 0
+offset_left = 168.0
+offset_top = 8.0
+offset_right = 208.0
+offset_bottom = 48.0
+tooltip_text = "Relics"
+texture = ExtResource("24_u7pt0")
+script = ExtResource("27_h32dl")
+normalTooltip = "Relics"
+associatedResource = "relics"
+
+[node name="RelicLabel" type="Label" parent="ResourcesPanel/Relic"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 34.0
+text = "0"
+
+[node name="Moonstone" type="TextureRect" parent="ResourcesPanel" groups=["moonstone"]]
+visible = false
+layout_mode = 0
+offset_left = 168.0
+offset_top = 56.0
+offset_right = 208.0
+offset_bottom = 96.0
+tooltip_text = "Moonstone"
+texture = ExtResource("25_62bb2")
+script = ExtResource("27_h32dl")
+normalTooltip = "Moonstone"
+associatedResource = "moonstone"
+
+[node name="MoonstoneLabel" type="Label" parent="ResourcesPanel/Moonstone"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 8.0
+offset_right = 114.0
+offset_bottom = 34.0
+text = "0"
+
+[node name="Moonlight" type="TextureRect" parent="ResourcesPanel" groups=["moonlight"]]
+visible = false
+layout_mode = 0
+offset_left = 168.0
+offset_top = 104.0
+offset_right = 208.0
+offset_bottom = 144.0
+tooltip_text = "Moonlight"
+texture = ExtResource("26_5eomv")
+script = ExtResource("27_h32dl")
+normalTooltip = "Moonlight"
+associatedResource = "moonlight"
+
+[node name="MoonlightLabel" type="Label" parent="ResourcesPanel/Moonlight"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 8.0
+offset_right = 110.0
+offset_bottom = 34.0
+text = "0"
+
+[node name="Fertility" type="TextureRect" parent="ResourcesPanel" groups=["love"]]
+visible = false
+layout_mode = 0
+offset_left = 168.0
+offset_top = 152.0
+offset_right = 208.0
+offset_bottom = 192.0
+tooltip_text = "Fertility (resets every cycle)"
+texture = ExtResource("37_7rc8h")
+script = ExtResource("27_h32dl")
+normalTooltip = "Fertility"
+associatedResource = "love"
+
+[node name="FertilityLabel" type="Label" parent="ResourcesPanel/Fertility"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 8.0
+offset_right = 110.0
+offset_bottom = 34.0
+text = "0"
+
+[node name="Credits" type="Button" parent="ResourcesPanel"]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 206.0
+offset_right = 261.0
+offset_bottom = 231.0
+scale = Vector2(2, 2)
+tooltip_text = "Credits"
+theme_override_styles/normal = SubResource("StyleBoxFlat_uqcgu")
+theme_override_styles/hover = ExtResource("53_u6067")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0uepa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8cxly")
+icon = ExtResource("56_ospfq")
+script = ExtResource("59_xdjlr")
+
+[node name="MuteButton" type="Button" parent="ResourcesPanel"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 206.0
+offset_right = 197.0
+offset_bottom = 231.0
+scale = Vector2(2, 2)
+tooltip_text = "Mute Audio"
+theme_override_styles/normal = SubResource("StyleBoxFlat_uqcgu")
+theme_override_styles/hover = ExtResource("53_u6067")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0uepa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8cxly")
+icon = ExtResource("54_mrq52")
+script = ExtResource("54_yadiy")
+
+[node name="Fullscreen" type="Button" parent="ResourcesPanel"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 206.0
+offset_right = 133.0
+offset_bottom = 231.0
+scale = Vector2(2, 2)
+tooltip_text = "Fullscreen"
+theme_override_styles/normal = SubResource("StyleBoxFlat_uqcgu")
+theme_override_styles/hover = ExtResource("53_u6067")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0uepa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8cxly")
+icon = ExtResource("60_rlr8a")
+script = ExtResource("63_2cccy")
+
+[node name="Timer" type="Timer" parent="." groups=["MainTimer"]]
+
+[node name="GameSave" type="Timer" parent="." groups=["MainTimer"]]
+wait_time = 8.0
+script = ExtResource("42_oc06t")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("33_ca1pa")
+volume_db = -12.418
+
+[node name="PopupWindow" type="PanelContainer" parent="." groups=["PopupWindow"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -97.5
+offset_right = 290.0
+offset_bottom = 97.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ia36")
+script = ExtResource("34_kxafh")
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupWindow"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 28
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupWindow/MarginContainer"]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="Label" parent="PopupWindow/MarginContainer/VBoxContainer" groups=["PopupTitle"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Welcome, Moon God!"
+
+[node name="Text" type="Label" parent="PopupWindow/MarginContainer/VBoxContainer" groups=["PopupText"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Drag actions from the right onto the available slots on your follower. They will automatically perform these actions every moon cycle. Collect some rocks to continue."
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupWindow/MarginContainer/VBoxContainer" groups=["PopupWindowClose"]]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="CloseButton" type="Button" parent="PopupWindow/MarginContainer/VBoxContainer" groups=["PopupWindowClose"]]
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ws8u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xbd7e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nu8qt")
+text = "Close"
+script = ExtResource("34_x46rx")
+
+[node name="Credits" parent="." instance=ExtResource("60_tknhq")]
+visible = false
+layout_mode = 1
+offset_top = -168.5
+offset_bottom = 168.5
+
+[node name="WinScreen" parent="." instance=ExtResource("60_as1xf")]
+visible = false
+layout_mode = 1
+offset_top = -158.0
+offset_bottom = 158.0
+
+[node name="CookieErrorProblem" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("64_eh6va")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CookieErrorProblem"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -62.5
+offset_right = 250.0
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 25
+text = "Third-party cookies are not supported by your browser. Please click anywhere to open the game in a new tab, to make saving possible."
+
+[connection signal="pressed" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/Save" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/Save" method="_on_pressed"]
+[connection signal="pressed" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/Load" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/Load" method="_on_pressed"]
+[connection signal="item_selected" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/OptionButton" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/LineEdit" method="_on_option_button_item_selected"]
+[connection signal="text_submitted" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/LineEdit" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/LineEdit" method="_on_text_submitted"]
+[connection signal="pressed" from="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/Button" to="AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/LineEdit" method="_on_button_pressed"]
+[connection signal="text_changed" from="ActionsPanel/MarginContainer/SearchMargin/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="meta_clicked" from="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid/OtherGamesPromo/Label3" to="." method="_on_label_3_meta_clicked"]
+[connection signal="mouse_entered" from="ResourcesPanel/Rocks" to="ResourcesPanel/Rocks" method="_on_mouse_entered"]
+[connection signal="pressed" from="ResourcesPanel/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="ResourcesPanel/MuteButton" to="ResourcesPanel/MuteButton" method="_on_pressed"]
+[connection signal="pressed" from="ResourcesPanel/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="GameSave" to="GameSave" method="_on_timeout"]
+[connection signal="pressed" from="PopupWindow/MarginContainer/VBoxContainer/CloseButton" to="PopupWindow/MarginContainer/VBoxContainer/CloseButton" method="_on_pressed"]
+[connection signal="gui_input" from="CookieErrorProblem" to="CookieErrorProblem" method="_on_gui_input"]
