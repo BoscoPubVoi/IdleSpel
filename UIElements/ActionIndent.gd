@@ -125,5 +125,10 @@ func _on_gui_input(event):
 func update_production():
 	get_tree().get_first_node_in_group("main").update_production_for_characters()
 
+func _make_custom_tooltip(for_text):
+	var tooltip = preload("res://Tooltip.tscn").instantiate()
+	tooltip.viewPortRect = get_viewport_rect().size
+	tooltip.text = for_text
+	return tooltip
 
 

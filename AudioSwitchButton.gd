@@ -25,3 +25,9 @@ func _on_pressed():
 		icon = icon_mute
 		tooltip_text = "Mute Audio"
 	AudioServer.set_bus_mute(0, muted)
+
+func _make_custom_tooltip(for_text):
+	var tooltip = preload("res://Tooltip.tscn").instantiate()
+	tooltip.viewPortRect = get_viewport_rect().size
+	tooltip.text = for_text
+	return tooltip

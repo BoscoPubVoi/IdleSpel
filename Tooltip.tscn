@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://br03tgafigndw"]
+
+[ext_resource type="Script" path="res://Tooltip.gd" id="1_glm6v"]
+
+[node name="Label" type="Label"]
+offset_left = -100.0
+offset_right = -60.0
+offset_bottom = 23.0
+text = "test"
+script = ExtResource("1_glm6v")
+
+[connection signal="resized" from="." to="." method="_on_resized"]

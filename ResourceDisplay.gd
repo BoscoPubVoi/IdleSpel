@@ -23,3 +23,10 @@ func _process(_delta):
 func _on_mouse_entered():
 	flashUntilMouseOver = false
 	self.modulate = Color.WHITE
+
+
+func _make_custom_tooltip(for_text):
+	var tooltip = preload("res://Tooltip.tscn").instantiate()
+	tooltip.viewPortRect = get_viewport_rect().size
+	tooltip.text = for_text
+	return tooltip
