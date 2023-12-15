@@ -512,7 +512,9 @@ minAmount = 10.0
 script = ExtResource("16_nvuys")
 boostInPosition = "water"
 boostAmount = 1.0
-costs = {}
+costs = {
+"favor": 1
+}
 
 [sub_resource type="Resource" id="Resource_4tkep"]
 script = ExtResource("21_1cyp2")
