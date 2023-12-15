@@ -3140,7 +3140,6 @@ stream = ExtResource("33_ca1pa")
 volume_db = -12.418
 
 [node name="PopupWindow" type="PanelContainer" parent="." groups=["PopupWindow"]]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

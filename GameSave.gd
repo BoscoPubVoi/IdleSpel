@@ -103,8 +103,9 @@ func load_our_game(dat):
 	
 
 	var optionsButton = $"../AllActorsPanel/MarginContainer/ScrollContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Loadouts/OptionButton"
-	for lo in optionsButton.item_count:
-		optionsButton.set_item_text(lo, dat.loadoutNames[lo])
+	if dat.has("loadoutNames"):
+		for lo in optionsButton.item_count:
+			optionsButton.set_item_text(lo, dat.loadoutNames[lo])
 
 
 
