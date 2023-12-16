@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://1eop4jtm8jt5"]
+[gd_scene load_steps=25 format=3 uid="uid://1eop4jtm8jt5"]
 
 [ext_resource type="Texture2D" uid="uid://blv711c64mkv4" path="res://assets/character_sheet.png" id="1_53qgm"]
 [ext_resource type="Script" path="res://visualiser_panel.gd" id="1_e5etn"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://1f2f2lh4bifw" path="res://assets/Buildings/Loading_inner.png" id="7_0qnac"]
 [ext_resource type="Texture2D" uid="uid://d8odx7i7581b" path="res://assets/Buildings/Favor_Alter.png" id="7_icjoo"]
 [ext_resource type="Texture2D" uid="uid://dcsiym470dpa4" path="res://assets/Buildings/Relic_Building.png" id="8_50lfm"]
+[ext_resource type="Script" path="res://BuildingProgress.gd" id="8_57cbn"]
 [ext_resource type="Texture2D" uid="uid://dgi12einps6v0" path="res://assets/Buildings/Moonstone_Building.png" id="9_ucg1d"]
 [ext_resource type="Texture2D" uid="uid://c8lbeipmo252j" path="res://assets/Buildings/Moonlight_Distiller.png" id="10_4sqxa"]
 [ext_resource type="Texture2D" uid="uid://ch88eb1sudpbp" path="res://assets/Buildings/Monument_Sheet.png" id="11_jrido"]
@@ -162,6 +163,7 @@ max_value = 1.0
 step = 0.1
 texture_under = ExtResource("6_88r2q")
 texture_progress = ExtResource("7_0qnac")
+script = ExtResource("8_57cbn")
 metadata/_edit_use_anchors_ = true
 
 [node name="water" type="Sprite2D" parent="."]
@@ -184,6 +186,7 @@ max_value = 1.0
 step = 0.01
 texture_under = ExtResource("6_88r2q")
 texture_progress = ExtResource("7_0qnac")
+script = ExtResource("8_57cbn")
 
 [node name="silver" type="Sprite2D" parent="."]
 visible = false
@@ -205,6 +208,7 @@ max_value = 1.0
 step = 0.01
 texture_under = ExtResource("6_88r2q")
 texture_progress = ExtResource("7_0qnac")
+script = ExtResource("8_57cbn")
 
 [node name="favor" type="Sprite2D" parent="."]
 visible = false
@@ -226,6 +230,7 @@ max_value = 1.0
 step = 0.1
 texture_under = ExtResource("6_88r2q")
 texture_progress = ExtResource("7_0qnac")
+script = ExtResource("8_57cbn")
 
 [node name="relics" type="Sprite2D" parent="."]
 visible = false
@@ -247,6 +252,7 @@ max_value = 1.0
 step = 0.1
 texture_under = ExtResource("6_88r2q")
 texture_progress = ExtResource("7_0qnac")
+script = ExtResource("8_57cbn")
 
 [node name="moonstone" type="Sprite2D" parent="."]
 visible = false
@@ -268,6 +274,7 @@ max_value = 1.0
 step = 0.1
 texture_under = ExtResource("6_88r2q")
 texture_progress = ExtResource("7_0qnac")
+script = ExtResource("8_57cbn")
 
 [node name="moonlight" type="Sprite2D" parent="."]
 visible = false
@@ -289,6 +296,7 @@ max_value = 1.0
 step = 0.1
 texture_under = ExtResource("6_88r2q")
 texture_progress = ExtResource("7_0qnac")
+script = ExtResource("8_57cbn")
 
 [node name="monument" type="Sprite2D" parent="."]
 visible = false
@@ -309,6 +317,7 @@ max_value = 1.0
 step = 0.1
 texture_under = ExtResource("6_88r2q")
 texture_progress = ExtResource("7_0qnac")
+script = ExtResource("8_57cbn")
 
 [node name="FullMoonIcon" type="Sprite2D" parent="."]
 position = Vector2(822, 42)
