@@ -995,7 +995,7 @@ costs = {}
 
 [sub_resource type="Resource" id="Resource_go4aa"]
 script = ExtResource("7_vy3f6")
-statToCheck = "reverance"
+statToCheck = "wisdom"
 statMinimum = 15.0
 operation = SubResource("Resource_h77i4")
 

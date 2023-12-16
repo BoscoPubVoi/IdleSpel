@@ -80,6 +80,20 @@ layout_mode = 2
 size_flags_vertical = 0
 enabled = false
 
+[node name="CharacterProduction" parent="." instance=ExtResource("6_ew3mc")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -822.0
+offset_top = -35.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+
 [node name="Wisdom" type="TextureRect" parent="." groups=["WisdomLabel"]]
 modulate = Color(1, 1, 1, 0.0980392)
 layout_mode = 1
@@ -148,17 +162,3 @@ offset_top = 3.0
 offset_right = 132.0
 offset_bottom = 29.0
 text = "0"
-
-[node name="CharacterProduction" parent="." instance=ExtResource("6_ew3mc")]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -822.0
-offset_top = -35.0
-offset_right = -8.0
-offset_bottom = -8.0
-grow_horizontal = 0
-grow_vertical = 0
