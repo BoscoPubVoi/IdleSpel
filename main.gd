@@ -7,6 +7,26 @@ static var savedLoadout = null;
 
 var cycleStepRunner = CycleStepRunner.new()
 
+var storeddpi = 96
+
+
+func rescale():
+	var dpi = DisplayServer.screen_get_dpi()
+	var scalefactor = clamp(dpi / 96.0, 1, 5)
+	var sz = DisplayServer.screen_get_size()
+	if sz.x / scalefactor < 1150:
+		scalefactor = max(sz.x / 1150, 1)
+	if sz.y / scalefactor < 650:
+		scalefactor = max(sz.y / 650, 1)
+	get_tree().root.content_scale_factor = scalefactor#clamp(floor(scalefactor / 2), 1, 3)
+	storeddpi = dpi
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	if DisplayServer.screen_get_dpi() != storeddpi:
+		rescale()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if ! Game.wasFromLoaded:
@@ -25,10 +45,7 @@ func _ready():
 	DisplayServer.window_set_min_size(Vector2(1152, 652))
 	$Timer.start()
 	$GameSave.start()
-
-
-
-
+	rescale()
 
 func _on_timer_timeout():
 	cycleStepRunner.runOneStep(get_tree())
