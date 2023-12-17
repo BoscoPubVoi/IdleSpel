@@ -8,17 +8,21 @@ static var savedLoadout = null;
 var cycleStepRunner = CycleStepRunner.new()
 
 var storeddpi = 96
-
+var makeSmaller = false
 
 func rescale():
 	var dpi = DisplayServer.screen_get_dpi()
 	var scalefactor = clamp(dpi / 96.0, 1, 5)
+
 	var sz = DisplayServer.screen_get_size()
 	if sz.x / scalefactor < 1150:
 		scalefactor = max(sz.x / 1150, 1)
 	if sz.y / scalefactor < 650:
 		scalefactor = max(sz.y / 650, 1)
-	get_tree().root.content_scale_factor = scalefactor#clamp(floor(scalefactor / 2), 1, 3)
+	if makeSmaller:
+		scalefactor = clamp(floor(scalefactor / 2), 1, 3)
+
+	get_tree().root.content_scale_factor = scalefactor
 	storeddpi = dpi
 	pass # Replace with function body.
 
@@ -83,12 +87,12 @@ func updateMoonCycleIcon():
 		i += 1
 
 func _input(event):
-	if OS.has_feature("standalone"):
-		return
-	
 	var just_pressed = event.is_pressed() and not event.is_echo()
-	if Input.is_key_pressed(KEY_F12) and just_pressed:
-		get_tree().get_first_node_in_group("MainTimer").wait_time = 0.01 if get_tree().get_first_node_in_group("MainTimer").wait_time == 1 else 1
+	#if Input.is_key_pressed(KEY_F12) and just_pressed:
+		#get_tree().get_first_node_in_group("MainTimer").wait_time = 0.01 if get_tree().get_first_node_in_group("MainTimer").wait_time == 1 else 1
+	if Input.is_key_pressed(KEY_SHIFT) and Input.is_key_pressed(KEY_F9) and just_pressed:
+		makeSmaller = !makeSmaller
+		rescale()
 
 #Search
 func _on_line_edit_text_changed(new_text):
