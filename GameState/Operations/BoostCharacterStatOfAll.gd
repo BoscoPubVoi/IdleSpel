@@ -1,7 +1,7 @@
 class_name BoostCharacterStatOfAll extends Operation
 
 @export var statToIncrease:String
-@export var amount:int
+@export var amount:int = 0
 
 func constructor(statToIncrease_):
 	statToIncrease = statToIncrease_
@@ -14,6 +14,7 @@ func execute(executionState:ExecutionState):
 			char.stats[statToIncrease] += boostAmount
 
 func _duplicate():
-	var newOperation = BoostCharacterStatOfAllEqualToSelf.new()
+	var newOperation = BoostCharacterStatOfAll.new()
 	newOperation.constructor(statToIncrease)
+	newOperation.amount = amount
 	return newOperation

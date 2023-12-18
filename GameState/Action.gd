@@ -44,6 +44,10 @@ func get_save_dict():
 func restore_state(dict, tree):
 	name = dict.name
 	building = dict.building
+	if name == "CastFrenzy":
+		name = "Cast Frenzy"
+	if name == "FertilityFigurine":
+		name = "Fertility Figurine"
 	
 	# Go ahead and try to find this action in the scene tree somehow
 	var allActions = find_all_action_nodes(tree.get_root())

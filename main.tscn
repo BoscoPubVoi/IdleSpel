@@ -789,7 +789,7 @@ costs = {}
 [sub_resource type="Resource" id="Resource_va207"]
 script = ExtResource("33_fkewf")
 stat = "wisdom"
-statMult = 0.1
+statMult = 0.025
 operation = SubResource("Resource_8ilwv")
 
 [sub_resource type="Resource" id="Resource_ojdyt"]
@@ -1232,7 +1232,7 @@ baseProduction = 20.0
 
 [sub_resource type="Resource" id="Resource_5xvd6"]
 script = ExtResource("19_eiwq3")
-requiredMoonPhase = Array[int]([4, 7])
+requiredMoonPhase = Array[int]([1, 7])
 operation = SubResource("Resource_dif8j")
 
 [sub_resource type="Resource" id="Resource_x8kk6"]
@@ -2619,7 +2619,7 @@ tooltip = "If you have 15 Vigor, -10 Water, boost production by 100% for all oth
 [node name="FertilityFigurine" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["moonstone"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
-action_name = "FertilityFigurine"
+action_name = "Fertility Figurine"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_irmso")])
 building = "moonstone"
 icon_path = "res://assets/Action_Icons/Fertility_Figurine.png"
@@ -2849,11 +2849,11 @@ tooltip = "+50 Rocks"
 [node name="CastFrenzy" parent="ActionsPanel/MarginContainer/MarginContainer/ScrollContainer/Margin/ActionGrid" groups=["monument3"] instance=ExtResource("3_se0lr")]
 visible = false
 layout_mode = 2
-action_name = "CastFrenzy"
+action_name = "Cast Frenzy"
 operations = Array[Resource("res://GameState/Operations/Operation.gd")]([SubResource("Resource_23ejq")])
 building = "monument"
 icon_path = "res://assets/Action_Icons/Cast Frenzy.png"
-tooltip = "All Followers gain 25 Vigor"
+tooltip = "All other Followers gain 25 Vigor"
 unlock_requirements = Array[Resource("res://GameState/UnlockRequirements/UnlockRequirement.gd")]([SubResource("Resource_1ohrd")])
 unlock_tooltip = "Have 50 Vigor to unlcok"
 
